@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Getting Started on Gen AI Toolbox</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/</link><description>Recent content in Getting Started on Gen AI Toolbox</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Quickstart</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This guide assumes you have already done the following:&lt;/p>
+&lt;ol>
+&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
+your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>)&lt;/li>
+&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
+&lt;li>Completed setup for usage with an LLM model such as
+
+
+
+&lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
+ &lt;li class="nav-item">
+ &lt;button class="nav-link active"
+ id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
+ data-td-tp-persist="langchain" aria-controls="tabs-00-00" aria-selected="true">
+ LangChain
+ &lt;/button>
+ &lt;/li>&lt;li class="nav-item">
+ &lt;button class="nav-link"
+ id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
+ data-td-tp-persist="llamaindex" aria-controls="tabs-00-01" aria-selected="false">
+ LlamaIndex
+ &lt;/button>
+ &lt;/li>
+&lt;/ul>
+
+&lt;div class="tab-content" id="tabs-0-content">
+ &lt;div class="tab-body tab-pane fade show active"
+ id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
+ &lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup">langchain-google-genai&lt;/a> package.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/chat/anthropic/#setup">langchain-anthropic&lt;/a> package.&lt;/p>
+&lt;/li>
+&lt;/ul>
+
+ &lt;/div>
+ &lt;div class="tab-body tab-pane fade"
+ id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
+ &lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://pypi.org/project/llama-index-llms-google-genai/">llama-index-llms-google-genai&lt;/a> package.&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
+have multiple files, you can tell toolbox which to load with the &lt;code>--tools_file tools.yaml&lt;/code> flag.&lt;/p>
+&lt;p>You can find more detailed reference documentation to all resource types in the
+&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/">Resources&lt;/a>.&lt;/p>
+&lt;h3 id="sources">Sources&lt;a class="td-heading-self-link" href="#sources" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>The &lt;code>sources&lt;/code> section of your &lt;code>tools.yaml&lt;/code> defines what data sources your
+Toolbox should have access to. Most tools will have at least one source to
+execute against.&lt;/p></description></item></channel></rss>
