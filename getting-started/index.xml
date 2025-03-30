@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Getting Started on Gen AI Toolbox</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/</link><description>Recent content in Getting Started on Gen AI Toolbox</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Quickstart</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Getting Started on Gen AI Toolbox</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/</link><description>Recent content in Getting Started on Gen AI Toolbox</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Quickstart</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/</guid><description>&lt;p>&lt;a href="https://github.com/googleapis/genai-toolbox/tree/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
 &lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
@@ -32,19 +33,7 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup">langchain-google-genai&lt;/a> package.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/chat/anthropic/#setup">langchain-anthropic&lt;/a> package.&lt;/p>
-&lt;/li>
-&lt;/ul>
-
- &lt;/div>
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://pypi.org/project/llama-index-llms-google-genai/">llama-index-llms-google-genai&lt;/a> package.&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
+&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup">langchain-google-genai&lt;/a> package.&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
 have multiple files, you can tell toolbox which to load with the &lt;code>--tools_file tools.yaml&lt;/code> flag.&lt;/p>
 &lt;p>You can find more detailed reference documentation to all resource types in the
 &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/">Resources&lt;/a>.&lt;/p>
