@@ -163,7 +163,14 @@ query.&lt;/p>
  &lt;td>List of &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/#specifying-parameters">parameters&lt;/a> that will be used with the dql statement.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>mssql-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/table></description></item><item><title>http</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The &lt;code>http&lt;/code> tool allows you to make HTTP requests to APIs to retrieve data.
+An HTTP request is the method by which a client communicates with a server to retrieve or manipulate resources.
+Toolbox allows you to configure the request URL, method, headers, query parameters, and the request body for an HTTP Tool.&lt;/p>
+&lt;h3 id="url">URL&lt;a class="td-heading-self-link" href="#url" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>An HTTP request URL identifies the target the client wants to access.
+Toolbox composes the request URL from the HTTP Source&amp;rsquo;s &lt;code>baseUrl&lt;/code> and the HTTP Tool&amp;rsquo;s &lt;code>path&lt;/code>.
+For example, the following config allows you to reach different paths of the same server using multiple Tools:&lt;/p></description></item><item><title>mssql-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>A &lt;code>mssql-sql&lt;/code> tool executes a pre-defined SQL statement against a SQL Server
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
