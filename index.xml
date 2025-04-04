@@ -10,7 +10,22 @@ cluster&lt;/a>.&lt;/p>
 &lt;p>By default, AlloyDB for PostgreSQL source uses the &lt;a href="https://github.com/GoogleCloudPlatform/alloydb-go-connector">AlloyDB Go
 Connector&lt;/a> to authorize and establish mTLS connections to your
 AlloyDB instance. The Go connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
-(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>Cloud SQL for MySQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>alloydb-ai-nl</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/alloydb-ai-nl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/alloydb-ai-nl/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The &lt;code>alloydb-ai-nl&lt;/code> tool leverages &lt;a href="https://cloud.google.com/alloydb/docs/natural-language-questions-overview">AlloyDB AI next-generation natural
+Language&lt;/a> support to allow an Agent the ability to query
+the database directly using natural language. Natural language streamlines the
+development of generative AI applications by transferring the complexity of
+converting natural language to SQL from the application layer to the database
+layer.&lt;/p>
+&lt;p>This tool is compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/">alloydb-postgres&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>AlloyDB AI Natural Language delivers secure and accurate responses for
+application end user natural language questions. Natural language streamlines
+the development of generative AI applications by transferring the complexity
+of converting natural language to SQL from the application layer to the
+database layer.&lt;/p></description></item><item><title>Cloud SQL for MySQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql">Cloud SQL for MySQL&lt;/a> is a fully-managed database service
 that helps you set up, maintain, manage, and administer your MySQL
 relational databases on Google Cloud Platform.&lt;/p>
