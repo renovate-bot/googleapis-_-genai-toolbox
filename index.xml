@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Gen AI Toolbox for Databases</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/</link><description>Recent content in Documentation on Gen AI Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/index.xml" rel="self" type="application/rss+xml"/><item><title>AlloyDB for PostgreSQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on MCP Toolbox for Databases</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/</link><description>Recent content in Documentation on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/index.xml" rel="self" type="application/rss+xml"/><item><title>AlloyDB for PostgreSQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/alloydb/docs">AlloyDB for PostgreSQL&lt;/a> is a fully-managed, PostgreSQL-compatible
 database for demanding transactional workloads. It provides enterprise-grade
 performance and availability while maintaining 100% compatibility with
@@ -281,7 +281,7 @@ Toolbox allows you to configure the request URL, method, headers, query paramete
 &lt;p>An HTTP request URL identifies the target the client wants to access.
 Toolbox composes the request URL from the HTTP Source&amp;rsquo;s &lt;code>baseUrl&lt;/code> and the HTTP Tool&amp;rsquo;s &lt;code>path&lt;/code>.
 For example, the following config allows you to reach different paths of the same server using multiple Tools:&lt;/p></description></item><item><title>HTTP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The HTTP Source allows the Gen AI Toolbox to retrieve data from arbitrary HTTP
+&lt;p>The HTTP Source allows Toolbox to retrieve data from arbitrary HTTP
 endpoints. This enables Generative AI applications to access data from web APIs
 and other HTTP-accessible resources.&lt;/p>
 &lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
@@ -998,7 +998,7 @@ by GKE. Verify if you have &lt;code>kubectl&lt;/code> installed:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>If needed, install &lt;code>kubectl&lt;/code> component using the Google Cloud CLI:&lt;/p></description></item><item><title>FAQ</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/about/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/about/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox">How can I deploy or run Toolbox?&lt;a class="td-heading-self-link" href="#how-can-i-deploy-or-run-toolbox" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Gen AI Toolbox for Databases is open-source and can be ran or deployed to a
+&lt;p>MCP Toolbox for Databases is open-source and can be ran or deployed to a
 multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/genai-toolbox/releases/">compiled binaries and
 docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;p>For detailed instructions, check our these resources:&lt;/p>
