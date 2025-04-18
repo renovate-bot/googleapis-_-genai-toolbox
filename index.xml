@@ -248,13 +248,13 @@ query.&lt;/p>
  &lt;td>isQuery&lt;/td>
  &lt;td style="text-align: center">boolean&lt;/td>
  &lt;td style="text-align: center">false&lt;/td>
- &lt;td>To run statment as query set true otherwise false&lt;/td>
+ &lt;td>To run statement as query set true otherwise false&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>timeout&lt;/td>
  &lt;td style="text-align: center">string&lt;/td>
  &lt;td style="text-align: center">false&lt;/td>
- &lt;td>To set timout for query&lt;/td>
+ &lt;td>To set timeout for query&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>parameters&lt;/td>
@@ -657,7 +657,7 @@ their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> RETURN m.title, m.year
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> LIMIT 10&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: |&lt;span style="color:#e6db74">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to get a list of movies for a specific actor and a given minium release year.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Use this tool to get a list of movies for a specific actor and a given minimum release year.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Takes an full actor name, e.g. &amp;#34;Tom Hanks&amp;#34; and a year e.g 1993 and returns a list of movie titles and release years.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Do NOT use this tool with a movie title. Do NOT guess an actor name, Do NOT guess a year.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> A actor name is a fully qualified name with first and last name separated by a space.
