@@ -215,13 +215,13 @@ query.&lt;/p>
  &lt;li class="nav-item">
  &lt;button class="nav-link active"
  id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
- data-td-tp-persist="yaml" aria-controls="tabs-00-00" aria-selected="true">
+ data-td-tp-persist="query" aria-controls="tabs-00-00" aria-selected="true">
  Query
  &lt;/button>
  &lt;/li>&lt;li class="nav-item">
  &lt;button class="nav-link"
  id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- aria-controls="tabs-00-01" aria-selected="false">
+ data-td-tp-persist="mutation" aria-controls="tabs-00-01" aria-selected="false">
  Mutation
  &lt;/button>
  &lt;/li>
