@@ -10,7 +10,14 @@ cluster&lt;/a>.&lt;/p>
 &lt;p>By default, AlloyDB for PostgreSQL source uses the &lt;a href="https://github.com/GoogleCloudPlatform/alloydb-go-connector">AlloyDB Go
 Connector&lt;/a> to authorize and establish mTLS connections to your
 AlloyDB instance. The Go connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
-(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>Cloud SQL for MySQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+(ADC)&lt;/a> to authorize your connection to AlloyDB.&lt;/p></description></item><item><title>Bigtable</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigtable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigtable/</guid><description>&lt;h1 id="bigtable-source">Bigtable Source&lt;a class="td-heading-self-link" href="#bigtable-source" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>&lt;a href="https://cloud.google.com/bigtable/docs">Bigtable&lt;/a> is a low-latency NoSQL database service for machine
+learning, operational analytics, and user-facing operations. It&amp;rsquo;s a wide-column,
+key-value store that can scale to billions of rows and thousands of columns.
+With Bigtable, you can replicate your data to regions across the world for high
+availability and data resiliency.&lt;/p>
+&lt;p>If you are new to Bigtable, you can try to &lt;a href="https://cloud.google.com/bigtable/docs/create-instance-write-data-cbt-cli">create an instance and write data
+with the cbt CLI&lt;/a>.&lt;/p></description></item><item><title>Cloud SQL for MySQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql">Cloud SQL for MySQL&lt;/a> is a fully-managed database service
 that helps you set up, maintain, manage, and administer your MySQL
 relational databases on Google Cloud Platform.&lt;/p>
