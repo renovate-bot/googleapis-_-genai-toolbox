@@ -729,4 +729,69 @@ inserted according to their name: e.g. &lt;code>@name&lt;/code>.&lt;/p>
 &lt;p>For the &lt;code>postgresql&lt;/code> dialect, the specified SQL statement is executed as a &lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared
 statement&lt;/a>, and specified parameters will inserted according to
 their position: e.g. &lt;code>$1&lt;/code> will be the first parameter specified, &lt;code>$@&lt;/code> will be
-the second parameter, and so on.&lt;/p></description></item></channel></rss>
+the second parameter, and so on.&lt;/p></description></item><item><title>SQLite SQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>A &lt;code>sqlite-sql&lt;/code> tool executes SQL statements against a SQLite database.
+It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/">sqlite&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>SQLite uses the &lt;code>?&lt;/code> placeholder for parameters in SQL statements. Parameters are
+bound in the order they are provided.&lt;/p>
+&lt;p>The statement field supports any valid SQLite SQL statement, including &lt;code>SELECT&lt;/code>, &lt;code>INSERT&lt;/code>, &lt;code>UPDATE&lt;/code>, &lt;code>DELETE&lt;/code>, &lt;code>CREATE/ALTER/DROP&lt;/code> table statements, and other DDL statements.&lt;/p>
+&lt;h3 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">search-users&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">sqlite-sql&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">source&lt;/span>: &lt;span style="color:#ae81ff">my-sqlite-db&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: &lt;span style="color:#ae81ff">Search users by name and age&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">parameters&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">type&lt;/span>: &lt;span style="color:#ae81ff">string&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: &lt;span style="color:#ae81ff">The name to search for&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">min_age&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">type&lt;/span>: &lt;span style="color:#ae81ff">integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: &lt;span style="color:#ae81ff">Minimum age&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">statement&lt;/span>: &lt;span style="color:#ae81ff">SELECT * FROM users WHERE name LIKE ? AND age &amp;gt;= ?&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;a class="td-heading-self-link" href="#reference" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;td>Must be &amp;ldquo;sqlite-sql&amp;rdquo;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;td>Name of a SQLite source configuration&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;td>Description of what the tool does&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>parameters&lt;/td>
+ &lt;td style="text-align: center">array&lt;/td>
+ &lt;td style="text-align: center">No&lt;/td>
+ &lt;td>List of parameters for the SQL statement&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>statement&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">Yes&lt;/td>
+ &lt;td>The SQL statement to execute&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item></channel></rss>

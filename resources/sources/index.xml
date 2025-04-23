@@ -391,4 +391,18 @@ SQL Server user&lt;/a> to login to the database with.&lt;/p>
  &lt;td>Password of the SQL Server user (e.g. &amp;ldquo;my-password&amp;rdquo;).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/table></description></item><item><title>SQLite</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://sqlite.org/">SQLite&lt;/a> is a software library that provides a relational
+database management system. The lite in SQLite means lightweight in terms of
+setup, database administration, and required resources.&lt;/p>
+&lt;p>SQLite has the following notable characteristics:&lt;/p>
+&lt;ul>
+&lt;li>Self-contained with no external dependencies&lt;/li>
+&lt;li>Serverless - the SQLite library accesses its storage files directly&lt;/li>
+&lt;li>Single database file that can be easily copied or moved&lt;/li>
+&lt;li>Zero-configuration - no setup or administration needed&lt;/li>
+&lt;li>Transactional with ACID properties&lt;/li>
+&lt;/ul>
+&lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="database-file">Database File&lt;a class="td-heading-self-link" href="#database-file" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>You need a SQLite database file. This can be:&lt;/p></description></item></channel></rss>
