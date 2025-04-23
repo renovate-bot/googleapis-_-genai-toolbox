@@ -9,10 +9,15 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
 access by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
-have multiple files, you can tell toolbox which to load with the &lt;code>--tools_file tools.yaml&lt;/code> flag.&lt;/p>
+have multiple files, you can tell toolbox which to load with the &lt;code>--tools-file tools.yaml&lt;/code> flag.&lt;/p>
 &lt;p>You can find more detailed reference documentation to all resource types in the
 &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/">Resources&lt;/a>.&lt;/p>
-&lt;h3 id="sources">Sources&lt;a class="td-heading-self-link" href="#sources" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="using-environment-variables">Using Environment Variables&lt;a class="td-heading-self-link" href="#using-environment-variables" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>To avoid hardcoding certain secret fields like passwords, usernames, API keys
+etc., you could use environment variables instead with the format &lt;code>${ENV_NAME}&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">user&lt;/span>: &lt;span style="color:#ae81ff">${USER_NAME}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#ae81ff">${PASSWORD}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sources">Sources&lt;a class="td-heading-self-link" href="#sources" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>The &lt;code>sources&lt;/code> section of your &lt;code>tools.yaml&lt;/code> defines what data sources your
 Toolbox should have access to. Most tools will have at least one source to
 execute against.&lt;/p></description></item></channel></rss>
