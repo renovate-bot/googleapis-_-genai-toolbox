@@ -1554,7 +1554,7 @@ setup, database administration, and required resources.&lt;/p>
 &lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;h3 id="database-file">Database File&lt;a class="td-heading-self-link" href="#database-file" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>You need a SQLite database file. This can be:&lt;/p></description></item><item><title>SQLite SQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>You need a SQLite database file. This can be:&lt;/p></description></item><item><title>sqlite-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>A &lt;code>sqlite-sql&lt;/code> tool executes SQL statements against a SQLite database.
 It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
