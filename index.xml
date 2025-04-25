@@ -33,7 +33,7 @@ infrastructure to set up or manage, letting you focus on finding meaningful
 insights using GoogleSQL and taking advantage of flexible pricing models
 across on-demand and flat-rate options.&lt;/p>
 &lt;p>If you are new to BigQuery, you can try to
-&lt;a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-command-line">load and query data with the bq tool&lt;/a>.&lt;/p></description></item><item><title>BigQuery-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-command-line">load and query data with the bq tool&lt;/a>.&lt;/p></description></item><item><title>bigquery-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>A &lt;code>bigquery-sql&lt;/code> tool executes a pre-defined SQL statement. It&amp;rsquo;s compatible with
 the following sources:&lt;/p>
 &lt;ul>
