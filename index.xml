@@ -1146,6 +1146,52 @@ their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
  &lt;td>List of &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/#specifying-parameters">parameters&lt;/a> that will be used with the Cypher statement.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
+&lt;/table></description></item><item><title>postgres-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres-execute-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>A &lt;code>postgres-execute-sql&lt;/code> tool executes a SQL statement against a Postgres
+database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/">alloydb-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-pg/">cloud-sql-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/">postgres&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>postgres-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
+statement against the &lt;code>source&lt;/code>.&lt;/p>
+&lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tools&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">execute_sql_tool&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">postgres-execute-sql&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">source&lt;/span>: &lt;span style="color:#ae81ff">my-pg-instance&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">description&lt;/span>: &lt;span style="color:#ae81ff">Use this tool to execute sql statement.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;a class="td-heading-self-link" href="#reference" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
+ &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
+ &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>kind&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Must be &amp;ldquo;postgres-execute-sql&amp;rdquo;.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Name of the source the SQL should execute on.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>description&lt;/td>
+ &lt;td style="text-align: center">string&lt;/td>
+ &lt;td style="text-align: center">true&lt;/td>
+ &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
 &lt;/table></description></item><item><title>postgres-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres-sql/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>A &lt;code>postgres-sql&lt;/code> tool executes a pre-defined SQL statement against a Postgres
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
