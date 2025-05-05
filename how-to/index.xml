@@ -80,7 +80,7 @@ section.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#e6db74">&amp;#34;5000:5000&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">volumes&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">./config:/config&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>: [ &lt;span style="color:#e6db74">&amp;#34;toolbox&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--tools_file&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/config/tools.yaml&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--address&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;0.0.0.0&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>: [ &lt;span style="color:#e6db74">&amp;#34;toolbox&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--tools-file&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/config/tools.yaml&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;--address&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;0.0.0.0&amp;#34;&lt;/span>]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">depends_on&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">db&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">condition&lt;/span>: &lt;span style="color:#ae81ff">service_healthy&lt;/span>
