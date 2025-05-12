@@ -9,7 +9,7 @@ Databases&lt;/a> to expose your developer assistant tools to a Cloud SQL for
 Postgres or AlloyDB for Postgres instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_tools_using_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_tools_using_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_tools_using_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codeium)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_tools_using_mcp/#configure-your-mcp-client">Visual Studio Code&lt;/a> (Copilot)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_tools_using_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_tools_using_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
