@@ -1,4 +1,4 @@
-// Copyright 2024 Google LLC
+// Copyright 2025 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package spanner_test
+package mysqlexecutesql_test
 
 import (
 	"testing"
@@ -21,11 +21,10 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/googleapis/genai-toolbox/internal/server"
 	"github.com/googleapis/genai-toolbox/internal/testutils"
-	"github.com/googleapis/genai-toolbox/internal/tools"
-	"github.com/googleapis/genai-toolbox/internal/tools/spanner"
+	"github.com/googleapis/genai-toolbox/internal/tools/mysqlexecutesql"
 )
 
-func TestParseFromYamlSpanner(t *testing.T) {
+func TestParseFromYamlExecuteSql(t *testing.T) {
 	ctx, err := testutils.ContextWithNewLogger()
 	if err != nil {
 		t.Fatalf("unexpected error: %s", err)
@@ -40,58 +39,20 @@ func TestParseFromYamlSpanner(t *testing.T) {
 			in: `
 			tools:
 				example_tool:
-					kind: spanner-sql
-					source: my-pg-instance
+					kind: mysql-execute-sql
+					source: my-instance
 					description: some description
-					statement: |
-						SELECT * FROM SQL_STATEMENT;
-					parameters:
-						- name: country
-						  type: string
-						  description: some description
+					authRequired:
+						- my-google-auth-service
+						- other-auth-service
 			`,
 			want: server.ToolConfigs{
-				"example_tool": spanner.Config{
+				"example_tool": mysqlexecutesql.Config{
 					Name:         "example_tool",
-					Kind:         spanner.ToolKind,
-					Source:       "my-pg-instance",
+					Kind:         mysqlexecutesql.ToolKind,
+					Source:       "my-instance",
 					Description:  "some description",
-					Statement:    "SELECT * FROM SQL_STATEMENT;\n",
-					AuthRequired: []string{},
-					Parameters: []tools.Parameter{
-						tools.NewStringParameter("country", "some description"),
-					},
-				},
-			},
-		},
-		{
-			desc: "read only set to true",
-			in: `
-			tools:
-				example_tool:
-					kind: spanner-sql
-					source: my-pg-instance
-					description: some description
-					readOnly: true
-					statement: |
-						SELECT * FROM SQL_STATEMENT;
-					parameters:
-						- name: country
-						  type: string
-						  description: some description
-			`,
-			want: server.ToolConfigs{
-				"example_tool": spanner.Config{
-					Name:         "example_tool",
-					Kind:         spanner.ToolKind,
-					Source:       "my-pg-instance",
-					Description:  "some description",
-					Statement:    "SELECT * FROM SQL_STATEMENT;\n",
-					ReadOnly:     true,
-					AuthRequired: []string{},
-					Parameters: []tools.Parameter{
-						tools.NewStringParameter("country", "some description"),
-					},
+					AuthRequired: []string{"my-google-auth-service", "other-auth-service"},
 				},
 			},
 		},

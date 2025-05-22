@@ -1,7 +1,7 @@
 ---
 title: "Deploy to Cloud Run"
 type: docs
-weight: 1
+weight: 3
 description: >
   How to set up and configure Toolbox to run on Cloud Run.
 ---
@@ -33,7 +33,7 @@ description: >
                            cloudbuild.googleapis.com \
                            artifactregistry.googleapis.com \
                            iam.googleapis.com \
-                           secretmanager.googleapis.com 
+                           secretmanager.googleapis.com
 
     ```
 
@@ -48,18 +48,10 @@ description: >
     - Cloud Run Developer (roles/run.developer)
     - Service Account User role (roles/iam.serviceAccountUser)
 
-{{< notice note >}} 
-If you are under a domain restriction organization policy
-[restricting](https://cloud.google.com/run/docs/authenticating/public#domain-restricted-sharing)
-unauthenticated invocations for your project, you will need to access your
-deployed service as described under [Testing private
-services](https://cloud.google.com/run/docs/triggering/https-request#testing-private).
-{{< /notice >}}
-
-{{< notice note >}} 
+{{< notice note >}}
 If you are using sources that require VPC-access (such as
 AlloyDB or Cloud SQL over private IP), make sure your Cloud Run service and the
-database are in the same VPC network. 
+database are in the same VPC network.
 {{< /notice >}}
 
 
@@ -119,7 +111,7 @@ section.
         --service-account toolbox-identity \
         --region us-central1 \
         --set-secrets "/app/tools.yaml=tools:latest" \
-        --args="--tools_file=/app/tools.yaml","--address=0.0.0.0","--port=8080"
+        --args="--tools-file=/app/tools.yaml","--address=0.0.0.0","--port=8080"
         # --allow-unauthenticated # https://cloud.google.com/run/docs/authenticating/public#gcloud
     ```
 
@@ -131,34 +123,28 @@ section.
         --service-account toolbox-identity \
         --region us-central1 \
         --set-secrets "/app/tools.yaml=tools:latest" \
-        --args="--tools_file=/app/tools.yaml","--address=0.0.0.0","--port=8080" \
+        --args="--tools-file=/app/tools.yaml","--address=0.0.0.0","--port=8080" \
         # TODO(dev): update the following to match your VPC if necessary 
         --network default \
         --subnet default
         # --allow-unauthenticated # https://cloud.google.com/run/docs/authenticating/public#gcloud
     ```
 
-## Connecting to Cloud Run
-
-Next, we will use `gcloud` to authenticate requests to our Cloud Run instance:
-
-1. Run the `run services proxy` to proxy connections to Cloud Run:
-
-    ```bash
-    gcloud run services proxy toolbox --port=8080 --region=us-central1
-    ```
-
-    If you are prompted to install the proxy, reply *Y* to install.
-
-1. Finally, use `curl` to verify the endpoint works:
-
-    ```bash
-    curl http://127.0.0.1:8080
-    ``` 
-
 ## Connecting with Toolbox Client SDK
 
-Next, we will use Toolbox with client SDK:
+You can connect to Toolbox Cloud Run instances directly through the SDK
+
+1. [Set up `Cloud Run Invoker` role access](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) to your Cloud Run service.
+
+1. Set up [Application Default
+   Credentials](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+   for the principle you set up the `Cloud Run Invoker` role access to.
+   
+    {{< notice tip >}}
+  If you're working in some other environment than local, set up [environment
+    specific Default
+    Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc).
+    {{< /notice >}}
 
 1. Run the following to retrieve a non-deterministic URL for the cloud run service:
 
@@ -168,18 +154,16 @@ Next, we will use Toolbox with client SDK:
 
 1. Import and initialize the toolbox client with the URL retrieved above:
 
-   {{< tabpane persist=header >}}
-{{< tab header="LangChain" lang="Python" >}}
-from toolbox_langchain import ToolboxClient
+    ```python
+    from toolbox_core import ToolboxClient, auth_methods
 
-# Replace with the cloud run service URL generated above
-toolbox = ToolboxClient("http://$YOUR_URL")
-{{< /tab >}}
-{{< tab header="Llamaindex" lang="Python" >}}
-from toolbox_llamaindex import ToolboxClient
+    # Replace with the Cloud Run service URL generated in the previous step.
+    toolbox = ToolboxClient("http://$YOUR_URL")
+    auth_token_provider = auth_methods.aget_google_id_token # can also use sync method
+    toolbox = ToolboxClient(
+        URL,
+        client_headers={"Authorization": auth_token_provider},
+    )
+    ```
 
-# Replace with the cloud run service URL generated above
-toolbox = ToolboxClient("http://$YOUR_URL")
-{{< /tab >}}
-{{< /tabpane >}}
-
+Now, you can use this client to connect to the deployed Cloud Run instance!

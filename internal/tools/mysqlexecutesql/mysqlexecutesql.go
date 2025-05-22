@@ -12,40 +12,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package mssqlsql
+package mysqlexecutesql
 
 import (
 	"context"
 	"database/sql"
 	"fmt"
-	"strings"
 
 	"github.com/googleapis/genai-toolbox/internal/sources"
-	"github.com/googleapis/genai-toolbox/internal/sources/cloudsqlmssql"
-	"github.com/googleapis/genai-toolbox/internal/sources/mssql"
+	"github.com/googleapis/genai-toolbox/internal/sources/cloudsqlmysql"
+	"github.com/googleapis/genai-toolbox/internal/sources/mysql"
 	"github.com/googleapis/genai-toolbox/internal/tools"
 )
 
-const ToolKind string = "mssql-sql"
+const ToolKind string = "mysql-execute-sql"
 
 type compatibleSource interface {
-	MSSQLDB() *sql.DB
+	MySQLPool() *sql.DB
 }
 
 // validate compatible sources are still compatible
-var _ compatibleSource = &cloudsqlmssql.Source{}
-var _ compatibleSource = &mssql.Source{}
+var _ compatibleSource = &cloudsqlmysql.Source{}
+var _ compatibleSource = &mysql.Source{}
 
-var compatibleSources = [...]string{cloudsqlmssql.SourceKind, mssql.SourceKind}
+var compatibleSources = [...]string{cloudsqlmysql.SourceKind, mysql.SourceKind}
 
 type Config struct {
-	Name         string           `yaml:"name" validate:"required"`
-	Kind         string           `yaml:"kind" validate:"required"`
-	Source       string           `yaml:"source" validate:"required"`
-	Description  string           `yaml:"description" validate:"required"`
-	Statement    string           `yaml:"statement" validate:"required"`
-	AuthRequired []string         `yaml:"authRequired"`
-	Parameters   tools.Parameters `yaml:"parameters"`
+	Name         string   `yaml:"name" validate:"required"`
+	Kind         string   `yaml:"kind" validate:"required"`
+	Source       string   `yaml:"source" validate:"required"`
+	Description  string   `yaml:"description" validate:"required"`
+	AuthRequired []string `yaml:"authRequired"`
 }
 
 // validate interface
@@ -68,21 +65,23 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		return nil, fmt.Errorf("invalid source for %q tool: source kind must be one of %q", ToolKind, compatibleSources)
 	}
 
+	sqlParameter := tools.NewStringParameter("sql", "The sql to execute.")
+	parameters := tools.Parameters{sqlParameter}
+
 	mcpManifest := tools.McpManifest{
 		Name:        cfg.Name,
 		Description: cfg.Description,
-		InputSchema: cfg.Parameters.McpManifest(),
+		InputSchema: parameters.McpManifest(),
 	}
 
 	// finish tool setup
 	t := Tool{
 		Name:         cfg.Name,
 		Kind:         ToolKind,
-		Parameters:   cfg.Parameters,
-		Statement:    cfg.Statement,
+		Parameters:   parameters,
 		AuthRequired: cfg.AuthRequired,
-		Db:           s.MSSQLDB(),
-		manifest:     tools.Manifest{Description: cfg.Description, Parameters: cfg.Parameters.Manifest(), AuthRequired: cfg.AuthRequired},
+		Pool:         s.MySQLPool(),
+		manifest:     tools.Manifest{Description: cfg.Description, Parameters: parameters.Manifest(), AuthRequired: cfg.AuthRequired},
 		mcpManifest:  mcpManifest,
 	}
 	return t, nil
@@ -97,32 +96,26 @@ type Tool struct {
 	AuthRequired []string         `yaml:"authRequired"`
 	Parameters   tools.Parameters `yaml:"parameters"`
 
-	Db          *sql.DB
-	Statement   string
+	Pool        *sql.DB
 	manifest    tools.Manifest
 	mcpManifest tools.McpManifest
 }
 
 func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, error) {
-	namedArgs := make([]any, 0, len(params))
-	paramsMap := params.AsReversedMap()
-	// To support both named args (e.g @id) and positional args (e.g @p1), check if arg name is contained in the statement.
-	for _, v := range params.AsSlice() {
-		paramName := paramsMap[v]
-		if strings.Contains(t.Statement, "@"+paramName) {
-			namedArgs = append(namedArgs, sql.Named(paramName, v))
-		} else {
-			namedArgs = append(namedArgs, v)
-		}
+	sliceParams := params.AsSlice()
+	sql, ok := sliceParams[0].(string)
+	if !ok {
+		return nil, fmt.Errorf("unable to get cast %s", sliceParams[0])
 	}
-	rows, err := t.Db.QueryContext(ctx, t.Statement, namedArgs...)
+
+	results, err := t.Pool.QueryContext(ctx, sql)
 	if err != nil {
 		return nil, fmt.Errorf("unable to execute query: %w", err)
 	}
 
-	cols, err := rows.Columns()
+	cols, err := results.Columns()
 	if err != nil {
-		return nil, fmt.Errorf("unable to fetch column types: %w", err)
+		return nil, fmt.Errorf("unable to retrieve rows column name: %w", err)
 	}
 
 	// create an array of values for each column, which can be re-used to scan each row
@@ -132,26 +125,38 @@ func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, erro
 		values[i] = &rawValues[i]
 	}
 
+	colTypes, err := results.ColumnTypes()
+	if err != nil {
+		return nil, fmt.Errorf("unable to get column types: %w", err)
+	}
+
 	var out []any
-	for rows.Next() {
-		err = rows.Scan(values...)
+	for results.Next() {
+		err := results.Scan(values...)
 		if err != nil {
 			return nil, fmt.Errorf("unable to parse row: %w", err)
 		}
 		vMap := make(map[string]any)
 		for i, name := range cols {
-			vMap[name] = rawValues[i]
+			// mysql driver return []uint8 type for "TEXT", "VARCHAR", and "NVARCHAR"
+			// we'll need to cast it back to string
+			switch colTypes[i].DatabaseTypeName() {
+			case "TEXT", "VARCHAR", "NVARCHAR":
+				vMap[name] = string(rawValues[i].([]byte))
+			default:
+				vMap[name] = rawValues[i]
+			}
 		}
 		out = append(out, vMap)
 	}
-	err = rows.Close()
+
+	err = results.Close()
 	if err != nil {
 		return nil, fmt.Errorf("unable to close rows: %w", err)
 	}
 
-	// Check if error occurred during iteration
-	if err := rows.Err(); err != nil {
-		return nil, err
+	if err := results.Err(); err != nil {
+		return nil, fmt.Errorf("errors encountered by results.Scan: %w", err)
 	}
 
 	return out, nil

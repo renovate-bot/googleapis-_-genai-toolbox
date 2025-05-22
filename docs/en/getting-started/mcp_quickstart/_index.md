@@ -105,7 +105,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.4.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.5.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -204,7 +204,7 @@ In this section, we will download Toolbox, configure our tools in a
 1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
     ```bash
-    ./toolbox --tools_file "tools.yaml"
+    ./toolbox --tools-file "tools.yaml"
     ```
 
 ## Step 3: Connect to MCP Inspector

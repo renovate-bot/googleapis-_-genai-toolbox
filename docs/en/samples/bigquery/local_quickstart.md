@@ -132,7 +132,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.4.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.5.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -230,7 +230,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
 1.  Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
     ```bash
-    ./toolbox --tools_file "tools.yaml"
+    ./toolbox --tools-file "tools.yaml"
     ```
 
 ## Step 3: Connect your agent to Toolbox
@@ -279,7 +279,7 @@ pip install llama-index-llms-google-genai
 # pip install llama-index-llms-anthropic
 {{< /tab >}}
 {{< tab header="ADK" lang="bash" >}}
-pip install langchain toolbox-langchain
+pip install toolbox-core
 {{< /tab >}}
 {{< /tabpane >}}
     
@@ -369,7 +369,7 @@ async def main():
     # TODO(developer): replace this with another model if needed
     llm = GoogleGenAI(
         model="gemini-1.5-pro",
-        vertexai_config={"project": "project-id", "location": "us-central1"},
+        vertexai_config={"location": "us-central1"},
     )
     # llm = GoogleGenAI(
     #     api_key=os.getenv("GOOGLE_API_KEY"),
@@ -399,11 +399,11 @@ asyncio.run(main())
 {{< /tab >}}
 {{< tab header="ADK" lang="python" >}}
 from google.adk.agents import Agent
-from google.adk.tools.toolbox_tool import ToolboxTool
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.adk.artifacts.in_memory_artifact_service import InMemoryArtifactService
 from google.genai import types # For constructing message content
+from toolbox_core import ToolboxSyncClient
 
 import os
 os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'True'
@@ -414,7 +414,9 @@ os.environ['GOOGLE_CLOUD_LOCATION'] = 'us-central1'
 
 # --- Load Tools from Toolbox ---
 # TODO(developer): Ensure the Toolbox server is running at http://127.0.0.1:5000
-toolbox_tools = ToolboxTool("http://127.0.0.1:5000")
+toolbox_client = ToolboxSyncClient("http://127.0.0.1:5000")
+# TODO(developer): Replace "my-toolset" with the actual ID of your toolset as configured in your MCP Toolbox server.
+agent_toolset = toolbox_client.load_toolset("my-toolset")
 
 # --- Define the Agent's Prompt ---
 prompt = """
@@ -428,8 +430,6 @@ prompt = """
 """
 
 # --- Configure the Agent ---
-# TODO(developer): Replace "my-toolset" with the actual ID of your toolset as configured in your GenAI Toolbox server.
-agent_toolset = toolbox_tools.get_toolset("my-toolset")
 
 root_agent = Agent(
     model='gemini-2.0-flash',

@@ -1,6 +1,9 @@
-
 ![logo](./logo.png)
+
 # MCP Toolbox for Databases
+
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/Dmm69peqjh)
+[![Go Report Card](https://goreportcard.com/badge/github.com/googleapis/genai-toolbox)](https://goreportcard.com/report/github.com/googleapis/genai-toolbox) 
 
 > [!NOTE] 
 > MCP Toolbox for Databases is currently in beta, and may see breaking 
@@ -81,7 +84,7 @@ To install Toolbox as a binary:
 <!-- {x-release-please-start-version} -->
 ```sh
 # see releases page for other versions
-export VERSION=0.4.0
+export VERSION=0.5.0
 curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
@@ -94,7 +97,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.4.0
+export VERSION=0.5.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -107,7 +110,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.4.0
+go install github.com/googleapis/genai-toolbox@v0.5.0
 ```
 <!-- {x-release-please-end} -->
 
@@ -119,7 +122,7 @@ go install github.com/googleapis/genai-toolbox@v0.4.0
 execute `toolbox` to start the server:
 
 ```sh
-./toolbox --tools_file "tools.yaml"
+./toolbox --tools-file "tools.yaml"
 ```
 
 You can use `toolbox help` for a full list of flags! To stop the server, send a
@@ -214,7 +217,7 @@ For more detailed instructions on using the Toolbox Llamaindex SDK, see the
 ## Configuration
 
 The primary way to configure Toolbox is through the `tools.yaml` file. If you
-have multiple files, you can tell toolbox which to load with the `--tools_file
+have multiple files, you can tell toolbox which to load with the `--tools-file
 tools.yaml` flag.
 
 You can find more detailed reference documentation to all resource types in the

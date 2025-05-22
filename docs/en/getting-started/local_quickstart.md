@@ -26,7 +26,7 @@ This guide assumes you have already done the following:
 ## Step 1: Set up your database
 
 In this section, we will create a database, insert some data that needs to be
-access by our agent, and create a database user for Toolbox to connect with.
+accessed by our agent, and create a database user for Toolbox to connect with.
 
 1. Connect to postgres using the `psql` command:
 
@@ -35,6 +35,27 @@ access by our agent, and create a database user for Toolbox to connect with.
     ```
 
     Here, `postgres` denotes the default postgres superuser.
+
+    {{< notice info >}}
+#### **Having trouble connecting?**
+
+* **Password Prompt:** If you are prompted for a password for the `postgres` user and do not know it (or a blank password doesn't work), your PostgreSQL installation might require a password or a different authentication method.
+* **`FATAL: role "postgres" does not exist`:** This error means the default `postgres` superuser role isn't available under that name on your system.
+* **`Connection refused`:** Ensure your PostgreSQL server is actually running. You can typically check with `sudo systemctl status postgresql` and start it with `sudo systemctl start postgresql` on Linux systems.
+
+<br/>
+
+#### **Common Solution**
+
+For password issues or if the `postgres` role seems inaccessible directly, try switching to the `postgres` operating system user first. This user often has permission to connect without a password for local connections (this is called peer authentication).
+```bash
+sudo -i -u postgres
+psql -h 127.0.0.1
+```
+Once you are in the `psql` shell using this method, you can proceed with the database creation steps below. Afterwards, type `\q` to exit `psql`, and then `exit` to return to your normal user shell.
+
+If desired, once connected to `psql` as the `postgres` OS user, you can set a password for the `postgres` *database* user using: `ALTER USER postgres WITH PASSWORD 'your_chosen_password';`. This would allow direct connection with `-U postgres` and a password next time.
+    {{< /notice >}}
 
 1. Create a new database and a new user:
 
@@ -57,6 +78,7 @@ access by our agent, and create a database user for Toolbox to connect with.
     ```bash
     \q
     ```
+    (If you used `sudo -i -u postgres` and then `psql`, remember you might also need to type `exit` after `\q` to leave the `postgres` user's shell session.)
 
 1. Connect to your database with your new user:
 
@@ -116,7 +138,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.4.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.5.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -215,7 +237,7 @@ In this section, we will download Toolbox, configure our tools in a
 1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
     ```bash
-    ./toolbox --tools_file "tools.yaml"
+    ./toolbox --tools-file "tools.yaml"
     ```
 
 ## Step 3: Connect your agent to Toolbox
@@ -237,7 +259,7 @@ pip install toolbox-core
 {{< /tab >}}
 {{< tab header="ADK" lang="bash" >}}
 
-pip install toolbox-langchain
+pip install toolbox-core
 {{< /tab >}}
 {{< tab header="Langchain" lang="bash" >}}
 
@@ -258,7 +280,7 @@ pip install google-genai
 {{< /tab >}}
 {{< tab header="ADK" lang="bash" >}}
 
-pip install google-adk langchain
+pip install google-adk
 {{< /tab >}}
 {{< tab header="Langchain" lang="bash" >}}
 
@@ -318,7 +340,7 @@ queries = [
 ]
 
 async def run_application():
-    toolbox_client = ToolboxClient("<http://127.0.0.1:5000>")
+    toolbox_client = ToolboxClient("http://127.0.0.1:5000")
 
     # The toolbox_tools list contains Python callables (functions/methods) designed for LLM tool-use
     # integration. While this example uses Google's genai client, these callables can be adapted for
@@ -398,11 +420,11 @@ asyncio.run(run_application())
 {{< /tab >}}
 {{< tab header="ADK" lang="python" >}}
 from google.adk.agents import Agent
-from google.adk.tools.toolbox_tool import ToolboxTool
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.adk.artifacts.in_memory_artifact_service import InMemoryArtifactService
 from google.genai import types
+from toolbox_core import ToolboxSyncClient
 
 import os
 
@@ -410,7 +432,7 @@ import os
 
 os.environ['GOOGLE_API_KEY'] = 'your-api-key'
 
-toolbox_tools = ToolboxTool("<http://127.0.0.1:5000>")
+toolbox_client = ToolboxSyncClient("http://127.0.0.1:5000")
 
 prompt = """
   You're a helpful hotel assistant. You handle hotel searching, booking and
@@ -427,7 +449,7 @@ root_agent = Agent(
     name='hotel_agent',
     description='A helpful AI assistant.',
     instruction=prompt,
-    tools=toolbox_tools.get_toolset("my-toolset"),
+    tools=toolbox_client.load_toolset("my-toolset"),
 )
 
 session_service = InMemorySessionService()
@@ -465,6 +487,7 @@ for query in queries:
       print(text)
 {{< /tab >}}
 {{< tab header="LangChain" lang="python" >}}
+import asyncio
 
 from langgraph.prebuilt import create_react_agent
 

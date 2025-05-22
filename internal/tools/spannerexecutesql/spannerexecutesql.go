@@ -1,4 +1,4 @@
-// Copyright 2025 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,39 +12,38 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package bigquery
+package spannerexecutesql
 
 import (
 	"context"
 	"fmt"
-	"strings"
 
-	bigqueryapi "cloud.google.com/go/bigquery"
+	"cloud.google.com/go/spanner"
 	"github.com/googleapis/genai-toolbox/internal/sources"
-	bigqueryds "github.com/googleapis/genai-toolbox/internal/sources/bigquery"
+	spannerdb "github.com/googleapis/genai-toolbox/internal/sources/spanner"
 	"github.com/googleapis/genai-toolbox/internal/tools"
 	"google.golang.org/api/iterator"
 )
 
-const ToolKind string = "bigquery-sql"
+const ToolKind string = "spanner-execute-sql"
 
 type compatibleSource interface {
-	BigQueryClient() *bigqueryapi.Client
+	SpannerClient() *spanner.Client
+	DatabaseDialect() string
 }
 
 // validate compatible sources are still compatible
-var _ compatibleSource = &bigqueryds.Source{}
+var _ compatibleSource = &spannerdb.Source{}
 
-var compatibleSources = [...]string{bigqueryds.SourceKind}
+var compatibleSources = [...]string{spannerdb.SourceKind}
 
 type Config struct {
-	Name         string           `yaml:"name" validate:"required"`
-	Kind         string           `yaml:"kind" validate:"required"`
-	Source       string           `yaml:"source" validate:"required"`
-	Description  string           `yaml:"description" validate:"required"`
-	Statement    string           `yaml:"statement" validate:"required"`
-	AuthRequired []string         `yaml:"authRequired"`
-	Parameters   tools.Parameters `yaml:"parameters"`
+	Name         string   `yaml:"name" validate:"required"`
+	Kind         string   `yaml:"kind" validate:"required"`
+	Source       string   `yaml:"source" validate:"required"`
+	Description  string   `yaml:"description" validate:"required"`
+	AuthRequired []string `yaml:"authRequired"`
+	ReadOnly     bool     `yaml:"readOnly"`
 }
 
 // validate interface
@@ -67,21 +66,25 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		return nil, fmt.Errorf("invalid source for %q tool: source kind must be one of %q", ToolKind, compatibleSources)
 	}
 
+	sqlParameter := tools.NewStringParameter("sql", "The sql to execute.")
+	parameters := tools.Parameters{sqlParameter}
+
 	mcpManifest := tools.McpManifest{
 		Name:        cfg.Name,
 		Description: cfg.Description,
-		InputSchema: cfg.Parameters.McpManifest(),
+		InputSchema: parameters.McpManifest(),
 	}
 
 	// finish tool setup
 	t := Tool{
 		Name:         cfg.Name,
 		Kind:         ToolKind,
-		Parameters:   cfg.Parameters,
-		Statement:    cfg.Statement,
+		Parameters:   parameters,
 		AuthRequired: cfg.AuthRequired,
-		Client:       s.BigQueryClient(),
-		manifest:     tools.Manifest{Description: cfg.Description, Parameters: cfg.Parameters.Manifest(), AuthRequired: cfg.AuthRequired},
+		ReadOnly:     cfg.ReadOnly,
+		Client:       s.SpannerClient(),
+		dialect:      s.DatabaseDialect(),
+		manifest:     tools.Manifest{Description: cfg.Description, Parameters: parameters.Manifest(), AuthRequired: cfg.AuthRequired},
 		mcpManifest:  mcpManifest,
 	}
 	return t, nil
@@ -95,57 +98,68 @@ type Tool struct {
 	Kind         string           `yaml:"kind"`
 	AuthRequired []string         `yaml:"authRequired"`
 	Parameters   tools.Parameters `yaml:"parameters"`
-
-	Client      *bigqueryapi.Client
-	Statement   string
-	manifest    tools.Manifest
-	mcpManifest tools.McpManifest
+	ReadOnly     bool             `yaml:"readOnly"`
+	Client       *spanner.Client
+	dialect      string
+	manifest     tools.Manifest
+	mcpManifest  tools.McpManifest
 }
 
-func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, error) {
-	namedArgs := make([]bigqueryapi.QueryParameter, 0, len(params))
-	paramsMap := params.AsReversedMap()
-	for _, v := range params.AsSlice() {
-		paramName := paramsMap[v]
-		if strings.Contains(t.Statement, "@"+paramName) {
-			namedArgs = append(namedArgs, bigqueryapi.QueryParameter{
-				Name:  paramName,
-				Value: v,
-			})
-		} else {
-			namedArgs = append(namedArgs, bigqueryapi.QueryParameter{
-				Value: v,
-			})
-		}
-	}
-
-	query := t.Client.Query(t.Statement)
-	query.Parameters = namedArgs
-	query.Location = t.Client.Location
-
-	it, err := query.Read(ctx)
-	if err != nil {
-		return nil, fmt.Errorf("unable to execute query: %w", err)
-	}
-
+// processRows iterates over the spanner.RowIterator and converts each row to a map[string]any.
+func processRows(iter *spanner.RowIterator) ([]any, error) {
 	var out []any
+	defer iter.Stop()
+
 	for {
-		var row map[string]bigqueryapi.Value
-		err := it.Next(&row)
+		row, err := iter.Next()
 		if err == iterator.Done {
 			break
 		}
 		if err != nil {
-			return nil, fmt.Errorf("unable to iterate through query results: %w", err)
+			return nil, fmt.Errorf("unable to parse row: %w", err)
 		}
+
 		vMap := make(map[string]any)
-		for key, value := range row {
-			vMap[key] = value
+		cols := row.ColumnNames()
+		for i, c := range cols {
+			vMap[c] = row.ColumnValue(i)
 		}
 		out = append(out, vMap)
 	}
-
 	return out, nil
+}
+
+func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, error) {
+	sliceParams := params.AsSlice()
+	sql, ok := sliceParams[0].(string)
+	if !ok {
+		return nil, fmt.Errorf("unable to get cast %s", sliceParams[0])
+	}
+
+	var results []any
+	var opErr error
+	stmt := spanner.Statement{SQL: sql}
+
+	if t.ReadOnly {
+		iter := t.Client.Single().Query(ctx, stmt)
+		results, opErr = processRows(iter)
+	} else {
+		_, opErr = t.Client.ReadWriteTransaction(ctx, func(ctx context.Context, txn *spanner.ReadWriteTransaction) error {
+			var err error
+			iter := txn.Query(ctx, stmt)
+			results, err = processRows(iter)
+			if err != nil {
+				return err
+			}
+			return nil
+		})
+	}
+
+	if opErr != nil {
+		return nil, fmt.Errorf("unable to execute query: %w", opErr)
+	}
+
+	return results, nil
 }
 
 func (t Tool) ParseParams(data map[string]any, claims map[string]map[string]any) (tools.ParamValues, error) {

@@ -12,13 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package mssqlsql
+package mssqlexecutesql
 
 import (
 	"context"
 	"database/sql"
 	"fmt"
-	"strings"
 
 	"github.com/googleapis/genai-toolbox/internal/sources"
 	"github.com/googleapis/genai-toolbox/internal/sources/cloudsqlmssql"
@@ -26,7 +25,7 @@ import (
 	"github.com/googleapis/genai-toolbox/internal/tools"
 )
 
-const ToolKind string = "mssql-sql"
+const ToolKind string = "mssql-execute-sql"
 
 type compatibleSource interface {
 	MSSQLDB() *sql.DB
@@ -39,13 +38,11 @@ var _ compatibleSource = &mssql.Source{}
 var compatibleSources = [...]string{cloudsqlmssql.SourceKind, mssql.SourceKind}
 
 type Config struct {
-	Name         string           `yaml:"name" validate:"required"`
-	Kind         string           `yaml:"kind" validate:"required"`
-	Source       string           `yaml:"source" validate:"required"`
-	Description  string           `yaml:"description" validate:"required"`
-	Statement    string           `yaml:"statement" validate:"required"`
-	AuthRequired []string         `yaml:"authRequired"`
-	Parameters   tools.Parameters `yaml:"parameters"`
+	Name         string   `yaml:"name" validate:"required"`
+	Kind         string   `yaml:"kind" validate:"required"`
+	Source       string   `yaml:"source" validate:"required"`
+	Description  string   `yaml:"description" validate:"required"`
+	AuthRequired []string `yaml:"authRequired"`
 }
 
 // validate interface
@@ -68,21 +65,23 @@ func (cfg Config) Initialize(srcs map[string]sources.Source) (tools.Tool, error)
 		return nil, fmt.Errorf("invalid source for %q tool: source kind must be one of %q", ToolKind, compatibleSources)
 	}
 
+	sqlParameter := tools.NewStringParameter("sql", "The sql to execute.")
+	parameters := tools.Parameters{sqlParameter}
+
 	mcpManifest := tools.McpManifest{
 		Name:        cfg.Name,
 		Description: cfg.Description,
-		InputSchema: cfg.Parameters.McpManifest(),
+		InputSchema: parameters.McpManifest(),
 	}
 
 	// finish tool setup
 	t := Tool{
 		Name:         cfg.Name,
 		Kind:         ToolKind,
-		Parameters:   cfg.Parameters,
-		Statement:    cfg.Statement,
+		Parameters:   parameters,
 		AuthRequired: cfg.AuthRequired,
-		Db:           s.MSSQLDB(),
-		manifest:     tools.Manifest{Description: cfg.Description, Parameters: cfg.Parameters.Manifest(), AuthRequired: cfg.AuthRequired},
+		Pool:         s.MSSQLDB(),
+		manifest:     tools.Manifest{Description: cfg.Description, Parameters: parameters.Manifest(), AuthRequired: cfg.AuthRequired},
 		mcpManifest:  mcpManifest,
 	}
 	return t, nil
@@ -97,61 +96,54 @@ type Tool struct {
 	AuthRequired []string         `yaml:"authRequired"`
 	Parameters   tools.Parameters `yaml:"parameters"`
 
-	Db          *sql.DB
-	Statement   string
+	Pool        *sql.DB
 	manifest    tools.Manifest
 	mcpManifest tools.McpManifest
 }
 
 func (t Tool) Invoke(ctx context.Context, params tools.ParamValues) ([]any, error) {
-	namedArgs := make([]any, 0, len(params))
-	paramsMap := params.AsReversedMap()
-	// To support both named args (e.g @id) and positional args (e.g @p1), check if arg name is contained in the statement.
-	for _, v := range params.AsSlice() {
-		paramName := paramsMap[v]
-		if strings.Contains(t.Statement, "@"+paramName) {
-			namedArgs = append(namedArgs, sql.Named(paramName, v))
-		} else {
-			namedArgs = append(namedArgs, v)
-		}
+	sliceParams := params.AsSlice()
+	sql, ok := sliceParams[0].(string)
+	if !ok {
+		return nil, fmt.Errorf("unable to get cast %s", sliceParams[0])
 	}
-	rows, err := t.Db.QueryContext(ctx, t.Statement, namedArgs...)
+	results, err := t.Pool.QueryContext(ctx, sql)
 	if err != nil {
 		return nil, fmt.Errorf("unable to execute query: %w", err)
 	}
+	defer results.Close()
 
-	cols, err := rows.Columns()
-	if err != nil {
-		return nil, fmt.Errorf("unable to fetch column types: %w", err)
-	}
-
-	// create an array of values for each column, which can be re-used to scan each row
-	rawValues := make([]any, len(cols))
-	values := make([]any, len(cols))
-	for i := range rawValues {
-		values[i] = &rawValues[i]
-	}
+	cols, err := results.Columns()
+	// If Columns() errors, it might be a DDL/DML without an OUTPUT clause.
+	// We proceed, and results.Err() will catch actual query execution errors.
+	// 'out' will remain nil if cols is empty or err is not nil here.
 
 	var out []any
-	for rows.Next() {
-		err = rows.Scan(values...)
-		if err != nil {
-			return nil, fmt.Errorf("unable to parse row: %w", err)
+	if err == nil && len(cols) > 0 {
+		// create an array of values for each column, which can be re-used to scan each row
+		rawValues := make([]any, len(cols))
+		values := make([]any, len(cols))
+		for i := range rawValues {
+			values[i] = &rawValues[i]
 		}
-		vMap := make(map[string]any)
-		for i, name := range cols {
-			vMap[name] = rawValues[i]
+
+		for results.Next() {
+			scanErr := results.Scan(values...)
+			if scanErr != nil {
+				return nil, fmt.Errorf("unable to parse row: %w", scanErr)
+			}
+			vMap := make(map[string]any)
+			for i, name := range cols {
+				vMap[name] = rawValues[i]
+			}
+			out = append(out, vMap)
 		}
-		out = append(out, vMap)
-	}
-	err = rows.Close()
-	if err != nil {
-		return nil, fmt.Errorf("unable to close rows: %w", err)
 	}
 
-	// Check if error occurred during iteration
-	if err := rows.Err(); err != nil {
-		return nil, err
+	// Check for errors from iterating over rows or from the query execution itself.
+	// results.Close() is handled by defer.
+	if err := results.Err(); err != nil {
+		return nil, fmt.Errorf("errors encountered during query execution or row processing: %w", err)
 	}
 
 	return out, nil
