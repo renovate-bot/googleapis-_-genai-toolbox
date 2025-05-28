@@ -1546,7 +1546,31 @@ names, or other parts of the query.&lt;/p></description></item><item><title>Allo
 &lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p></description></item><item><title>Cloud SQL using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a Cloud SQL for Postgres instance:&lt;/p>
+&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p></description></item><item><title>BigQuery using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like BigQuery. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a BigQuery instance:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/#configure-your-mcp-client">Visual Studio Code &lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p></description></item><item><title>Cloud SQL for MySQL using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a Cloud SQL for MySQL instance:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/#configure-your-mcp-client">Visual Studio Code &lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p></description></item><item><title>Cloud SQL for Postgres using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a Cloud SQL for Postgres instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
@@ -1554,6 +1578,18 @@ names, or other parts of the query.&lt;/p></description></item><item><title>Allo
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p></description></item><item><title>Cloud SQL for SQL Server using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like Cloud SQL. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a Cloud SQL for SQL Server instance:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/#configure-your-mcp-client">Visual Studio Code &lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ol>
@@ -1710,7 +1746,19 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 &lt;/ol>
 &lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;a class="td-heading-self-link" href="#step-1-set-up-your-database" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>In this section, we will create a database, insert some data that needs to be
-accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Telemetry</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Spanner using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like Spanner. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a Spanner instance:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/#configure-your-mcp-client">Visual Studio Code &lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p></description></item><item><title>Telemetry</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/concepts/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/concepts/telemetry/</guid><description>&lt;h2 id="about">About&lt;a class="td-heading-self-link" href="#about" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Telemetry data such as logs, metrics, and traces will help developers understand
 the internal state of the system. This page walks though different types of
 telemetry and observability available in Toolbox.&lt;/p>
