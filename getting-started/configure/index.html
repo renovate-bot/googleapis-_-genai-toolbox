@@ -80,10 +80,10 @@ Auto<svg class="bi ms-auto d-none"><use href="#check2"/></svg></button></li></ul
 <a href="https://github.com/googleapis/genai-toolbox/issues/new?title=Configuration" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
 <a href=https://github.com/googleapis/genai-toolbox/issues/new class="td-page-meta--project td-page-meta__project-issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a></div><div class=td-toc><nav id=TableOfContents><ul><li><ul><li><a href=#using-environment-variables>Using Environment Variables</a></li><li><a href=#sources>Sources</a></li><li><a href=#tools>Tools</a></li><li><a href=#toolsets>Toolsets</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><div class=td-content><h1>Configuration</h1><div class=lead>How to configure Toolbox&rsquo;s tools.yaml file.</div><header class=article-meta></header><p>The primary way to configure Toolbox is through the <code>tools.yaml</code> file. If you
 have multiple files, you can tell toolbox which to load with the <code>--tools-file tools.yaml</code> flag.</p><p>You can find more detailed reference documentation to all resource types in the
-<a href=/googleapis-_-genai-toolbox/resources/>Resources</a>.</p><h3 id=using-environment-variables>Using Environment Variables<a class=td-heading-self-link href=#using-environment-variables aria-label="Heading self-link"></a></h3><p>To avoid hardcoding certain secret fields like passwords, usernames, API keys
+<a href=/googleapis-_-genai-toolbox/resources/>Resources</a>.</p><h3 id=using-environment-variables>Using Environment Variables</h3><p>To avoid hardcoding certain secret fields like passwords, usernames, API keys
 etc., you could use environment variables instead with the format <code>${ENV_NAME}</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>  <span style=color:#f92672>user</span>: <span style=color:#ae81ff>${USER_NAME}</span>
 </span></span><span style=display:flex><span>  <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${PASSWORD}</span>
-</span></span></code></pre></div><h3 id=sources>Sources<a class=td-heading-self-link href=#sources aria-label="Heading self-link"></a></h3><p>The <code>sources</code> section of your <code>tools.yaml</code> defines what data sources your
+</span></span></code></pre></div><h3 id=sources>Sources</h3><p>The <code>sources</code> section of your <code>tools.yaml</code> defines what data sources your
 Toolbox should have access to. Most tools will have at least one source to
 execute against.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>sources</span>:
 </span></span><span style=display:flex><span>  <span style=color:#f92672>my-pg-source</span>:
@@ -94,7 +94,7 @@ execute against.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;bac
 </span></span><span style=display:flex><span>    <span style=color:#f92672>user</span>: <span style=color:#ae81ff>${USER_NAME}</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>password</span>: <span style=color:#ae81ff>${PASSWORD}</span>
 </span></span></code></pre></div><p>For more details on configuring different types of sources, see the
-<a href=/googleapis-_-genai-toolbox/resources/sources/>Sources</a>.</p><h3 id=tools>Tools<a class=td-heading-self-link href=#tools aria-label="Heading self-link"></a></h3><p>The <code>tools</code> section of your <code>tools.yaml</code> define your the actions your agent can
+<a href=/googleapis-_-genai-toolbox/resources/sources/>Sources</a>.</p><h3 id=tools>Tools</h3><p>The <code>tools</code> section of your <code>tools.yaml</code> define your the actions your agent can
 take: what kind of tool it is, which source(s) it affects, what parameters it
 uses, etc.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>tools</span>:
 </span></span><span style=display:flex><span>  <span style=color:#f92672>search-hotels-by-name</span>:
@@ -107,7 +107,7 @@ uses, etc.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;backgroun
 </span></span><span style=display:flex><span>        <span style=color:#f92672>description</span>: <span style=color:#ae81ff>The name of the hotel.</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>statement</span>: <span style=color:#ae81ff>SELECT * FROM hotels WHERE name ILIKE &#39;%&#39; || $1 || &#39;%&#39;;</span>
 </span></span></code></pre></div><p>For more details on configuring different types of tools, see the
-<a href=/googleapis-_-genai-toolbox/resources/tools/>Tools</a>.</p><h3 id=toolsets>Toolsets<a class=td-heading-self-link href=#toolsets aria-label="Heading self-link"></a></h3><p>The <code>toolsets</code> section of your <code>tools.yaml</code> allows you to define groups of tools
+<a href=/googleapis-_-genai-toolbox/resources/tools/>Tools</a>.</p><h3 id=toolsets>Toolsets</h3><p>The <code>toolsets</code> section of your <code>tools.yaml</code> allows you to define groups of tools
 that you want to be able to load together. This can be useful for defining
 different sets for different agents or different applications.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>toolsets</span>:
 </span></span><span style=display:flex><span>  <span style=color:#f92672>my_first_toolset</span>:
