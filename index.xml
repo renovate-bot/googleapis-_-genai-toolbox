@@ -1092,12 +1092,8 @@ database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;p>The specified SQL statement is executed as a &lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared statement&lt;/a>,
 and specified parameters will inserted according to their position: e.g. &lt;code>1&lt;/code>
 will be the first parameter specified, &lt;code>$@&lt;/code> will be the second parameter, and so
-on.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
-Query parameters can be used as substitutes for arbitrary expressions.
-Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item><item><title>PostgreSQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/</guid><description>&lt;h2 id="about">About&lt;/h2>
+on. If template parameters are included, they will be resolved before execution
+of the prepared statement.&lt;/p></description></item><item><title>PostgreSQL</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>&lt;a href="https://www.postgresql.org/">PostgreSQL&lt;/a> is a powerful, open source object-relational database
 system with over 35 years of active development that has earned it a strong
 reputation for reliability, feature robustness, and performance.&lt;/p>
