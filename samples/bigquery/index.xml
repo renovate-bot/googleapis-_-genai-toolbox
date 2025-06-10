@@ -21,23 +21,30 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
 
 
 
+
 &lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
  &lt;li class="nav-item">
  &lt;button class="nav-link active"
  id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
- data-td-tp-persist="langchain" aria-controls="tabs-00-00" aria-selected="true">
- LangChain
+ data-td-tp-persist="core" aria-controls="tabs-00-00" aria-selected="true">
+ Core
  &lt;/button>
  &lt;/li>&lt;li class="nav-item">
  &lt;button class="nav-link"
  id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- data-td-tp-persist="llamaindex" aria-controls="tabs-00-01" aria-selected="false">
- LlamaIndex
+ data-td-tp-persist="langchain" aria-controls="tabs-00-01" aria-selected="false">
+ LangChain
  &lt;/button>
  &lt;/li>&lt;li class="nav-item">
  &lt;button class="nav-link"
  id="tabs-00-02-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-02" role="tab"
- data-td-tp-persist="adk" aria-controls="tabs-00-02" aria-selected="false">
+ data-td-tp-persist="llamaindex" aria-controls="tabs-00-02" aria-selected="false">
+ LlamaIndex
+ &lt;/button>
+ &lt;/li>&lt;li class="nav-item">
+ &lt;button class="nav-link"
+ id="tabs-00-03-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-03" role="tab"
+ data-td-tp-persist="adk" aria-controls="tabs-00-03" aria-selected="false">
  ADK
  &lt;/button>
  &lt;/li>
