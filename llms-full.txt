@@ -76,7 +76,7 @@ To install Toolbox as a binary:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.6.0
+export VERSION=0.7.0
 curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
@@ -87,7 +87,7 @@ You can also install Toolbox as a container:
 
 ```sh
 # see releases page for other versions
-export VERSION=0.6.0
+export VERSION=0.7.0
 docker pull us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:$VERSION
 ```
 
@@ -98,7 +98,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.6.0
+go install github.com/googleapis/genai-toolbox@v0.7.0
 ```
 
 {{% /tab %}}
@@ -323,7 +323,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -919,7 +919,7 @@ In this section, we will download Toolbox, configure our tools in a
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1410,19 +1410,19 @@ Connect your IDE to AlloyDB using Toolbox.
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -1672,19 +1672,19 @@ Connect your IDE to BigQuery using Toolbox.
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -1913,19 +1913,19 @@ Connect your IDE to Cloud SQL for MySQL using Toolbox.
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -2174,19 +2174,19 @@ Connect your IDE to Cloud SQL for Postgres using Toolbox.
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -2436,19 +2436,19 @@ Connect your IDE to Cloud SQL for SQL Server using Toolbox.
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -2697,19 +2697,19 @@ This guide can be used with [AlloyDB Omni](https://cloud.google.com/alloydb/omni
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -2949,19 +2949,19 @@ Connect your IDE to Spanner using Toolbox.
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/windows/amd64/toolbox
+curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -7132,7 +7132,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -7579,7 +7579,7 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.6.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
