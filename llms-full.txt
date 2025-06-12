@@ -5201,7 +5201,8 @@ Specify your AUTH string in the password field:
 sources:
     my-redis-instance:
      kind: redis
-     address: 127.0.0.1
+     address:
+       - 127.0.0.1
      username: ${MY_USER_NAME}
      password: ${MY_AUTH_STRING} # Omit this field if you don't have a password.
      # database: 0
@@ -5225,7 +5226,8 @@ Here is an example tools.yaml config with [AUTH][auth] enabled:
 sources:
     my-redis-cluster-instance:
      kind: memorystore-redis
-     address: 127.0.0.1
+     address:
+       - 127.0.0.1
      password: ${MY_AUTH_STRING}
      # useGCPIAM: false
      # clusterEnabled: false
@@ -5432,6 +5434,66 @@ sources:
 SQLite connections are configured with these defaults for optimal performance:
 - `MaxOpenConns`: 1 (SQLite only supports one writer at a time)
 - `MaxIdleConns`: 1
+
+# Valkey
+Valkey is an open-source, in-memory data structure store, forked from Redis.
+
+
+## About
+
+Valkey is an open-source, in-memory data structure store that originated as a fork of Redis. It's designed to be used as a database, cache, and message broker, supporting a wide range of data structures like strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.
+
+If you're new to Valkey, you can find installation and getting started guides on the [official Valkey website](https://valkey.io/docs/getting-started/).
+
+## Example
+
+```yaml
+sources:
+    my-valkey-instance:
+     kind: valkey
+     address:
+       - 127.0.0.1
+     username: ${YOUR_USERNAME}
+     password: ${YOUR_PASSWORD}
+     # database: 0
+     # useGCPIAM: false
+     # disableCache: false
+```
+
+{{< notice tip >}}
+Use environment variable replacement with the format ${ENV_NAME}
+instead of hardcoding your secrets into the configuration file.
+{{< /notice >}}
+
+### IAM Authentication
+
+If you are using GCP's Memorystore for Valkey, you can connect using IAM
+authentication. Grant your account the required [IAM role][iam] and set
+`useGCPIAM` to `true`:
+
+```yaml
+sources:
+    my-valkey-instance:
+     kind: valkey
+     address:
+       - 127.0.0.1
+     useGCPIAM: true
+```
+
+[iam]: https://cloud.google.com/memorystore/docs/valkey/about-iam-auth
+
+## Reference
+
+| **field**    | **type** | **required** | **description**                                                                                                                  |
+|--------------|:--------:|:------------:|----------------------------------------------------------------------------------------------------------------------------------|
+| kind         |  string  |     true     | Must be "valkey".                                                                                                                |
+| address      | []string |     true     | Endpoints for the Valkey instance to connect to.                                                                                 |
+| username     |  string  |    false     | If you are using a non-default user, specify the user name here. If you are using Memorystore for Valkey, leave this field blank |
+| password     |  string  |    false     | Password for the Valkey instance                                                                                                 |
+| database     |   int    |    false     | The Valkey database to connect to. Not applicable for cluster enabled instances. The default database is `0`.                    |
+| useGCPIAM    |   bool   |    false     | Set it to `true` if you are using GCP's IAM authentication. Defaults to `false`.                                                 |
+| disableCache |   bool   |    false     | Set it to `true` if you want to enable client-side caching. Defaults to `false`.                                                 |
+
 
 # Tools
 Tools define actions an agent can take -- such as reading and writing to a  source.
@@ -7182,6 +7244,60 @@ tools:
 | description | string | Yes | Description of what the tool does |
 | parameters | array | No | List of parameters for the SQL statement |
 | statement | string | Yes | The SQL statement to execute |
+
+
+# valkey
+A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
+
+
+## About
+
+A valkey tool executes a series of pre-defined Valkey commands against a
+Memorystore for Valkey instance.
+
+The specified Valkey commands are executed sequentially. Each command is
+represented as a string array, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.
+
+### Dynamic Command Parameters
+
+Command arguments can be templated using the `$variableName` annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:
+
+```yaml
+  commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+  parameters:
+    - name: userNames
+      type: array
+      description: The user names to be set.  
+```
+
+If the input is an array of strings `["Alice", "Sid", "Bob"]`,  The final command
+to be executed after argument expansion will be `[SADD, userNames, Alice, Sid, Bob]`.
+
+## Example
+
+```yaml
+tools:
+  user_data_tool:
+    kind: valkey
+    source: my-valkey-instance
+    description: |
+      Use this tool to interact with user data stored in Valkey.
+      It can set, retrieve, and delete user-specific information.
+    commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+      - [GET, $userId]
+    parameters:
+      - name: userId
+        type: string
+        description: The unique identifier for the user.
+      - name: userNames
+        type: array
+        description: The user names to be set.  
+```
 
 
 # Samples

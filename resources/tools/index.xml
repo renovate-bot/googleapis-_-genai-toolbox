@@ -583,4 +583,13 @@ DDL statements.&lt;/p>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item></channel></rss>
+names, or other parts of the query.&lt;/p></description></item><item><title>valkey</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A valkey tool executes a series of pre-defined Valkey commands against a
+Memorystore for Valkey instance.&lt;/p>
+&lt;p>The specified Valkey commands are executed sequentially. Each command is
+represented as a string array, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
+&lt;h3 id="dynamic-command-parameters">Dynamic Command Parameters&lt;/h3>
+&lt;p>Command arguments can be templated using the &lt;code>$variableName&lt;/code> annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:&lt;/p></description></item></channel></rss>

@@ -56,6 +56,7 @@ List of reference documentation for resources in Toolbox.
   - [Spanner](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/): Spanner is a fully managed database service from Google Cloud that combines  relational, key-value, graph, and search capabilities.
   - [SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mssql/): SQL Server is a relational database management system (RDBMS).
   - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/): SQLite is a C-language library that implements a small, fast, self-contained,  high-reliability, full-featured, SQL database engine.
+  - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/): Valkey is an open-source, in-memory data structure store, forked from Redis.
 - [Tools](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/): Tools define actions an agent can take -- such as reading and writing to a  source.
   - [alloydb-ai-nl](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/alloydb-ai-nl/): The "alloydb-ai-nl" tool leverages  [AlloyDB AI](https://cloud.google.com/alloydb/ai) next-generation Natural  Language support to provide the ability to query the database directly using natural language.
   - [bigquery-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-execute-sql/): A "bigquery-execute-sql" tool executes a SQL statement against BigQuery.
@@ -79,6 +80,7 @@ List of reference documentation for resources in Toolbox.
   - [spanner-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-execute-sql/): A "spanner-execute-sql" tool executes a SQL statement against a Spanner database.
   - [spanner-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-sql/): A "spanner-sql" tool executes a pre-defined SQL statement against a Google  Cloud Spanner database.
   - [sqlite-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/): Execute SQL statements against a SQLite database.
+  - [valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
 
 ### Samples
 
