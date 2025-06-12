@@ -1288,7 +1288,21 @@ your preferred virtual environment tool for managing dependencies e.g. &lt;a hre
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
  &lt;ul>
 &lt;li>
-&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p></description></item><item><title>Spanner</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;/h1>
+&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p></description></item><item><title>redis</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A redis tool executes a series of pre-defined Redis commands against a
+Redis source.&lt;/p>
+&lt;p>The specified Redis commands are executed sequentially. Each command is
+represented as a string list, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
+&lt;h3 id="dynamic-command-parameters">Dynamic Command Parameters&lt;/h3>
+&lt;p>Command arguments can be templated using the &lt;code>$variableName&lt;/code> annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:&lt;/p></description></item><item><title>Redis</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/redis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/redis/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>Redis is an open-source, in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.&lt;/p>
+&lt;p>If you are new to Redis, you can find installation and getting started guides on the &lt;a href="https://redis.io/docs/getting-started/">official Redis website&lt;/a>.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="redis">Redis&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/memorystore/docs/redis/about-redis-auth">AUTH string&lt;/a> is a password for connection to Redis. If you have the &lt;code>requirepass&lt;/code> directive set in your Redis configuration, incoming client connections must authenticate in order to connect.&lt;/p></description></item><item><title>Spanner</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;/h1>
 &lt;p>&lt;a href="https://cloud.google.com/spanner/docs">Spanner&lt;/a> is a fully managed, mission-critical database service
 that brings together relational, graph, key-value, and search. It offers
 transactional consistency at global scale, automatic, synchronous replication

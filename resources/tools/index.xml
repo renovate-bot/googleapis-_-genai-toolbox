@@ -491,7 +491,16 @@ database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 and specified parameters will inserted according to their position: e.g. &lt;code>1&lt;/code>
 will be the first parameter specified, &lt;code>$@&lt;/code> will be the second parameter, and so
 on. If template parameters are included, they will be resolved before execution
-of the prepared statement.&lt;/p></description></item><item><title>spanner-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+of the prepared statement.&lt;/p></description></item><item><title>redis</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A redis tool executes a series of pre-defined Redis commands against a
+Redis source.&lt;/p>
+&lt;p>The specified Redis commands are executed sequentially. Each command is
+represented as a string list, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
+&lt;h3 id="dynamic-command-parameters">Dynamic Command Parameters&lt;/h3>
+&lt;p>Command arguments can be templated using the &lt;code>$variableName&lt;/code> annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:&lt;/p></description></item><item><title>spanner-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>spanner-execute-sql&lt;/code> tool executes a SQL statement against a Spanner
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>

@@ -5179,6 +5179,90 @@ instead of hardcoding your secrets into the configuration file.
 | password  |  string  |     true     | Password of the Postgres user (e.g. "my-password").                    |
 
 
+# Redis
+Redis is an open-source, in-memory data structure store.
+
+
+## About
+
+Redis is an open-source, in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.
+
+If you are new to Redis, you can find installation and getting started guides on the [official Redis website](https://redis.io/docs/getting-started/).
+
+## Requirements
+
+### Redis
+
+[AUTH string][auth] is a password for connection to Redis. If you have the `requirepass` directive set in your Redis configuration, incoming client connections must authenticate in order to connect.
+
+Specify your AUTH string in the password field:
+
+```yaml
+sources:
+    my-redis-instance:
+     kind: redis
+     address: 127.0.0.1
+     username: ${MY_USER_NAME}
+     password: ${MY_AUTH_STRING} # Omit this field if you don't have a password.
+     # database: 0
+     # clusterEnabled: false
+     # useGCPIAM: false
+```
+
+{{< notice tip >}}
+Use environment variable replacement with the format ${ENV_NAME}
+instead of hardcoding your secrets into the configuration file.
+{{< /notice >}}
+
+### Memorystore For Redis
+
+Memorystore standalone instances support authentication using an [AUTH][auth]
+string.
+
+Here is an example tools.yaml config with [AUTH][auth] enabled:
+
+```yaml
+sources:
+    my-redis-cluster-instance:
+     kind: memorystore-redis
+     address: 127.0.0.1
+     password: ${MY_AUTH_STRING}
+     # useGCPIAM: false
+     # clusterEnabled: false
+```
+
+Memorystore Redis Cluster supports IAM authentication instead. Grant your account the
+required [IAM role][iam] and make sure to set `useGCPIAM` to `true`.
+
+Here is an example tools.yaml config for Memorystore Redis Cluster instances
+using IAM authentication:
+
+```yaml
+sources:
+    my-redis-cluster-instance:
+     kind: memorystore-redis
+     address: 127.0.0.1
+     useGCPIAM: true
+     clusterEnabled: true
+```
+
+[iam]: https://cloud.google.com/memorystore/docs/cluster/about-iam-auth
+
+## Reference
+
+| **field**      | **type** | **required** | **description**                                                                                                                 |
+|----------------|:--------:|:------------:|---------------------------------------------------------------------------------------------------------------------------------|
+| kind           |  string  |     true     | Must be "memorystore-redis".                                                                                                    |
+| address        |  string  |     true     | Primary endpoint for the Memorystore Redis instance to connect to.                                                              |
+| username       |  string  |    false     | If you are using a non-default user, specify the user name here. If you are using Memorystore for Redis, leave this field blank |
+| password       |  string  |    false     | If you have [Redis AUTH][auth] enabled, specify the AUTH string here                                                            |
+| database       |   int    |    false     | The Redis database to connect to. Not applicable for cluster enabled instances. The default database is `0`.                    |
+| clusterEnabled |   bool   |    false     | Set it to `true` if using a Redis Cluster instance. Defaults to `false`.                                                        |
+| useGCPIAM      |  string  |    false     | Set it to `true` if you are using GCP's IAM authentication. Defaults to `false`.                                                |
+
+[auth]: https://cloud.google.com/memorystore/docs/redis/about-redis-auth
+
+
 # Spanner
 Spanner is a fully managed database service from Google Cloud that combines  relational, key-value, graph, and search capabilities.
 
@@ -6821,6 +6905,60 @@ tools:
 | statement           |                   string                                  |     true     | SQL statement to execute on.                                                                                                               |
 | parameters          | [parameters](_index#specifying-parameters)                |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
 | templateParameters  |  [templateParameters](_index#template-parameters)         |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+
+
+# redis
+A "redis" tool executes a set of pre-defined Redis commands against a Redis instance.
+
+
+## About
+
+A redis tool executes a series of pre-defined Redis commands against a
+Redis source.
+
+The specified Redis commands are executed sequentially. Each command is
+represented as a string list, where the first element is the command name (e.g., SET,
+GET, HGETALL) and subsequent elements are its arguments.
+
+### Dynamic Command Parameters
+
+Command arguments can be templated using the `$variableName` annotation. The
+array type parameters will be expanded once into multiple arguments. Take the
+following config for example:
+
+```yaml
+  commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+  parameters:
+    - name: userNames
+      type: array
+      description: The user names to be set.  
+```
+
+If the input is an array of strings `["Alice", "Sid", "Bob"]`,  The final command
+to be executed after argument expansion will be `[SADD, userNames, Alice, Sid, Bob]`.
+
+## Example
+
+```yaml
+tools:
+  user_data_tool:
+    kind: redis
+    source: my-redis-instance
+    description: |
+      Use this tool to interact with user data stored in Redis.
+      It can set, retrieve, and delete user-specific information.
+    commands:
+      - [SADD, userNames, $userNames] # Array will be flattened into multiple arguments.
+      - [GET, $userId]
+    parameters:
+      - name: userId
+        type: string
+        description: The unique identifier for the user.
+      - name: userNames
+        type: array
+        description: The user names to be set.  
+```
 
 
 # spanner-execute-sql
