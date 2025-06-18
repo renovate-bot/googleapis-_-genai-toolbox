@@ -4408,11 +4408,15 @@ parameters can be inserted into the query. BigQuery supports both named paramete
 (e.g., `@name`) and positional parameters (`?`), but they cannot be mixed in the
 same query.
 
-> **Note:** This tool uses [parameterized queries](https://cloud.google.com/bigquery/docs/parameterized-queries) to prevent SQL injections. Query parameters can be used as substitutes for arbitrary expressions. Parameters cannot be used as substitutes for identifiers, column names, table names, or other parts of the query.
-
 [bigquery-googlesql]: https://cloud.google.com/bigquery/docs/reference/standard-sql/
 
 ## Example
+
+> **Note:** This tool uses [parameterized
+> queries](https://cloud.google.com/bigquery/docs/parameterized-queries) to
+> prevent SQL injections. Query parameters can be used as substitutes for
+> arbitrary expressions. Parameters cannot be used as substitutes for
+> identifiers, column names, table names, or other parts of the query.
 
 ```yaml
 tools:
@@ -4447,16 +4451,43 @@ tools:
         description: Email address of the user
 ```
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: bigquery-sql
+    source: my-bigquery-source
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-sql".                                                                          |
-| source      |                   string                   |     true     | Name of the source the GoogleSQL should execute on.                                              |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
-| statement   |                   string                   |     true     | The GoogleSQL statement to execute.                                                              |
-| parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement. |
-
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "bigquery-sql".                                                                                                                    |
+| source             |                   string                         |     true     | Name of the source the GoogleSQL should execute on.                                                                                        |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | The GoogleSQL statement to execute.                                                                                                        |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 # bigtable-sql
 A "bigtable-sql" tool executes a pre-defined SQL statement against a Google  Cloud Bigtable instance.
@@ -4476,14 +4507,14 @@ dialect, the specified SQL statement is executed as a [data manipulation
 language (DML)][bigtable-googlesql] statements, and specified parameters will
 inserted according to their name: e.g. `@name`.
 
+[bigtable-googlesql]: https://cloud.google.com/bigtable/docs/googlesql-overview
+
+## Example
+
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-[bigtable-googlesql]: https://cloud.google.com/bigtable/docs/googlesql-overview
-
-## Example
 
 ```yaml
 tools:
@@ -4517,15 +4548,43 @@ tools:
         description: Name of the user
 ```
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: bigtable-sql
+    source: my-bigtable-instance
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigtable-sql".                                                                          |
-| source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
-| statement   |                   string                   |     true     | SQL statement to execute on.                                                                     |
-| parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement. |
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "bigtable-sql".                                                                                                                    |
+| source             |                   string                         |     true     | Name of the source the SQL should execute on.                                                                                              |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | SQL statement to execute on.                                                                                                               |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 ## Tips
 
@@ -4556,12 +4615,12 @@ database. It's compatible with any of the following sources:
 The specified SQL statement is executed as a parameterized statement, and specified
 parameters will be used according to their name: e.g. `$id`.
 
+## Example
+
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-## Example
 
 ```yaml
 tools:
@@ -4597,17 +4656,44 @@ tools:
               description: Maximum price (positive integer)
 ```
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: couchbase-sql
+    source: my-couchbase-instance
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                |
-|-------------|:------------------------------------------:|:------------:|------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "couchbase-sql".                                                                       |
-| source      |                   string                   |     true     | Name of the source the SQL query should execute on.                                            |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                             |
-| statement   |                   string                   |     true     | SQL statement to execute                                                                       |
-| parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be used with the SQL statement.   |
-| authRequired|                array[string]               |    false     | List of auth services that are required to use this tool.                                      |
-
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "couchbase-sql".                                                                                                                   |
+| source             |                   string                         |     true     | Name of the source the SQL query should execute on.                                                                                        |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | SQL statement to execute                                                                                                                   |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be used with the SQL statement.                                               |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| authRequired       |                array[string]                     |    false     | List of auth services that are required to use this tool.                                                                                  |
 
 # dgraph-dql
 A "dgraph-dql" tool executes a pre-defined DQL statement against a Dgraph database.
@@ -5007,14 +5093,14 @@ Server and expects parameters in the SQL query to be in the form of either
 db.QueryContext(ctx, `select * from t where ID = @ID and Name = @p2;`, sql.Named("ID", 6), "Bob")
 ```
 
+[prepare-statement]: https://learn.microsoft.com/sql/relational-databases/system-stored-procedures/sp-prepare-transact-sql?view=sql-server-ver16
+
+## Example
+
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-[prepare-statement]: https://learn.microsoft.com/sql/relational-databases/system-stored-procedures/sp-prepare-transact-sql?view=sql-server-ver16
-
-## Example
 
 ```yaml
 tools:
@@ -5054,16 +5140,43 @@ tools:
         description: 1 to 4 digit number
 ```
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: mssql-sql
+    source: my-instance
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "mssql-sql".                                                                             |
-| source      |                   string                   |     true     | Name of the source the T-SQL statement should execute on.                                        |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
-| statement   |                   string                   |     true     | SQL statement to execute.                                                                        |
-| parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement. |
-
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "mssql-sql".                                                                                                                       |
+| source             |                   string                         |     true     | Name of the source the T-SQL statement should execute on.                                                                                  |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | SQL statement to execute.                                                                                                                  |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 # mysql-execute-sql
 A "mysql-execute-sql" tool executes a SQL statement against a MySQL database.
@@ -5117,14 +5230,14 @@ database. It's compatible with any of the following sources:
 The specified SQL statement is executed as a [prepared statement][mysql-prepare],
 and expects parameters in the SQL query to be in the form of placeholders `?`.
 
+[mysql-prepare]: https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html
+
+## Example
+
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-[mysql-prepare]: https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html
-
-## Example
 
 ```yaml
 tools:
@@ -5164,16 +5277,43 @@ tools:
         description: 1 to 4 digit number
 ```
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: mysql-sql
+    source: my-mysql-instance
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "mysql-sql".                                                                             |
-| source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
-| statement   |                   string                   |     true     | SQL statement to execute on.                                                                     |
-| parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement. |
-
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "mysql-sql".                                                                                                                       |
+| source             |                   string                         |     true     | Name of the source the SQL should execute on.                                                                                              |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | SQL statement to execute on.                                                                                                               |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 # neo4j-cypher
 A "neo4j-cypher" tool executes a pre-defined cypher statement against a Neo4j database.
@@ -5304,14 +5444,14 @@ will be the first parameter specified, `$@` will be the second parameter, and so
 on. If template parameters are included, they will be resolved before execution
 of the prepared statement.
 
+[pg-prepare]: https://www.postgresql.org/docs/current/sql-prepare.html
+
 ## Example
 
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-[pg-prepare]: https://www.postgresql.org/docs/current/sql-prepare.html
 
 ```yaml
 tools:
@@ -5353,10 +5493,11 @@ tools:
 
 ### Example with Template Parameters
 
-> **Note:** This tool allows direct modifications to the SQL statement, including identifiers, column names,
-> and table names. **This makes it more vulnerable to SQL injections**. Using basic parameters 
-> only (see above) is recommended for performance and safety reasons. For more details, please
-> check [templateParameters](_index#template-parameters).
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
 
 ```yaml
 tools:
@@ -5512,14 +5653,14 @@ statement][pg-prepare], and specified parameters will inserted according to
 their position: e.g. `$1` will be the first parameter specified, `$@` will be
 the second parameter, and so on.
 
+[pg-prepare]: https://www.postgresql.org/docs/current/sql-prepare.html
+
+## Example
+
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-[pg-prepare]: https://www.postgresql.org/docs/current/sql-prepare.html
-
-## Example
 
 {{< tabpane persist="header" >}}
 {{< tab header="GoogleSQL" lang="yaml" >}}
@@ -5602,17 +5743,44 @@ tools:
 {{< /tab >}}
 {{< /tabpane >}}
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: spanner
+    source: my-spanner-instance
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "spanner-sql".                                                                           |
-| source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
-| description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
-| statement   |                   string                   |     true     | SQL statement to execute on.                                                                     |
-| parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement. |
-| readOnly    |                   bool                     |    false     | When set to `true`, the `statement` is run as a read-only transaction. Default: `false`.         |
-
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "spanner-sql".                                                                                                                     |
+| source             |                   string                         |     true     | Name of the source the SQL should execute on.                                                                                              |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | SQL statement to execute on.                                                                                                               |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| readOnly           |                   bool                           |    false     | When set to `true`, the `statement` is run as a read-only transaction. Default: `false`.                                                   |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 # sqlite-sql
 Execute SQL statements against a SQLite database.
@@ -5632,12 +5800,12 @@ The statement field supports any valid SQLite SQL statement, including `SELECT`,
 `INSERT`, `UPDATE`, `DELETE`, `CREATE/ALTER/DROP` table statements, and other
 DDL statements.
 
+### Example
+
 > **Note:** This tool uses parameterized queries to prevent SQL injections.
 > Query parameters can be used as substitutes for arbitrary expressions.
 > Parameters cannot be used as substitutes for identifiers, column names, table
 > names, or other parts of the query.
-
-### Example
 
 ```yaml
 tools:
@@ -5655,16 +5823,44 @@ tools:
     statement: SELECT * FROM users WHERE name LIKE ? AND age >= ?
 ```
 
+### Example with Template Parameters
+
+> **Note:** This tool allows direct modifications to the SQL statement,
+> including identifiers, column names, and table names. **This makes it more
+> vulnerable to SQL injections**. Using basic parameters only (see above) is
+> recommended for performance and safety reasons. For more details, please check
+> [templateParameters](_index#template-parameters).
+
+```yaml
+tools:
+ list_table:
+    kind: sqlite-sql
+    source: my-sqlite-db
+    statement: |
+      SELECT * FROM {{.tableName}};
+    description: |
+      Use this tool to list all information from a specific table.
+      Example:
+      {{
+          "tableName": "flights",
+      }}
+    templateParameters:
+      - name: tableName
+        type: string
+        description: Table to select from
+```
+
+
 ## Reference
 
-| **field**   |                  **type**                  | **required** | **description**                                                                                  |
-|-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind | string | Yes | Must be "sqlite-sql" |
-| source | string | Yes | Name of a SQLite source configuration |
-| description | string | Yes | Description of what the tool does |
-| parameters | array | No | List of parameters for the SQL statement |
-| statement | string | Yes | The SQL statement to execute |
-
+| **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
+|--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
+| kind               |                   string                         |     true     | Must be "sqlite-sql".                                                                                                                    |
+| source             |                   string                         |     true     | Name of the source the SQLite source configuration.                                                                                        |
+| description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
+| statement          |                   string                         |     true     | The SQL statement to execute.                                                                                                        |
+| parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 # valkey
 A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
