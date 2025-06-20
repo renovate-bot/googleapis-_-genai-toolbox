@@ -299,8 +299,7 @@ An HTTP request is the method by which a client communicates with a server to re
 Toolbox allows you to configure the request URL, method, headers, query parameters, and the request body for an HTTP Tool.&lt;/p>
 &lt;h3 id="url">URL&lt;/h3>
 &lt;p>An HTTP request URL identifies the target the client wants to access.
-Toolbox composes the request URL from the HTTP Source&amp;rsquo;s &lt;code>baseUrl&lt;/code> and the HTTP Tool&amp;rsquo;s &lt;code>path&lt;/code>.
-For example, the following config allows you to reach different paths of the same server using multiple Tools:&lt;/p></description></item><item><title>mssql-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+Toolbox composes the request URL from 3 places:&lt;/p></description></item><item><title>mssql-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mssql-execute-sql&lt;/code> tool executes a SQL statement against a SQL Server
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
