@@ -8,7 +8,7 @@
 
 How to get started with Toolbox.
 - [Introduction](https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/introduction/): An introduction to MCP Toolbox for Databases.
-- [Quickstart (Local)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/): How to get started running Toolbox locally with Python, PostgreSQL, and  [GoogleGenAI](https://pypi.org/project/google-genai/),  [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [Agent Development Kit](https://google.github.io/adk-docs/). 
+- [Quickstart (Local)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/local_quickstart/): How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
 - [Quickstart (MCP)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/mcp_quickstart/): How to get started running Toolbox locally with MCP Inspector. 
 - [Configuration](https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/): How to configure Toolbox's tools.yaml file.
 
