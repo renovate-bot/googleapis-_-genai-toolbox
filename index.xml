@@ -328,11 +328,16 @@ to a database by following these instructions&lt;/a>.&lt;/p>
 authorize and establish mTLS connections to your Cloud SQL instance. The Go
 connector uses your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials (ADC)&lt;/a> to authorize
 your connection to Cloud SQL.&lt;/p></description></item><item><title>Connect via MCP Client</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_via_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_via_mcp/</guid><description>&lt;h2 id="toolbox-sdks-vs-model-context-protocol-mcp">Toolbox SDKs vs Model Context Protocol (MCP)&lt;/h2>
-&lt;p>Toolbox now supports connections via both the native Toolbox SDKs and via &lt;a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)&lt;/a>. However, Toolbox has several features which are not supported in the MCP specification (such as Authenticated Parameters and Authorized invocation).&lt;/p>
-&lt;p>We recommend using the native SDKs over MCP clients to leverage these features. The native SDKs can be combined with MCP clients in many cases.&lt;/p>
+&lt;p>Toolbox now supports connections via both the native Toolbox SDKs and via &lt;a href="https://modelcontextprotocol.io/">Model
+Context Protocol (MCP)&lt;/a>. However, Toolbox has
+several features which are not supported in the MCP specification (such as
+Authenticated Parameters and Authorized invocation).&lt;/p>
+&lt;p>We recommend using the native SDKs over MCP clients to leverage these features.
+The native SDKs can be combined with MCP clients in many cases.&lt;/p>
 &lt;h3 id="protocol-versions">Protocol Versions&lt;/h3>
 &lt;p>Toolbox currently supports the following versions of MCP specification:&lt;/p></description></item><item><title>couchbase</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/couchbase/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/couchbase/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>A &lt;code>couchbase&lt;/code> source establishes a connection to a Couchbase database cluster, allowing tools to execute SQL queries against it.&lt;/p>
+&lt;p>A &lt;code>couchbase&lt;/code> source establishes a connection to a Couchbase database cluster,
+allowing tools to execute SQL queries against it.&lt;/p>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">sources&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">my-couchbase-instance&lt;/span>:
@@ -452,7 +457,10 @@ parameters will be used according to their name: e.g. &lt;code>$id&lt;/code>.&lt
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
 names, or other parts of the query.&lt;/p></description></item><item><title>Dgraph</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is an open-source graph database. It is designed for real-time workloads, horizontal scalability, and data flexibility. Implemented as a distributed system, Dgraph processes queries in parallel to deliver the fastest result.&lt;/p>
+&lt;p>&lt;a href="https://dgraph.io/docs">Dgraph&lt;/a> is an open-source graph database. It is designed for
+real-time workloads, horizontal scalability, and data flexibility. Implemented
+as a distributed system, Dgraph processes queries in parallel to deliver the
+fastest result.&lt;/p>
 &lt;p>This source can connect to either a self-managed Dgraph cluster or one hosted on
 Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started is to
 &lt;a href="https://cloud.dgraph.io/login">sign up for Dgraph Cloud&lt;/a>.&lt;/p>
@@ -485,8 +493,10 @@ in with the &lt;code>Client ID&lt;/code>.&lt;/p>
 considered authorized if it has a valid Oauth 2.0 token that matches the Client
 ID.&lt;/p></description></item><item><title>http</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>http&lt;/code> tool allows you to make HTTP requests to APIs to retrieve data.
-An HTTP request is the method by which a client communicates with a server to retrieve or manipulate resources.
-Toolbox allows you to configure the request URL, method, headers, query parameters, and the request body for an HTTP Tool.&lt;/p>
+An HTTP request is the method by which a client communicates with a server to
+retrieve or manipulate resources.
+Toolbox allows you to configure the request URL, method, headers, query
+parameters, and the request body for an HTTP Tool.&lt;/p>
 &lt;h3 id="url">URL&lt;/h3>
 &lt;p>An HTTP request URL identifies the target the client wants to access.
 Toolbox composes the request URL from 3 places:&lt;/p></description></item><item><title>HTTP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -1240,78 +1250,50 @@ PostgreSQL user&lt;/a> to login to the database with.&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+ &lt;/span>Tip&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
+Colab">&lt;/a>&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
-&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
-your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>).&lt;/li>
-&lt;li>Installed and configured the &lt;a href="https://cloud.google.com/sdk/docs/install">Google Cloud SDK (gcloud CLI)&lt;/a>.&lt;/li>
-&lt;li>Authenticated with Google Cloud for Application Default Credentials (ADC):
+&lt;li>
+&lt;p>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
+your preferred virtual environment tool for managing dependencies e.g.
+&lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Installed and configured the &lt;a href="https://cloud.google.com/sdk/docs/install">Google Cloud SDK (gcloud CLI)&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Authenticated with Google Cloud for Application Default Credentials (ADC):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gcloud auth login --update-adc
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>Set your default Google Cloud project (replace &lt;code>YOUR_PROJECT_ID&lt;/code> with your actual project ID):
+&lt;li>
+&lt;p>Set your default Google Cloud project (replace &lt;code>YOUR_PROJECT_ID&lt;/code> with your
+actual project ID):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gcloud config set project YOUR_PROJECT_ID
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOOGLE_CLOUD_PROJECT&lt;span style="color:#f92672">=&lt;/span>YOUR_PROJECT_ID
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>Toolbox and the client libraries will use this project for BigQuery, unless overridden in configurations.&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console#before-you-begin">Enabled the BigQuery API&lt;/a> in your Google Cloud project.&lt;/li>
-&lt;li>Installed the BigQuery client library for Python:
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pip install google-cloud-bigquery
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>Completed setup for usage with an LLM model such as
-
-
-
-
-
-&lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
- &lt;li class="nav-item">
- &lt;button class="nav-link active"
- id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
- data-td-tp-persist="core" aria-controls="tabs-00-00" aria-selected="true">
- Core
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
- &lt;button class="nav-link"
- id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- data-td-tp-persist="langchain" aria-controls="tabs-00-01" aria-selected="false">
- LangChain
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
- &lt;button class="nav-link"
- id="tabs-00-02-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-02" role="tab"
- data-td-tp-persist="llamaindex" aria-controls="tabs-00-02" aria-selected="false">
- LlamaIndex
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
- &lt;button class="nav-link"
- id="tabs-00-03-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-03" role="tab"
- data-td-tp-persist="adk" aria-controls="tabs-00-03" aria-selected="false">
- ADK
- &lt;/button>
- &lt;/li>
-&lt;/ul>
-
-&lt;div class="tab-content" id="tabs-0-content">
- &lt;div class="tab-body tab-pane fade show active"
- id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
- &lt;ul>
-&lt;li>
-&lt;p>&lt;a href="https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup">langchain-vertexai&lt;/a> package.&lt;/p></description></item><item><title>redis</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Toolbox and the client libraries will use this project for BigQuery, unless
+overridden in configurations.&lt;/p></description></item><item><title>redis</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A redis tool executes a series of pre-defined Redis commands against a
 Redis source.&lt;/p>
 &lt;p>The specified Redis commands are executed sequentially. Each command is
-represented as a string list, where the first element is the command name (e.g., SET,
-GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
+represented as a string list, where the first element is the command name (e.g.,
+SET, GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
 &lt;h3 id="dynamic-command-parameters">Dynamic Command Parameters&lt;/h3>
 &lt;p>Command arguments can be templated using the &lt;code>$variableName&lt;/code> annotation. The
 array type parameters will be expanded once into multiple arguments. Take the
 following config for example:&lt;/p></description></item><item><title>Redis</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/redis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/redis/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>Redis is an open-source, in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.&lt;/p>
-&lt;p>If you are new to Redis, you can find installation and getting started guides on the &lt;a href="https://redis.io/docs/getting-started/">official Redis website&lt;/a>.&lt;/p>
+&lt;p>Redis is an open-source, in-memory data structure store, used as a database,
+cache, and message broker. It supports data structures such as strings, hashes,
+lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and
+geospatial indexes with radius queries.&lt;/p>
+&lt;p>If you are new to Redis, you can find installation and getting started guides on
+the &lt;a href="https://redis.io/docs/getting-started/">official Redis website&lt;/a>.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="redis">Redis&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/memorystore/docs/redis/about-redis-auth">AUTH string&lt;/a> is a password for connection to Redis. If you have the &lt;code>requirepass&lt;/code> directive set in your Redis configuration, incoming client connections must authenticate in order to connect.&lt;/p></description></item><item><title>Spanner</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;/h1>
+&lt;p>&lt;a href="https://cloud.google.com/memorystore/docs/redis/about-redis-auth">AUTH string&lt;/a> is a password for connection to Redis. If you have the
+&lt;code>requirepass&lt;/code> directive set in your Redis configuration, incoming client
+connections must authenticate in order to connect.&lt;/p></description></item><item><title>Spanner</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/</guid><description>&lt;h1 id="spanner-source">Spanner Source&lt;/h1>
 &lt;p>&lt;a href="https://cloud.google.com/spanner/docs">Spanner&lt;/a> is a fully managed, mission-critical database service
 that brings together relational, graph, key-value, and search. It offers
 transactional consistency at global scale, automatic, synchronous replication
@@ -1564,14 +1546,19 @@ names, or other parts of the query.&lt;/p></description></item><item><title>valk
 &lt;p>A valkey tool executes a series of pre-defined Valkey commands against a
 Memorystore for Valkey instance.&lt;/p>
 &lt;p>The specified Valkey commands are executed sequentially. Each command is
-represented as a string array, where the first element is the command name (e.g., SET,
-GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
+represented as a string array, where the first element is the command name
+(e.g., SET, GET, HGETALL) and subsequent elements are its arguments.&lt;/p>
 &lt;h3 id="dynamic-command-parameters">Dynamic Command Parameters&lt;/h3>
 &lt;p>Command arguments can be templated using the &lt;code>$variableName&lt;/code> annotation. The
 array type parameters will be expanded once into multiple arguments. Take the
 following config for example:&lt;/p></description></item><item><title>Valkey</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>Valkey is an open-source, in-memory data structure store that originated as a fork of Redis. It&amp;rsquo;s designed to be used as a database, cache, and message broker, supporting a wide range of data structures like strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.&lt;/p>
-&lt;p>If you&amp;rsquo;re new to Valkey, you can find installation and getting started guides on the &lt;a href="https://valkey.io/docs/getting-started/">official Valkey website&lt;/a>.&lt;/p></description></item><item><title>AlloyDB using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</guid><description>&lt;html>
+&lt;p>Valkey is an open-source, in-memory data structure store that originated as a
+fork of Redis. It&amp;rsquo;s designed to be used as a database, cache, and message
+broker, supporting a wide range of data structures like strings, hashes, lists,
+sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial
+indexes with radius queries.&lt;/p>
+&lt;p>If you&amp;rsquo;re new to Valkey, you can find installation and getting started guides on
+the &lt;a href="https://valkey.io/docs/getting-started/">official Valkey website&lt;/a>.&lt;/p></description></item><item><title>AlloyDB using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
  &lt;meta http-equiv="refresh" content="0;url=https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
@@ -1608,11 +1595,14 @@ docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox">Do I need a Google Cloud account/project to get started with Toolbox?&lt;/h2>
 &lt;p>Nope! While some of the sources Toolbox connects to may require GCP credentials,
 Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different resources
-that don&amp;rsquo;t.&lt;/p></description></item><item><title>PostgreSQL using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is an open protocol for connecting Large Language Models (LLMs) to data sources like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your developer assistant tools to a Postgres instance:&lt;/p>
+that don&amp;rsquo;t.&lt;/p></description></item><item><title>PostgreSQL using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
+an open protocol for connecting Large Language Models (LLMs) to data sources
+like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+to expose your developer assistant tools to a Postgres instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
-&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Visual Studio Code &lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Visual Studio Code&lt;/a> (Copilot)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>

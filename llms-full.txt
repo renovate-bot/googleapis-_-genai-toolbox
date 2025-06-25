@@ -13,17 +13,17 @@ MCP Toolbox for Databases is an open source MCP server for databases. It enables
 you to develop tools easier, faster, and more securely by handling the complexities
 such as connection pooling, authentication, and more.
 
-
 {{< notice note >}}
 This solution was originally named “Gen AI Toolbox for
 Databases” as its initial development predated MCP, but was renamed to align
 with recently added MCP compatibility.
 {{< /notice >}}
 
-##  Why Toolbox?
+## Why Toolbox?
 
 Toolbox helps you build Gen AI tools that let your agents access data in your
 database. Toolbox provides:
+
 - **Simplified development**: Integrate tools to your agent in less than 10
   lines of code, reuse tools between multiple agents or frameworks, and deploy
   new versions of tools more easily.
@@ -33,17 +33,29 @@ database. Toolbox provides:
 - **End-to-end observability**: Out of the box metrics and tracing with built-in
   support for OpenTelemetry.
 
-
 **⚡ Supercharge Your Workflow with an AI Database Assistant ⚡**
 
-Stop context-switching and let your AI assistant become a true co-developer. By [connecting your IDE to your databases with MCP Toolbox][connect-ide], you can delegate complex and time-consuming database tasks, allowing you to build faster and focus on what matters. This isn't just about code completion; it's about giving your AI the context it needs to handle the entire development lifecycle.
+Stop context-switching and let your AI assistant become a true co-developer. By
+[connecting your IDE to your databases with MCP Toolbox][connect-ide], you can
+delegate complex and time-consuming database tasks, allowing you to build faster
+and focus on what matters. This isn't just about code completion; it's about
+giving your AI the context it needs to handle the entire development lifecycle.
 
 Here’s how it will save you time:
 
-* **Query in Plain English**: Interact with your data using natural language right from your IDE. Ask complex questions like, *"How many orders were delivered in 2024, and what items were in them?"* without writing any SQL.
-* **Automate Database Management**: Simply describe your data needs, and let the AI assistant manage your database for you. It can handle generating queries, creating tables, adding indexes, and more.
-* **Generate Context-Aware Code**: Empower your AI assistant to generate application code and tests with a deep understanding of your real-time database schema.  This accelerates the development cycle by ensuring the generated code is directly usable.
-* **Slash Development Overhead**: Radically reduce the time spent on manual setup and boilerplate. MCP Toolbox helps streamline lengthy database configurations, repetitive code, and error-prone schema migrations.
+- **Query in Plain English**: Interact with your data using natural language
+  right from your IDE. Ask complex questions like, *"How many orders were
+  delivered in 2024, and what items were in them?"* without writing any SQL.
+- **Automate Database Management**: Simply describe your data needs, and let the
+  AI assistant manage your database for you. It can handle generating queries,
+  creating tables, adding indexes, and more.
+- **Generate Context-Aware Code**: Empower your AI assistant to generate
+  application code and tests with a deep understanding of your real-time
+  database schema.  This accelerates the development cycle by ensuring the
+  generated code is directly usable.
+- **Slash Development Overhead**: Radically reduce the time spent on manual
+  setup and boilerplate. MCP Toolbox helps streamline lengthy database
+  configurations, repetitive code, and error-prone schema migrations.
 
 Learn [how to connect your AI tools (IDEs) to Toolbox using MCP][connect-ide].
 
@@ -63,6 +75,7 @@ redeploying your application.
 ## Getting Started
 
 ### Installing the server
+
 For the latest version, check the [releases page][releases] and use the
 following instructions for your OS and CPU architecture.
 
@@ -136,7 +149,8 @@ tools:
 from toolbox_core import ToolboxClient
 
 # update the url to point to your server
-async with ToolboxClient("http://127.0.0.1:5000") as client:
+
+async with ToolboxClient("<http://127.0.0.1:5000>") as client:
 
     # these tools can be passed to your application!
     tools = await client.load_toolset("toolset_name")
@@ -156,7 +170,8 @@ tools:
 from toolbox_langchain import ToolboxClient
 
 # update the url to point to your server
-async with ToolboxClient("http://127.0.0.1:5000") as client:
+
+async with ToolboxClient("<http://127.0.0.1:5000>") as client:
 
     # these tools can be passed to your application!
     tools = client.load_toolset()
@@ -176,9 +191,11 @@ tools:
 from toolbox_llamaindex import ToolboxClient
 
 # update the url to point to your server
-async with ToolboxClient("http://127.0.0.1:5000") as client:
 
-  # these tools can be passed to your application!
+async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+
+# these tools can be passed to your application
+
   tools = client.load_toolset()
 {{< /highlight >}}
 
@@ -222,24 +239,40 @@ accessed by our agent, and create a database user for Toolbox to connect with.
     Here, `postgres` denotes the default postgres superuser.
 
     {{< notice info >}}
+
 #### **Having trouble connecting?**
 
-* **Password Prompt:** If you are prompted for a password for the `postgres` user and do not know it (or a blank password doesn't work), your PostgreSQL installation might require a password or a different authentication method.
-* **`FATAL: role "postgres" does not exist`:** This error means the default `postgres` superuser role isn't available under that name on your system.
-* **`Connection refused`:** Ensure your PostgreSQL server is actually running. You can typically check with `sudo systemctl status postgresql` and start it with `sudo systemctl start postgresql` on Linux systems.
+* **Password Prompt:** If you are prompted for a password for the `postgres`
+  user and do not know it (or a blank password doesn't work), your PostgreSQL
+  installation might require a password or a different authentication method.
+* **`FATAL: role "postgres" does not exist`:** This error means the default
+  `postgres` superuser role isn't available under that name on your system.
+* **`Connection refused`:** Ensure your PostgreSQL server is actually running.
+  You can typically check with `sudo systemctl status postgresql` and start it
+  with `sudo systemctl start postgresql` on Linux systems.
 
 <br/>
 
 #### **Common Solution**
 
-For password issues or if the `postgres` role seems inaccessible directly, try switching to the `postgres` operating system user first. This user often has permission to connect without a password for local connections (this is called peer authentication).
+For password issues or if the `postgres` role seems inaccessible directly, try
+switching to the `postgres` operating system user first. This user often has
+permission to connect without a password for local connections (this is called
+peer authentication).
+
 ```bash
 sudo -i -u postgres
 psql -h 127.0.0.1
 ```
-Once you are in the `psql` shell using this method, you can proceed with the database creation steps below. Afterwards, type `\q` to exit `psql`, and then `exit` to return to your normal user shell.
 
-If desired, once connected to `psql` as the `postgres` OS user, you can set a password for the `postgres` *database* user using: `ALTER USER postgres WITH PASSWORD 'your_chosen_password';`. This would allow direct connection with `-U postgres` and a password next time.
+Once you are in the `psql` shell using this method, you can proceed with the
+database creation steps below. Afterwards, type `\q` to exit `psql`, and then
+`exit` to return to your normal user shell.
+
+If desired, once connected to `psql` as the `postgres` OS user, you can set a
+password for the `postgres` *database* user using: `ALTER USER postgres WITH
+PASSWORD 'your_chosen_password';`. This would allow direct connection with `-U
+postgres` and a password next time.
     {{< /notice >}}
 
 1. Create a new database and a new user:
@@ -263,7 +296,10 @@ If desired, once connected to `psql` as the `postgres` OS user, you can set a pa
     ```bash
     \q
     ```
-    (If you used `sudo -i -u postgres` and then `psql`, remember you might also need to type `exit` after `\q` to leave the `postgres` user's shell session.)
+
+    (If you used `sudo -i -u postgres` and then `psql`, remember you might also
+    need to type `exit` after `\q` to leave the `postgres` user's shell
+    session.)
 
 1. Connect to your database with your new user:
 
@@ -508,7 +544,7 @@ import os
 os.environ['GOOGLE_API_KEY'] = 'your-api-key'
 
 async def main():
-  with ToolboxSyncClient("http://127.0.0.1:5000") as toolbox_client:
+  with ToolboxSyncClient("<http://127.0.0.1:5000>") as toolbox_client:
 
       prompt = """
         You're a helpful hotel assistant. You handle hotel searching, booking and
@@ -798,18 +834,22 @@ asyncio.run(run_application())
 
   {{< tabpane text=true persist=header >}}
 {{% tab header="ADK" lang="en" %}}
-To learn more about Agent Development Kit, check out the [ADK documentation.](https://google.github.io/adk-docs/)
+To learn more about Agent Development Kit, check out the [ADK
+documentation.](https://google.github.io/adk-docs/)
 {{% /tab %}}
 {{% tab header="Langchain" lang="en" %}}
-To learn more about Agents in LangChain, check out the [LangGraph Agent documentation.](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)
+To learn more about Agents in LangChain, check out the [LangGraph Agent
+documentation.](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)
 {{% /tab %}}
 {{% tab header="LlamaIndex" lang="en" %}}
-To learn more about Agents in LlamaIndex, check out the
-[LlamaIndex AgentWorkflow documentation.](https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/)
+To learn more about Agents in LlamaIndex, check out the [LlamaIndex
+AgentWorkflow
+documentation.](https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/)
 {{% /tab %}}
 {{% tab header="Core" lang="en" %}}
 To learn more about tool calling with Google GenAI, check out the
-[Google GenAI Documentation](https://github.com/googleapis/python-genai?tab=readme-ov-file#manually-declare-and-invoke-a-function-for-function-calling).
+[Google GenAI
+Documentation](https://github.com/googleapis/python-genai?tab=readme-ov-file#manually-declare-and-invoke-a-function-for-function-calling).
 {{% /tab %}}
 {{< /tabpane >}}
 
@@ -1017,7 +1057,8 @@ In this section, we will download Toolbox, configure our tools in a
         - cancel-hotel
     ```
 
-    For more info on tools, check out the [Tools](../../resources/tools/_index.md) section.
+    For more info on tools, check out the
+    [Tools](../../resources/tools/_index.md) section.
 
 1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
@@ -1167,7 +1208,6 @@ through [OpenTelemetry](https://opentelemetry.io/). Additional flags can be
 passed to Toolbox to enable different logging behavior, or to export metrics
 through a specific [exporter](#exporter).
 
-
 ## Logging
 
 The following flags can be used to customize Toolbox logging:
@@ -1177,7 +1217,8 @@ The following flags can be used to customize Toolbox logging:
 | `--log-level`      | Preferred log level, allowed values: `debug`, `info`, `warn`, `error`. Default: `info`. |
 | `--logging-format` | Preferred logging format, allowed values: `standard`, `json`. Default: `standard`.      |
 
-__Example:__
+**Example:**
+
 ```bash
 ./toolbox --tools-file "tools.yaml" --log-level warn --logging-format json
 ```
@@ -1185,6 +1226,7 @@ __Example:__
 ### Level
 
 Toolbox supports the following log levels, including:
+
 | **Log level** | **Description**                                                                                                                                                                    |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Debug         | Debug logs typically contain information that is only useful during the debugging phase and may be of little value during production.                                              |
@@ -1196,17 +1238,18 @@ Toolbox will only output logs that are equal or more severe to the
 level that it is set. Below are the log levels that Toolbox supports in the
 order of severity.
 
-
 ### Format
 
 Toolbox supports both standard and structured logging format.
 
 The standard logging outputs log as string:
+
 ```
 2024-11-12T15:08:11.451377-08:00 INFO "Initialized 0 sources.\n"
 ```
 
 The structured logging outputs log as JSON:
+
 ```
 {
   "timestamp":"2024-11-04T16:45:11.987299-08:00",
@@ -1216,9 +1259,9 @@ The structured logging outputs log as JSON:
 }
 ```
 
-{{< notice tip >}} 
+{{< notice tip >}}
 `logging.googleapis.com/sourceLocation` shows the source code
-location information associated with the log entry, if any. 
+location information associated with the log entry, if any.
 {{< /notice >}}
 
 ## Telemetry
@@ -1275,7 +1318,6 @@ unified [resource][resource]. The list of resource attributes included are:
 | `service.name`                                                                            | Open telemetry service name. Defaulted to `toolbox`. User can set the service name via flag mentioned above to distinguish between different toolbox service. |
 | `service.version`                                                                         | The version of Toolbox used.                                                                                                                                  |
 
-
 [resource]: https://opentelemetry.io/docs/languages/go/resources/
 
 ### Exporter
@@ -1301,9 +1343,10 @@ Exporter][gcp-trace-exporter].
 [gcp-trace-exporter]:
     https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/tree/main/exporter/trace
 
-{{< notice note >}} 
-If you're using Google Cloud Monitoring, the following APIs will need to be 
+{{< notice note >}}
+If you're using Google Cloud Monitoring, the following APIs will need to be
 enabled:
+
 - [Cloud Logging API](https://cloud.google.com/logging/docs/api/enable-api)
 - [Cloud Monitoring API](https://cloud.google.com/monitoring/api/enable-api)
 - [Cloud Trace API](https://cloud.google.com/apis/enableflow?apiid=cloudtrace.googleapis.com)
@@ -1334,7 +1377,7 @@ The following flags are used to determine Toolbox's telemetry configuration:
 | **flag**                   | **type** | **description**                                                                                                |
 |----------------------------|----------|----------------------------------------------------------------------------------------------------------------|
 | `--telemetry-gcp`          | bool     | Enable exporting directly to Google Cloud Monitoring. Default is `false`.                                      |
-| `--telemetry-otlp`         | string   | Enable exporting using OpenTelemetry Protocol (OTLP) to the specified endpoint (e.g. "http://127.0.0.1:4318"). |
+| `--telemetry-otlp`         | string   | Enable exporting using OpenTelemetry Protocol (OTLP) to the specified endpoint (e.g. "<http://127.0.0.1:4318>"). |
 | `--telemetry-service-name` | string   | Sets the value of the `service.name` resource attribute. Default is `toolbox`.                                 |
 
 In addition to the flags noted above, you can also make additional configuration
@@ -1344,14 +1387,16 @@ environmental variables.
 [sdk-configuration]:
     https://opentelemetry.io/docs/languages/sdk-configuration/general/
 
-__Examples:__
+**Examples:**
 
 To enable Google Cloud Exporter:
+
 ```bash
 ./toolbox --telemetry-gcp
 ```
 
 To enable OTLP Exporter, provide Collector endpoint:
+
 ```bash
 ./toolbox --telemetry-otlp="http://127.0.0.1:4553"
 ```
@@ -1425,11 +1470,14 @@ Connect your IDE to Cloud SQL for SQL Server using Toolbox.
 Connect your IDE to PostgreSQL using Toolbox.
 
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open protocol for connecting Large Language Models (LLMs) to data sources like Postgres. This guide covers how to use [MCP Toolbox for Databases][toolbox] to expose your developer assistant tools to a Postgres instance:
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is
+an open protocol for connecting Large Language Models (LLMs) to data sources
+like Postgres. This guide covers how to use [MCP Toolbox for Databases][toolbox]
+to expose your developer assistant tools to a Postgres instance:
 
 * [Cursor][cursor]
 * [Windsurf][windsurf] (Codium)
-* [Visual Studio Code ][vscode] (Copilot)
+* [Visual Studio Code][vscode] (Copilot)
 * [Cline][cline]  (VS Code extension)
 * [Claude desktop][claudedesktop]
 * [Claude code][claudecode]
@@ -1443,7 +1491,8 @@ Connect your IDE to PostgreSQL using Toolbox.
 [claudecode]: #configure-your-mcp-client
 
 {{< notice tip >}}
-This guide can be used with [AlloyDB Omni](https://cloud.google.com/alloydb/omni/current/docs/overview).
+This guide can be used with [AlloyDB
+Omni](https://cloud.google.com/alloydb/omni/current/docs/overview).
 {{< /notice >}}
 
 ## Set up the database
@@ -1453,33 +1502,36 @@ This guide can be used with [AlloyDB Omni](https://cloud.google.com/alloydb/omni
     * [Install PostgreSQL locally](https://www.postgresql.org/download/)
     * [Install AlloyDB Omni](https://cloud.google.com/alloydb/omni/current/docs/quickstart)
 
-1. Create or reuse [a database user](https://cloud.google.com/alloydb/omni/current/docs/database-users/manage-users) and have the username and password ready.
-
+1. Create or reuse [a database
+   user](https://cloud.google.com/alloydb/omni/current/docs/database-users/manage-users)
+   and have the username and password ready.
 
 ## Install MCP Toolbox
 
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.6.0+:
+1. Download the latest version of Toolbox as a binary. Select the [correct
+   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   to your OS and CPU architecture. You are required to use Toolbox version
+   V0.6.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox
+curl -O <https://storage.googleapis.com/genai-toolbox/v0.7.0/linux/amd64/toolbox>
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox
+curl -O <https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/arm64/toolbox>
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox
+curl -O <https://storage.googleapis.com/genai-toolbox/v0.7.0/darwin/amd64/toolbox>
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox
+curl -O <https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbox>
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
-
 
 1. Make the binary executable:
 
@@ -1498,9 +1550,11 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
 {{< tabpane text=true >}}
 {{% tab header="Claude code" lang="en" %}}
 
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
+1. Install [Claude
+   Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
 1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
     ```json
     {
@@ -1527,7 +1581,8 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
 
 1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
 1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
     ```json
     {
@@ -1548,14 +1603,17 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
     ```
 
 1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
+1. From the new chat screen, you should see a hammer (MCP) icon appear with the
+   new MCP server available.
 {{% /tab %}}
 
 {{% tab header="Cline" lang="en" %}}
 
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
+1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap
+   the **MCP Servers** icon.
 1. Tap Configure MCP Servers to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
     ```json
     {
@@ -1575,14 +1633,16 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
     }
     ```
 
-1. You should see a green active status after the server is successfully connected.
+1. You should see a green active status after the server is successfully
+   connected.
 {{% /tab %}}
 
 {{% tab header="Cursor" lang="en" %}}
 
 1. Create a `.cursor` directory in your project root if it doesn't exist.
 1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
     ```json
     {
@@ -1602,14 +1662,18 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
     }
     ```
 
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
+1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor
+   Settings > MCP**. You should see a green active status after the server is
+   successfully connected.
 {{% /tab %}}
 
 {{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
 
-1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
+1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and
+   create a `.vscode` directory in your project root if it doesn't exist.
 1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
     ```json
     {
@@ -1628,13 +1692,16 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
       }
     }
     ```
+
 {{% /tab %}}
 
 {{% tab header="Windsurf" lang="en" %}}
 
-1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
+1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the
+   Cascade assistant.
 1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
     ```json
     {
@@ -1654,12 +1721,15 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.7.0/windows/amd64/toolbo
     }
 
     ```
+
 {{% /tab %}}
 {{< /tabpane >}}
 
 ## Use Tools
 
-Your AI tool is now connected to Postgres using MCP. Try asking your AI assistant to list tables, create a table, or define and execute other SQL statements.
+Your AI tool is now connected to Postgres using MCP. Try asking your AI
+assistant to list tables, create a table, or define and execute other SQL
+statements.
 
 The following tools are available to the LLM:
 
@@ -1667,8 +1737,10 @@ The following tools are available to the LLM:
 1. **execute_sql**: execute any SQL statement
 
 {{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
+Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs
+will adapt to the tools available, so this shouldn't affect most users.
 {{< /notice >}}
+
 
 # Spanner using MCP
 Connect your IDE to Spanner using Toolbox.
@@ -1686,36 +1758,49 @@ How to connect to Toolbox from a MCP Client.
 
 
 ## Toolbox SDKs vs Model Context Protocol (MCP)
-Toolbox now supports connections via both the native Toolbox SDKs and via [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). However, Toolbox has several features which are not supported in the MCP specification (such as Authenticated Parameters and Authorized invocation). 
 
-We recommend using the native SDKs over MCP clients to leverage these features. The native SDKs can be combined with MCP clients in many cases. 
+Toolbox now supports connections via both the native Toolbox SDKs and via [Model
+Context Protocol (MCP)](https://modelcontextprotocol.io/). However, Toolbox has
+several features which are not supported in the MCP specification (such as
+Authenticated Parameters and Authorized invocation).
+
+We recommend using the native SDKs over MCP clients to leverage these features.
+The native SDKs can be combined with MCP clients in many cases.
 
 ### Protocol Versions
+
 Toolbox currently supports the following versions of MCP specification:
+
 * [2024-11-05](https://spec.modelcontextprotocol.io/specification/2024-11-05/)
 
 ### Features Not Supported by MCP
+
 Toolbox has several features that are not yet supported in the MCP specification:
-* **AuthZ/AuthN:** There are no auth implementation in the `2024-11-05` specification. This includes:
+
+* **AuthZ/AuthN:** There are no auth implementation in the `2024-11-05`
+  specification. This includes:
   * [Authenticated Parameters](../resources/tools/_index.md#authenticated-parameters)
   * [Authorized Invocations](../resources/tools/_index.md#authorized-invocations)
-* **Notifications:** Currently, editing Toolbox Tools requires a server restart. Clients should reload tools on disconnect to get the latest version. 
-
+* **Notifications:** Currently, editing Toolbox Tools requires a server restart.
+  Clients should reload tools on disconnect to get the latest version.
 
 ## Connecting to Toolbox with an MCP client
+
 ### Before you begin
 
-{{< notice note >}} 
+{{< notice note >}}
 MCP is only compatible with Toolbox version 0.3.0 and above.
 {{< /notice >}}
 
-1. [Install](../getting-started/introduction/_index.md#installing-the-server) Toolbox version 0.3.0+.
+1. [Install](../getting-started/introduction/_index.md#installing-the-server)
+   Toolbox version 0.3.0+.
 
 1. Make sure you've set up and initialized your database.
 
 1. [Set up](../getting-started/configure.md) your `tools.yaml` file.
 
 ### Connecting via Standard Input/Output (stdio)
+
 Toolbox supports the
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input%2Foutput-stdio)
 transport protocol. Users that wish to use stdio will have to include the
@@ -1726,14 +1811,16 @@ transport protocol. Users that wish to use stdio will have to include the
 ```
 
 When running with stdio, Toolbox will listen via stdio instead of acting as a
-remote HTTP server. Logs will be set to the `warn` level by default. `debug` and `info` logs are not
-supported with stdio.
+remote HTTP server. Logs will be set to the `warn` level by default. `debug` and
+`info` logs are not supported with stdio.
 
 ### Connecting via HTTP
+
 Toolbox supports the HTTP transport protocol with and without SSE.
 
 {{< tabpane text=true >}} {{% tab header="HTTP with SSE" lang="en" %}}
 Add the following configuration to your MCP client configuration:
+
 ```bash
 {
   "mcpServers": {
@@ -1745,11 +1832,13 @@ Add the following configuration to your MCP client configuration:
 }
 ```
 
-If you would like to connect to a specific toolset, replace `url` with `"http://127.0.0.1:5000/mcp/{toolset_name}/sse"`.
+If you would like to connect to a specific toolset, replace `url` with
+`"http://127.0.0.1:5000/mcp/{toolset_name}/sse"`.
 {{% /tab %}} {{% tab header="HTTP POST" lang="en" %}}
 Connect to Toolbox HTTP POST via `http://127.0.0.1:5000/mcp`.
 
-If you would like to connect to a specific toolset, connect via `http://127.0.0.1:5000/mcp/{toolset_name}`.
+If you would like to connect to a specific toolset, connect via
+`http://127.0.0.1:5000/mcp/{toolset_name}`.
 {{% /tab %}} {{< /tabpane >}}
 
 ### Using the MCP Inspector with Toolbox
@@ -1759,6 +1848,7 @@ testing and debugging Toolbox server.
 
 {{< tabpane text=true >}}
 {{% tab header="STDIO" lang="en" %}}
+
 1. Run Inspector with Toolbox as a subprocess:
 
    ```bash
@@ -1767,7 +1857,8 @@ testing and debugging Toolbox server.
 
 1. For `Transport Type` dropdown menu, select `STDIO`.
 
-1. In `Command`, make sure that it is set to :`./toolbox` (or the correct path to where the Toolbox binary is installed).
+1. In `Command`, make sure that it is set to :`./toolbox` (or the correct path
+   to where the Toolbox binary is installed).
 
 1. In `Arguments`, make sure that it's filled with `--stdio`.
 
@@ -1796,11 +1887,11 @@ testing and debugging Toolbox server.
 
 | Client | SSE Works | MCP Config Docs |
 |--------|--------|--------|
-| Claude Desktop | ✅ | https://modelcontextprotocol.io/quickstart/user#1-download-claude-for-desktop | 
-| MCP Inspector | ✅ | https://github.com/modelcontextprotocol/inspector |
-| Cursor | ✅ | https://docs.cursor.com/context/model-context-protocol |
-| Windsurf | ✅ | https://docs.windsurf.com/windsurf/mcp | 
-| VS Code (Insiders) | ✅ | https://code.visualstudio.com/docs/copilot/chat/mcp-servers |
+| Claude Desktop | ✅ | <https://modelcontextprotocol.io/quickstart/user#1-download-claude-for-desktop> |
+| MCP Inspector | ✅ | <https://github.com/modelcontextprotocol/inspector> |
+| Cursor | ✅ | <https://docs.cursor.com/context/model-context-protocol> |
+| Windsurf | ✅ | <https://docs.windsurf.com/windsurf/mcp> |
+| VS Code (Insiders) | ✅ | <https://code.visualstudio.com/docs/copilot/chat/mcp-servers> |
 
 
 # Deploy to Cloud Run
@@ -1855,7 +1946,6 @@ AlloyDB or Cloud SQL over private IP), make sure your Cloud Run service and the
 database are in the same VPC network.
 {{< /notice >}}
 
-
 ## Create a service account
 
 1. Create a backend service account if you don't already have one:
@@ -1864,7 +1954,7 @@ database are in the same VPC network.
     gcloud iam service-accounts create toolbox-identity
     ```
 
-1.  Grant permissions to use secret manager:
+1. Grant permissions to use secret manager:
 
     ```bash
     gcloud projects add-iam-policy-binding $PROJECT_ID \
@@ -1872,7 +1962,8 @@ database are in the same VPC network.
         --role roles/secretmanager.secretAccessor
     ```
 
-1. Grant additional permissions to the service account that are specific to the source, e.g.:
+1. Grant additional permissions to the service account that are specific to the
+   source, e.g.:
     - [AlloyDB for PostgreSQL](../resources/sources/alloydb-pg.md#iam-permissions)
     - [Cloud SQL for PostgreSQL](../resources/sources/cloud-sql-pg.md#iam-permissions)
 
@@ -1898,7 +1989,8 @@ section.
     gcloud secrets versions add tools --data-file=tools.yaml
     ```
 
-1. Set an environment variable to the container image that you want to use for cloud run:
+1. Set an environment variable to the container image that you want to use for
+   cloud run:
 
     ```bash
     export IMAGE=us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:latest
@@ -1935,12 +2027,14 @@ section.
 
 You can connect to Toolbox Cloud Run instances directly through the SDK
 
-1. [Set up `Cloud Run Invoker` role access](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) to your Cloud Run service.
+1. [Set up `Cloud Run Invoker` role
+   access](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals)
+   to your Cloud Run service.
 
 1. Set up [Application Default
    Credentials](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
    for the principle you set up the `Cloud Run Invoker` role access to.
-   
+
     {{< notice tip >}}
   If you're working in some other environment than local, set up [environment
     specific Default
@@ -1977,7 +2071,6 @@ How to set up and configure Toolbox to deploy on Kubernetes with Google Kubernet
 
 ## Before you begin
 
-
 1. Set the PROJECT_ID environment variable:
 
     ```bash
@@ -2009,7 +2102,6 @@ How to set up and configure Toolbox to deploy on Kubernetes with Google Kubernet
     kubectl version --client
     ```
 
-
 1. If needed, install `kubectl` component using the Google Cloud CLI:
 
    ```bash
@@ -2030,7 +2122,7 @@ How to set up and configure Toolbox to deploy on Kubernetes with Google Kubernet
     gcloud iam service-accounts create $SA_NAME
     ```
 
-1.  Grant any IAM roles necessary to the IAM service account. Each source have a
+1. Grant any IAM roles necessary to the IAM service account. Each source have a
     list of necessary IAM permissions listed on it's page. The example below is
     for cloud sql postgres source:
 
@@ -2222,6 +2314,7 @@ How to set up and configure Toolbox to deploy on Kubernetes with Google Kubernet
     ```
 
 ## Clean up resources
+
 1. Delete secret.
 
     ```bash
@@ -2253,7 +2346,6 @@ How to deploy Toolbox using Docker Compose.
 
 
 <!-- Contributor: Sujith R Pillai <sujithrpillai@gmail.com> -->
-
 
 ## Before you begin
 
@@ -2320,15 +2412,12 @@ networks:
     docker-compose up -d
     ```
 
-
 {{< notice tip >}}
 
 You can use this setup quickly set up Toolbox + Postgres to follow along in our
 [Quickstart](../getting-started/local_quickstart.md)
 
 {{< /notice >}}
-
-
 
 ## Connecting with Toolbox Client SDK
 
@@ -2347,17 +2436,17 @@ Next, we will use Toolbox with the Client SDKs:
 from toolbox_langchain import ToolboxClient
 
 # Replace with the cloud run service URL generated above
+
 async with ToolboxClient("http://$YOUR_URL") as toolbox:
 {{< /tab >}}
 {{< tab header="Llamaindex" lang="Python" >}}
 from toolbox_llamaindex import ToolboxClient
 
 # Replace with the cloud run service URL generated above
+
 async with ToolboxClient("http://$YOUR_URL") as toolbox:
 {{< /tab >}}
 {{< /tabpane >}}
-
-
 
 
 # Export Telemetry
@@ -2378,6 +2467,7 @@ the need to run, operate, and maintain multiple agents/collectors.
 To configure the collector, you will have to provide a configuration file. The
 configuration file consists of four classes of pipeline component that access
 telemetry data.
+
 - `Receivers`
 - `Processors`
 - `Exporters`
@@ -2525,7 +2615,9 @@ token you will provide a function (that returns an id). This function is called
 when the tool is invoked. This allows you to cache and refresh the ID token as
 needed.
 
-The primary method for providing these getters is via the `auth_token_getters` parameter when loading tools, or the `add_auth_token_getter`() / `add_auth_token_getters()` methods on a loaded tool object.
+The primary method for providing these getters is via the `auth_token_getters`
+parameter when loading tools, or the `add_auth_token_getter`() /
+`add_auth_token_getters()` methods on a loaded tool object.
 
 ### Specifying tokens during load
 
@@ -2540,7 +2632,7 @@ async def get_auth_token():
     return "YOUR_ID_TOKEN" # Placeholder
 
 async def main():
-    async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    async with ToolboxClient("<http://127.0.0.1:5000>") as toolbox:
         auth_tool = await toolbox.load_tool(
             "get_sensitive_data",
             auth_token_getters={"my_auth_app_1": get_auth_token}
@@ -2548,7 +2640,7 @@ async def main():
         result = await auth_tool(param="value")
         print(result)
 
-if __name__ == "__main__":
+if **name** == "**main**":
     asyncio.run(main())
 {{< /tab >}}
 {{< tab header="LangChain" lang="Python" >}}
@@ -2561,7 +2653,7 @@ async def get_auth_token():
     return "YOUR_ID_TOKEN" # Placeholder
 
 async def main():
-    toolbox = ToolboxClient("http://127.0.0.1:5000")
+    toolbox = ToolboxClient("<http://127.0.0.1:5000>")
 
     auth_tool = await toolbox.aload_tool(
         "get_sensitive_data",
@@ -2570,7 +2662,7 @@ async def main():
     result = await auth_tool.ainvoke({"param": "value"})
     print(result)
 
-if __name__ == "__main__":
+if **name** == "**main**":
     asyncio.run(main())
 {{< /tab >}}
 {{< tab header="Llamaindex" lang="Python" >}}
@@ -2583,7 +2675,7 @@ async def get_auth_token():
     return "YOUR_ID_TOKEN" # Placeholder
 
 async def main():
-    toolbox = ToolboxClient("http://127.0.0.1:5000")
+    toolbox = ToolboxClient("<http://127.0.0.1:5000>")
 
     auth_tool = await toolbox.aload_tool(
         "get_sensitive_data",
@@ -2592,7 +2684,7 @@ async def main():
     # result = await auth_tool.acall(param="value")
     # print(result.content)
 
-if __name__ == "__main__":
+if **name** == "**main**":
     asyncio.run(main()){{< /tab >}}
 {{< /tabpane >}}
 
@@ -2811,8 +2903,8 @@ To connect using IAM authentication:
 1. Prepare your database instance and user following this [guide][iam-guide].
 2. You could choose one of the two ways to log in:
     - Specify your IAM email as the `user`.
-    - Leave your `user` field blank. Toolbox
-            will fetch the [ADC][adc] automatically and log in using the email associated with it.
+    - Leave your `user` field blank. Toolbox will fetch the [ADC][adc]
+      automatically and log in using the email associated with it.
 3. Leave the `password` field blank.
 
 [iam-guide]: https://cloud.google.com/alloydb/docs/database-users/manage-iam-auth
@@ -3167,8 +3259,8 @@ To connect using IAM authentication:
 1. Prepare your database instance and user following this [guide][iam-guide].
 2. You could choose one of the two ways to log in:
     - Specify your IAM email as the `user`.
-    - Leave your `user` field blank. Toolbox
-            will fetch the [ADC][adc] automatically and log in using the email associated with it.
+    - Leave your `user` field blank. Toolbox will fetch the [ADC][adc]
+      automatically and log in using the email associated with it.
 
 3. Leave the `password` field blank.
 
@@ -3197,16 +3289,16 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field** | **type** | **required** | **description**                                                                             |
-|-----------|:--------:|:------------:|---------------------------------------------------------------------------------------------|
-| kind      |  string  |     true     | Must be "cloud-sql-postgres".                                                               |
-| project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").               |
-| region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                |
-| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                     |
-| database  |  string  |     true     | Name of the Postgres database to connect to (e.g. "my_db").                                 |
-| user      |  string  |     false     | Name of the Postgres user to connect as (e.g. "my-pg-user"). Defaults to IAM auth using [ADC][adc] email if unspecified.                               |
-| password  |  string  |     false     | Password of the Postgres user (e.g. "my-password"). Defaults to attempting IAM authentication if unspecified.                                        |
-| ipType    |  string  |    false     | IP Type of the Cloud SQL instance; must be one of `public` or `private`. Default: `public`. |
+| **field** | **type** | **required** | **description**                                                                                                          |
+|-----------|:--------:|:------------:|--------------------------------------------------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "cloud-sql-postgres".                                                                                            |
+| project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").                                            |
+| region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                                             |
+| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                                                  |
+| database  |  string  |     true     | Name of the Postgres database to connect to (e.g. "my_db").                                                              |
+| user      |  string  |     false    | Name of the Postgres user to connect as (e.g. "my-pg-user"). Defaults to IAM auth using [ADC][adc] email if unspecified. |
+| password  |  string  |     false    | Password of the Postgres user (e.g. "my-password"). Defaults to attempting IAM authentication if unspecified.            |
+| ipType    |  string  |     false    | IP Type of the Cloud SQL instance; must be one of `public` or `private`. Default: `public`.                              |
 
 
 # Cloud SQL for SQL Server
@@ -3269,8 +3361,8 @@ mTLS.
 
 ### Database User
 
-Currently, this source only uses standard authentication. You will need to [create a
-SQL Server user][cloud-sql-users] to login to the database with.
+Currently, this source only uses standard authentication. You will need to
+[create a SQL Server user][cloud-sql-users] to login to the database with.
 
 [cloud-sql-users]: https://cloud.google.com/sql/docs/sqlserver/create-manage-users
 
@@ -3302,7 +3394,7 @@ instead of hardcoding your secrets into the configuration file.
 | kind      |  string  |     true     | Must be "cloud-sql-mssql".                                                                  |
 | project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").               |
 | region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                |
-| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                      |
+| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                     |
 | database  |  string  |     true     | Name of the Cloud SQL database to connect to (e.g. "my_db").                                |
 | ipAddress |  string  |     true     | IP address of the Cloud SQL instance to connect to.                                         |
 | user      |  string  |     true     | Name of the SQL Server user to connect as (e.g. "my-pg-user").                              |
@@ -3316,7 +3408,8 @@ A "couchbase" source connects to a Couchbase database.
 
 ## About
 
-A `couchbase` source establishes a connection to a Couchbase database cluster, allowing tools to execute SQL queries against it.
+A `couchbase` source establishes a connection to a Couchbase database cluster,
+allowing tools to execute SQL queries against it.
 
 ## Example
 
@@ -3333,21 +3426,21 @@ sources:
 
 ## Reference
 
-| **field**           | **type** | **required** | **description**                                                                                                             |
-|---------------------|:--------:|:------------:|-----------------------------------------------------------------------------------------------------------------------------|
-| kind                | string   |    true      | Must be "couchbase".                                                                                                         |
-| connectionString   | string   |    true      | Connection string for the Couchbase cluster.                                                                                |
-| bucket              | string   |    true      | Name of the bucket to connect to.                                                                                           |
-| scope               | string   |    true      | Name of the scope within the bucket.                                                                                        |
-| username            | string   |    false     | Username for authentication.                                                                                                |
-| password            | string   |    false     | Password for authentication.                                                                                                |
-| clientCert         | string   |    false     | Path to client certificate file for TLS authentication.                                                                     |
-| clientCertPassword| string   |    false     | Password for the client certificate.                                                                                        |
-| clientKey          | string   |    false     | Path to client key file for TLS authentication.                                                                             |
-| clientKeyPassword | string   |    false     | Password for the client key.                                                                                                |
-| caCert             | string   |    false     | Path to CA certificate file.                                                                                                |
-| noSslVerify       | boolean  |    false     | If true, skip server certificate verification. **Warning:** This option should only be used in development or testing environments. Disabling SSL verification poses significant security risks in production as it makes your connection vulnerable to man-in-the-middle attacks. |
-| profile             | string   |    false     | Name of the connection profile to apply.                                                                                    |
+| **field**            | **type** | **required** | **description**                                         |
+|----------------------|:--------:|:------------:|---------------------------------------------------------|
+| kind                 | string   |    true      | Must be "couchbase".                                    |
+| connectionString     | string   |    true      | Connection string for the Couchbase cluster.            |
+| bucket               | string   |    true      | Name of the bucket to connect to.                       |
+| scope                | string   |    true      | Name of the scope within the bucket.                    |
+| username             | string   |    false     | Username for authentication.                            |
+| password             | string   |    false     | Password for authentication.                            |
+| clientCert           | string   |    false     | Path to client certificate file for TLS authentication. |
+| clientCertPassword   | string   |    false     | Password for the client certificate.                    |
+| clientKey            | string   |    false     | Path to client key file for TLS authentication.         |
+| clientKeyPassword    | string   |    false     | Password for the client key.                            |
+| caCert               | string   |    false     | Path to CA certificate file.                            |
+| noSslVerify          | boolean  |    false     | If true, skip server certificate verification. **Warning:** This option should only be used in development or testing environments. Disabling SSL verification poses significant security risks in production as it makes your connection vulnerable to man-in-the-middle attacks. |
+| profile              | string   |    false     | Name of the connection profile to apply.                |
 | queryScanConsistency | integer  |    false     | Query scan consistency. Controls the consistency guarantee for index scanning. Values: 1 for "not_bounded" (fastest option, but results may not include the most recent operations), 2 for "request_plus" (highest consistency level, includes all operations up until the query started, but incurs a performance penalty). If not specified, defaults to the Couchbase Go SDK default. |
 
 
@@ -3357,7 +3450,10 @@ Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
 
 ## About
 
-[Dgraph][dgraph-docs] is an open-source graph database. It is designed for real-time workloads, horizontal scalability, and data flexibility. Implemented as a distributed system, Dgraph processes queries in parallel to deliver the fastest result.
+[Dgraph][dgraph-docs] is an open-source graph database. It is designed for
+real-time workloads, horizontal scalability, and data flexibility. Implemented
+as a distributed system, Dgraph processes queries in parallel to deliver the
+fastest result.
 
 This source can connect to either a self-managed Dgraph cluster or one hosted on
 Dgraph Cloud. If you're new to Dgraph, the fastest way to get started is to
@@ -3400,7 +3496,7 @@ instead of hardcoding your secrets into the configuration file.
 | **Field**   | **Type** | **Required** | **Description**                                                                                  |
 |-------------|:--------:|:------------:|--------------------------------------------------------------------------------------------------|
 | kind        |  string  |     true     | Must be "dgraph".                                                                                |
-| dgraphUrl   |  string  |     true     | Connection URI (e.g. "<https://xxx.cloud.dgraph.io>", "<https://localhost:8080>").                   |
+| dgraphUrl   |  string  |     true     | Connection URI (e.g. "<https://xxx.cloud.dgraph.io>", "<https://localhost:8080>").               |
 | user        |  string  |     false    | Name of the Dgraph user to connect as (e.g., "groot").                                           |
 | password    |  string  |     false    | Password of the Dgraph user (e.g., "password").                                                  |
 | apiKey      |  string  |     false    | API key to connect to a Dgraph Cloud instance.                                                   |
@@ -3609,15 +3705,21 @@ Redis is an open-source, in-memory data structure store.
 
 ## About
 
-Redis is an open-source, in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.
+Redis is an open-source, in-memory data structure store, used as a database,
+cache, and message broker. It supports data structures such as strings, hashes,
+lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and
+geospatial indexes with radius queries.
 
-If you are new to Redis, you can find installation and getting started guides on the [official Redis website](https://redis.io/docs/getting-started/).
+If you are new to Redis, you can find installation and getting started guides on
+the [official Redis website](https://redis.io/docs/getting-started/).
 
 ## Requirements
 
 ### Redis
 
-[AUTH string][auth] is a password for connection to Redis. If you have the `requirepass` directive set in your Redis configuration, incoming client connections must authenticate in order to connect.
+[AUTH string][auth] is a password for connection to Redis. If you have the
+`requirepass` directive set in your Redis configuration, incoming client
+connections must authenticate in order to connect.
 
 Specify your AUTH string in the password field:
 
@@ -3657,8 +3759,8 @@ sources:
      # clusterEnabled: false
 ```
 
-Memorystore Redis Cluster supports IAM authentication instead. Grant your account the
-required [IAM role][iam] and make sure to set `useGCPIAM` to `true`.
+Memorystore Redis Cluster supports IAM authentication instead. Grant your
+account the required [IAM role][iam] and make sure to set `useGCPIAM` to `true`.
 
 Here is an example tools.yaml config for Memorystore Redis Cluster instances
 using IAM authentication:
@@ -3812,6 +3914,7 @@ database management system. The lite in SQLite means lightweight in terms of
 setup, database administration, and required resources.
 
 SQLite has the following notable characteristics:
+
 - Self-contained with no external dependencies
 - Serverless - the SQLite library accesses its storage files directly
 - Single database file that can be easily copied or moved
@@ -3823,6 +3926,7 @@ SQLite has the following notable characteristics:
 ### Database File
 
 You need a SQLite database file. This can be:
+
 - An existing database file
 - A path where a new database file should be created
 - `:memory:` for an in-memory database
@@ -3837,6 +3941,7 @@ sources:
 ```
 
 For an in-memory database:
+
 ```yaml
 sources:
     my-sqlite-memory-db:
@@ -3848,16 +3953,18 @@ sources:
 
 ### Configuration Fields
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| kind | string | Yes | Must be "sqlite" |
-| database | string | Yes | Path to SQLite database file, or ":memory:" for an in-memory database |
+| **field** | **type** | **required** | **description**                                                                                                     |
+|-----------|:--------:|:------------:|---------------------------------------------------------------------------------------------------------------------|
+| kind      |  string  |     true     | Must be "spanner".                                                                                                  |
+| database  |  string  |     true     | Path to SQLite database file, or ":memory:" for an in-memory database.                                              |
 
 ### Connection Properties
 
 SQLite connections are configured with these defaults for optimal performance:
+
 - `MaxOpenConns`: 1 (SQLite only supports one writer at a time)
 - `MaxIdleConns`: 1
+
 
 # Valkey
 Valkey is an open-source, in-memory data structure store, forked from Redis.
@@ -3865,9 +3972,14 @@ Valkey is an open-source, in-memory data structure store, forked from Redis.
 
 ## About
 
-Valkey is an open-source, in-memory data structure store that originated as a fork of Redis. It's designed to be used as a database, cache, and message broker, supporting a wide range of data structures like strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial indexes with radius queries.
+Valkey is an open-source, in-memory data structure store that originated as a
+fork of Redis. It's designed to be used as a database, cache, and message
+broker, supporting a wide range of data structures like strings, hashes, lists,
+sets, sorted sets with range queries, bitmaps, hyperloglogs, and geospatial
+indexes with radius queries.
 
-If you're new to Valkey, you can find installation and getting started guides on the [official Valkey website](https://valkey.io/docs/getting-started/).
+If you're new to Valkey, you can find installation and getting started guides on
+the [official Valkey website](https://valkey.io/docs/getting-started/).
 
 ## Example
 
@@ -3927,7 +4039,6 @@ A tool represents an action your agent can take, such as running a SQL
 statement. You can define Tools as a map in the `tools` section of your
 `tools.yaml` file. Typically, a tool will require a source to act on:
 
-
 ```yaml
 tools:
  search_flights_by_number:
@@ -3965,7 +4076,6 @@ tools:
         type: string
         description: 1 to 4 digit number
 ```
-
 
 ## Specifying Parameters
 
@@ -4005,7 +4115,7 @@ the parameter.
 ### Array Parameters
 
 The `array` type is a list of items passed in as a single parameter.
-To use the `array` type, you must also specify what kind of items are 
+To use the `array` type, you must also specify what kind of items are
 in the list using the items field:
 
 ```yaml
@@ -4036,11 +4146,12 @@ Items in array should not have a default value. If provided, it will be ignored.
 ### Authenticated Parameters
 
 Authenticated parameters are automatically populated with user
-information decoded from [ID tokens](../authsources/#specifying-id-tokens-from-clients) that
-are passed in request headers. They do not take input values in request bodies
-like other parameters. To use authenticated parameters, you must configure 
-the tool to map the required [authServices](../authservices) to 
-specific claims within the user's ID token.
+information decoded from [ID
+tokens](../authsources/#specifying-id-tokens-from-clients) that are passed in
+request headers. They do not take input values in request bodies like other
+parameters. To use authenticated parameters, you must configure the tool to map
+the required [authServices](../authservices) to specific claims within the
+user's ID token.
 
 ```yaml
   tools:
@@ -4067,20 +4178,22 @@ specific claims within the user's ID token.
 
 ### Template Parameters
 
-Template parameters types include `string`, `integer`, `float`, `boolean` types. In
-most cases, the description will be provided to the LLM as context on specifying
-the parameter. Template parameters will be inserted into the SQL statement before
-executing the prepared statement. They will be inserted without quotes, so to
-insert a string using template parameters, quotes must be explicitly added within
-the string.
+Template parameters types include `string`, `integer`, `float`, `boolean` types.
+In most cases, the description will be provided to the LLM as context on
+specifying the parameter. Template parameters will be inserted into the SQL
+statement before executing the prepared statement. They will be inserted without
+quotes, so to insert a string using template parameters, quotes must be
+explicitly added within the string.
 
 Template parameter arrays can also be used similarly to basic parameters, and array
-items must be strings. Once inserted into the SQL statement, the outer layer of quotes
-will be removed. Therefore to insert strings into the SQL statement, a set of quotes 
-must be explicitly added within the string.
+items must be strings. Once inserted into the SQL statement, the outer layer of
+quotes will be removed. Therefore to insert strings into the SQL statement, a
+set of quotes must be explicitly added within the string.
 
 {{< notice warning >}}
-Because template parameters can directly replace identifiers, column names, and table names, they are prone to SQL injections. Basic parameters are preferred for performance and safety reasons.
+Because template parameters can directly replace identifiers, column names, and
+table names, they are prone to SQL injections. Basic parameters are preferred
+for performance and safety reasons.
 {{< /notice >}}
 
 ```yaml
@@ -4150,18 +4263,20 @@ Language][alloydb-ai-nl-overview] support to allow an Agent the ability to query
 the database directly using natural language. Natural language streamlines the
 development of generative AI applications by transferring the complexity of
 converting natural language to SQL from the application layer to the database
-layer. 
+layer.
 
 This tool is compatible with the following sources:
+
 - [alloydb-postgres](../sources/alloydb-pg.md)
 
-AlloyDB AI Natural Language delivers secure and accurate responses for 
-application end user natural language questions. Natural language streamlines 
-the development of generative AI applications by transferring the complexity 
-of converting natural language to SQL from the application layer to the 
+AlloyDB AI Natural Language delivers secure and accurate responses for
+application end user natural language questions. Natural language streamlines
+the development of generative AI applications by transferring the complexity
+of converting natural language to SQL from the application layer to the
 database layer.
 
 ## Requirements
+
 {{< notice tip >}} AlloyDB AI natural language is currently in gated public
 preview. For more information on availability and limitations, please see
 [AlloyDB AI natural language overview](https://cloud.google.com/alloydb/docs/ai/natural-language-overview)
@@ -4175,16 +4290,16 @@ context for your application.
 [alloydb-ai-nl-overview]: https://cloud.google.com/alloydb/docs/ai/natural-language-overview
 [alloydb-ai-gen-nl]: https://cloud.google.com/alloydb/docs/ai/generate-sql-queries-natural-language
 
-
 ## Configuration
-	
+
 ### Specifying an `nl_config`
+
 A `nl_config` is a configuration that associates an application to schema
 objects, examples and other contexts that can be used. A large application can
 also use different configurations for different parts of the app, as long as the
 correct configuration can be specified when a question is sent from that part of
 the application.
-	
+
 Once you've followed the steps for configuring context, you can use the
 `context` field when configuring a `alloydb-ai-nl` tool. When this tool is
 invoked, the SQL will be generated and executed using this context.
@@ -4194,7 +4309,7 @@ invoked, the SQL will be generated and executed using this context.
 [Parameterized Secure Views (PSVs)][alloydb-psv] are a feature unique to AlloyDB
 that allows you allow you to require one or more named parameter values passed
 to the view when querying it, somewhat like bind variables with ordinary
-database queries. 
+database queries.
 
 You can use the `nlConfigParameters` to list the parameters required for your
 `nl_config`. You **must** supply all parameters required for all PSVs in the
@@ -4265,7 +4380,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-execute-sql".                                                                  |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4281,7 +4396,7 @@ It's compatible with the following sources:
 
 - [bigquery](../sources/bigquery.md)
 
-bigquery-get-dataset-info takes a dataset parameter to specify the dataset 
+bigquery-get-dataset-info takes a dataset parameter to specify the dataset
 on the given source.
 
 ## Example
@@ -4298,7 +4413,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-get-dataset-info".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-get-dataset-info".                                                             |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4314,7 +4429,7 @@ It's compatible with the following sources:
 
 - [bigquery](../sources/bigquery.md)
 
-bigquery-get-table-info takes dataset and table parameters to specify 
+bigquery-get-table-info takes dataset and table parameters to specify
 the target table.
 
 ## Example
@@ -4331,7 +4446,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-get-table-info".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-get-table-info".                                                               |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4347,7 +4462,7 @@ It's compatible with the following sources:
 
 - [bigquery](../sources/bigquery.md)
 
-bigquery-list-dataset-ids requires no input parameters beyond the configured 
+bigquery-list-dataset-ids requires no input parameters beyond the configured
 source.
 
 ## Example
@@ -4364,7 +4479,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-list-dataset-ids".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-list-dataset-ids".                                                             |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4397,7 +4512,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "bigquery-list-table-ids".                                                                          |
+| kind        |                   string                   |     true     | Must be "bigquery-list-table-ids".                                                               |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -4407,7 +4522,8 @@ A "bigquery-sql" tool executes a pre-defined SQL statement.
 
 
 ## About
-A `bigquery-sql` tool executes a pre-defined SQL statement. It's compatible with 
+
+A `bigquery-sql` tool executes a pre-defined SQL statement. It's compatible with
 the following sources:
 
 - [bigquery](../sources/bigquery.md)
@@ -4500,6 +4616,7 @@ tools:
 | statement          |                   string                         |     true     | The GoogleSQL statement to execute.                                                                                                        |
 | parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+
 
 # bigtable-sql
 A "bigtable-sql" tool executes a pre-defined SQL statement against a Google  Cloud Bigtable instance.
@@ -4707,6 +4824,7 @@ tools:
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 | authRequired       |                array[string]                     |    false     | List of auth services that are required to use this tool.                                                                                  |
 
+
 # dgraph-dql
 A "dgraph-dql" tool executes a pre-defined DQL statement against a Dgraph database.
 
@@ -4821,8 +4939,8 @@ tools:
 | source      |                   string                   |     true     | Name of the source the dql query should execute on.                                          |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                           |
 | statement   |                   string                   |     true     | dql statement to execute                                                                     |
-| isQuery     |                  boolean                   |    false     | To run statement as query set true otherwise false                                            |
-| timeout     |                   string                   |    false     | To set timeout for query                                                                      |
+| isQuery     |                  boolean                   |    false     | To run statement as query set true otherwise false                                           |
+| timeout     |                   string                   |    false     | To set timeout for query                                                                     |
 | parameters  | [parameters](_index#specifying-parameters) |    false     | List of [parameters](_index#specifying-parameters) that will be used with the dql statement. |
 
 
@@ -4834,8 +4952,10 @@ A "http" tool sends out an HTTP request to an HTTP endpoint.
 ## About
 
 The `http` tool allows you to make HTTP requests to APIs to retrieve data.
-An HTTP request is the method by which a client communicates with a server to retrieve or manipulate resources.
-Toolbox allows you to configure the request URL, method, headers, query parameters, and the request body for an HTTP Tool.
+An HTTP request is the method by which a client communicates with a server to
+retrieve or manipulate resources.
+Toolbox allows you to configure the request URL, method, headers, query
+parameters, and the request body for an HTTP Tool.
 
 ### URL
 
@@ -4844,9 +4964,11 @@ Toolbox composes the request URL from 3 places:
 
 1. The HTTP Source's `baseUrl`.
 2. The HTTP Tool's `path` field.
-3. The HTTP Tool's `pathParams` for dynamic path composed during Tool invocation.
+3. The HTTP Tool's `pathParams` for dynamic path composed during Tool
+   invocation.
 
-For example, the following config allows you to reach different paths of the same server using multiple Tools:
+For example, the following config allows you to reach different paths of the
+same server using multiple Tools:
 
 ```yaml
 sources:
@@ -4884,11 +5006,15 @@ tools:
 
 ### Headers
 
-An HTTP request header is a key-value pair sent by a client to a server, providing additional information about the request, such as the client's preferences, the request body content type, and other metadata.
-Headers specified by the HTTP Tool are combined with its HTTP Source headers for the resulting HTTP request, and override the Source headers in case of conflict.
+An HTTP request header is a key-value pair sent by a client to a server,
+providing additional information about the request, such as the client's
+preferences, the request body content type, and other metadata.
+Headers specified by the HTTP Tool are combined with its HTTP Source headers for
+the resulting HTTP request, and override the Source headers in case of conflict.
 The HTTP Tool allows you to specify headers in two different ways:
 
-- Static headers can be specified using the `headers` field, and will be the same for every invocation:
+- Static headers can be specified using the `headers` field, and will be the
+  same for every invocation:
 
 ```yaml
 my-http-tool:
@@ -4902,7 +5028,9 @@ my-http-tool:
       Content-Type: application/json
 ```
 
-- Dynamic headers can be specified as parameters in the `headerParams` field. The `name` of the `headerParams` will be used as the header key, and the value is determined by the LLM input upon Tool invocation:
+- Dynamic headers can be specified as parameters in the `headerParams` field.
+  The `name` of the `headerParams` will be used as the header key, and the value
+  is determined by the LLM input upon Tool invocation:
 
 ```yaml
 my-http-tool:
@@ -4919,9 +5047,12 @@ my-http-tool:
 
 ### Query parameters
 
-Query parameters are key-value pairs appended to a URL after a question mark (?) to provide additional information to the server for processing the request, like filtering or sorting data.
+Query parameters are key-value pairs appended to a URL after a question mark (?)
+to provide additional information to the server for processing the request, like
+filtering or sorting data.
 
-- Static request query parameters should be specified in the `path` as part of the URL itself:
+- Static request query parameters should be specified in the `path` as part of
+  the URL itself:
 
 ```yaml
 my-http-tool:
@@ -4932,7 +5063,8 @@ my-http-tool:
     description: Tool to search for item with ID 1 in English
 ```
 
-- Dynamic request query parameters should be specified as parameters in the `queryParams` section:
+- Dynamic request query parameters should be specified as parameters in the
+  `queryParams` section:
 
 ```yaml
 my-http-tool:
@@ -4949,8 +5081,11 @@ my-http-tool:
 
 ### Request body
 
-The request body payload is a string that supports parameter replacement following [Go template][go-template-doc]'s annotations.
-The parameter names in the `requestBody` should be preceded by "." and enclosed by double curly brackets "{{}}". The values will be populated into the request body payload upon Tool invocation.
+The request body payload is a string that supports parameter replacement
+following [Go template][go-template-doc]'s annotations.
+The parameter names in the `requestBody` should be preceded by "." and enclosed
+by double curly brackets "{{}}". The values will be populated into the request
+body payload upon Tool invocation.
 
 Example:
 
@@ -4977,14 +5112,17 @@ my-http-tool:
 
 #### Formatting Parameters
 
-Some complex parameters (such as arrays) may require additional formatting to match the expected output. For convenience, you can specify one of the following pre-defined functions before the parameter name to format it:
+Some complex parameters (such as arrays) may require additional formatting to
+match the expected output. For convenience, you can specify one of the following
+pre-defined functions before the parameter name to format it:
 
 ##### JSON
 
 The `json` keyword converts a parameter into a JSON format.
 
 {{< notice note >}}
-Using JSON may add quotes to the variable name for certain types (such as strings).
+Using JSON may add quotes to the variable name for certain types (such as
+strings).
 {{< /notice >}}
 
 Example:
@@ -5092,6 +5230,7 @@ tools:
     source: my-mssql-instance
     description: Use this tool to execute sql statement.
 ```
+
 ## Reference
 
 | **field**   |                  **type**                  | **required** | **description**                                    |
@@ -5206,6 +5345,7 @@ tools:
 | parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
+
 # mysql-execute-sql
 A "mysql-execute-sql" tool executes a SQL statement against a MySQL database.
 
@@ -5238,7 +5378,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "mysql-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "mysql-execute-sql".                                                                     |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -5342,6 +5482,7 @@ tools:
 | statement          |                   string                         |     true     | SQL statement to execute on.                                                                                                               |
 | parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+
 
 # neo4j-cypher
 A "neo4j-cypher" tool executes a pre-defined cypher statement against a Neo4j database.
@@ -5448,7 +5589,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "postgres-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "postgres-execute-sql".                                                                  |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 
@@ -5568,8 +5709,8 @@ A redis tool executes a series of pre-defined Redis commands against a
 Redis source.
 
 The specified Redis commands are executed sequentially. Each command is
-represented as a string list, where the first element is the command name (e.g., SET,
-GET, HGETALL) and subsequent elements are its arguments.
+represented as a string list, where the first element is the command name (e.g.,
+SET, GET, HGETALL) and subsequent elements are its arguments.
 
 ### Dynamic Command Parameters
 
@@ -5643,7 +5784,7 @@ tools:
 
 | **field**   |                  **type**                  | **required** | **description**                                                                                  |
 |-------------|:------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------|
-| kind        |                   string                   |     true     | Must be "spanner-execute-sql".                                                                          |
+| kind        |                   string                   |     true     | Must be "spanner-execute-sql".                                                                   |
 | source      |                   string                   |     true     | Name of the source the SQL should execute on.                                                    |
 | description |                   string                   |     true     | Description of the tool that is passed to the LLM.                                               |
 | readOnly    |                   bool                     |     false    | When set to `true`, the `statement` is run as a read-only transaction. Default: `false`.         |
@@ -5810,6 +5951,7 @@ tools:
 | readOnly           |                   bool                           |    false     | When set to `true`, the `statement` is run as a read-only transaction. Default: `false`.                                                   |
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
+
 # sqlite-sql
 Execute SQL statements against a SQLite database.
 
@@ -5878,17 +6020,17 @@ tools:
         description: Table to select from
 ```
 
-
 ## Reference
 
 | **field**          |                  **type**                        | **required** | **description**                                                                                                                            |
 |--------------------|:------------------------------------------------:|:------------:|--------------------------------------------------------------------------------------------------------------------------------------------|
-| kind               |                   string                         |     true     | Must be "sqlite-sql".                                                                                                                    |
+| kind               |                   string                         |     true     | Must be "sqlite-sql".                                                                                                                      |
 | source             |                   string                         |     true     | Name of the source the SQLite source configuration.                                                                                        |
 | description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
-| statement          |                   string                         |     true     | The SQL statement to execute.                                                                                                        |
+| statement          |                   string                         |     true     | The SQL statement to execute.                                                                                                              |
 | parameters         | [parameters](_index#specifying-parameters)       |    false     | List of [parameters](_index#specifying-parameters) that will be inserted into the SQL statement.                                           |
 | templateParameters | [templateParameters](_index#template-parameters) |    false     | List of [templateParameters](_index#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+
 
 # valkey
 A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
@@ -5900,8 +6042,8 @@ A valkey tool executes a series of pre-defined Valkey commands against a
 Memorystore for Valkey instance.
 
 The specified Valkey commands are executed sequentially. Each command is
-represented as a string array, where the first element is the command name (e.g., SET,
-GET, HGETALL) and subsequent elements are its arguments.
+represented as a string array, where the first element is the command name
+(e.g., SET, GET, HGETALL) and subsequent elements are its arguments.
 
 ### Dynamic Command Parameters
 
@@ -5957,49 +6099,69 @@ How to get started with Toolbox using BigQuery.
 How to get started running Toolbox locally with Python, BigQuery, and  LangGraph, LlamaIndex, or ADK.
 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb)
+[![Open In
+Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb)
+
 ## Before you begin
 
 This guide assumes you have already done the following:
 
-1.  Installed [Python 3.9+][install-python] (including [pip][install-pip] and
-    your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv]).
-1.  Installed and configured the [Google Cloud SDK (gcloud CLI)][install-gcloud].
-1.  Authenticated with Google Cloud for Application Default Credentials (ADC):
+1. Installed [Python 3.9+][install-python] (including [pip][install-pip] and
+    your preferred virtual environment tool for managing dependencies e.g.
+    [venv][install-venv]).
+1. Installed and configured the [Google Cloud SDK (gcloud CLI)][install-gcloud].
+1. Authenticated with Google Cloud for Application Default Credentials (ADC):
+
     ```bash
     gcloud auth login --update-adc
     ```
-1.  Set your default Google Cloud project (replace `YOUR_PROJECT_ID` with your actual project ID):
+
+1. Set your default Google Cloud project (replace `YOUR_PROJECT_ID` with your
+   actual project ID):
+
     ```bash
     gcloud config set project YOUR_PROJECT_ID
     export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
     ```
-    Toolbox and the client libraries will use this project for BigQuery, unless overridden in configurations.
-1.  [Enabled the BigQuery API][enable-bq-api] in your Google Cloud project.
-1.  Installed the BigQuery client library for Python:
+
+    Toolbox and the client libraries will use this project for BigQuery, unless
+    overridden in configurations.
+1. [Enabled the BigQuery API][enable-bq-api] in your Google Cloud project.
+1. Installed the BigQuery client library for Python:
+
     ```bash
     pip install google-cloud-bigquery
     ```
+
 1. Completed setup for usage with an LLM model such as
 {{< tabpane text=true persist=header >}}
 {{% tab header="Core" lang="en" %}}
-- [langchain-vertexai](https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup) package.
 
-- [langchain-google-genai](https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup) package.
+- [langchain-vertexai](https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup)
+  package.
 
-- [langchain-anthropic](https://python.langchain.com/docs/integrations/chat/anthropic/#setup) package.
+- [langchain-google-genai](https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup)
+  package.
+
+- [langchain-anthropic](https://python.langchain.com/docs/integrations/chat/anthropic/#setup)
+  package.
 {{% /tab %}}
 {{% tab header="LangChain" lang="en" %}}
-- [langchain-vertexai](https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup) package.
+- [langchain-vertexai](https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm/#setup)
+  package.
 
-- [langchain-google-genai](https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup) package.
+- [langchain-google-genai](https://python.langchain.com/docs/integrations/chat/google_generative_ai/#setup)
+  package.
 
-- [langchain-anthropic](https://python.langchain.com/docs/integrations/chat/anthropic/#setup) package.
+- [langchain-anthropic](https://python.langchain.com/docs/integrations/chat/anthropic/#setup)
+  package.
 {{% /tab %}}
 {{% tab header="LlamaIndex" lang="en" %}}
-- [llama-index-llms-google-genai](https://pypi.org/project/llama-index-llms-google-genai/) package.
+- [llama-index-llms-google-genai](https://pypi.org/project/llama-index-llms-google-genai/)
+  package.
 
-- [llama-index-llms-anthropic](https://docs.llamaindex.ai/en/stable/examples/llm/anthropic) package.
+- [llama-index-llms-anthropic](https://docs.llamaindex.ai/en/stable/examples/llm/anthropic)
+  package.
 {{% /tab %}}
 {{% tab header="ADK" lang="en" %}}
 - [google-adk](https://pypi.org/project/google-adk/) package.
@@ -6008,15 +6170,21 @@ This guide assumes you have already done the following:
 
 [install-python]: https://wiki.python.org/moin/BeginnersGuide/Download
 [install-pip]: https://pip.pypa.io/en/stable/installation/
-[install-venv]: https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments
+[install-venv]:
+    https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments
 [install-gcloud]: https://cloud.google.com/sdk/docs/install
-[enable-bq-api]: https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console#before-you-begin
+[enable-bq-api]:
+    https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console#before-you-begin
 
 ## Step 1: Set up your BigQuery Dataset and Table
 
-In this section, we will create a BigQuery dataset and a table, then insert some data that needs to be accessed by our agent. BigQuery operations are performed against your configured Google Cloud project.
+In this section, we will create a BigQuery dataset and a table, then insert some
+data that needs to be accessed by our agent. BigQuery operations are performed
+against your configured Google Cloud project.
 
-1.  Create a new BigQuery dataset (replace `YOUR_DATASET_NAME` with your desired dataset name, e.g., `toolbox_ds`, and optionally specify a location like `US` or `EU`):
+1. Create a new BigQuery dataset (replace `YOUR_DATASET_NAME` with your desired
+   dataset name, e.g., `toolbox_ds`, and optionally specify a location like `US`
+   or `EU`):
 
     ```bash
     export BQ_DATASET_NAME="YOUR_DATASET_NAME" # e.g., toolbox_ds
@@ -6024,13 +6192,20 @@ In this section, we will create a BigQuery dataset and a table, then insert some
 
     bq --location=$BQ_LOCATION mk $BQ_DATASET_NAME
     ```
-    You can also do this through the [Google Cloud Console](https://console.cloud.google.com/bigquery).
+
+    You can also do this through the [Google Cloud
+    Console](https://console.cloud.google.com/bigquery).
 
     {{< notice tip >}}
- For a real application, ensure that the service account or user running Toolbox has the necessary IAM permissions (e.g., BigQuery Data Editor, BigQuery User) on the dataset or project. For this local quickstart with user credentials, your own permissions will apply.
+ For a real application, ensure that the service account or user running Toolbox
+ has the necessary IAM permissions (e.g., BigQuery Data Editor, BigQuery User)
+ on the dataset or project. For this local quickstart with user credentials,
+ your own permissions will apply.
     {{< /notice >}}
 
-1.  The hotels table needs to be defined in your new dataset for use with the bq query command. First, create a file named `create_hotels_table.sql` with the following content:
+1. The hotels table needs to be defined in your new dataset for use with the bq
+   query command. First, create a file named `create_hotels_table.sql` with the
+   following content:
 
     ```sql
     CREATE TABLE IF NOT EXISTS `YOUR_PROJECT_ID.YOUR_DATASET_NAME.hotels` (
@@ -6043,15 +6218,19 @@ In this section, we will create a BigQuery dataset and a table, then insert some
       booked        BOOLEAN NOT NULL
     );
     ```
-    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL with your actual project ID and dataset name.
+
+    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL
+    > with your actual project ID and dataset name.
 
     Then run the command below to execute the sql query:
+
     ```bash
     bq query --project_id=$GOOGLE_CLOUD_PROJECT --dataset_id=$BQ_DATASET_NAME --use_legacy_sql=false < create_hotels_table.sql
     ```
 
-
-1.  Next, populate the hotels table with some initial data. To do this, create a file named `insert_hotels_data.sql` and add the following SQL INSERT statement to it.
+1. Next, populate the hotels table with some initial data. To do this, create a
+   file named `insert_hotels_data.sql` and add the following SQL INSERT
+   statement to it.
 
     ```sql
     INSERT INTO `YOUR_PROJECT_ID.YOUR_DATASET_NAME.hotels` (id, name, location, price_tier, checkin_date, checkout_date, booked)
@@ -6067,18 +6246,22 @@ In this section, we will create a BigQuery dataset and a table, then insert some
       (9, 'Courtyard Zurich', 'Zurich', 'Upscale', '2024-04-03', '2024-04-13', FALSE),
       (10, 'Comfort Inn Bern', 'Bern', 'Midscale', '2024-04-04', '2024-04-16', FALSE);
     ```
-    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL with your actual project ID and dataset name.
+
+    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL
+    > with your actual project ID and dataset name.
 
     Then run the command below to execute the sql query:
+
     ```bash
     bq query --project_id=$GOOGLE_CLOUD_PROJECT --dataset_id=$BQ_DATASET_NAME --use_legacy_sql=false < insert_hotels_data.sql
     ```
 
 ## Step 2: Install and configure Toolbox
 
-In this section, we will download Toolbox, configure our tools in a `tools.yaml` to use BigQuery, and then run the Toolbox server.
+In this section, we will download Toolbox, configure our tools in a `tools.yaml`
+to use BigQuery, and then run the Toolbox server.
 
-1.  Download the latest version of Toolbox as a binary:
+1. Download the latest version of Toolbox as a binary:
 
     {{< notice tip >}}
  Select the
@@ -6092,16 +6275,21 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     ```
     <!-- {x-release-please-end} -->
 
-1.  Make the binary executable:
+1. Make the binary executable:
 
     ```bash
     chmod +x toolbox
     ```
 
-1. Write the following into a `tools.yaml` file. You must replace the `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` placeholder in the config with your actual BigQuery project and dataset name. The `location` field is optional; if not specified, it defaults to 'us'. The table name `hotels` is used directly in the statements. 
+1. Write the following into a `tools.yaml` file. You must replace the
+   `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` placeholder in the config with your
+   actual BigQuery project and dataset name. The `location` field is optional;
+   if not specified, it defaults to 'us'. The table name `hotels` is used
+   directly in the statements.
 
     {{< notice tip >}}
- Authentication with BigQuery is handled via Application Default Credentials (ADC). Ensure you have run `gcloud auth application-default login`.
+ Authentication with BigQuery is handled via Application Default Credentials
+ (ADC). Ensure you have run `gcloud auth application-default login`.
     {{< /notice >}}
 
     ```yaml
@@ -6167,7 +6355,12 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
         statement: UPDATE `YOUR_DATASET_NAME.hotels` SET booked = FALSE WHERE id = @hotel_id;
     ```
 
-    **Important Note on `toolsets`**: The `tools.yaml` content above does not include a `toolsets` section. The Python agent examples in Step 3 (e.g., `await toolbox_client.load_toolset("my-toolset")`) rely on a toolset named `my-toolset`. To make those examples work, you will need to add a `toolsets` section to your `tools.yaml` file, for example:
+    **Important Note on `toolsets`**: The `tools.yaml` content above does not
+    include a `toolsets` section. The Python agent examples in Step 3 (e.g.,
+    `await toolbox_client.load_toolset("my-toolset")`) rely on a toolset named
+    `my-toolset`. To make those examples work, you will need to add a `toolsets`
+    section to your `tools.yaml` file, for example:
+
     ```yaml
     # Add this to your tools.yaml if using load_toolset("my-toolset")
     # Ensure it's at the same indentation level as 'sources:' and 'tools:'
@@ -6179,11 +6372,14 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
         - update-hotel
         - cancel-hotel
     ```
-    Alternatively, you can modify the agent code to load tools individually (e.g., using `await toolbox_client.load_tool("search-hotels-by-name")`).
 
-    For more info on tools, check out the [Resources](../../resources/) section of the docs.
+    Alternatively, you can modify the agent code to load tools individually
+    (e.g., using `await toolbox_client.load_tool("search-hotels-by-name")`).
 
-1.  Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
+    For more info on tools, check out the [Resources](../../resources/) section
+    of the docs.
+
+1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
     ```bash
     ./toolbox --tools-file "tools.yaml"
@@ -6194,14 +6390,13 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
 In this section, we will write and run an agent that will load the Tools
 from Toolbox.
 
-{{< notice tip>}} If you prefer to experiment within a Google Colab environment, 
-you can connect to a 
-[local runtime](https://research.google.com/colaboratory/local-runtimes.html). 
+{{< notice tip>}} If you prefer to experiment within a Google Colab environment,
+you can connect to a
+[local runtime](https://research.google.com/colaboratory/local-runtimes.html).
 {{< /notice >}}
 
-
 1. In a new terminal, install the SDK package.
-    
+
     {{< tabpane persist=header >}}
 {{< tab header="Core" lang="bash" >}}
 
@@ -6228,28 +6423,39 @@ pip install google-adk
 {{< tab header="Core" lang="bash" >}}
 
 # TODO(developer): replace with correct package if needed
+
 pip install langgraph langchain-google-vertexai
+
 # pip install langchain-google-genai
+
 # pip install langchain-anthropic
+
 {{< /tab >}}
 {{< tab header="Langchain" lang="bash" >}}
 
 # TODO(developer): replace with correct package if needed
+
 pip install langgraph langchain-google-vertexai
+
 # pip install langchain-google-genai
+
 # pip install langchain-anthropic
+
 {{< /tab >}}
 {{< tab header="LlamaIndex" lang="bash" >}}
 
 # TODO(developer): replace with correct package if needed
+
 pip install llama-index-llms-google-genai
+
 # pip install llama-index-llms-anthropic
+
 {{< /tab >}}
 {{< tab header="ADK" lang="bash" >}}
 pip install toolbox-core
 {{< /tab >}}
 {{< /tabpane >}}
-    
+
 1. Create a new file named `hotel_agent.py` and copy the following
    code to create an agent:
     {{< tabpane persist=header >}}
@@ -6287,7 +6493,7 @@ queries = [
 ]
 
 async def run_application():
-    async with ToolboxClient("http://127.0.0.1:5000") as toolbox_client:
+    async with ToolboxClient("<http://127.0.0.1:5000>") as toolbox_client:
 
         # The toolbox_tools list contains Python callables (functions/methods) designed for LLM tool-use
         # integration. While this example uses Google's genai client, these callables can be adapted for
@@ -6368,20 +6574,25 @@ asyncio.run(run_application())
 
 import asyncio
 from langgraph.prebuilt import create_react_agent
+
 # TODO(developer): replace this with another import if needed
+
 from langchain_google_vertexai import ChatVertexAI
+
 # from langchain_google_genai import ChatGoogleGenerativeAI
+
 # from langchain_anthropic import ChatAnthropic
+
 from langgraph.checkpoint.memory import MemorySaver
 
 from toolbox_langchain import ToolboxClient
 
 prompt = """
   You're a helpful hotel assistant. You handle hotel searching, booking and
-  cancellations. When the user searches for a hotel, mention it's name, id, 
-  location and price tier. Always mention hotel ids while performing any 
-  searches. This is very important for any operations. For any bookings or 
-  cancellations, please provide the appropriate confirmation. Be sure to 
+  cancellations. When the user searches for a hotel, mention it's name, id,
+  location and price tier. Always mention hotel ids while performing any
+  searches. This is very important for any operations. For any bookings or
+  cancellations, please provide the appropriate confirmation. Be sure to
   update checkin or checkout dates if mentioned by the user.
   Don't ask for confirmations from the user.
 """
@@ -6398,7 +6609,7 @@ async def main():
     model = ChatVertexAI(model_name="gemini-2.0-flash-001")
     # model = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001")
     # model = ChatAnthropic(model="claude-3-5-sonnet-20240620")
-    
+
     # Load the tools from the Toolbox server
     client = ToolboxClient("http://127.0.0.1:5000")
     tools = await client.aload_toolset()
@@ -6421,18 +6632,20 @@ from llama_index.core.agent.workflow import AgentWorkflow
 
 from llama_index.core.workflow import Context
 
-# TODO(developer): replace this with another import if needed 
+# TODO(developer): replace this with another import if needed
+
 from llama_index.llms.google_genai import GoogleGenAI
+
 # from llama_index.llms.anthropic import Anthropic
 
 from toolbox_llamaindex import ToolboxClient
 
 prompt = """
   You're a helpful hotel assistant. You handle hotel searching, booking and
-  cancellations. When the user searches for a hotel, mention it's name, id, 
-  location and price tier. Always mention hotel ids while performing any 
-  searches. This is very important for any operations. For any bookings or 
-  cancellations, please provide the appropriate confirmation. Be sure to 
+  cancellations. When the user searches for a hotel, mention it's name, id,
+  location and price tier. Always mention hotel ids while performing any
+  searches. This is very important for any operations. For any bookings or
+  cancellations, please provide the appropriate confirmation. Be sure to
   update checkin or checkout dates if mentioned by the user.
   Don't ask for confirmations from the user.
 """
@@ -6458,7 +6671,7 @@ async def main():
     #   model="claude-3-7-sonnet-latest",
     #   api_key=os.getenv("ANTHROPIC_API_KEY")
     # )
-    
+
     # Load the tools from the Toolbox server
     client = ToolboxClient("http://127.0.0.1:5000")
     tools = await client.aload_toolset()
@@ -6486,14 +6699,20 @@ from toolbox_core import ToolboxSyncClient
 
 import os
 os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'True'
-# TODO(developer): Replace 'YOUR_PROJECT_ID' with your Google Cloud Project ID.
+
+# TODO(developer): Replace 'YOUR_PROJECT_ID' with your Google Cloud Project ID
+
 os.environ['GOOGLE_CLOUD_PROJECT'] = 'YOUR_PROJECT_ID'
-# TODO(developer): Replace 'us-central1' with your Google Cloud Location (region).
+
+# TODO(developer): Replace 'us-central1' with your Google Cloud Location (region)
+
 os.environ['GOOGLE_CLOUD_LOCATION'] = 'us-central1'
 
 # --- Load Tools from Toolbox ---
-# TODO(developer): Ensure the Toolbox server is running at http://127.0.0.1:5000
-with ToolboxSyncClient("http://127.0.0.1:5000") as toolbox_client:
+
+# TODO(developer): Ensure the Toolbox server is running at <http://127.0.0.1:5000>
+
+with ToolboxSyncClient("<http://127.0.0.1:5000>") as toolbox_client:
     # TODO(developer): Replace "my-toolset" with the actual ID of your toolset as configured in your MCP Toolbox server.
     agent_toolset = toolbox_client.load_toolset("my-toolset")
 
@@ -6557,21 +6776,27 @@ with ToolboxSyncClient("http://127.0.0.1:5000") as toolbox_client:
           print(text)
 {{< /tab >}}
 {{< /tabpane >}}
-    
+
     {{< tabpane text=true persist=header >}}
 {{% tab header="Core" lang="en" %}}
-To learn more about the Core SDK, check out the [Toolbox Core SDK documentation.](https://github.com/googleapis/genai-toolbox/tree/main/sdks/toolbox-core)
+To learn more about the Core SDK, check out the [Toolbox Core SDK
+documentation.](https://github.com/googleapis/genai-toolbox/tree/main/sdks/toolbox-core)
 {{% /tab %}}
 {{% tab header="Langchain" lang="en" %}}
-To learn more about Agents in LangChain, check out the [LangGraph Agent documentation.](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)
+To learn more about Agents in LangChain, check out the [LangGraph Agent
+documentation.](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)
 {{% /tab %}}
 {{% tab header="LlamaIndex" lang="en" %}}
-To learn more about Agents in LlamaIndex, check out the [LlamaIndex AgentWorkflow documentation.](https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/)
+To learn more about Agents in LlamaIndex, check out the [LlamaIndex
+AgentWorkflow
+documentation.](https://docs.llamaindex.ai/en/stable/examples/agent/agent_workflow_basic/)
 {{% /tab %}}
 {{% tab header="ADK" lang="en" %}}
-To learn more about Agents in ADK, check out the [ADK documentation.](https://google.github.io/adk-docs/)
+To learn more about Agents in ADK, check out the [ADK
+documentation.](https://google.github.io/adk-docs/)
 {{% /tab %}}
 {{< /tabpane >}}
+
 1. Run your agent, and observe the results:
 
     ```sh
@@ -6591,9 +6816,12 @@ on how to [connect to Toolbox via MCP](../../how-to/connect_via_mcp.md).
 
 ## Step 1: Set up your BigQuery Dataset and Table
 
-In this section, we will create a BigQuery dataset and a table, then insert some data that needs to be accessed by our agent.
+In this section, we will create a BigQuery dataset and a table, then insert some
+data that needs to be accessed by our agent.
 
-1.  Create a new BigQuery dataset (replace `YOUR_DATASET_NAME` with your desired dataset name, e.g., `toolbox_mcp_ds`, and optionally specify a location like `US` or `EU`):
+1. Create a new BigQuery dataset (replace `YOUR_DATASET_NAME` with your desired
+   dataset name, e.g., `toolbox_mcp_ds`, and optionally specify a location like
+   `US` or `EU`):
 
     ```bash
     export BQ_DATASET_NAME="YOUR_DATASET_NAME"
@@ -6601,10 +6829,12 @@ In this section, we will create a BigQuery dataset and a table, then insert some
 
     bq --location=$BQ_LOCATION mk $BQ_DATASET_NAME
     ```
-    You can also do this through the [Google Cloud Console](https://console.cloud.google.com/bigquery).
 
-1.  The `hotels` table needs to be defined in your new dataset. First, create a file named `create_hotels_table.sql` with the following content:
-    
+    You can also do this through the [Google Cloud
+    Console](https://console.cloud.google.com/bigquery).
+
+1. The `hotels` table needs to be defined in your new dataset. First, create a
+   file named `create_hotels_table.sql` with the following content:
 
     ```sql
     CREATE TABLE IF NOT EXISTS `YOUR_PROJECT_ID.YOUR_DATASET_NAME.hotels` (
@@ -6617,14 +6847,19 @@ In this section, we will create a BigQuery dataset and a table, then insert some
       booked        BOOLEAN NOT NULL
     );
     ```
-    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL with your actual project ID and dataset name.
+
+    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL
+    > with your actual project ID and dataset name.
 
     Then run the command below to execute the sql query:
+
     ```bash
     bq query --project_id=$GOOGLE_CLOUD_PROJECT --dataset_id=$BQ_DATASET_NAME --use_legacy_sql=false < create_hotels_table.sql
     ```
 
-1.  .  Next, populate the hotels table with some initial data. To do this, create a file named `insert_hotels_data.sql` and add the following SQL INSERT statement to it.
+1. .  Next, populate the hotels table with some initial data. To do this, create
+   a file named `insert_hotels_data.sql` and add the following SQL INSERT
+   statement to it.
 
     ```sql
     INSERT INTO `YOUR_PROJECT_ID.YOUR_DATASET_NAME.hotels` (id, name, location, price_tier, checkin_date, checkout_date, booked)
@@ -6640,16 +6875,20 @@ In this section, we will create a BigQuery dataset and a table, then insert some
       (9, 'Courtyard Zurich', 'Zurich', 'Upscale', '2024-04-03', '2024-04-13', FALSE),
       (10, 'Comfort Inn Bern', 'Bern', 'Midscale', '2024-04-04', '2024-04-16', FALSE);
     ```
-    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL with your actual project ID and dataset name.
+
+    > **Note:** Replace `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` in the SQL
+    > with your actual project ID and dataset name.
 
     Then run the command below to execute the sql query:
+
     ```bash
     bq query --project_id=$GOOGLE_CLOUD_PROJECT --dataset_id=$BQ_DATASET_NAME --use_legacy_sql=false < insert_hotels_data.sql
     ```
 
 ## Step 2: Install and configure Toolbox
 
-In this section, we will download Toolbox, configure our tools in a `tools.yaml`, and then run the Toolbox server.
+In this section, we will download Toolbox, configure our tools in a
+`tools.yaml`, and then run the Toolbox server.
 
 1. Download the latest version of Toolbox as a binary:
 
@@ -6671,10 +6910,15 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
     chmod +x toolbox
     ```
 
-1. Write the following into a `tools.yaml` file. You must replace the `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` placeholder in the config with your actual BigQuery project and dataset name. The `location` field is optional; if not specified, it defaults to 'us'. The table name `hotels` is used directly in the statements. 
+1. Write the following into a `tools.yaml` file. You must replace the
+   `YOUR_PROJECT_ID` and `YOUR_DATASET_NAME` placeholder in the config with your
+   actual BigQuery project and dataset name. The `location` field is optional;
+   if not specified, it defaults to 'us'. The table name `hotels` is used
+   directly in the statements.
 
     {{< notice tip >}}
-  Authentication with BigQuery is handled via Application Default Credentials (ADC). Ensure you have run `gcloud auth application-default login`.
+  Authentication with BigQuery is handled via Application Default Credentials
+  (ADC). Ensure you have run `gcloud auth application-default login`.
     {{< /notice >}}
 
     ```yaml
@@ -6747,8 +6991,9 @@ In this section, we will download Toolbox, configure our tools in a `tools.yaml`
         - cancel-hotel
     ```
 
-    For more info on tools, check out the [Tools](../../resources/tools/_index.md) section. 
-    
+    For more info on tools, check out the
+    [Tools](../../resources/tools/_index.md) section.
+
 1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
     ```bash
@@ -6799,22 +7044,22 @@ Frequently asked questions about Toolbox.
 
 MCP Toolbox for Databases is open-source and can be ran or deployed to a
 multitude of environments. For convenience, we release [compiled binaries and
-docker images][release-notes] (but you can always compile yourself as well!). 
+docker images][release-notes] (but you can always compile yourself as well!).
 
 For detailed instructions, check our these resources:
+
 - [Quickstart: How to Run Locally](../getting-started/local_quickstart.md)
 - [Deploy to Cloud Run](../how-to/deploy_toolbox.md)
 
 [release-notes]: https://github.com/googleapis/genai-toolbox/releases/
 
-
 ## Do I need a Google Cloud account/project to get started with Toolbox?
 
 Nope! While some of the sources Toolbox connects to may require GCP credentials,
 Toolbox doesn't require them and can connect to a bunch of different resources
-that don't. 
+that don't.
 
-## Does Toolbox take contributions from external users? 
+## Does Toolbox take contributions from external users?
 
 Absolutely! Please check out our [DEVELOPER.md][] for instructions on how to get
 started developing _on_ Toolbox instead of with it, and the [CONTRIBUTING.md][]
@@ -6823,17 +7068,16 @@ for instructions on completing the CLA and getting a PR accepted.
 [DEVELOPER.md]: https://github.com/googleapis/genai-toolbox/blob/main/DEVELOPER.md
 [CONTRIBUTING.MD]: https://github.com/googleapis/genai-toolbox/blob/main/CONTRIBUTING.md
 
-
-## Can Toolbox support a feature to let me do _$FOO_? 
+## Can Toolbox support a feature to let me do _$FOO_?
 
 Maybe? The best place to start is by [opening an issue][github-issue] for
 discussion (or seeing if there is already one open), so we can better understand
 your use case and the best way to solve it. Generally we aim to prioritize the
-most popular issues, so make sure to +1 ones you are the most interested in. 
+most popular issues, so make sure to +1 ones you are the most interested in.
 
 [github-issue]: https://github.com/googleapis/genai-toolbox/issues
 
-## Can Toolbox be used for non-database tools? 
+## Can Toolbox be used for non-database tools?
 
 Currently, Toolbox is primarily focused on making it easier to create and
 develop tools focused on interacting with Databases. We believe that there are a
@@ -6845,21 +7089,21 @@ GRPC tools might be helpful in assisting with migrating to Toolbox or in
 accomplishing more complicated workflows. We're looking into what that might
 best look like in Toolbox.
 
-## Can I use _$BAR_ orchestration framework to use tools from Toolbox? 
+## Can I use _$BAR_ orchestration framework to use tools from Toolbox?
 
 Currently, Toolbox only supports a limited number of client SDKs at our initial
 launch. We are investigating support for more frameworks as well as more general
 approaches for users without a framework -- look forward to seeing an update
 soon.
 
-## Why does Toolbox use a server-client architecture pattern? 
+## Why does Toolbox use a server-client architecture pattern?
 
 Toolbox's server-client architecture allows us to more easily support a wide
 variety of languages and frameworks with a centralized implementation. It also
 allows us to tackle problems like connection pooling, auth, or caching more
 completely than entirely client-side solutions.
 
-## Why was Toolbox written in Go? 
+## Why was Toolbox written in Go?
 
 While a large part of the Gen AI Ecosystem is predominately Python, we opted to
 use Go. We chose Go because it's still easy and simple to use, but also easier
@@ -6870,9 +7114,11 @@ to be able to use Toolbox on the serving path of mission critical applications.
 It's easier to build the needed robustness, performance and scalability in Go
 than in Python.
 
+## Is Toolbox compatible with Model Context Protocol (MCP)?
 
-## Is Toolbox compatible with Model Context Protocol (MCP)? 
+Yes! Toolbox is compatible with [Anthropic's Model Context Protocol
+(MCP)](https://modelcontextprotocol.io/). Please checkout [Connect via
+MCP](../how-to/connect_via_mcp.md) on how to connect to Toolbox with an MCP
+client.
 
-Yes! Toolbox is compatible with [Anthropic's Model Context Protocol (MCP)](https://modelcontextprotocol.io/). Please checkout [Connect via MCP](../how-to/connect_via_mcp.md) on how to
-connect to Toolbox with an MCP client.
 
