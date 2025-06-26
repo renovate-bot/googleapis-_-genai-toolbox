@@ -4307,7 +4307,7 @@ invoked, the SQL will be generated and executed using this context.
 ### Specifying Parameters to PSV's
 
 [Parameterized Secure Views (PSVs)][alloydb-psv] are a feature unique to AlloyDB
-that allows you allow you to require one or more named parameter values passed
+that allows you to require one or more named parameter values passed
 to the view when querying it, somewhat like bind variables with ordinary
 database queries.
 
