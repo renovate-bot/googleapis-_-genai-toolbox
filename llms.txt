@@ -58,29 +58,20 @@ List of reference documentation for resources in Toolbox.
   - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/): SQLite is a C-language library that implements a small, fast, self-contained,  high-reliability, full-featured, SQL database engine.
   - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/): Valkey is an open-source, in-memory data structure store, forked from Redis.
 - [Tools](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/): Tools define actions an agent can take -- such as reading and writing to a  source.
-  - [alloydb-ai-nl](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/alloydb-ai-nl/): The "alloydb-ai-nl" tool leverages  [AlloyDB AI](https://cloud.google.com/alloydb/ai) next-generation Natural  Language support to provide the ability to query the database directly using natural language.
-  - [bigquery-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-execute-sql/): A "bigquery-execute-sql" tool executes a SQL statement against BigQuery.
-  - [bigquery-get-dataset-info](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-get-dataset-info/): A "bigquery-get-dataset-info" tool retrieves metadata for a BigQuery dataset.
-  - [bigquery-get-table-info](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-get-table-info/): A "bigquery-get-table-info" tool retrieves metadata for a BigQuery table.
-  - [bigquery-list-dataset-ids](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-list-dataset-ids/): A "bigquery-list-dataset-ids" tool returns all dataset IDs from the source.
-  - [bigquery-list-table-ids](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-list-table-ids/): A "bigquery-list-table-ids" tool returns table IDs in a given BigQuery dataset.
-  - [bigquery-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery-sql/): A "bigquery-sql" tool executes a pre-defined SQL statement.
-  - [bigtable-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigtable-sql/): A "bigtable-sql" tool executes a pre-defined SQL statement against a Google  Cloud Bigtable instance.
-  - [couchbase-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/couchbase-sql/): A "couchbase-sql" tool executes a pre-defined SQL statement against a Couchbase database.
-  - [dgraph-dql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph-dql/): A "dgraph-dql" tool executes a pre-defined DQL statement against a Dgraph database.
-  - [http](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): A "http" tool sends out an HTTP request to an HTTP endpoint.
-  - [mssql-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-execute-sql/): A "mssql-execute-sql" tool executes a SQL statement against a SQL Server database.
-  - [mssql-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql-sql/): A "mssql-sql" tool executes a pre-defined SQL statement against a SQL Server database.
-  - [mysql-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mysql-execute-sql/): A "mysql-execute-sql" tool executes a SQL statement against a MySQL database.
-  - [mysql-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mysql-sql/): A "mysql-sql" tool executes a pre-defined SQL statement against a MySQL database.
-  - [neo4j-cypher](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/neo4j-cypher/): A "neo4j-cypher" tool executes a pre-defined cypher statement against a Neo4j database.
-  - [postgres-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres-execute-sql/): A "postgres-execute-sql" tool executes a SQL statement against a Postgres database.
-  - [postgres-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres-sql/): A "postgres-sql" tool executes a pre-defined SQL statement against a Postgres database.
-  - [redis](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/): A "redis" tool executes a set of pre-defined Redis commands against a Redis instance.
-  - [spanner-execute-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-execute-sql/): A "spanner-execute-sql" tool executes a SQL statement against a Spanner database.
-  - [spanner-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner-sql/): A "spanner-sql" tool executes a pre-defined SQL statement against a Google  Cloud Spanner database.
-  - [sqlite-sql](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite-sql/): Execute SQL statements against a SQLite database.
-  - [valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): A "valkey" tool executes a set of pre-defined Valkey commands against a Memorystore for Valkey instance.
+  - [AlloyDB AI NL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/alloydbainl/): AlloyDB AI NL Tool.
+  - [BigQuery](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery/): Tools that work with BigQuery Sources.
+  - [Bigtable](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigtable/): Tools that work with Bigtable Sources.
+  - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/couchbase/): Tools that work with Couchbase Sources.
+  - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph/): Tools that work with Dgraph Sources.
+  - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): Tools that work with HTTP Sources.
+  - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
+  - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/neo4j/): Tools that work with Neo4j Sources.
+  - [Postgres](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres/): Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 
+  - [Redis](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/redis/): Tools that work with Redis Sources.
+  - [Spanner](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner/): Tools that work with Spanner Sources.
+  - [SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
+  - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite/): Tools that work with SQLite Sources.
+  - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): Tools that work with Valkey Sources.
 
 ### Samples
 
