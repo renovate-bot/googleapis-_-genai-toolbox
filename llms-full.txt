@@ -126,6 +126,9 @@ execute `toolbox` to start the server:
 ```sh
 ./toolbox --tools-file "tools.yaml"
 ```
+{{< notice note >}}
+Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+{{< /notice >}}
 
 You can use `toolbox help` for a full list of flags! To stop the server, send a
 terminate signal (`ctrl+c` on most platforms).
@@ -572,6 +575,9 @@ In this section, we will download Toolbox, configure our tools in a
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
+    {{< notice note >}}
+    Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+    {{< /notice >}}
 
 ## Step 3: Connect your agent to Toolbox
 
@@ -1925,6 +1931,10 @@ transport protocol. Users that wish to use stdio will have to include the
 When running with stdio, Toolbox will listen via stdio instead of acting as a
 remote HTTP server. Logs will be set to the `warn` level by default. `debug` and
 `info` logs are not supported with stdio.
+
+{{< notice note >}}
+Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+{{< /notice >}}
 
 ### Connecting via HTTP
 
@@ -4732,6 +4742,9 @@ to use BigQuery, and then run the Toolbox server.
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
+    {{< notice note >}}
+    Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+    {{< /notice >}}
 
 ## Step 3: Connect your agent to Toolbox
 
