@@ -5485,3 +5485,19 @@ MCP](../how-to/connect_via_mcp.md) on how to connect to Toolbox with an MCP
 client.
 
 
+# SDKs
+Client SDKs to connect to the MCP Toolbox server.
+
+
+# Go SDK
+Go lang client SDK
+
+
+# JS SDK
+Javascript client SDK
+
+
+# Python SDK
+Python client SDK
+
+
