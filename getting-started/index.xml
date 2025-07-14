@@ -6,12 +6,11 @@
 your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>)&lt;/li>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>&lt;/li>
 &lt;/ol>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
-&lt;p>In this section, we will create a database, insert some data that needs to be
-accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p>
-&lt;ol>
+&lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
+&lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using &lt;code>vertexai=True&lt;/code> or a Google GenAI model), follow these one-time setup steps for local development:&lt;/p>
+&lt;ul>
 &lt;li>
-&lt;p>Connect to postgres using the &lt;code>psql&lt;/code> command:&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
+&lt;p>&lt;a href="https://cloud.google.com/sdk/docs/install">Install the Google Cloud CLI&lt;/a>&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
 have multiple files, you can tell toolbox which to load with the &lt;code>--tools-file tools.yaml&lt;/code> flag.&lt;/p>
 &lt;p>You can find more detailed reference documentation to all resource types in the
 &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/">Resources&lt;/a>.&lt;/p>
