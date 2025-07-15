@@ -591,7 +591,7 @@ For more detailed instructions on using the Toolbox Go SDK, see the
 For end-to-end samples on using the Toolbox Go SDK with orchestration frameworks, see the [project's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 # Python Quickstart (Local)
-How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
+How to get started running Toolbox locally with [Python](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb)
@@ -601,22 +601,21 @@ How to get started running Toolbox locally with Python, PostgreSQL, and  [Agent 
 This guide assumes you have already done the following:
 
 1. Installed [Python 3.9+][install-python] (including [pip][install-pip] and
-   your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv])
-1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres]
+   your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv]).
+1. Installed [PostgreSQL 16+ and the `psql` client][install-postgres].
 
 ### Cloud Setup (Optional)
 
 If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using `vertexai=True` or a Google GenAI model), follow these one-time setup steps for local development:
 
-- [Install the Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
-- [Set up Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+1. [Install the Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
+1. [Set up Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+1. Set your project and enable Vertex AI
 
-- Set your project and enable Vertex AI
-
-```bash
-gcloud config set project YOUR_PROJECT_ID
-gcloud services enable aiplatform.googleapis.com
-```
+    ```bash
+    gcloud config set project YOUR_PROJECT_ID
+    gcloud services enable aiplatform.googleapis.com
+    ```
 
 [install-python]: https://wiki.python.org/moin/BeginnersGuide/Download
 [install-pip]: https://pip.pypa.io/en/stable/installation/
@@ -1234,7 +1233,7 @@ asyncio.run(run_application())
 {{< /tab >}}
 {{< /tabpane >}}
 
-  {{< tabpane text=true persist=header >}}
+    {{< tabpane text=true persist=header >}}
 {{% tab header="ADK" lang="en" %}}
 To learn more about Agent Development Kit, check out the [ADK
 documentation.](https://google.github.io/adk-docs/)
@@ -1261,9 +1260,13 @@ Documentation](https://github.com/googleapis/python-genai?tab=readme-ov-file#man
     python hotel_agent.py
     ```
 
+{{< notice info >}}
+For more information, visit the [Python SDK repo](https://github.com/googleapis/mcp-toolbox-sdk-python).
+{{</ notice >}}
+
 
 # JS Quickstart (Local)
-How to get started running Toolbox locally with JavaScript, PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/) and [GenkitJS](https://genkit.dev/docs/get-started/).
+How to get started running Toolbox locally with [JavaScript](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/) and [GenkitJS](https://genkit.dev/docs/get-started/).
 
 
 ## Before you begin
@@ -1277,15 +1280,14 @@ This guide assumes you have already done the following:
 
 If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:
 
-> - [Install the Google Cloud CLI]
-> - [Set up Application Default Credentials (ADC)]
+1. [Install the Google Cloud CLI]
+1. [Set up Application Default Credentials (ADC)]
+1. Set your project and enable Vertex AI
 
-#### Set your project and enable Vertex AI
-
-```bash
-gcloud config set project YOUR_PROJECT_ID
-gcloud services enable aiplatform.googleapis.com
-```
+    ```bash
+    gcloud config set project YOUR_PROJECT_ID
+    gcloud services enable aiplatform.googleapis.com
+    ```
 
 [Node.js (v18 or higher)]: https://nodejs.org/
 [install-postgres]: https://www.postgresql.org/download/
@@ -1543,7 +1545,7 @@ from Toolbox.
     npm init -y
     ```
 
-1. In a new terminal, install the SDK package.
+1. In a new terminal, install the [SDK](https://www.npmjs.com/package/@toolbox-sdk/core).
 
     ```bash
     npm install langchain @toolbox-sdk/core
@@ -1746,6 +1748,9 @@ run();
     node hotelAgent.js
     ```
 
+{{< notice info >}}
+For more information, visit the [JS SDK repo](https://github.com/googleapis/mcp-toolbox-sdk-js).
+{{</ notice >}}
 
 # Quickstart (MCP)
 How to get started running Toolbox locally with MCP Inspector. 
