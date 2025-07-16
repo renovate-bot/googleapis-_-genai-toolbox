@@ -73,6 +73,7 @@ List of reference documentation for resources in Toolbox.
   - [SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
   - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite/): Tools that work with SQLite Sources.
   - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): Tools that work with Valkey Sources.
+  - [wait](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
 
 ### Samples
 
