@@ -178,7 +178,20 @@ Dgraph Cloud. If you&amp;rsquo;re new to Dgraph, the fastest way to get started 
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>When &lt;strong>connecting to a hosted Dgraph database&lt;/strong>, this source uses the API key
 for access. If you are using a dedicated environment, you will additionally need
-the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>HTTP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;/h2>
+the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>Firestore</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/</guid><description>&lt;h1 id="firestore-source">Firestore Source&lt;/h1>
+&lt;p>&lt;a href="https://cloud.google.com/firestore/docs">Firestore&lt;/a> is a NoSQL document database built for automatic
+scaling, high performance, and ease of application development. While the
+Firestore interface has many of the same features as traditional databases,
+as a NoSQL database it differs from them in the way it describes relationships
+between data objects.&lt;/p>
+&lt;p>If you are new to Firestore, you can &lt;a href="https://cloud.google.com/firestore/docs/quickstart-servers">create a database and learn the
+basics&lt;/a>.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
+&lt;p>Firestore uses &lt;a href="https://cloud.google.com/firestore/docs/security/iam">Identity and Access Management (IAM)&lt;/a> to control
+user and group access to Firestore resources. Toolbox will use your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application
+Default Credentials (ADC)&lt;/a> to authorize and authenticate when interacting
+with &lt;a href="https://cloud.google.com/firestore/docs">Firestore&lt;/a>.&lt;/p></description></item><item><title>HTTP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The HTTP Source allows Toolbox to retrieve data from arbitrary HTTP
 endpoints. This enables Generative AI applications to access data from web APIs
 and other HTTP-accessible resources.&lt;/p>

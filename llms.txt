@@ -49,6 +49,7 @@ List of reference documentation for resources in Toolbox.
   - [Cloud SQL for SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mssql/): Cloud SQL for SQL Server is a fully-managed database service for SQL Server.
   - [couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/couchbase/): A "couchbase" source connects to a Couchbase database.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
+  - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/): Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. It's a fully managed, serverless database that supports mobile, web, and server development.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/): The HTTP source enables the Toolbox to retrieve data from a remote server using HTTP requests.
   - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mysql/): MySQL is a relational database management system that stores and manages data.
   - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/): Neo4j is a powerful, open source graph database system
@@ -64,6 +65,7 @@ List of reference documentation for resources in Toolbox.
   - [Bigtable](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigtable/): Tools that work with Bigtable Sources.
   - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/couchbase/): Tools that work with Couchbase Sources.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph/): Tools that work with Dgraph Sources.
+  - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): Tools that work with HTTP Sources.
   - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/neo4j/): Tools that work with Neo4j Sources.
