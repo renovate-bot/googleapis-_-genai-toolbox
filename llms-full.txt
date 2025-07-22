@@ -4690,6 +4690,17 @@ cluster][alloydb-free-trial].
 [alloydb-docs]: https://cloud.google.com/alloydb/docs
 [alloydb-free-trial]: https://cloud.google.com/alloydb/docs/create-free-trial-cluster
 
+## Available Tools
+
+- [`alloydb-ai-nl`](../tools/alloydbainl/alloydb-ai-nl.md)  
+  Use natural language queries on AlloyDB, powered by AlloyDB AI.
+
+- [`postgres-sql`](../tools/postgres/postgres-sql.md)  
+  Execute SQL queries as prepared statements in AlloyDB Postgres.
+
+- [`postgres-execute-sql`](../tools/postgres/postgres-execute-sql.md)  
+  Run parameterized SQL statements in AlloyDB Postgres.
+
 ## Requirements
 
 ### IAM Permissions
@@ -4819,6 +4830,26 @@ avoiding full table scans or complex filters.
 [bigquery-quickstart-cli]: https://cloud.google.com/bigquery/docs/quickstarts/quickstart-command-line
 [bigquery-googlesql]: https://cloud.google.com/bigquery/docs/reference/standard-sql/
 
+## Available Tools
+
+- [`bigquery-sql`](../tools/bigquery/bigquery-sql.md)  
+  Run SQL queries directly against BigQuery datasets.
+
+- [`bigquery-execute-sql`](../tools/bigquery/bigquery-execute-sql.md)  
+  Execute structured queries using parameters.
+
+- [`bigquery-get-dataset-info`](../tools/bigquery/bigquery-get-dataset-info.md)  
+  Retrieve metadata for a specific dataset.
+
+- [`bigquery-get-table-info`](../tools/bigquery/bigquery-get-table-info.md)  
+  Retrieve metadata for a specific table.
+
+- [`bigquery-list-dataset-ids`](../tools/bigquery/bigquery-list-dataset-ids.md)  
+  List available dataset IDs.
+
+- [`bigquery-list-table-ids`](../tools/bigquery/bigquery-list-table-ids.md)  
+  List tables in a given dataset.
+
 ## Requirements
 
 ### IAM Permissions
@@ -4887,6 +4918,11 @@ such as avoiding full table scans or complex filters.
 [bigtable-googlesql]:
     https://cloud.google.com/bigtable/docs/googlesql-overview
 
+## Available Tools
+
+- [`bigtable-sql`](../tools/bigtable/bigtable-sql.md)
+  Run SQL-like queries over Bigtable rows.
+
 ## Requirements
 
 ### IAM Permissions
@@ -4940,6 +4976,14 @@ to a database by following these instructions][csql-mysql-quickstart].
 
 [csql-mysql-docs]: https://cloud.google.com/sql/docs/mysql
 [csql-mysql-quickstart]: https://cloud.google.com/sql/docs/mysql/connect-instance-local-computer
+
+## Available Tools
+
+- [`mysql-sql`](../tools/mysql/mysql-sql.md)  
+  Execute pre-defined prepared SQL queries in MySQL.
+
+- [`mysql-execute-sql`](../tools/mysql/mysql-execute-sql.md)  
+  Run parameterized SQL queries in Cloud SQL for MySQL.
 
 ## Requirements
 
@@ -5039,6 +5083,14 @@ to a database by following these instructions][csql-pg-quickstart].
 
 [csql-pg-docs]: https://cloud.google.com/sql/docs/postgres
 [csql-pg-quickstart]: https://cloud.google.com/sql/docs/postgres/connect-instance-local-computer
+
+## Available Tools
+
+- [`postgres-sql`](../tools/postgres/postgres-sql.md)  
+  Execute SQL queries as prepared statements in PostgreSQL.
+
+- [`postgres-execute-sql`](../tools/postgres/postgres-execute-sql.md)  
+  Run parameterized SQL statements in PostgreSQL.
 
 ## Requirements
 
@@ -5163,6 +5215,14 @@ to a database by following these instructions][csql-mssql-connect].
 [csql-mssql-docs]: https://cloud.google.com/sql/docs/sqlserver
 [csql-mssql-connect]: https://cloud.google.com/sql/docs/sqlserver/connect-overview
 
+## Available Tools
+
+- [`mssql-sql`](../tools/mssql/mssql-sql.md)  
+  Execute pre-defined SQL Server queries with placeholder parameters.
+
+- [`mssql-execute-sql`](../tools/mssql/mssql-execute-sql.md)  
+  Run parameterized SQL Server queries in Cloud SQL for SQL Server.
+
 ## Requirements
 
 ### IAM Permissions
@@ -5257,6 +5317,11 @@ A "couchbase" source connects to a Couchbase database.
 A `couchbase` source establishes a connection to a Couchbase database cluster,
 allowing tools to execute SQL queries against it.
 
+## Available Tools
+
+- [`couchbase-sql`](../tools/couchbase/couchbase-sql.md)  
+  Run SQL++ statements on Couchbase with parameterized input.
+
 ## Example
 
 ```yaml
@@ -5307,6 +5372,11 @@ Dgraph Cloud. If you're new to Dgraph, the fastest way to get started is to
 
 [dgraph-docs]: https://dgraph.io/docs
 [dgraph-login]: https://cloud.dgraph.io/login
+
+## Available Tools
+
+- [`dgraph-dql`](../tools/dgraph/dgraph-dql.md)  
+  Run DQL (Dgraph Query Language) queries.
 
 ## Requirements
 
@@ -5426,6 +5496,11 @@ The HTTP Source allows Toolbox to retrieve data from arbitrary HTTP
 endpoints. This enables Generative AI applications to access data from web APIs
 and other HTTP-accessible resources.
 
+## Available Tools
+
+- [`http`](../tools/http/http.md)  
+  Make HTTP requests to REST APIs or other web services.
+
 ## Example
 
 ```yaml
@@ -5474,6 +5549,14 @@ reliability, performance, and ease of use.
 
 [mysql-docs]: https://www.mysql.com/
 
+## Available Tools
+
+- [`mysql-sql`](../tools/mysql/mysql-sql.md)  
+  Execute pre-defined prepared SQL queries in MySQL.
+
+- [`mysql-execute-sql`](../tools/mysql/mysql-execute-sql.md)  
+  Run parameterized SQL queries in MySQL.
+
 ## Requirements
 
 ### Database User
@@ -5519,11 +5602,18 @@ instead of hardcoding your secrets into the configuration file.
 Neo4j is a powerful, open source graph database system
 
 
+## About
+
 [Neo4j][neo4j-docs] is a powerful, open source graph database system with over
 15 years of active development that has earned it a strong reputation for
 reliability, feature robustness, and performance.
 
 [neo4j-docs]: https://neo4j.com/docs
+
+## Available Tools
+
+- [`neo4j-cypher`](../tools/neo4j/neo4j-cypher.md)  
+  Run Cypher queries against your Neo4j graph database.
 
 ## Requirements
 
@@ -5574,6 +5664,14 @@ system with over 35 years of active development that has earned it a strong
 reputation for reliability, feature robustness, and performance.
 
 [pg-docs]: https://www.postgresql.org/
+
+## Available Tools
+
+- [`postgres-sql`](../tools/postgres/postgres-sql.md)  
+  Execute SQL queries as prepared statements in PostgreSQL.
+
+- [`postgres-execute-sql`](../tools/postgres/postgres-execute-sql.md)  
+  Run parameterized SQL statements in PostgreSQL.
 
 ## Requirements
 
@@ -5627,6 +5725,11 @@ geospatial indexes with radius queries.
 
 If you are new to Redis, you can find installation and getting started guides on
 the [official Redis website](https://redis.io/docs/getting-started/).
+
+## Available Tools
+
+- [`redis`](../tools/redis/redis.md)  
+  Run Redis commands and interact with key-value pairs.
 
 ## Requirements
 
@@ -5726,6 +5829,14 @@ the Google Cloud console][spanner-quickstart].
 [spanner-quickstart]:
     https://cloud.google.com/spanner/docs/create-query-database-console
 
+## Available Tools
+
+- [`spanner-sql`](../tools/spanner/spanner-sql.md)  
+  Execute SQL on Google Cloud Spanner.
+
+- [`spanner-execute-sql`](../tools/spanner/spanner-execute-sql.md)  
+  Run structured and parameterized queries on Spanner.
+
 ## Requirements
 
 ### IAM Permissions
@@ -5779,6 +5890,14 @@ developed by Microsoft that allows users to store, retrieve, and manage large
 amount of data through a structured format.
 
 [mssql-docs]: https://www.microsoft.com/en-us/sql-server
+
+## Available Tools
+
+- [`mssql-sql`](../tools/mssql/mssql-sql.md)  
+  Execute pre-defined SQL Server queries with placeholder parameters.
+
+- [`mssql-execute-sql`](../tools/mssql/mssql-execute-sql.md)  
+  Run parameterized SQL Server queries in SQL Server.
 
 ## Requirements
 
@@ -5836,6 +5955,11 @@ SQLite has the following notable characteristics:
 - Single database file that can be easily copied or moved
 - Zero-configuration - no setup or administration needed
 - Transactional with ACID properties
+
+## Available Tools
+
+- [`sqlite-sql`](../tools/sqlite/sqlite-sql.md)  
+  Run SQL queries against a local SQLite database.
 
 ## Requirements
 
@@ -5896,6 +6020,11 @@ indexes with radius queries.
 
 If you're new to Valkey, you can find installation and getting started guides on
 the [official Valkey website](https://valkey.io/topics/quickstart/).
+
+## Available Tools
+
+- [`valkey`](../tools/valkey/valkey.md)  
+  Issue Valkey (Redis-compatible) commands.
 
 ## Example
 
