@@ -28,6 +28,7 @@ List of guides detailing how to do different things with Toolbox.
   - [Cloud SQL for MySQL using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/): Connect your IDE to Cloud SQL for MySQL using Toolbox.
   - [Cloud SQL for Postgres using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/): Connect your IDE to Cloud SQL for Postgres using Toolbox.
   - [Cloud SQL for SQL Server using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/): Connect your IDE to Cloud SQL for SQL Server using Toolbox.
+  - [Looker using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/looker_mcp/): Connect your IDE to Looker using Toolbox.
   - [PostgreSQL using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/): Connect your IDE to PostgreSQL using Toolbox.
   - [Spanner using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/): Connect your IDE to Spanner using Toolbox.
 - [Connect via MCP Client](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_via_mcp/): How to connect to Toolbox from a MCP Client.
@@ -52,6 +53,7 @@ List of reference documentation for resources in Toolbox.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/): Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. It's a fully managed, serverless database that supports mobile, web, and server development.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/): The HTTP source enables the Toolbox to retrieve data from a remote server using HTTP requests.
+  - [Looker](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/looker/): Looker is a business intelligence tool that also provides a semantic layer.
   - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mysql/): MySQL is a relational database management system that stores and manages data.
   - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/): Neo4j is a powerful, open source graph database system
   - [PostgreSQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/): PostgreSQL is a powerful, open source object-relational database.
@@ -68,6 +70,7 @@ List of reference documentation for resources in Toolbox.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph/): Tools that work with Dgraph Sources.
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): Tools that work with HTTP Sources.
+  - [Looker](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/looker/): Tools that work with Looker Sources.
   - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/neo4j/): Tools that work with Neo4j Sources.
   - [Postgres](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres/): Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 
@@ -77,6 +80,7 @@ List of reference documentation for resources in Toolbox.
   - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite/): Tools that work with SQLite Sources.
   - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): Tools that work with Valkey Sources.
   - [wait](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
+  - [alloydb-wait-for-operation](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/alloydbwaitforoperation/): Wait for a long-running AlloyDB operation to complete.
 
 ### Samples
 
@@ -84,6 +88,9 @@ Samples and guides for using Toolbox.
 - [BigQuery](https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/): How to get started with Toolbox using BigQuery.
   - [Quickstart (Local with BigQuery)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/local_quickstart/): How to get started running Toolbox locally with Python, BigQuery, and  LangGraph, LlamaIndex, or ADK.
   - [Quickstart (MCP with BigQuery)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/bigquery/mcp_quickstart/): How to get started running Toolbox with MCP Inspector and BigQuery as the source.
+- [Looker](https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/looker/): How to get started with Toolbox using Looker.
+  - [Quickstart (MCP with Looker and Gemini-CLI)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/looker/looker_gemini/): How to get started running Toolbox with Gemini-CLI and Looker as the source.
+  - [Quickstart (MCP with Looker)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/samples/looker/looker_mcp_inspector/): How to get started running Toolbox with MCP Inspector and Looker as the source.
 
 ### About
 
