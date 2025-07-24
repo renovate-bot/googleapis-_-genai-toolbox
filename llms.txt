@@ -78,9 +78,8 @@ List of reference documentation for resources in Toolbox.
   - [Spanner](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/spanner/): Tools that work with Spanner Sources.
   - [SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/): Tools that work with SQL Server Sources, such as CloudSQL for SQL Server.
   - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/sqlite/): Tools that work with SQLite Sources.
+  - [Utility tools](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/): Tools that provide utility.
   - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): Tools that work with Valkey Sources.
-  - [wait](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/wait/): A "wait" tool pauses execution for a specified duration.
-  - [alloydb-wait-for-operation](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/alloydbwaitforoperation/): Wait for a long-running AlloyDB operation to complete.
 
 ### Samples
 
