@@ -52,6 +52,7 @@ List of reference documentation for resources in Toolbox.
   - [Cloud SQL for PostgreSQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-pg/): Cloud SQL for PostgreSQL is a fully-managed database service for Postgres.
   - [Cloud SQL for SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mssql/): Cloud SQL for SQL Server is a fully-managed database service for SQL Server.
   - [couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/couchbase/): A "couchbase" source connects to a Couchbase database.
+  - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dataplex/): Dataplex Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/): Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. It's a fully managed, serverless database that supports mobile, web, and server development.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/): The HTTP source enables the Toolbox to retrieve data from a remote server using HTTP requests.
@@ -70,6 +71,7 @@ List of reference documentation for resources in Toolbox.
   - [BigQuery](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigquery/): Tools that work with BigQuery Sources.
   - [Bigtable](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/bigtable/): Tools that work with Bigtable Sources.
   - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/couchbase/): Tools that work with Couchbase Sources.
+  - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dataplex/): Tools that work with Dataplex Sources.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph/): Tools that work with Dgraph Sources.
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): Tools that work with HTTP Sources.
