@@ -1661,7 +1661,24 @@ saved Look.&lt;/p>
  &lt;td>Name of the mongodb database to connect to (e.g. &amp;ldquo;sample_mflix&amp;rdquo;).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>mssql-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/mssql-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/mssql-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;/table></description></item><item><title>mongodb-find</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mongodb/mongodb-find/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mongodb/mongodb-find/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>mongodb-find&lt;/code> tool is used to query a MongoDB collection and retrieve documents that match a specified filter. It&amp;rsquo;s a flexible tool that allows you to shape the output by selecting specific fields (&lt;strong>projection&lt;/strong>), ordering the results (&lt;strong>sorting&lt;/strong>), and restricting the number of documents returned (&lt;strong>limiting&lt;/strong>).&lt;/p>
+&lt;p>The tool returns a JSON array of the documents found.&lt;/p>
+&lt;p>This tool is compatible with the following source kind:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mongodb/">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;p>Here&amp;rsquo;s an example that finds up to 10 users from the &lt;code>customers&lt;/code> collection who live in a specific city. The results are sorted by their last name, and only their first name, last name, and email are returned.&lt;/p></description></item><item><title>mongodb-find-one</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mongodb/mongodb-find-one/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mongodb/mongodb-find-one/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>mongodb-find-one&lt;/code> tool is used to retrieve the &lt;strong>first single document&lt;/strong> that matches a specified filter from a MongoDB collection. If multiple documents match the filter, you can use &lt;code>sort&lt;/code> options to control which document is returned. Otherwise, the selection is not guaranteed.&lt;/p>
+&lt;p>The tool returns a single JSON object representing the document, wrapped in a JSON array.&lt;/p>
+&lt;p>This tool is compatible with the following source kind:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mongodb/">&lt;code>mongodb&lt;/code>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="example">Example&lt;/h2>
+&lt;p>Here&amp;rsquo;s a common use case: finding a specific user by their unique email address and returning their profile information, while excluding sensitive fields like the password hash.&lt;/p></description></item><item><title>mssql-execute-sql</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/mssql-execute-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mssql/mssql-execute-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>mssql-execute-sql&lt;/code> tool executes a SQL statement against a SQL Server
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>

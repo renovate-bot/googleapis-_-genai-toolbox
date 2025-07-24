@@ -74,6 +74,7 @@ List of reference documentation for resources in Toolbox.
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): Tools that work with HTTP Sources.
   - [Looker](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/looker/): Tools that work with Looker Sources.
+  - [MongoDB](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mongodb/): Tools that work with the MongoDB Source.
   - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/mysql/): Tools that work with MySQL Sources, such as Cloud SQL for MySQL.
   - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/neo4j/): Tools that work with Neo4j Sources.
   - [Postgres](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/postgres/): Tools that work with Postgres Sources, such as Cloud SQL for Postgres and AlloyDB. 
