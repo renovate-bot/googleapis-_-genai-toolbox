@@ -28,6 +28,7 @@ List of guides detailing how to do different things with Toolbox.
   - [Cloud SQL for MySQL using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/): Connect your IDE to Cloud SQL for MySQL using Toolbox.
   - [Cloud SQL for Postgres using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/): Connect your IDE to Cloud SQL for Postgres using Toolbox.
   - [Cloud SQL for SQL Server using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/): Connect your IDE to Cloud SQL for SQL Server using Toolbox.
+  - [Firestore using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/): Connect your IDE to Firestore using Toolbox.
   - [Looker using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/looker_mcp/): Connect your IDE to Looker using Toolbox.
   - [PostgreSQL using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/): Connect your IDE to PostgreSQL using Toolbox.
   - [Spanner using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/): Connect your IDE to Spanner using Toolbox.

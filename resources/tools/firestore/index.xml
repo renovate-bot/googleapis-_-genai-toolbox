@@ -177,7 +177,7 @@ all root-level collections in the database.&lt;/p>
  &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>firestore-validate-rules</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</link><pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;/table></description></item><item><title>firestore-validate-rules</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>firestore-validate-rules&lt;/code> tool validates Firestore security rules syntax and semantic correctness without deploying them. It provides detailed error reporting with source positions and code snippets.&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">

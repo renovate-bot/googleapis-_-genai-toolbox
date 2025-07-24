@@ -837,7 +837,37 @@ all root-level collections in the database.&lt;/p>
  &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Google Sign-In</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/authservices/google/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/authservices/google/</guid><description>&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;/table></description></item><item><title>firestore-validate-rules</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>The &lt;code>firestore-validate-rules&lt;/code> tool validates Firestore security rules syntax and semantic correctness without deploying them. It provides detailed error reporting with source positions and code snippets.&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">firestore-validate-rules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">firestore-validate-rules&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">&amp;lt;firestore-source-name&amp;gt;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Checks the provided Firestore Rules source for syntax and validation errors&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="authentication">Authentication&lt;/h2>
+&lt;p>This tool requires authentication if the source requires authentication.&lt;/p>
+&lt;h2 id="parameters">Parameters&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Parameter&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Required&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>source&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Yes&lt;/td>
+ &lt;td>The Firestore Rules source code to validate&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="response">Response&lt;/h2>
+&lt;p>The tool returns a &lt;code>ValidationResult&lt;/code> object containing:&lt;/p></description></item><item><title>Google Sign-In</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/authservices/google/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/authservices/google/</guid><description>&lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>Google Sign-In manages the OAuth 2.0 flow and token lifecycle. To integrate the
 Google Sign-In workflow to your web app &lt;a href="https://developers.google.com/identity/sign-in/web/sign-in">follow this guide&lt;/a>.&lt;/p>
 &lt;p>After setting up the Google Sign-In workflow, you should have registered your
@@ -2336,7 +2366,29 @@ docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox">Do I need a Google Cloud account/project to get started with Toolbox?&lt;/h2>
 &lt;p>Nope! While some of the sources Toolbox connects to may require GCP credentials,
 Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different resources
-that don&amp;rsquo;t.&lt;/p></description></item><item><title>Go SDK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/sdks/go-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/sdks/go-sdk/</guid><description>&lt;html>
+that don&amp;rsquo;t.&lt;/p></description></item><item><title>Firestore using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
+an open protocol for connecting Large Language Models (LLMs) to data sources
+like Firestore. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+to expose your developer assistant tools to a Firestore instance:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Visual Studio Code&lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-up-firestore">Set up Firestore&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Create or select a Google Cloud project.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">Create a new project&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects">Select an existing project&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://console.cloud.google.com/apis/library/firestore.googleapis.com">Enable the Firestore API&lt;/a> for your project.&lt;/p></description></item><item><title>Go SDK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/sdks/go-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/sdks/go-sdk/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-go"/>
  &lt;meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-go"/>
@@ -2727,37 +2779,7 @@ telemetry data.&lt;/p>
 &lt;li>&lt;code>Connectors&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;p>Example of setting up the classes of pipeline components (in this example, we
-don&amp;rsquo;t use connectors):&lt;/p></description></item><item><title>firestore-validate-rules</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</link><pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>The &lt;code>firestore-validate-rules&lt;/code> tool validates Firestore security rules syntax and semantic correctness without deploying them. It provides detailed error reporting with source positions and code snippets.&lt;/p>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">tools&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">firestore-validate-rules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">firestore-validate-rules&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">&amp;lt;firestore-source-name&amp;gt;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Checks the provided Firestore Rules source for syntax and validation errors&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="authentication">Authentication&lt;/h2>
-&lt;p>This tool requires authentication if the source requires authentication.&lt;/p>
-&lt;h2 id="parameters">Parameters&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Parameter&lt;/th>
- &lt;th>Type&lt;/th>
- &lt;th>Required&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>source&lt;/td>
- &lt;td>string&lt;/td>
- &lt;td>Yes&lt;/td>
- &lt;td>The Firestore Rules source code to validate&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="response">Response&lt;/h2>
-&lt;p>The tool returns a &lt;code>ValidationResult&lt;/code> object containing:&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
+don&amp;rsquo;t use connectors):&lt;/p></description></item><item><title>Configuration</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/getting-started/configure/</guid><description>&lt;p>The primary way to configure Toolbox is through the &lt;code>tools.yaml&lt;/code> file. If you
 have multiple files, you can tell toolbox which to load with the &lt;code>--tools-file tools.yaml&lt;/code> flag.&lt;/p>
 &lt;p>You can find more detailed reference documentation to all resource types in the
 &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/">Resources&lt;/a>.&lt;/p>
