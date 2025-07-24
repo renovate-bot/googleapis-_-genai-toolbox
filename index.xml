@@ -2368,7 +2368,24 @@ the &lt;a href="https://valkey.io/topics/quickstart/">official Valkey website&lt
  &lt;path d="M292 303.25V272c0-3.516-2.734-6.25-6.25-6.25H267v-100c0-3.516-2.734-6.25-6.25-6.25h-62.5c-3.516 0-6.25 2.734-6.25 6.25V197c0 3.516 2.734 6.25 6.25 6.25H217v62.5h-18.75c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h87.5c3.516 0 6.25-2.734 6.25-6.25Zm-25-175V97c0-3.516-2.734-6.25-6.25-6.25h-37.5c-3.516 0-6.25 2.734-6.25 6.25v31.25c0 3.516 2.734 6.25 6.25 6.25h37.5c3.516 0 6.25-2.734 6.25-6.25Zm125 81.25c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Info&lt;/p></description></item><item><title>AlloyDB using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</guid><description>&lt;html>
+ &lt;/span>Info&lt;/p></description></item><item><title>AlloyDB Admin API using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to create AlloyDB clusters and instances from IDE enabling their E2E journey.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Windsurf&lt;/a> (Codium)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Visual Studio Code &lt;/a> (Copilot)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Gemini CLI&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/#configure-your-mcp-client">Gemini Code Assist&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>In the Google Cloud console, on the &lt;a href="https://console.cloud.google.com/projectselector2/home/dashboard">project selector page&lt;/a>, select or create a Google Cloud project.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project">Make sure that billing is enabled for your Google Cloud project&lt;/a>.&lt;/p></description></item><item><title>AlloyDB using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
  &lt;meta http-equiv="refresh" content="0;url=https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox"/>
@@ -2416,6 +2433,8 @@ to expose your developer assistant tools to a Firestore instance:&lt;/p>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Cline&lt;/a> (VS Code extension)&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Claude desktop&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Claude code&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client">Gemini CLI&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/firestore_mcp/#configure-your-mcp-client]">Gemini Code Assist&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="set-up-firestore">Set up Firestore&lt;/h2>
 &lt;ol>

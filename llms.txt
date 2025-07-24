@@ -23,6 +23,7 @@ Some core concepts in Toolbox
 
 List of guides detailing how to do different things with Toolbox. 
 - [Connect from your IDE](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/): List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MCP.
+  - [AlloyDB Admin API using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_admin_mcp/): Create your AlloyDB database with MCP Toolbox.
   - [AlloyDB using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/alloydb_pg_mcp/): Connect your IDE to AlloyDB using Toolbox.
   - [BigQuery using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/bigquery_mcp/): Connect your IDE to BigQuery using Toolbox.
   - [Cloud SQL for MySQL using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/): Connect your IDE to Cloud SQL for MySQL using Toolbox.
