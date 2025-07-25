@@ -133,8 +133,10 @@ execute `toolbox` to start the server:
 ```sh
 ./toolbox --tools-file "tools.yaml"
 ```
+
 {{< notice note >}}
-Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+Toolbox enables dynamic reloading by default. To disable, use the
+`--disable-reload` flag.
 {{< /notice >}}
 
 #### Homebrew Users
@@ -157,6 +159,7 @@ Once your server is up and running, you can load the tools into your
 application. See below the list of Client SDKs for using various frameworks:
 
 #### Python
+
 {{< tabpane text=true persist=header >}}
 {{% tab header="Core" lang="en" %}}
 
@@ -169,7 +172,7 @@ from toolbox_core import ToolboxClient
 
 # update the url to point to your server
 
-async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+async with ToolboxClient("http://127.0.0.1:5000") as client:
 
     # these tools can be passed to your application!
     tools = await client.load_toolset("toolset_name")
@@ -190,7 +193,7 @@ from toolbox_langchain import ToolboxClient
 
 # update the url to point to your server
 
-async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+async with ToolboxClient("http://127.0.0.1:5000") as client:
 
     # these tools can be passed to your application!
     tools = client.load_toolset()
@@ -211,7 +214,7 @@ from toolbox_llamaindex import ToolboxClient
 
 # update the url to point to your server
 
-async with ToolboxClient("<http://127.0.0.1:5000>") as client:
+async with ToolboxClient("http://127.0.0.1:5000") as client:
 
 # these tools can be passed to your application
 
@@ -583,7 +586,9 @@ func main() {
 For more detailed instructions on using the Toolbox Go SDK, see the
 [project's README](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/README.md).
 
-For end-to-end samples on using the Toolbox Go SDK with orchestration frameworks, see the [project's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
+For end-to-end samples on using the Toolbox Go SDK with orchestration
+frameworks, see the [project's
+samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 
 # Python Quickstart (Local)
@@ -602,7 +607,9 @@ This guide assumes you have already done the following:
 
 ### Cloud Setup (Optional)
 
-If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using `vertexai=True` or a Google GenAI model), follow these one-time setup steps for local development:
+If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using
+`vertexai=True` or a Google GenAI model), follow these one-time setup steps for
+local development:
 
 1. [Install the Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
 1. [Set up Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
@@ -737,7 +744,6 @@ postgres` and a password next time.
     \q
     ```
 
-
 ## Step 2: Install and configure Toolbox
 
 In this section, we will download Toolbox, configure our tools in a
@@ -854,8 +860,10 @@ In this section, we will download Toolbox, configure our tools in a
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
+
     {{< notice note >}}
-    Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+    Toolbox enables dynamic reloading by default. To disable, use the
+    `--disable-reload` flag.
     {{< /notice >}}
 
 ## Step 3: Connect your agent to Toolbox
@@ -1274,7 +1282,8 @@ This guide assumes you have already done the following:
 
 ### Cloud Setup (Optional)
 
-If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:
+If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using
+Gemini or PaLM models), follow these one-time setup steps:
 
 1. [Install the Google Cloud CLI]
 1. [Set up Application Default Credentials (ADC)]
@@ -1288,8 +1297,8 @@ If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using G
 [Node.js (v18 or higher)]: https://nodejs.org/
 [install-postgres]: https://www.postgresql.org/download/
 [Install the Google Cloud CLI]: https://cloud.google.com/sdk/docs/install
-[Set up Application Default Credentials (ADC)]: https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
-
+[Set up Application Default Credentials (ADC)]:
+    https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
 
 ## Step 1: Set up your database
 
@@ -1526,6 +1535,7 @@ In this section, we will download Toolbox, configure our tools in a
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
+
   {{< notice note >}}
     Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
   {{< /notice >}}
@@ -1597,7 +1607,6 @@ async function runApplication() {
     model: "gemini-2.0-flash",
   });
 
-
   const client = new ToolboxClient("http://127.0.0.1:5000");
   const toolboxTools = await client.loadToolset("my-toolset");
 
@@ -1621,7 +1630,6 @@ async function runApplication() {
         thread_id: "test-thread",
     },
   };
-
 
   for (const query of queries) {
     const agentOutput = await agent.invoke(
@@ -1836,6 +1844,7 @@ main();
 For more information, visit the [JS SDK repo](https://github.com/googleapis/mcp-toolbox-sdk-js).
 {{</ notice >}}
 
+
 # Go Quickstart (Local)
 How to get started running Toolbox locally with [Go](https://github.com/googleapis/mcp-toolbox-sdk-go), PostgreSQL, and orchestration frameworks such as [LangChain Go](https://tmc.github.io/langchaingo/docs/), [GenkitGo](https://genkit.dev/go/docs/get-started-go/), [Go GenAI](https://github.com/googleapis/go-genai) and [OpenAI Go](https://github.com/openai/openai-go).
 
@@ -1849,7 +1858,8 @@ This guide assumes you have already done the following:
 
 ### Cloud Setup (Optional)
 
-If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using Gemini or PaLM models), follow these one-time setup steps:
+If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using
+Gemini or PaLM models), follow these one-time setup steps:
 
 1. [Install the Google Cloud CLI]
 1. [Set up Application Default Credentials (ADC)]
@@ -1863,8 +1873,8 @@ If you plan to use **Google Cloud’s Vertex AI** with your agent (e.g., using G
 [Go (v1.24.2 or higher)]: https://go.dev/doc/install
 [install-postgres]: https://www.postgresql.org/download/
 [Install the Google Cloud CLI]: https://cloud.google.com/sdk/docs/install
-[Set up Application Default Credentials (ADC)]: https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
-
+[Set up Application Default Credentials (ADC)]:
+    https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
 
 ## Step 1: Set up your database
 
@@ -2101,8 +2111,10 @@ In this section, we will download Toolbox, configure our tools in a
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
+
   {{< notice note >}}
-    Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+    Toolbox enables dynamic reloading by default. To disable, use the
+    `--disable-reload` flag.
   {{< /notice >}}
 
 ## Step 3: Connect your agent to Toolbox
@@ -2116,13 +2128,15 @@ from Toolbox.
     go mod init main
     ```
 
-1. In a new terminal, install the [SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go).
+1. In a new terminal, install the
+   [SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go).
 
     ```bash
     go get github.com/googleapis/mcp-toolbox-sdk-go
     ```
 
-1. Create a new file named `hotelagent.go` and copy the following code to create an agent:
+1. Create a new file named `hotelagent.go` and copy the following code to create
+   an agent:
 
     {{< tabpane persist=header >}}
 {{< tab header="LangChain Go" lang="go" >}}
@@ -2751,8 +2765,10 @@ func main() {
     ```
 
 {{< notice info >}}
-For more information, visit the [Go SDK repo](https://github.com/googleapis/mcp-toolbox-sdk-go).
+For more information, visit the [Go SDK
+repo](https://github.com/googleapis/mcp-toolbox-sdk-go).
 {{</ notice >}}
+
 
 # Quickstart (MCP)
 How to get started running Toolbox locally with MCP Inspector.
@@ -2970,7 +2986,8 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. Type `y` when it asks to install the inspector package.
 
-1. It should show the following when the MCP Inspector is up and running (please take note of `<YOUR_SESSION_TOKEN>`):
+1. It should show the following when the MCP Inspector is up and running (please
+   take note of `<YOUR_SESSION_TOKEN>`):
 
     ```bash
     Starting MCP inspector...
@@ -2988,7 +3005,8 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. For `URL`, type in `http://127.0.0.1:5000/mcp`.
 
-1. For `Configuration` -> `Proxy Session Token`, make sure `<YOUR_SESSION_TOKEN>` is present.
+1. For `Configuration` -> `Proxy Session Token`, make sure
+   `<YOUR_SESSION_TOKEN>` is present.
 
 1. Click Connect.
 
@@ -2999,6 +3017,7 @@ In this section, we will download Toolbox, configure our tools in a
     ![inspector_tools](./inspector_tools.png)
 
 1. Test out your tools here!
+
 
 # Configuration
 How to configure Toolbox's tools.yaml file.
@@ -3316,11 +3335,12 @@ List of guides detailing how to connect your AI tools (IDEs) to Toolbox using MC
 Create your AlloyDB database with MCP Toolbox.
 
 
-This guide covers how to use [MCP Toolbox for Databases][toolbox] to create AlloyDB clusters and instances from IDE enabling their E2E journey.
+This guide covers how to use [MCP Toolbox for Databases][toolbox] to create
+AlloyDB clusters and instances from IDE enabling their E2E journey.
 
 - [Cursor][cursor]
 - [Windsurf][windsurf] (Codium)
-- [Visual Studio Code ][vscode] (Copilot)
+- [Visual Studio Code][vscode] (Copilot)
 - [Cline][cline] (VS Code extension)
 - [Claude desktop][claudedesktop]
 - [Claude code][claudecode]
@@ -3339,13 +3359,19 @@ This guide covers how to use [MCP Toolbox for Databases][toolbox] to create Allo
 
 ## Before you begin
 
-1. In the Google Cloud console, on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard), select or create a Google Cloud project.
+1. In the Google Cloud console, on the [project selector
+   page](https://console.cloud.google.com/projectselector2/home/dashboard),
+   select or create a Google Cloud project.
 
-1. [Make sure that billing is enabled for your Google Cloud project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
+1. [Make sure that billing is enabled for your Google Cloud
+   project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
 
 ## Install MCP Toolbox
 
-1. Download the latest version of Toolbox as a binary. Select the [correct binary](https://github.com/googleapis/genai-toolbox/releases) corresponding to your OS and CPU architecture. You are required to use Toolbox version V0.10.0+:
+1. Download the latest version of Toolbox as a binary. Select the [correct
+   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   to your OS and CPU architecture. You are required to use Toolbox version
+   V0.10.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
@@ -3384,13 +3410,16 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 {{< tabpane text=true >}}
 {{% tab header="Claude code" lang="en" %}}
 
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
+1. Install [Claude
+   Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview).
 1. Create a `.mcp.json` file in your project root if it doesn't exist.
-1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Generate Access token to be used as API_KEY using `gcloud auth
+   print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
    ```json
    {
@@ -3413,11 +3442,13 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 
 1. Open [Claude desktop](https://claude.ai/download) and navigate to Settings.
 1. Under the Developer tab, tap Edit Config to open the configuration file.
-1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Generate Access token to be used as API_KEY using `gcloud auth
+   print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
    ```json
    {
@@ -3434,18 +3465,22 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
    ```
 
 1. Restart Claude desktop.
-1. From the new chat screen, you should see a hammer (MCP) icon appear with the new MCP server available.
+1. From the new chat screen, you should see a hammer (MCP) icon appear with the
+   new MCP server available.
    {{% /tab %}}
 
 {{% tab header="Cline" lang="en" %}}
 
-1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap the **MCP Servers** icon.
+1. Open the [Cline](https://github.com/cline/cline) extension in VS Code and tap
+   the **MCP Servers** icon.
 1. Tap Configure MCP Servers to open the configuration file.
-1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Generate Access token to be used as API_KEY using `gcloud auth
+   print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
    ```json
    {
@@ -3461,18 +3496,21 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
    }
    ```
 
-1. You should see a green active status after the server is successfully connected.
+1. You should see a green active status after the server is successfully
+   connected.
    {{% /tab %}}
 
 {{% tab header="Cursor" lang="en" %}}
 
 1. Create a `.cursor` directory in your project root if it doesn't exist.
 1. Create a `.cursor/mcp.json` file if it doesn't exist and open it.
-1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Generate Access token to be used as API_KEY using `gcloud auth
+   print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1. Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
    ```json
    {
@@ -3488,18 +3526,23 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
    }
    ```
 
-1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor Settings > MCP**. You should see a green active status after the server is successfully connected.
+1. [Cursor](https://www.cursor.com/) and navigate to **Settings > Cursor
+   Settings > MCP**. You should see a green active status after the server is
+   successfully connected.
    {{% /tab %}}
 
 {{% tab header="Visual Studio Code (Copilot)" lang="en" %}}
 
-1.  Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and create a `.vscode` directory in your project root if it doesn't exist.
-1.  Create a `.vscode/mcp.json` file if it doesn't exist and open it.
-1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Open [VS Code](https://code.visualstudio.com/docs/copilot/overview) and
+   create a `.vscode` directory in your project root if it doesn't exist.
+1. Create a `.vscode/mcp.json` file if it doesn't exist and open it.
+1. Generate Access token to be used as API_KEY using `gcloud auth
+   print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1.  Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
 ```json
 {
@@ -3519,13 +3562,16 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 
 {{% tab header="Windsurf" lang="en" %}}
 
-1.  Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the Cascade assistant.
-1.  Tap on the hammer (MCP) icon, then Configure to open the configuration file.
-1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Open [Windsurf](https://docs.codeium.com/windsurf) and navigate to the
+   Cascade assistant.
+1. Tap on the hammer (MCP) icon, then Configure to open the configuration file.
+1. Generate Access token to be used as API_KEY using `gcloud auth
+   print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1.  Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
 ```json
 {
@@ -3544,13 +3590,16 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 {{% /tab %}}
 {{% tab header="Gemini CLI" lang="en" %}}
 
-1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
-1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
-1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Install the [Gemini
+   CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1. In your working directory, create a folder named `.gemini`. Within it, create
+   a `settings.json` file.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1.  Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
 ```json
 {
@@ -3569,14 +3618,18 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 {{% /tab %}}
 {{% tab header="Gemini Code Assist" lang="en" %}}
 
-1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
-1.  Enable Agent Mode in Gemini Code Assist chat.
-1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
-1.  Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
+1. Install the [Gemini Code
+   Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist)
+   extension in Visual Studio Code.
+1. Enable Agent Mode in Gemini Code Assist chat.
+1. In your working directory, create a folder named `.gemini`. Within it, create
+   a `settings.json` file.
+1. Generate Access token to be used as API_KEY using `gcloud auth print-access-token`.
 
     > **Note:** The lifetime of token is 1 hour.
 
-1.  Add the following configuration, replace the environment variables with your values, and save:
+1. Add the following configuration, replace the environment variables with your
+   values, and save:
 
 ```json
 {
@@ -3597,7 +3650,8 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 
 ## Use Tools
 
-Your AI tool is now connected to AlloyDB using MCP. Try asking your AI assistant to create a database, cluster or instance.
+Your AI tool is now connected to AlloyDB using MCP. Try asking your AI assistant
+to create a database, cluster or instance.
 
 The following tools are available to the LLM:
 
@@ -3606,12 +3660,15 @@ The following tools are available to the LLM:
 1. **alloydb-get-operation**: polls on operations API until the operation is done.
 
 {{< notice note >}}
-Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs will adapt to the tools available, so this shouldn't affect most users.
+Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs
+will adapt to the tools available, so this shouldn't affect most users.
 {{< /notice >}}
 
 ## Connect to your Data
 
-After setting up an AlloyDB cluster and instance, you can [connect your IDE to the database](https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox).
+After setting up an AlloyDB cluster and instance, you can [connect your IDE to
+the
+database](https://cloud.google.com/alloydb/docs/pre-built-tools-with-mcp-toolbox).
 
 
 # AlloyDB using MCP
@@ -3701,12 +3758,18 @@ to expose your developer assistant tools to a Firestore instance:
 
 1. Create or select a Google Cloud project.
 
-    * [Create a new project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-    * [Select an existing project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+    * [Create a new
+      project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+    * [Select an existing
+      project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
 
-1. [Enable the Firestore API](https://console.cloud.google.com/apis/library/firestore.googleapis.com) for your project.
+1. [Enable the Firestore
+   API](https://console.cloud.google.com/apis/library/firestore.googleapis.com)
+   for your project.
 
-1. [Create a Firestore database](https://cloud.google.com/firestore/docs/create-database-web-mobile-client-library) if you haven't already.
+1. [Create a Firestore
+   database](https://cloud.google.com/firestore/docs/create-database-web-mobile-client-library)
+   if you haven't already.
 
 1. Set up authentication for your local environment.
 
@@ -3914,9 +3977,13 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 {{% /tab %}}
 {{% tab header="Gemini CLI" lang="en" %}}
 
-1.  Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
-1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
-1.  Add the following configuration, replace the environment variables with your values, and then save:
+1. Install the [Gemini
+   CLI](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#quickstart).
+1. In your working directory, create a folder named `.gemini`. Within it, create
+   a `settings.json` file.
+1. Add the following configuration, replace the environment variables with your
+   values, and then save:
+
     ```json
     {
       "mcpServers": {
@@ -3936,10 +4003,15 @@ curl -O https://storage.googleapis.com/genai-toolbox/v0.10.0/windows/amd64/toolb
 {{% /tab %}}
 {{% tab header="Gemini Code Assist" lang="en" %}}
 
-1.  Install the [Gemini Code Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist) extension in Visual Studio Code.
-1.  Enable Agent Mode in Gemini Code Assist chat.
-1.  In your working directory, create a folder named `.gemini`. Within it, create a `settings.json` file.
-1.  Add the following configuration, replace the environment variables with your values, and then save:
+1. Install the [Gemini Code
+   Assist](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist)
+   extension in Visual Studio Code.
+1. Enable Agent Mode in Gemini Code Assist chat.
+1. In your working directory, create a folder named `.gemini`. Within it, create
+   a `settings.json` file.
+1. Add the following configuration, replace the environment variables with your
+   values, and then save:
+
     ```json
     {
       "mcpServers": {
@@ -3967,12 +4039,17 @@ security rules.
 
 The following tools are available to the LLM:
 
-1. **firestore-get-documents**: Gets multiple documents from Firestore by their paths
-1. **firestore-list-collections**: List Firestore collections for a given parent path
+1. **firestore-get-documents**: Gets multiple documents from Firestore by their
+   paths
+1. **firestore-list-collections**: List Firestore collections for a given parent
+   path
 1. **firestore-delete-documents**: Delete multiple documents from Firestore
-1. **firestore-query-collection**: Query documents from a collection with filtering, ordering, and limit options
-1. **firestore-get-rules**: Retrieves the active Firestore security rules for the current project
-1. **firestore-validate-rules**: Validates Firestore security rules syntax and errors
+1. **firestore-query-collection**: Query documents from a collection with
+   filtering, ordering, and limit options
+1. **firestore-get-rules**: Retrieves the active Firestore security rules for
+   the current project
+1. **firestore-validate-rules**: Validates Firestore security rules syntax and
+   errors
 
 {{< notice note >}}
 Prebuilt tools are pre-1.0, so expect some tool changes between versions. LLMs
@@ -4565,8 +4642,9 @@ Toolbox currently supports the following versions of MCP specification:
 
 The auth implementation in Toolbox is not supported in MCP's auth specification.
 This includes:
-  * [Authenticated Parameters](../resources/tools/_index.md#authenticated-parameters)
-  * [Authorized Invocations](../resources/tools/_index.md#authorized-invocations)
+
+* [Authenticated Parameters](../resources/tools/_index.md#authenticated-parameters)
+* [Authorized Invocations](../resources/tools/_index.md#authorized-invocations)
 
 ## Connecting to Toolbox with an MCP client
 
@@ -4599,7 +4677,8 @@ remote HTTP server. Logs will be set to the `warn` level by default. `debug` and
 `info` logs are not supported with stdio.
 
 {{< notice note >}}
-Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+Toolbox enables dynamic reloading by default. To disable, use the
+`--disable-reload` flag.
 {{< /notice >}}
 
 ### Connecting via HTTP
@@ -6330,9 +6409,15 @@ Dataplex Universal Catalog is a unified, intelligent governance solution for dat
 
 # Dataplex Source
 
-[Dataplex][dataplex-docs] Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
+[Dataplex][dataplex-docs] Universal Catalog is a unified, intelligent governance
+solution for data and AI assets in Google Cloud. Dataplex Universal Catalog
+powers AI, analytics, and business intelligence at scale.
 
-At the heart of these governance capabilities is a catalog that contains a centralized inventory of the data assets in your organization. Dataplex Universal Catalog holds business, technical, and runtime metadata for all of your data. It helps you discover relationships and semantics in the metadata by applying artificial intelligence and machine learning.
+At the heart of these governance capabilities is a catalog that contains a
+centralized inventory of the data assets in your organization. Dataplex
+Universal Catalog holds business, technical, and runtime metadata for all of
+your data. It helps you discover relationships and semantics in the metadata by
+applying artificial intelligence and machine learning.
 
 [dataplex-docs]: https://cloud.google.com/dataplex/docs
 
@@ -6347,7 +6432,8 @@ sources:
 
 ## Sample System Prompt
 
-You can use the following system prompt as "Custom Instructions" in your client application.
+You can use the following system prompt as "Custom Instructions" in your client
+application.
 
 ```
 Whenever you will receive response from dataplex_search_entries tool decide what do to by following these steps:
@@ -6502,9 +6588,13 @@ with [Firestore][firestore-docs].
 In addition to [setting the ADC for your server][set-adc], you need to ensure
 the IAM identity has been given the correct IAM permissions for accessing
 Firestore. Common roles include:
+
 - `roles/datastore.user` - Read and write access to Firestore
 - `roles/datastore.viewer` - Read-only access to Firestore
-- `roles/firebaserules.admin` - Full management of Firebase Security Rules for Firestore. This role is required for operations that involve creating, updating, or managing Firestore security rules (see [Firebase Security Rules roles][firebaserules-roles])
+- `roles/firebaserules.admin` - Full management of Firebase Security Rules for
+  Firestore. This role is required for operations that involve creating,
+  updating, or managing Firestore security rules (see [Firebase Security Rules
+  roles][firebaserules-roles])
 
 See [Firestore access control][firestore-iam] for more information on
 applying IAM permissions and roles to an identity.
@@ -6513,7 +6603,8 @@ applying IAM permissions and roles to an identity.
 [adc]: https://cloud.google.com/docs/authentication#adc
 [set-adc]: https://cloud.google.com/docs/authentication/provide-credentials-adc
 [firestore-iam]: https://cloud.google.com/firestore/docs/security/iam
-[firebaserules-roles]: https://cloud.google.com/iam/docs/roles-permissions/firebaserules
+[firebaserules-roles]:
+    https://cloud.google.com/iam/docs/roles-permissions/firebaserules
 
 ### Database Selection
 
@@ -6611,7 +6702,8 @@ in the cloud, on GCP, or on premises.
 This source only uses API authentication. You will need to
 [create an API user][looker-user] to login to Looker.
 
-[looker-user]: https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk
+[looker-user]:
+    https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk
 
 ## Example
 
@@ -6626,9 +6718,10 @@ sources:
         timeout: 600s
 ```
 
-The Looker base url will look like "https://looker.example.com", don't include a
-trailing "/". In some cases, especially if your Looker is deployed on-premises,
-you may need to add the API port numner like "https://looker.example.com:19999".
+The Looker base url will look like "https://looker.example.com", don't include
+a trailing "/". In some cases, especially if your Looker is deployed
+on-premises, you may need to add the API port numner like
+"https://looker.example.com:19999".
 
 Verify ssl should almost always be "true" (all lower case) unless you are using
 a self-signed ssl certificate for the Looker server. Anything other than "true"
@@ -6660,7 +6753,8 @@ MongoDB is a no-sql data platform that can not only serve general purpose data r
 
 ## About
 
-[MongoDB][mongodb-docs] is a popular NoSQL database that stores data in flexible, JSON-like documents, making it easy to develop and scale applications.
+[MongoDB][mongodb-docs] is a popular NoSQL database that stores data in
+flexible, JSON-like documents, making it easy to develop and scale applications.
 
 [mongodb-docs]: https://www.mongodb.com/docs/atlas/getting-started/
 
@@ -7336,20 +7430,24 @@ in the list using the items field:
 | items       | parameter object |     true     | Specify a Parameter object for the type of the values in the array.         |
 
 {{< notice note >}}
-Items in array should not have a `default` or `required` value. If provided, it will be ignored.
+Items in array should not have a `default` or `required` value. If provided, it
+will be ignored.
 {{< /notice >}}
 
 ### Map Parameters
 
-The map type is a collection of key-value pairs. It can be configured in two ways:
+The map type is a collection of key-value pairs. It can be configured in two
+ways:
 
-- Generic Map: By default, it accepts values of any primitive type (string, integer, float, boolean), allowing for mixed data.
+- Generic Map: By default, it accepts values of any primitive type (string,
+  integer, float, boolean), allowing for mixed data.
 - Typed Map: By setting the valueType field, you can enforce that all values
   within the map must be of the same specified type.
 
 #### Generic Map (Mixed Value Types)
 
-This is the default behavior when valueType is omitted. It's useful for passing a flexible group of settings.
+This is the default behavior when valueType is omitted. It's useful for passing
+a flexible group of settings.
 
 ```yaml
     parameters:
@@ -7401,7 +7499,7 @@ user's ID token.
 
 | **field** | **type** | **required** | **description**                                                                         |
 |-----------|:--------:|:------------:|-----------------------------------------------------------------------------------------|
-| name      |  string  |     true     | Name of the [authServices](../authservices) used to verify the OIDC auth token. |
+| name      |  string  |     true     | Name of the [authServices](../authservices) used to verify the OIDC auth token.         |
 | field     |  string  |     true     | Claim field decoded from the OIDC token used to auto-populate this parameter.           |
 
 ### Template Parameters
@@ -7873,8 +7971,10 @@ to use BigQuery, and then run the Toolbox server.
     ```bash
     ./toolbox --tools-file "tools.yaml"
     ```
+
     {{< notice note >}}
-    Toolbox enables dynamic reloading by default. To disable, use the `--disable-reload` flag.
+    Toolbox enables dynamic reloading by default. To disable, use the
+    `--disable-reload` flag.
     {{< /notice >}}
 
 ## Step 3: Connect your agent to Toolbox
@@ -8502,7 +8602,8 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. Type `y` when it asks to install the inspector package.
 
-1. It should show the following when the MCP Inspector is up and running (please take note of `<YOUR_SESSION_TOKEN>`):
+1. It should show the following when the MCP Inspector is up and running (please
+   take note of `<YOUR_SESSION_TOKEN>`):
 
     ```bash
     Starting MCP inspector...
@@ -8520,7 +8621,8 @@ In this section, we will download Toolbox, configure our tools in a
 
 1. For `URL`, type in `http://127.0.0.1:5000/mcp`.
 
-1. For `Configuration` -> `Proxy Session Token`, make sure `<YOUR_SESSION_TOKEN>` is present.
+1. For `Configuration` -> `Proxy Session Token`, make sure
+   `<YOUR_SESSION_TOKEN>` is present.
 
 1. Click Connect.
 
@@ -8531,6 +8633,7 @@ In this section, we will download Toolbox, configure our tools in a
     ![inspector_tools](./inspector_tools.png)
 
 1. Test out your tools here!
+
 
 # Looker
 How to get started with Toolbox using Looker.
@@ -8635,6 +8738,7 @@ In this section, we will download Toolbox and run the Toolbox server.
         - looker-toolbox__get_dimensions
         - looker-toolbox__run_look
     ```
+
 1. Start exploring your Looker instance with commands like
    `Find an explore to see orders` or `show me my current
    inventory broken down by item category`.

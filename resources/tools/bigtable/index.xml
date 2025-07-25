@@ -7,7 +7,8 @@ instance. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;h3 id="googlesql">GoogleSQL&lt;/h3>
 &lt;p>Bigtable supports SQL queries. The integration with Toolbox supports &lt;code>googlesql&lt;/code>
 dialect, the specified SQL statement is executed as a &lt;a href="https://cloud.google.com/bigtable/docs/googlesql-overview">data manipulation
-language (DML)&lt;/a> statements, and specified parameters will inserted according to their name: e.g. &lt;code>@name&lt;/code>.&lt;/p>
+language (DML)&lt;/a> statements, and specified parameters will
+inserted according to their name: e.g. &lt;code>@name&lt;/code>.&lt;/p>
 &lt;style type="text/css">
  
  .notice {
