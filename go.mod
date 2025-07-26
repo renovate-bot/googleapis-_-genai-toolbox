@@ -45,10 +45,10 @@ require (
 	go.opentelemetry.io/otel/trace v1.37.0
 	golang.org/x/oauth2 v0.30.0
 	google.golang.org/api v0.243.0
-	modernc.org/sqlite v1.38.0
+	modernc.org/sqlite v1.38.1
 )
 
-require golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0 // indirect
+require golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
 
 require (
 	cel.dev/expr v0.23.0 // indirect
@@ -149,7 +149,7 @@ require (
 	google.golang.org/grpc v1.73.0 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
-	modernc.org/libc v1.65.10 // indirect
+	modernc.org/libc v1.66.3 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )
