@@ -3,7 +3,7 @@
 their paths.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-delete-documents&lt;/code> takes one input parameter &lt;code>documentPaths&lt;/code> which is
 an array of document paths to delete. The tool uses Firestore&amp;rsquo;s BulkWriter for
@@ -49,7 +49,7 @@ efficient batch deletion and returns the success status for each document.&lt;/p
 their paths.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-get-documents&lt;/code> takes one input parameter &lt;code>documentPaths&lt;/code> which is an
 array of document paths, and returns the documents&amp;rsquo; data along with metadata
@@ -96,7 +96,7 @@ rules&lt;/a> for the
 current project.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-get-rules&lt;/code> takes no input parameters and returns the security rules
 content along with metadata such as the ruleset name, and timestamps.&lt;/p>
@@ -144,7 +144,7 @@ in Firestore, either at the root level or as
 of a specific document.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-list-collections&lt;/code> takes an optional &lt;code>parentPath&lt;/code> parameter to specify a document
 path. If provided, it lists all subcollections of that document. If not provided, it lists

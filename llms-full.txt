@@ -151,7 +151,7 @@ You can use `toolbox help` for a full list of flags! To stop the server, send a
 terminate signal (`ctrl+c` on most platforms).
 
 For more detailed documentation on deploying to different environments, check
-out the resources in the [How-to section](../../how-to/_index.md)
+out the resources in the [How-to section](../../how-to/)
 
 ### Integrating your application
 
@@ -2839,7 +2839,7 @@ access by our agent, and create a database user for Toolbox to connect with.
 
     ```sql
     INSERT INTO hotels(id, name, location, price_tier, checkin_date, checkout_date, booked)
-    VALUES 
+    VALUES
       (1, 'Hilton Basel', 'Basel', 'Luxury', '2024-04-22', '2024-04-20', B'0'),
       (2, 'Marriott Zurich', 'Zurich', 'Upscale', '2024-04-14', '2024-04-21', B'0'),
       (3, 'Hyatt Regency Basel', 'Basel', 'Upper Upscale', '2024-04-02', '2024-04-20', B'0'),
@@ -2968,7 +2968,7 @@ In this section, we will download Toolbox, configure our tools in a
     ```
 
     For more info on tools, check out the
-    [Tools](../../resources/tools/_index.md) section.
+    [Tools](../../resources/tools/) section.
 
 1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
@@ -3114,7 +3114,7 @@ Some core concepts in Toolbox
 
 
 # Telemetry
-An overview of telemetry and observability in Toolbox. 
+An overview of telemetry and observability in Toolbox.
 
 
 ## About
@@ -3269,7 +3269,7 @@ enabled:
 
 - [Cloud Logging API](https://cloud.google.com/logging/docs/api/enable-api)
 - [Cloud Monitoring API](https://cloud.google.com/monitoring/api/enable-api)
-- [Cloud Trace API](https://cloud.google.com/apis/enableflow?apiid=cloudtrace.googleapis.com)
+- [Cloud Trace API](https://console.cloud.google.com/apis/enableflow?apiid=cloudtrace.googleapis.com)
 {{< /notice >}}
 
 #### OTLP Exporter
@@ -3288,7 +3288,7 @@ It receives telemetry data, transforms it, and then exports data to backends
 that can store it permanently. Toolbox provide an option to export telemetry
 data to user's choice of backend(s) that are compatible with the Open Telemetry
 Protocol (OTLP). If you would like to use a collector, please refer to this
-[Export Telemetry using the Otel Collector](../how-to/export_telemetry.md).
+[Export Telemetry using the Otel Collector](../../how-to/export_telemetry.md).
 
 ### Flags
 
@@ -4643,8 +4643,8 @@ Toolbox currently supports the following versions of MCP specification:
 The auth implementation in Toolbox is not supported in MCP's auth specification.
 This includes:
 
-* [Authenticated Parameters](../resources/tools/_index.md#authenticated-parameters)
-* [Authorized Invocations](../resources/tools/_index.md#authorized-invocations)
+* [Authenticated Parameters](../resources/tools/#authenticated-parameters)
+* [Authorized Invocations](../resources/tools/#authorized-invocations)
 
 ## Connecting to Toolbox with an MCP client
 
@@ -4654,7 +4654,7 @@ This includes:
 MCP is only compatible with Toolbox version 0.3.0 and above.
 {{< /notice >}}
 
-1. [Install](../getting-started/introduction/_index.md#installing-the-server)
+1. [Install](../getting-started/introduction/#installing-the-server)
    Toolbox version 0.3.0+.
 
 1. Make sure you've set up and initialized your database.
@@ -4747,7 +4747,7 @@ testing and debugging Toolbox server.
    You should be able to inspect your toolbox tools!
 {{% /tab %}}
 {{% tab header="HTTP with SSE (deprecated)" lang="en" %}}
-1. [Run Toolbox](../getting-started/introduction/_index.md#running-the-server).
+1. [Run Toolbox](../getting-started/introduction/#running-the-server).
 
 1. In a separate terminal, run Inspector directly through `npx`:
 
@@ -4764,7 +4764,7 @@ testing and debugging Toolbox server.
    tools!
 {{% /tab %}}
 {{% tab header="Streamable HTTP" lang="en" %}}
-1. [Run Toolbox](../getting-started/introduction/_index.md#running-the-server).
+1. [Run Toolbox](../getting-started/introduction/#running-the-server).
 
 1. In a separate terminal, run Inspector directly through `npx`:
 
@@ -4869,7 +4869,7 @@ database are in the same VPC network.
 
 Create a `tools.yaml` file that contains your configuration for Toolbox. For
 details, see the
-[configuration](https://googleapis.github.io/genai-toolbox/resources/sources/)
+[configuration](../resources/sources/)
 section.
 
 ## Deploy to Cloud Run
@@ -4915,7 +4915,7 @@ section.
         --region us-central1 \
         --set-secrets "/app/tools.yaml=tools:latest" \
         --args="--tools-file=/app/tools.yaml","--address=0.0.0.0","--port=8080" \
-        # TODO(dev): update the following to match your VPC if necessary 
+        # TODO(dev): update the following to match your VPC if necessary
         --network default \
         --subnet default
         # --allow-unauthenticated # https://cloud.google.com/run/docs/authenticating/public#gcloud
@@ -5450,11 +5450,11 @@ List of reference documentation for resources in Toolbox.
 
 
 # AuthServices
-AuthServices represent services that handle authentication and authorization. 
+AuthServices represent services that handle authentication and authorization.
 
 
 AuthServices represent services that handle authentication and authorization. It
-can primarily be used by [Tools](../tools) in two different ways:
+can primarily be used by [Tools](../tools/) in two different ways:
 
 - [**Authorized Invocation**][auth-invoke] is when a tool
   is validated by the auth service before the call can be invoked. Toolbox
@@ -5633,7 +5633,7 @@ authorized_tool = tools[0].add_auth_token_getters({
 
 
 # Google Sign-In
-Use Google Sign-In for Oauth 2.0 flow and token lifecycle. 
+Use Google Sign-In for Oauth 2.0 flow and token lifecycle.
 
 
 ## Getting Started
@@ -7320,7 +7320,7 @@ sources:
 
 
 # Tools
-Tools define actions an agent can take -- such as reading and writing to a  source.
+Tools define actions an agent can take -- such as reading and writing to a source.
 
 
 A tool represents an action your agent can take, such as running a SQL
@@ -7473,10 +7473,10 @@ will be thrown in case of value type mismatch.
 
 Authenticated parameters are automatically populated with user
 information decoded from [ID
-tokens](../authsources/#specifying-id-tokens-from-clients) that are passed in
+tokens](../authServices/#specifying-id-tokens-from-clients) that are passed in
 request headers. They do not take input values in request bodies like other
 parameters. To use authenticated parameters, you must configure the tool to map
-the required [authServices](../authservices) to specific claims within the
+the required [authServices](../authServices/) to specific claims within the
 user's ID token.
 
 ```yaml
@@ -7499,7 +7499,7 @@ user's ID token.
 
 | **field** | **type** | **required** | **description**                                                                         |
 |-----------|:--------:|:------------:|-----------------------------------------------------------------------------------------|
-| name      |  string  |     true     | Name of the [authServices](../authservices) used to verify the OIDC auth token.         |
+| name      |  string  |     true     | Name of the [authServices](../authServices/) used to verify the OIDC auth token.         |
 | field     |  string  |     true     | Claim field decoded from the OIDC token used to auto-populate this parameter.           |
 
 ### Template Parameters
@@ -7560,7 +7560,7 @@ tools:
 
 You can require an authorization check for any Tool invocation request by
 specifying an `authRequired` field. Specify a list of
-[authServices](../authservices) defined in the previous section.
+[authServices](../authServices/) defined in the previous section.
 
 ```yaml
 tools:
@@ -7683,7 +7683,7 @@ How to get started with Toolbox using BigQuery.
 
 
 # Quickstart (Local with BigQuery)
-How to get started running Toolbox locally with Python, BigQuery, and  LangGraph, LlamaIndex, or ADK.
+How to get started running Toolbox locally with Python, BigQuery, and LangGraph, LlamaIndex, or ADK.
 
 
 [![Open In
@@ -8372,7 +8372,7 @@ with ToolboxSyncClient("<http://127.0.0.1:5000>") as toolbox_client:
     {{< tabpane text=true persist=header >}}
 {{% tab header="Core" lang="en" %}}
 To learn more about the Core SDK, check out the [Toolbox Core SDK
-documentation.](https://github.com/googleapis/genai-toolbox/tree/main/sdks/toolbox-core)
+documentation.](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-core/README.md)
 {{% /tab %}}
 {{% tab header="Langchain" lang="en" %}}
 To learn more about Agents in LangChain, check out the [LangGraph Agent
@@ -8404,7 +8404,7 @@ How to get started running Toolbox with MCP Inspector and BigQuery as the source
 
 [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol
 that standardizes how applications provide context to LLMs. Check out this page
-on how to [connect to Toolbox via MCP](../../how-to/connect_via_mcp.md).
+on how to [connect to Toolbox via MCP](../../../how-to/connect_via_mcp.md).
 
 ## Step 1: Set up your BigQuery Dataset and Table
 
@@ -8584,7 +8584,7 @@ In this section, we will download Toolbox, configure our tools in a
     ```
 
     For more info on tools, check out the
-    [Tools](../../resources/tools/_index.md) section.
+    [Tools](../../../resources/tools/) section.
 
 1. Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
@@ -9028,7 +9028,7 @@ tools:
     source: alloydb-pg-source
     description: >-
       Add items to customer cart using the product ID and product prices from the product list.
-      Use this tool to add items to a customer cart. 
+      Use this tool to add items to a customer cart.
       This tool requires the cart ID, product ID, quantity, and price.
     parameters:
       - name: cart_id
@@ -9053,7 +9053,7 @@ tools:
     source: alloydb-pg-source
     description: >-
       Remove products from customer cart.
-      Use this tool to remove products from a customer cart. 
+      Use this tool to remove products from a customer cart.
       This tool requires the cart ID and product ID.
     parameters:
       - name: cart_id
@@ -9101,8 +9101,8 @@ These tools use vector embeddings to find the most relevant results based on the
 
 1. Create a [natural language configuration](https://cloud.google.com/alloydb/docs/ai/use-natural-language-generate-sql-queries#create-config) for your AlloyDB cluster.
 
-    {{< notice tip >}}Before using NL2SQL tools, 
-    you must first install the `alloydb_ai_nl` extension and 
+    {{< notice tip >}}Before using NL2SQL tools,
+    you must first install the `alloydb_ai_nl` extension and
     create the [semantic layer](https://cloud.google.com/alloydb/docs/ai/natural-language-overview) under a configuration named `flower_shop`.
     {{< /notice >}}
 
@@ -9115,7 +9115,7 @@ These tools use vector embeddings to find the most relevant results based on the
     nlConfig: flower_shop
     description: >-
       Ask questions related to products or brands.
-      Use this tool to ask questions about products or brands. 
+      Use this tool to ask questions about products or brands.
       Always SELECT the IDs of objects when generating queries.
 ```
 
@@ -9132,7 +9132,7 @@ toolsets:
 ```
 
 For more info on tools, check out the
-[Tools](../../resources/tools/_index.md) section.
+[Tools](../../resources/tools/) section.
 
 ## Step 4: Run the Toolbox server
 
@@ -9180,9 +9180,9 @@ Run the Toolbox server, pointing to the `tools.yaml` file created earlier:
 
 ## What's next
 
-- Learn more about [MCP Inspector](../../how-to/mcp_inspector.md).
-- Learn more about [Toolbox Resources](../../resources/_index.md).
-- Learn more about [Toolbox How-to guides](../../how-to/_index.md).
+- Learn more about [MCP Inspector](../../how-to/connect_via_mcp.md).
+- Learn more about [Toolbox Resources](../../resources/).
+- Learn more about [Toolbox How-to guides](../../how-to/).
 
 
 

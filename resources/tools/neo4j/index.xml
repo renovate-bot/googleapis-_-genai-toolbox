@@ -2,7 +2,7 @@
 &lt;p>A &lt;code>neo4j-cypher&lt;/code> tool executes a pre-defined Cypher statement against a Neo4j
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/neo4j.md">neo4j&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/">neo4j&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>The specified Cypher statement is executed as a &lt;a href="https://neo4j.com/docs/cypher-manual/current/syntax/parameters/">parameterized
 statement&lt;/a>, and specified parameters will be used according to
@@ -17,7 +17,7 @@ string parameter against a Neo4j database. It&amp;rsquo;s designed to be a flexi
 for interacting with the database when a pre-defined query is not sufficient.
 This tool is compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/neo4j.md">neo4j&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/">neo4j&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>For security, the tool can be configured to be read-only. If the &lt;code>readOnly&lt;/code> flag
 is set to &lt;code>true&lt;/code>, the tool will analyze the incoming Cypher query and reject any

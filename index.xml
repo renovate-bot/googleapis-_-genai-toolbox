@@ -26,7 +26,7 @@ converting natural language to SQL from the application layer to the database
 layer.&lt;/p>
 &lt;p>This tool is compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/alloydb-pg.md">alloydb-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/">alloydb-postgres&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>AlloyDB AI Natural Language delivers secure and accurate responses for
 application end user natural language questions. Natural language streamlines
@@ -44,7 +44,7 @@ across on-demand and flat-rate options.&lt;/p>
 &lt;p>A &lt;code>bigquery-execute-sql&lt;/code> tool executes a SQL statement against BigQuery.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigquery.md">bigquery&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigquery/">bigquery&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>bigquery-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and runs the sql
 statement against the &lt;code>source&lt;/code>.&lt;/p>
@@ -88,7 +88,7 @@ statement against the &lt;code>source&lt;/code>.&lt;/p>
 &lt;p>A &lt;code>bigquery-get-dataset-info&lt;/code> tool retrieves metadata for a BigQuery dataset.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigquery.md">bigquery&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigquery/">bigquery&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>bigquery-get-dataset-info&lt;/code> takes a &lt;code>dataset&lt;/code> parameter to specify the dataset
 on the given source. It also optionally accepts a &lt;code>project&lt;/code> parameter to
@@ -134,7 +134,7 @@ the tool defaults to using the project defined in the source configuration.&lt;/
 &lt;p>A &lt;code>bigquery-get-table-info&lt;/code> tool retrieves metadata for a BigQuery table.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigquery.md">bigquery&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigquery/">bigquery&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>bigquery-get-table-info&lt;/code> takes &lt;code>dataset&lt;/code> and &lt;code>table&lt;/code> parameters to specify
 the target table. It also optionally accepts a &lt;code>project&lt;/code> parameter to define
@@ -180,7 +180,7 @@ tool defaults to using the project defined in the source configuration.&lt;/p>
 &lt;p>A &lt;code>bigquery-list-dataset-ids&lt;/code> tool returns all dataset IDs from the source.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigquery.md">bigquery&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigquery/">bigquery&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>bigquery-list-dataset-ids&lt;/code> optionally accepts a &lt;code>project&lt;/code> parameter to define
 the Google Cloud project ID. If the &lt;code>project&lt;/code> parameter is not provided, the
@@ -225,7 +225,7 @@ tool defaults to using the project defined in the source configuration.&lt;/p>
 &lt;p>A &lt;code>bigquery-list-table-ids&lt;/code> tool returns table IDs in a given BigQuery dataset.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigquery.md">bigquery&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigquery/">bigquery&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>bigquery-get-dataset-info&lt;/code> takes a required &lt;code>dataset&lt;/code> parameter to specify the dataset
 from which to list table IDs. It also optionally accepts a &lt;code>project&lt;/code> parameter to
@@ -271,7 +271,7 @@ tool defaults to using the project defined in the source configuration.&lt;/p>
 &lt;p>A &lt;code>bigquery-sql&lt;/code> tool executes a pre-defined SQL statement. It&amp;rsquo;s compatible with
 the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigquery.md">bigquery&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigquery/">bigquery&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="googlesql">GoogleSQL&lt;/h3>
 &lt;p>BigQuery uses &lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/">GoogleSQL&lt;/a> for querying data. The integration
@@ -296,7 +296,7 @@ with the cbt CLI&lt;/a>.&lt;/p></description></item><item><title>bigtable-sql</t
 &lt;p>A &lt;code>bigtable-sql&lt;/code> tool executes a pre-defined SQL statement against a Bigtable
 instance. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/bigtable.md">bigtable&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/bigtable/">bigtable&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="googlesql">GoogleSQL&lt;/h3>
 &lt;p>Bigtable supports SQL queries. The integration with Toolbox supports &lt;code>googlesql&lt;/code>
@@ -607,7 +607,7 @@ Run SQL++ statements on Couchbase with parameterized input.&lt;/li>
 &lt;p>A &lt;code>couchbase-sql&lt;/code> tool executes a pre-defined SQL statement against a Couchbase
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/couchbase.md">couchbase&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/couchbase/">couchbase&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>The specified SQL statement is executed as a parameterized statement, and specified
 parameters will be used according to their name: e.g. &lt;code>$id&lt;/code>.&lt;/p>
@@ -629,7 +629,7 @@ applying artificial intelligence and machine learning.&lt;/p></description></ite
 tables, views, models) that matches given user query.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/dataplex.md">dataplex&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dataplex/">dataplex&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>dataplex-search-entries&lt;/code> takes a required &lt;code>query&lt;/code> parameter based on which
 entries are filtered and returned to the user and a required &lt;code>name&lt;/code> parameter
@@ -656,7 +656,7 @@ the namespace and user credentials for that namespace.&lt;/p></description></ite
 &lt;p>A &lt;code>dgraph-dql&lt;/code> tool executes a pre-defined DQL statement against a Dgraph
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/dgraph.md">dgraph&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/">dgraph&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>To run a statement as a query, you need to set the config &lt;code>isQuery=true&lt;/code>. For
 upserts or mutations, set &lt;code>isQuery=false&lt;/code>. You can also configure timeout for a
@@ -683,7 +683,7 @@ with &lt;a href="https://cloud.google.com/firestore/docs">Firestore&lt;/a>.&lt;/
 their paths.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-delete-documents&lt;/code> takes one input parameter &lt;code>documentPaths&lt;/code> which is
 an array of document paths to delete. The tool uses Firestore&amp;rsquo;s BulkWriter for
@@ -729,7 +729,7 @@ efficient batch deletion and returns the success status for each document.&lt;/p
 their paths.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-get-documents&lt;/code> takes one input parameter &lt;code>documentPaths&lt;/code> which is an
 array of document paths, and returns the documents&amp;rsquo; data along with metadata
@@ -776,7 +776,7 @@ rules&lt;/a> for the
 current project.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-get-rules&lt;/code> takes no input parameters and returns the security rules
 content along with metadata such as the ruleset name, and timestamps.&lt;/p>
@@ -824,7 +824,7 @@ in Firestore, either at the root level or as
 of a specific document.
 It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/firestore.md">firestore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/">firestore&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>firestore-list-collections&lt;/code> takes an optional &lt;code>parentPath&lt;/code> parameter to specify a document
 path. If provided, it lists all subcollections of that document. If not provided, it lists
@@ -1866,8 +1866,8 @@ document is found, the &lt;code>upsert: true&lt;/code> option will create a new 
 &lt;p>A &lt;code>mssql-execute-sql&lt;/code> tool executes a SQL statement against a SQL Server
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/cloud-sql-mssql.md">cloud-sql-mssql&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/mssql.md">mssql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mssql/">cloud-sql-mssql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mssql/">mssql&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>mssql-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
 statement against the &lt;code>source&lt;/code>.&lt;/p>
@@ -1914,8 +1914,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 &lt;p>A &lt;code>mssql-sql&lt;/code> tool executes a pre-defined SQL statement against a SQL Server
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/cloud-sql-mssql.md">cloud-sql-mssql&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/mssql.md">mssql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mssql/">cloud-sql-mssql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mssql/">mssql&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Toolbox supports the &lt;a href="https://learn.microsoft.com/sql/relational-databases/system-stored-procedures/sp-prepare-transact-sql?view=sql-server-ver16">prepare statement syntax&lt;/a> of MS SQL
 Server and expects parameters in the SQL query to be in the form of either
@@ -2080,8 +2080,8 @@ MySQL user&lt;/a> to login to the database with.&lt;/p>
 &lt;p>A &lt;code>mysql-execute-sql&lt;/code> tool executes a SQL statement against a MySQL
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/cloud-sql-mysql.md">cloud-sql-mysql&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/mysql.md">mysql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/">cloud-sql-mysql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mysql/">mysql&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>mysql-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
 statement against the &lt;code>source&lt;/code>.&lt;/p>
@@ -2128,8 +2128,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 &lt;p>A &lt;code>mysql-sql&lt;/code> tool executes a pre-defined SQL statement against a MySQL
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/cloud-sql-mysql.md">cloud-sql-mysql&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/mysql.md">mysql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-mysql/">cloud-sql-mysql&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mysql/">mysql&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>The specified SQL statement is executed as a &lt;a href="https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html">prepared statement&lt;/a>,
 and expects parameters in the SQL query to be in the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
@@ -2155,7 +2155,7 @@ user if available.&lt;/p></description></item><item><title>neo4j-cypher</title><
 &lt;p>A &lt;code>neo4j-cypher&lt;/code> tool executes a pre-defined Cypher statement against a Neo4j
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/neo4j.md">neo4j&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/">neo4j&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>The specified Cypher statement is executed as a &lt;a href="https://neo4j.com/docs/cypher-manual/current/syntax/parameters/">parameterized
 statement&lt;/a>, and specified parameters will be used according to
@@ -2170,7 +2170,7 @@ string parameter against a Neo4j database. It&amp;rsquo;s designed to be a flexi
 for interacting with the database when a pre-defined query is not sufficient.
 This tool is compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/neo4j.md">neo4j&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/">neo4j&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>For security, the tool can be configured to be read-only. If the &lt;code>readOnly&lt;/code> flag
 is set to &lt;code>true&lt;/code>, the tool will analyze the incoming Cypher query and reject any
@@ -2180,9 +2180,9 @@ write operations (like &lt;code>CREATE&lt;/code>, &lt;code>MERGE&lt;/code>, &lt;
 &lt;p>A &lt;code>postgres-execute-sql&lt;/code> tool executes a SQL statement against a Postgres
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/alloydb-pg.md">alloydb-postgres&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/cloud-sql-pg.md">cloud-sql-postgres&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/postgres.md">postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/">alloydb-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-pg/">cloud-sql-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/">postgres&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>postgres-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
 statement against the &lt;code>source&lt;/code>.&lt;/p>
@@ -2229,9 +2229,9 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 &lt;p>A &lt;code>postgres-sql&lt;/code> tool executes a pre-defined SQL statement against a Postgres
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/alloydb-pg.md">alloydb-postgres&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/cloud-sql-pg.md">cloud-sql-postgres&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../sources/postgres.md">postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/alloydb-pg/">alloydb-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/cloud-sql-pg/">cloud-sql-postgres&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/">postgres&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>The specified SQL statement is executed as a &lt;a href="https://www.postgresql.org/docs/current/sql-prepare.html">prepared statement&lt;/a>,
 and specified parameters will inserted according to their position: e.g. &lt;code>1&lt;/code>
@@ -2319,7 +2319,7 @@ Execute SQL on Google Cloud Spanner.&lt;/p></description></item><item><title>spa
 &lt;p>A &lt;code>spanner-execute-sql&lt;/code> tool executes a SQL statement against a Spanner
 database. It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/spanner.md">spanner&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/">spanner&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>spanner-execute-sql&lt;/code> takes one input parameter &lt;code>sql&lt;/code> and run the sql
 statement against the &lt;code>source&lt;/code>.&lt;/p>
@@ -2373,7 +2373,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 &lt;code>postgresql&lt;/code>) against a Cloud Spanner database. It&amp;rsquo;s compatible with any of the
 following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/spanner.md">spanner&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/">spanner&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="googlesql">GoogleSQL&lt;/h3>
 &lt;p>For the &lt;code>googlesql&lt;/code> dialect, the specified SQL statement is executed as a &lt;a href="https://cloud.google.com/spanner/docs/reference/standard-sql/dml-syntax">data
@@ -2424,7 +2424,7 @@ Run SQL queries against a local SQLite database.&lt;/li>
 &lt;p>A &lt;code>sqlite-sql&lt;/code> tool executes SQL statements against a SQLite database.
 It&amp;rsquo;s compatible with any of the following sources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../sources/sqlite.md">sqlite&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/">sqlite&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>SQLite uses the &lt;code>?&lt;/code> placeholder for parameters in SQL statements. Parameters are
 bound in the order they are provided.&lt;/p>
