@@ -54,6 +54,7 @@ List of reference documentation for resources in Toolbox.
   - [couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/couchbase/): A "couchbase" source connects to a Couchbase database.
   - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dataplex/): Dataplex Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
+  - [DuckDB](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/duckdb/): DuckDB is an in-process SQL OLAP database management system designed for analytical query processing.
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/): Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. It's a fully managed, serverless database that supports mobile, web, and server development.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/http/): The HTTP source enables the Toolbox to retrieve data from a remote server using HTTP requests.
   - [Looker](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/looker/): Looker is a business intelligence tool that also provides a semantic layer.
@@ -73,6 +74,7 @@ List of reference documentation for resources in Toolbox.
   - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/couchbase/): Tools that work with Couchbase Sources.
   - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dataplex/): Tools that work with Dataplex Sources.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph/): Tools that work with Dgraph Sources.
+  - [DuckDB](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/duckdb/): Tools that work with DuckDB Sources.
   - [Firestore](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firestore/): Tools that work with Firestore Sources.
   - [HTTP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/http/): Tools that work with HTTP Sources.
   - [Looker](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/looker/): Tools that work with Looker Sources.
