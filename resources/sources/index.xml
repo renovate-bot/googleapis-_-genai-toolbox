@@ -700,7 +700,16 @@ Run SQL queries against a local SQLite database.&lt;/li>
 &lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="database-file">Database File&lt;/h3>
-&lt;p>You need a SQLite database file. This can be:&lt;/p></description></item><item><title>Valkey</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>You need a SQLite database file. This can be:&lt;/p></description></item><item><title>TiDB</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/tidb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/tidb/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="https://docs.pingcap.com/tidb/stable">TiDB&lt;/a> is an open-source distributed SQL database that supports Hybrid Transactional and Analytical Processing (HTAP) workloads. It is MySQL-compatible and features horizontal scalability, strong consistency, and high availability.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="database-user">Database User&lt;/h3>
+&lt;p>This source uses standard MySQL protocol authentication. You will need to &lt;a href="https://docs.pingcap.com/tidb/stable/user-account-management">create a TiDB user&lt;/a> to login to the database with.&lt;/p>
+&lt;p>For TiDB Cloud users, you can create database users through the TiDB Cloud console.&lt;/p>
+&lt;h2 id="ssl-configuration">SSL Configuration&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>TiDB Cloud&lt;/p></description></item><item><title>Valkey</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/valkey/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>Valkey is an open-source, in-memory data structure store that originated as a
 fork of Redis. It&amp;rsquo;s designed to be used as a database, cache, and message
 broker, supporting a wide range of data structures like strings, hashes, lists,
