@@ -34,6 +34,7 @@ List of guides detailing how to do different things with Toolbox.
   - [PostgreSQL using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/postgres_mcp/): Connect your IDE to PostgreSQL using Toolbox.
   - [Spanner using MCP](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect-ide/spanner_mcp/): Connect your IDE to Spanner using Toolbox.
 - [Connect via MCP Client](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/connect_via_mcp/): How to connect to Toolbox from a MCP Client.
+- [Toolbox UI](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/use-toolbox-ui/): How to effectively use Toolbox UI.
 - [Deploy to Cloud Run](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/deploy_toolbox/): How to set up and configure Toolbox to run on Cloud Run.
 - [Deploy to Kubernetes](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/deploy_gke/): How to set up and configure Toolbox to deploy on Kubernetes with Google Kubernetes Engine (GKE).
 - [Deploy using Docker Compose](https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/deploy_docker/): How to deploy Toolbox using Docker Compose.
