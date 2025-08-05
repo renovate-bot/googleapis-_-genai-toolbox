@@ -228,17 +228,7 @@ Run DQL (Dgraph Query Language) queries.&lt;/li>
 &lt;h3 id="database-user">Database User&lt;/h3>
 &lt;p>When &lt;strong>connecting to a hosted Dgraph database&lt;/strong>, this source uses the API key
 for access. If you are using a dedicated environment, you will additionally need
-the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>DuckDB</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/duckdb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/duckdb/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>&lt;a href="https://duckdb.org/">DuckDB&lt;/a> is an embedded analytical database management system that runs in-process with the client application. It is optimized for analytical workloads, providing high performance for complex queries with minimal setup.&lt;/p>
-&lt;p>DuckDB has the following notable characteristics:&lt;/p>
-&lt;ul>
-&lt;li>In-process, serverless database engine&lt;/li>
-&lt;li>Supports complex SQL queries for analytical processing&lt;/li>
-&lt;li>Can operate on in-memory or persistent storage&lt;/li>
-&lt;li>Zero-configuration - no external dependencies or server setup required&lt;/li>
-&lt;li>Highly optimized for columnar data storage and query execution&lt;/li>
-&lt;/ul>
-&lt;p>For more details, refer to the &lt;a href="https://duckdb.org/">DuckDB Documentation&lt;/a>.&lt;/p></description></item><item><title>Firestore</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/</guid><description>&lt;h1 id="firestore-source">Firestore Source&lt;/h1>
+the namespace and user credentials for that namespace.&lt;/p></description></item><item><title>Firestore</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/firestore/</guid><description>&lt;h1 id="firestore-source">Firestore Source&lt;/h1>
 &lt;p>&lt;a href="https://cloud.google.com/firestore/docs">Firestore&lt;/a> is a NoSQL document database built for automatic
 scaling, high performance, and ease of application development. While the
 Firestore interface has many of the same features as traditional databases,
