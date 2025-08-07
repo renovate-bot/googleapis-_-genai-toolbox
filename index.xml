@@ -2979,7 +2979,7 @@ and expects parameters in the SQL query to be in the form of placeholders &lt;co
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item><item><title>Toolbox UI</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/use-toolbox-ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/use-toolbox-ui/</guid><description>&lt;p>Toolbox UI is a built-in web interface that allows users to visually inspect and test out configured resources such as tools and toolsets.&lt;/p>
+names, or other parts of the query.&lt;/p></description></item><item><title>Toolbox UI</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/toolbox-ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/how-to/toolbox-ui/</guid><description>&lt;p>Toolbox UI is a built-in web interface that allows users to visually inspect and test out configured resources such as tools and toolsets.&lt;/p>
 &lt;h2 id="launching-toolbox-ui">Launching Toolbox UI&lt;/h2>
 &lt;p>To launch Toolbox&amp;rsquo;s interactive UI, use the &lt;code>--ui&lt;/code> flag.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">./toolbox --ui
