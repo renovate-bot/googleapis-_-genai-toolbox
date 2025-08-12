@@ -62,7 +62,7 @@ List of reference documentation for resources in Toolbox.
   - [MySQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mysql/): MySQL is a relational database management system that stores and manages data.
   - [Neo4j](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/neo4j/): Neo4j is a powerful, open source graph database system
   - [PostgreSQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/postgres/): PostgreSQL is a powerful, open source object-relational database.
-  - [Redis](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/redis/): Redis is an open-source, in-memory data structure store.
+  - [Redis](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/redis/): Redis is a in-memory data structure store.
   - [Spanner](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/spanner/): Spanner is a fully managed database service from Google Cloud that combines  relational, key-value, graph, and search capabilities.
   - [SQL Server](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/mssql/): SQL Server is a relational database management system (RDBMS).
   - [SQLite](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/sources/sqlite/): SQLite is a C-language library that implements a small, fast, self-contained,  high-reliability, full-featured, SQL database engine.
