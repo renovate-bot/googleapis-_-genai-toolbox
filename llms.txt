@@ -90,6 +90,7 @@ List of reference documentation for resources in Toolbox.
   - [Cloud Monitoring](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/cloudmonitoring/): Tools that work with Cloud Monitoring source.
   - [Cloud SQL](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/cloudsql/): Tools that work with Cloud SQL. 
   - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/couchbase/): Tools that work with Couchbase Sources.
+  - [Dataform](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dataform/): Tools that work with Dataform.
   - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dataplex/): Tools that work with Dataplex Sources.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/dgraph/): Tools that work with Dgraph Sources.
   - [Firebird](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/firebird/): Tools that work with Firebird Sources.
