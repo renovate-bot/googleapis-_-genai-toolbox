@@ -123,6 +123,8 @@ List of reference documentation for resources in Toolbox.
   - [Utility tools](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/utility/): Tools that provide utility.
   - [Valkey](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/valkey/): Tools that work with Valkey Sources.
   - [YugabyteDB](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/tools/yuagbytedb/): Tools that work with Valkey Sources.
+- [Prompts](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/prompts/): Prompts allow servers to provide structured messages and instructions for interacting with language models.
+  - [Custom](https://renovate-bot.github.io/googleapis-_-genai-toolbox/resources/prompts/custom/): Custom prompts defined by the user.
 
 ### Samples
 
