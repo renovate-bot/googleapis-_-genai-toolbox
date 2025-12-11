@@ -10,7 +10,9 @@ aliases:
 
 ## About
 
-The `looker-health-vacuum` tool helps you identify unused LookML objects such as models, explores, joins, and fields. The `action` parameter selects the type of vacuum to perform:
+The `looker-health-vacuum` tool helps you identify unused LookML objects such as
+models, explores, joins, and fields. The `action` parameter selects the type of
+vacuum to perform:
 
 - `models`: Identifies unused explores within a model.
 - `explores`: Identifies unused joins and fields within an explore.
@@ -28,7 +30,8 @@ The `looker-health-vacuum` tool helps you identify unused LookML objects such as
 
 ## Example
 
-Identify unnused fields (*in this case, less than 1 query in the last 20 days*) and joins in the `order_items` explore and `thelook` model
+Identify unnused fields (*in this case, less than 1 query in the last 20 days*)
+and joins in the `order_items` explore and `thelook` model
 
 ```yaml
 tools:
@@ -36,22 +39,20 @@ tools:
     kind: looker-health-vacuum
     source: looker-source
     description: |
-      health-vacuum Tool
+      This tool identifies and suggests LookML models or explores that can be
+      safely removed due to inactivity or low usage.
 
-      This tool suggests models or explores that can removed
-      because they are unused.
+      Parameters:
+      - action (required): The type of resource to analyze for removal candidates. Can be `"models"` or `"explores"`.
+      - project (optional): The specific project ID to consider.
+      - model (optional): The specific model name to consider. Requires `project` if used without `explore`.
+      - explore (optional): The specific explore name to consider. Requires `model` if used.
+      - timeframe (optional): The lookback period in days to assess usage. Defaults to `90` days.
+      - min_queries (optional): The minimum number of queries for a resource to be considered active. Defaults to `1`.
 
-      It accepts 6 parameters:
-        1. `action`: can be "models" or "explores"
-        2. `project`: the project to vacuum (optional)
-        3. `model`: the model to vacuum (optional)
-        4. `explore`: the explore to vacuum (optional)
-        5. `timeframe`: the lookback period in days, default is 90
-        6. `min_queries`: the minimum number of queries to consider a resource as active, default is 1
-
-      The result is a list of objects that are candidates for deletion.
+      Output:
+      A JSON array of objects, each representing a model or explore that is a candidate for deletion due to low usage.
 ```
-
 
 | **field**   | **type** | **required** | **description**                                    |
 |-------------|:--------:|:------------:|----------------------------------------------------|

@@ -10,11 +10,18 @@ aliases:
 
 ## About
 
-The `looker-health-analyze` tool performs various analysis tasks on a Looker instance. The `action` parameter selects the type of analysis to perform:
+The `looker-health-analyze` tool performs various analysis tasks on a Looker
+instance. The `action` parameter selects the type of analysis to perform:
 
-- `projects`: Analyzes all projects or a specified project, reporting on the number of models and view files, as well as Git connection and validation status.
-- `models`: Analyzes all models or a specified model, providing a count of explores, unused explores, and total query counts.
-- `explores`: Analyzes all explores or a specified explore, reporting on the number of joins, unused joins, fields, unused fields, and query counts. Being classified as **Unused** is determined by whether a field has been used as a field or filter within the past 90 days in production.
+- `projects`: Analyzes all projects or a specified project, reporting on the
+  number of models and view files, as well as Git connection and validation
+  status.
+- `models`: Analyzes all models or a specified model, providing a count of
+  explores, unused explores, and total query counts.
+- `explores`: Analyzes all explores or a specified explore, reporting on the
+  number of joins, unused joins, fields, unused fields, and query counts. Being
+  classified as **Unused** is determined by whether a field has been used as a
+  field or filter within the past 90 days in production.
 
 ## Parameters
 
@@ -35,17 +42,18 @@ tools:
     kind: looker-health-analyze
     source: looker-source
     description: |
-      health-analyze Tool
+      This tool calculates the usage statistics for Looker projects, models, and explores.
 
-      This tool calculates the usage of projects, models and explores.
+      Parameters:
+      - action (required): The type of resource to analyze. Can be `"projects"`, `"models"`, or `"explores"`.
+      - project (optional): The specific project ID to analyze.
+      - model (optional): The specific model name to analyze. Requires `project` if used without `explore`.
+      - explore (optional): The specific explore name to analyze. Requires `model` if used.
+      - timeframe (optional): The lookback period in days for usage data. Defaults to `90` days.
+      - min_queries (optional): The minimum number of queries for a resource to be considered active. Defaults to `1`.
 
-      It accepts 6 parameters:
-        1. `action`: can be "projects", "models", or "explores"
-        2. `project`: the project to analyze (optional)
-        3. `model`: the model to analyze (optional)
-        4. `explore`: the explore to analyze (optional)
-        5. `timeframe`: the lookback period in days, default is 90
-        6. `min_queries`: the minimum number of queries to consider a resource as active, default is 1
+      Output:
+      The result is a JSON object containing usage metrics for the specified resources.
 ```
 
 ## Reference
