@@ -1189,7 +1189,7 @@ func RunPostgresListTablesTest(t *testing.T, tableNameParam, tableNameAuth, user
 			api:            "http://127.0.0.1:5000/api/tool/list_tables/invoke",
 			requestBody:    bytes.NewBuffer([]byte(`{"table_names": "non_existent_table"}`)),
 			wantStatusCode: http.StatusOK,
-			want:           `null`,
+			want:           `[]`,
 		},
 		{
 			name:           "invoke list_tables with one existing and one non-existent table",
@@ -2401,10 +2401,10 @@ func RunPostgresListPgSettingsTest(t *testing.T, ctx context.Context, pool *pgxp
 // RunPostgresDatabaseStatsTest tests the database_stats tool by comparing API results
 // against a direct query to the database.
 func RunPostgresListDatabaseStatsTest(t *testing.T, ctx context.Context, pool *pgxpool.Pool) {
-	dbName1 := "test_db_stats_1"
-	dbOwner1 := "test_user1"
-	dbName2 := "test_db_stats_2"
-	dbOwner2 := "test_user2"
+	dbName1 := "test_db_stats_" + strings.ReplaceAll(uuid.NewString(), "-", "")
+	dbOwner1 := "test_user_" + strings.ReplaceAll(uuid.NewString(), "-", "")
+	dbName2 := "test_db_stats_" + strings.ReplaceAll(uuid.NewString(), "-", "")
+	dbOwner2 := "test_user_" + strings.ReplaceAll(uuid.NewString(), "-", "")
 
 	cleanup1 := setUpDatabase(t, ctx, pool, dbName1, dbOwner1)
 	defer cleanup1()
@@ -2822,7 +2822,7 @@ func RunMySQLListTablesTest(t *testing.T, databaseName, tableNameParam, tableNam
 			name:           "invoke list_tables with non-existent table",
 			requestBody:    bytes.NewBufferString(`{"table_names": "non_existent_table"}`),
 			wantStatusCode: http.StatusOK,
-			want:           nil,
+			want:           []objectDetails{},
 		},
 	}
 	for _, tc := range invokeTcs {
@@ -2854,7 +2854,7 @@ func RunMySQLListTablesTest(t *testing.T, databaseName, tableNameParam, tableNam
 				if err := json.Unmarshal([]byte(resultString), &tables); err != nil {
 					t.Fatalf("failed to unmarshal outer JSON array into []tableInfo: %v", err)
 				}
-				var details []map[string]any
+				details := []map[string]any{}
 				for _, table := range tables {
 					var d map[string]any
 					if err := json.Unmarshal([]byte(table.ObjectDetails), &d); err != nil {
@@ -2864,23 +2864,19 @@ func RunMySQLListTablesTest(t *testing.T, databaseName, tableNameParam, tableNam
 				}
 				got = details
 			} else {
-				if resultString == "null" {
-					got = nil
-				} else {
-					var tables []tableInfo
-					if err := json.Unmarshal([]byte(resultString), &tables); err != nil {
-						t.Fatalf("failed to unmarshal outer JSON array into []tableInfo: %v", err)
-					}
-					var details []objectDetails
-					for _, table := range tables {
-						var d objectDetails
-						if err := json.Unmarshal([]byte(table.ObjectDetails), &d); err != nil {
-							t.Fatalf("failed to unmarshal nested ObjectDetails string: %v", err)
-						}
-						details = append(details, d)
-					}
-					got = details
+				var tables []tableInfo
+				if err := json.Unmarshal([]byte(resultString), &tables); err != nil {
+					t.Fatalf("failed to unmarshal outer JSON array into []tableInfo: %v", err)
 				}
+				details := []objectDetails{}
+				for _, table := range tables {
+					var d objectDetails
+					if err := json.Unmarshal([]byte(table.ObjectDetails), &d); err != nil {
+						t.Fatalf("failed to unmarshal nested ObjectDetails string: %v", err)
+					}
+					details = append(details, d)
+				}
+				got = details
 			}
 
 			opts := []cmp.Option{
@@ -2891,7 +2887,7 @@ func RunMySQLListTablesTest(t *testing.T, databaseName, tableNameParam, tableNam
 
 			// Checking only the current database where the test tables are created to avoid brittle tests.
 			if tc.isAllTables {
-				var filteredGot []objectDetails
+				filteredGot := []objectDetails{}
 				if got != nil {
 					for _, item := range got.([]objectDetails) {
 						if item.SchemaName == databaseName {
@@ -2899,11 +2895,7 @@ func RunMySQLListTablesTest(t *testing.T, databaseName, tableNameParam, tableNam
 						}
 					}
 				}
-				if len(filteredGot) == 0 {
-					got = nil
-				} else {
-					got = filteredGot
-				}
+				got = filteredGot
 			}
 
 			if diff := cmp.Diff(tc.want, got, opts...); diff != "" {
@@ -3491,7 +3483,7 @@ func RunMSSQLListTablesTest(t *testing.T, tableNameParam, tableNameAuth string) 
 			api:            "http://127.0.0.1:5000/api/tool/list_tables/invoke",
 			requestBody:    `{"table_names": "non_existent_table"}`,
 			wantStatusCode: http.StatusOK,
-			want:           `null`,
+			want:           `[]`,
 		},
 		{
 			name:           "invoke list_tables with one existing and one non-existent table",
