@@ -456,12 +456,11 @@ README.](https://github.com/googleapis/mcp-toolbox-sdk-js/tree/main/packages/too
 
 #### Go
 
-Once you've installed the [Toolbox Go
-SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/core), you can load
-tools:
-
 {{< tabpane text=true persist=header >}}
 {{% tab header="Core" lang="en" %}}
+
+Once you've installed the [Go Core SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/core), you can load
+tools:
 
 {{< highlight go >}}
 package main
@@ -493,6 +492,9 @@ func main() {
 
 {{% /tab %}}
 {{% tab header="LangChain Go" lang="en" %}}
+
+Once you've installed the [Go Core SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/core), you can load
+tools:
 
 {{< highlight go >}}
 package main
@@ -543,11 +545,14 @@ func main() {
 	}
 }
 {{< /highlight >}}
-For end-to-end samples on using the Toolbox Go SDK with LangChain Go, see the [project's
-samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
+
+For end-to-end samples on using the Toolbox Go SDK with LangChain Go, see the [module's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 {{% /tab %}}
 {{% tab header="Genkit Go" lang="en" %}}
+
+Once you've installed the [Go TBGenkit SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit), you can load
+tools:
 
 {{< highlight go >}}
 package main
@@ -589,11 +594,13 @@ func main() {
 	}
 }
 {{< /highlight >}}
-For end-to-end samples on using the Toolbox Go SDK with Genkit Go, see the [project's
-samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/tbgenkit/samples)
+For end-to-end samples on using the Toolbox Go SDK with Genkit Go, see the [module's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/tbgenkit/samples)
 
 {{% /tab %}}
 {{% tab header="Go GenAI" lang="en" %}}
+
+Once you've installed the [Go Core SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/core), you can load
+tools:
 
 {{< highlight go >}}
 package main
@@ -645,12 +652,14 @@ func main() {
 	}
 }
 {{< /highlight >}}
-For end-to-end samples on using the Toolbox Go SDK with Go GenAI, see the [project's
-samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
+For end-to-end samples on using the Toolbox Go SDK with Go GenAI, see the [module's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 {{% /tab %}}
 
 {{% tab header="OpenAI Go" lang="en" %}}
+
+Once you've installed the [Go Core SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/core), you can load
+tools:
 
 {{< highlight go >}}
 package main
@@ -700,12 +709,14 @@ func main() {
 	}
 }
 {{< /highlight >}}
-For end-to-end samples on using the Toolbox Go SDK with OpenAI Go, see the [project's
-samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
+For end-to-end samples on using the Toolbox Go SDK with OpenAI Go, see the [module's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core/samples)
 
 {{% /tab %}}
 
 {{% tab header="ADK Go" lang="en" %}}
+
+Once you've installed the [Go TBADK SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go/tbadk), you can load
+tools:
 
 {{< highlight go >}}
 package main
@@ -735,8 +746,7 @@ func main() {
 
 {{< /highlight >}}
 
-For end-to-end samples on using the Toolbox Go SDK with ADK Go, see the [project's
-samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/tbadk/samples)
+For end-to-end samples on using the Toolbox Go SDK with ADK Go, see the [module's samples](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/tbadk/samples)
 
 {{% /tab %}}
 {{< /tabpane >}}
@@ -1108,14 +1118,39 @@ from Toolbox.
     go mod init main
     ```
 
-1. In a new terminal, install the
-   [SDK](https://pkg.go.dev/github.com/googleapis/mcp-toolbox-sdk-go).
+1. In a new terminal, install the Go SDK Module:
+    {{< notice warning >}}
+    Breaking Change Notice: As of version `0.6.0`, this SDK has transitioned to a multi-module structure.
+    * For new versions (`v0.6.0`+): You must import specific modules (e.g., `go get github.com/googleapis/mcp-toolbox-sdk-go/core`).
+    * For older versions (`v0.5.1` and below): The SDK remains a single-module library (`go get github.com/googleapis/mcp-toolbox-sdk-go`).
+    * Please update your imports and `go.mod` accordingly when upgrading.
+    {{< /notice >}}
 
-    ```bash
-    go get github.com/googleapis/mcp-toolbox-sdk-go
-    ```
+   {{< tabpane persist=header >}}
+    {{< tab header="LangChain Go" lang="bash" >}}
+    go get github.com/googleapis/mcp-toolbox-sdk-go/core
+    {{< /tab >}}
 
-1. Create a new file named `hotelagent.go` and copy the following code to create
+    {{< tab header="Genkit Go" lang="bash" >}}
+    go get github.com/googleapis/mcp-toolbox-sdk-go/core
+    go get github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit
+    {{< /tab >}}
+
+    {{< tab header="Go GenAI" lang="bash" >}}
+    go get github.com/googleapis/mcp-toolbox-sdk-go/core
+    {{< /tab >}}
+
+    {{< tab header="OpenAI Go" lang="bash" >}}
+    go get github.com/googleapis/mcp-toolbox-sdk-go/core
+    {{< /tab >}}
+
+    {{< tab header="ADK Go" lang="bash" >}}
+    go get github.com/googleapis/mcp-toolbox-sdk-go/core
+    go get github.com/googleapis/mcp-toolbox-sdk-go/tbadk
+    {{< /tab >}}
+    {{< /tabpane >}}
+
+2. Create a new file named `hotelagent.go` and copy the following code to create
    an agent:
 
     {{< tabpane persist=header >}}
