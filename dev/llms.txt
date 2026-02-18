@@ -164,6 +164,7 @@ Samples and guides for using Toolbox.
   - [Quickstart (MCP with Neo4j)](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/neo4j/mcp_quickstart/): How to get started running Toolbox with MCP Inspector and Neo4j as the source.
 - [Pre- and Post- Processing](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/): Intercept and modify interactions between the agent and its tools either before or after a tool is executed.
   - [Python](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/python/): How to add pre- and post- processing to your Agents using Python.
+  - [Javascript](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/js/): How to add pre- and post- processing to your Agents using JS.
   - [Go](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/go/): How to add pre- and post- processing to your Agents using Go.
 - [Snowflake](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/snowflake/): How to get started running Toolbox with MCP Inspector and Snowflake as the source.
 
