@@ -8618,7 +8618,7 @@ details on how to connect your AI tools (IDEs) to databases via Toolbox and MCP.
 &lt;/svg>
 
  &lt;/span>Tip&lt;/p></description></item><item><title>Python</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/python/</guid><description>&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;p>This tutorial assumes that you have set up Toolbox with a basic agent as described in the &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/getting-started/local_quickstart/">local quickstart&lt;/a>.&lt;/p>
+&lt;p>This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/getting-started/local_quickstart/">local quickstart&lt;/a>.&lt;/p>
 &lt;p>This guide demonstrates how to implement these patterns in your Toolbox applications.&lt;/p>
 &lt;h2 id="implementation">Implementation&lt;/h2>
 
@@ -10585,7 +10585,7 @@ roles):&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>To create a secret, you must have the following roles:&lt;/p></description></item><item><title>Go</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/samples/pre_post_processing/go/</guid><description>&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;p>This tutorial assumes that you have set up Toolbox with a basic agent as described in the &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/getting-started/local_quickstart_go/">local quickstart&lt;/a>.&lt;/p>
+&lt;p>This tutorial assumes that you have set up MCP Toolbox with a basic agent as described in the &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/getting-started/local_quickstart_go/">local quickstart&lt;/a>.&lt;/p>
 &lt;p>This guide demonstrates how to implement these patterns in your Toolbox applications.&lt;/p>
 &lt;h2 id="implementation">Implementation&lt;/h2>
 
