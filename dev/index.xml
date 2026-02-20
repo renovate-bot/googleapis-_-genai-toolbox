@@ -10052,13 +10052,7 @@ that don&amp;rsquo;t.&lt;/p></description></item><item><title>Firestore using MC
  
  &lt;div class="tab-body tab-pane fade show active"
  id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
- &lt;p>Coming soon.&lt;/p>
-
- &lt;/div>
- 
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;p>The following example demonstrates how to use &lt;code>ToolboxClient&lt;/code> with LangChain&amp;rsquo;s middleware to implement pre- and post- processing for tool calls.&lt;/p></description></item><item><title>JS SDK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/</guid><description>&lt;html>
+ &lt;p>The following example demonstrates how to use the &lt;code>beforeToolCallback&lt;/code> and &lt;code>afterToolCallback&lt;/code> hooks in the ADK &lt;code>LlmAgent&lt;/code> to implement pre and post processing logic.&lt;/p></description></item><item><title>JS SDK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/</guid><description>&lt;html>
  &lt;head>
  &lt;link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-js"/>
  &lt;meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-js"/>
