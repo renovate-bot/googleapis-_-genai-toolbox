@@ -175,7 +175,19 @@ A list of other information related to Toolbox.
 ### SDKs
 
 Client SDKs to connect to the MCP Toolbox server.
-- [Go SDK](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/go-sdk/): Go lang client SDK- [JS SDK](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/): Javascript client SDK- [Python SDK](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/): Python client SDK
+- [Python](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/): Python SDKs to connect to the MCP Toolbox server.
+  - [ADK](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/adk/): MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your ADK apps.
+  - [Core](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/core/): MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
+  - [LangChain/LangGraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/langchain/): MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your LangChain/LangGraph apps.
+  - [LlamaIndex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/llamaindex/): MCP Toolbox LlamaIndex SDK for integrating functionalities of MCP Toolbox into your LlamaIndex apps.
+- [Javascript](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/): Javascript SDKs to connect to the MCP Toolbox server.
+  - [ADK](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/adk/): MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your ADK apps.
+  - [Core](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/core/): MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
+- [Go](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/go-sdk/): Go SDKs to connect to the MCP Toolbox server.
+  - [ADK Package](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/go-sdk/tbadk/): MCP Toolbox ADK for integrating functionalities of MCP Toolbox into your Agentic apps.
+  - [Core Package](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/go-sdk/core/): MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
+  - [Genkit Package](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/go-sdk/tbgenkit/): MCP Toolbox Genkit for integrating functionalities of MCP Toolbox into your Agentic apps.
+
 ### Reference
 
 This section contains reference documentation.

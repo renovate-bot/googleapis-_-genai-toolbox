@@ -15510,38 +15510,4669 @@ client.
 Client SDKs to connect to the MCP Toolbox server.
 
 
-# Go SDK
-Go lang client SDK
-
-<html>
-  <head>
-    <link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-go"/>
-    <meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-go"/>
-  </head>
-</html>
+# Python
+Python SDKs to connect to the MCP Toolbox server.
 
 
-# JS SDK
-Javascript client SDK
 
-<html>
-  <head>
-    <link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-js"/>
-    <meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-js"/>
-  </head>
-</html>
+## Overview
+
+The MCP Toolbox service provides a centralized way to manage and expose tools
+(like API connectors, database query tools, etc.) for use by GenAI applications.
+
+These Python SDKs act as clients for that service. They handle the communication needed to:
+
+* Fetch tool definitions from your running Toolbox instance.
+* Provide convenient Python objects or functions representing those tools.
+* Invoke the tools (calling the underlying APIs/services configured in Toolbox).
+* Handle authentication and parameter binding as needed.
+
+By using these SDKs, you can easily leverage your Toolbox-managed tools directly
+within your Python applications or AI orchestration frameworks.
+
+## Which Package Should I Use?
+
+Choosing the right package depends on how you are building your application:
+
+* [`toolbox-adk`](ADK):
+  Use this package if you are building your application using Google ADK (Agent Development Kit).
+  It provides tools that are directly compatible with the
+  Google ADK ecosystem (`BaseTool` / `BaseToolset` interface) handling authentication propagation, header management, and tool wrapping automatically.
+* [`toolbox-core`](core):
+  Use this package if you are not using LangChain/LangGraph or any other
+  orchestration framework, or if you need a framework-agnostic way to interact
+  with Toolbox tools (e.g., for custom orchestration logic or direct use in
+  Python scripts).
+* [`toolbox-langchain`](langchain):
+  Use this package if you are building your application using the LangChain or
+  LangGraph frameworks. It provides tools that are directly compatible with the
+  LangChain ecosystem (`BaseTool` interface), simplifying integration.
+* [`toolbox-llamaindex`](llamaindex):
+  Use this package if you are building your application using the LlamaIndex framework.
+  It provides tools that are directly compatible with the
+  LlamaIndex ecosystem (`BaseTool` interface), simplifying integration.
 
 
-# Python SDK
-Python client SDK
+## Available Packages
 
-<html>
-  <head>
-    <link rel="canonical" href="https://github.com/googleapis/mcp-toolbox-sdk-python"/>
-    <meta http-equiv="refresh" content="0;url=https://github.com/googleapis/mcp-toolbox-sdk-python"/>
-  </head>
-</html>
+This repository hosts the following Python packages. See the package-specific
+README for detailed installation and usage instructions:
 
+| Package | Target Use Case | Integration | Path | Details (README) | PyPI Status |
+| :------ | :---------- | :---------- | :---------------------- | :---------- | :--------- 
+| `toolbox-adk` | Google ADK applications | Google ADK | `packages/toolbox-adk/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-adk/README.md) | ![pypi version](https://img.shields.io/pypi/v/toolbox-adk.svg) |
+| `toolbox-core` | Framework-agnostic / Custom applications | Use directly / Custom | `packages/toolbox-core/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-core/README.md) | ![pypi version](https://img.shields.io/pypi/v/toolbox-core.svg) |
+| `toolbox-langchain` | LangChain / LangGraph applications | LangChain / LangGraph | `packages/toolbox-langchain/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-langchain/README.md) | ![pypi version](https://img.shields.io/pypi/v/toolbox-langchain.svg) |
+| `toolbox-llamaindex` | LlamaIndex applications | LlamaIndex | `packages/toolbox-llamaindex/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-llamaindex/README.md) | ![pypi version](https://img.shields.io/pypi/v/toolbox-llamaindex.svg) |
+
+
+## Getting Started
+
+To get started using Toolbox tools with an application, follow these general steps:
+
+1. **Set up and Run the Toolbox Service:**
+
+    Before using the SDKs, you need the main MCP Toolbox service running. Follow
+    the instructions here: [**Toolbox Getting Started
+    Guide**](https://github.com/googleapis/genai-toolbox?tab=readme-ov-file#getting-started)
+
+2. **Install the Appropriate SDK:**
+
+    Choose the package based on your needs (see "[Which Package Should I Use?](#which-package-should-i-use)" above) and install it:
+
+    ```bash
+    # For the Google ADK Integration
+    pip install google-adk[toolbox]
+
+    # OR
+    
+    # For the core, framework-agnostic SDK
+    pip install toolbox-core
+
+    # OR
+
+    # For LangChain/LangGraph integration
+    pip install toolbox-langchain
+
+    # OR
+
+    # For the LlamaIndex integration
+    pip install toolbox-llamaindex
+    ```
+
+
+
+{{< notice note >}}
+Source code for [python-sdk](https://github.com/googleapis/mcp-toolbox-sdk-python)
+{{< /notice >}}
+
+
+# ADK
+MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your ADK apps.
+
+
+## Overview
+
+The `toolbox-adk` package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+pip install google-adk[toolbox]
+```
+
+## Usage
+
+The primary entry point is the `ToolboxToolset`, which loads tools from a remote Toolbox server and adapts them for use with ADK agents.
+
+{{< notice note>}}
+This package contains the core implementation of the `ToolboxToolset`. The `ToolboxToolset` provided in the [`google-adk`](https://github.com/google/adk-python/blob/758d337c76d877e3174c35f06551cc9beb1def06/src/google/adk/tools/toolbox_toolset.py#L35) package is a shim that simply delegates all functionality to this implementation.
+{{< /notice >}}
+
+```python
+from google.adk.tools.toolbox_toolset import ToolboxToolset
+from google.adk.agents import Agent
+
+# Create the Toolset
+toolset = ToolboxToolset(
+    server_url="http://127.0.0.1:5000" 
+)
+
+# Use in your ADK Agent
+agent = Agent(tools=[toolset])
+```
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols for communicating with the Toolbox server. By default, the client uses the latest supported version of the **Model Context Protocol (MCP)**.
+
+You can explicitly select a protocol using the `protocol` option during toolset initialization. This is useful if you need to use the native Toolbox HTTP protocol or pin the client to a specific legacy version of MCP.
+
+{{< notice note>}}
+* **Native Toolbox Transport**: This uses the service's native **REST over HTTP** API.
+* **MCP Transports**: These options use the **Model Context Protocol over HTTP**.
+{{< /notice >}}
+
+### Supported Protocols
+
+| Constant | Description |
+| :--- | :--- |
+| `Protocol.MCP` | **(Default)** Alias for the default MCP version (currently `2025-06-18`). |
+| `Protocol.TOOLBOX` | **DEPRECATED**: The native Toolbox HTTP protocol. Will be removed on March 4, 2026. |
+| `Protocol.MCP_v20251125` | MCP Protocol version 2025-11-25. |
+| `Protocol.MCP_v20250618` | MCP Protocol version 2025-06-18. |
+| `Protocol.MCP_v20250326` | MCP Protocol version 2025-03-26. |
+| `Protocol.MCP_v20241105` | MCP Protocol version 2024-11-05. |
+
+{{<  notice note >}}
+The **Native Toolbox Protocol** (`Protocol.TOOLBOX`) is deprecated and will be removed on **March 4, 2026**.
+Please migrate to using the **MCP Protocol** (`Protocol.MCP`), which is the default.
+{{< /notice >}}
+
+### Example
+
+If you wish to use the native Toolbox protocol:
+
+```python
+from toolbox_adk import ToolboxToolset
+from toolbox_core.protocol import Protocol
+
+toolset = ToolboxToolset(
+    server_url="http://127.0.0.1:5000",
+    protocol=Protocol.TOOLBOX
+)
+```
+
+If you want to pin the MCP Version 2025-03-26:
+
+```python
+from toolbox_adk import ToolboxToolset
+from toolbox_core.protocol import Protocol
+
+toolset = ToolboxToolset(
+    server_url="http://127.0.0.1:5000",
+    protocol=Protocol.MCP_v20250326
+)
+```
+
+{{< notice tip>}}
+By default, it uses **Toolbox Identity** (no authentication), which is suitable for local development.
+
+For production environments (Cloud Run, GKE) or accessing protected resources, see the [Authentication](#authentication) section for strategies like Workload Identity or OAuth2.
+{{< /notice >}}
+
+## Authentication
+
+The `ToolboxToolset` requires credentials to authenticate with the Toolbox server. You can configure these credentials using the `CredentialStrategy` factory methods.
+
+The strategies handle two main types of authentication:
+*   **Client-to-Server**: Securing the connection to the Toolbox server (e.g., Workload Identity, API keys).
+*   **User Identity**: Authenticating the end-user for specific tools (e.g., 3-legged OAuth).
+
+### 1. Workload Identity (ADC)
+*Recommended for Cloud Run, GKE, or local development with `gcloud auth login`.*
+
+Uses the agent's Application Default Credentials (ADC) to generate an OIDC token. This is the standard way for one service to authenticate to another on Google Cloud.
+
+```python
+from toolbox_adk import CredentialStrategy, ToolboxToolset
+
+# target_audience: The URL of your Toolbox server
+creds = CredentialStrategy.workload_identity(target_audience="https://my-toolbox-service.run.app")
+
+toolset = ToolboxToolset(
+    server_url="https://my-toolbox-service.run.app",
+    credentials=creds
+)
+```
+
+### 2. User Identity (OAuth2)
+*Recommended for tools that act on behalf of the user.*
+
+Configures the ADK-native interactive 3-legged OAuth flow to get consent and credentials from the end-user at runtime. This strategy is passed to the `ToolboxToolset` just like any other credential strategy.
+
+```python
+from toolbox_adk import CredentialStrategy, ToolboxToolset
+
+creds = CredentialStrategy.user_identity(
+    client_id="YOUR_CLIENT_ID",
+    client_secret="YOUR_CLIENT_SECRET",
+    scopes=["https://www.googleapis.com/auth/cloud-platform"]
+)
+
+# The toolset will now initiate OAuth flows when required by tools
+toolset = ToolboxToolset(
+    server_url="...",
+    credentials=creds
+)
+```
+
+### 3. API Key
+*Use a static API key passed in a specific header (default: `X-API-Key`).*
+
+```python
+from toolbox_adk import CredentialStrategy
+
+# Default header: X-API-Key
+creds = CredentialStrategy.api_key(key="my-secret-key")
+
+# Custom header
+creds = CredentialStrategy.api_key(key="my-secret-key", header_name="X-My-Header")
+```
+
+### 4. HTTP Bearer Token
+*Manually supply a static bearer token.*
+
+```python
+from toolbox_adk import CredentialStrategy
+
+creds = CredentialStrategy.manual_token(token="your-static-bearer-token")
+```
+
+### 5. Manual Google Credentials
+*Use an existing `google.auth.credentials.Credentials` object.*
+
+```python
+from toolbox_adk import CredentialStrategy
+import google.auth
+
+creds_obj, _ = google.auth.default()
+creds = CredentialStrategy.manual_credentials(credentials=creds_obj)
+```
+
+### 6. Toolbox Identity (No Auth)
+*Use this if your Toolbox server does not require authentication (e.g., local development).*
+
+```python
+from toolbox_adk import CredentialStrategy
+
+creds = CredentialStrategy.toolbox_identity()
+```
+
+### 7. Native ADK Integration
+*Convert ADK-native `AuthConfig` or `AuthCredential` objects.*
+
+```python
+from toolbox_adk import CredentialStrategy
+
+# From AuthConfig
+creds = CredentialStrategy.from_adk_auth_config(auth_config)
+
+# From AuthCredential + AuthScheme
+creds = CredentialStrategy.from_adk_credentials(auth_credential, scheme)
+```
+
+### 8. Tool-Specific Authentication
+*Resolve authentication tokens dynamically for specific tools.*
+
+Some tools may define their own authentication requirements (e.g., Salesforce OAuth, GitHub PAT) via `authSources` in their schema. You can provide a mapping of getters to resolve these tokens at runtime.
+
+```python
+async def get_salesforce_token():
+    # Fetch token from secret manager or reliable source
+    return "sf-access-token"
+
+toolset = ToolboxToolset(
+    server_url="...",
+    auth_token_getters={
+        "salesforce-auth": get_salesforce_token,   # Async callable
+        "github-pat": lambda: "my-pat-token"       # Sync callable or static lambda
+    }
+)
+```
+
+## Advanced Configuration
+
+### Additional Headers
+
+You can inject custom headers into every request made to the Toolbox server. This is useful for passing tracing IDs, API keys, or other metadata.
+
+```python
+toolset = ToolboxToolset(
+    server_url="...",
+    additional_headers={
+        "X-Trace-ID": "12345",
+        "X-My-Header": lambda: get_dynamic_header_value() # Can be a callable
+    }
+)
+```
+
+### Parameter Binding
+
+Bind values to tool parameters globally across all loaded tools. These values will be **fixed** and **hidden** from the LLM.
+
+*   **Schema Hiding**: The bound parameters are removed from the tool schema sent to the model, simplifying the context window.
+*   **Auto-Injection**: The values are automatically injected into the tool arguments during execution.
+
+```python
+toolset = ToolboxToolset(
+    server_url="...",
+    bound_params={
+        # 'region' will be hidden from the LLM and injected automatically
+        "region": "us-central1",
+        "api_key": lambda: get_api_key() # Can be a callable
+    }
+)
+```
+
+
+# Core
+MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
+
+
+## Overview
+
+The `toolbox-core` package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+pip install toolbox-core
+```
+
+{{< notice note >}}
+* The primary `ToolboxClient` is asynchronous and requires using `await` for loading and invoking tools, as shown in most examples.
+*  Asynchronous code needs to run within an event loop (e.g., using `asyncio.run()` or in an async framework). See the [Python `asyncio` documentation](https://docs.python.org/3/library/asyncio-task.html) for more details.
+* If you prefer synchronous execution, refer to the [Synchronous Usage](#synchronous-usage) section below.
+{{< /notice >}}
+
+{{< notice note>}}
+The `ToolboxClient` (and its synchronous counterpart `ToolboxSyncClient`) interacts with network resources using an underlying HTTP client session. You should remember to use a context manager or explicitly call `close()` to clean up these resources. If you provide your own session, you'll need to close it in addition to calling `ToolboxClient.close()`.
+{{< /notice >}}
+
+## Quickstart
+
+1. **Start the Toolbox Service**
+   - Make sure the MCP Toolbox service is running on port `5000` of your local machine. See the [Toolbox Getting Started Guide](/getting-started/introduction/#getting-started).
+
+2. **Minimal Example**
+
+```python
+import asyncio
+from toolbox_core import ToolboxClient
+
+async def main():
+    # Replace with the actual URL where your Toolbox service is running
+    async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+        weather_tool = await toolbox.load_tool("get_weather")
+        result = await weather_tool(location="London")
+        print(result)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+
+{{< notice tip>}}
+For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [**Toolbox Quickstart Tutorial**](https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart)
+{{< /notice >}}
+
+{{< notice note>}}
+If you initialize `ToolboxClient` without providing an external session and cannot use `async with`, you must explicitly close the client using `await toolbox.close()` in a `finally` block. This ensures the internally created session is closed.
+
+  ```py
+  toolbox = ToolboxClient("http://127.0.0.1:5000")
+  try:
+      # ... use toolbox ...
+  finally:
+      await toolbox.close()
+  ```
+{{< /notice >}}
+
+## Usage
+
+Import and initialize an MCP Toolbox client, pointing it to the URL of your running
+Toolbox service.
+
+```py
+from toolbox_core import ToolboxClient
+
+# Replace with your Toolbox service's URL
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+```
+
+All interactions for loading and invoking tools happen through this client.
+
+{{< notice tip>}}
+For advanced use cases, you can provide an external `aiohttp.ClientSession` during initialization (e.g., `ToolboxClient(url, session=my_session)`). If you provide your own session, you are responsible for managing its lifecycle; `ToolboxClient` *will not* close it.
+{{< /notice >}}
+
+{{< notice note>}}
+Closing the `ToolboxClient` also closes the underlying network session shared by all tools loaded from that client. As a result, any tool instances you have loaded will cease to function and will raise an error if you attempt to invoke them after the client is closed.
+{{< /notice >}}
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols for communicating with the Toolbox server. By default, the client uses the latest supported version of the **Model Context Protocol (MCP)**.
+
+You can explicitly select a protocol using the `protocol` option during client initialization. This is useful if you need to use the native Toolbox HTTP protocol or pin the client to a specific legacy version of MCP.
+
+{{< notice note >}}
+* **Native Toolbox Transport**: This uses the service's native **REST over HTTP** API.
+* **MCP Transports**: These options use the **Model Context Protocol over HTTP**.
+{{< /notice >}}
+
+### Supported Protocols
+
+| Constant | Description |
+| :--- | :--- |
+| `Protocol.MCP` | **(Default)** Alias for the default MCP version (currently `2025-06-18`). |
+| `Protocol.TOOLBOX` | **DEPRECATED**: The native Toolbox HTTP protocol. Will be removed on March 4, 2026. |
+| `Protocol.MCP_v20251125` | MCP Protocol version 2025-11-25. |
+| `Protocol.MCP_v20250618` | MCP Protocol version 2025-06-18. |
+| `Protocol.MCP_v20241105` | MCP Protocol version 2024-11-05. |
+
+{{< notice note >}}
+The **Native Toolbox Protocol** (`Protocol.TOOLBOX`) is deprecated and will be removed on **March 4, 2026**.
+Please migrate to using the **MCP Protocol** (`Protocol.MCP`), which is the default.
+{{< /notice >}}
+
+### Example
+
+If you wish to use the native Toolbox protocol:
+
+```py
+from toolbox_core import ToolboxClient
+from toolbox_core.protocol import Protocol
+
+async with ToolboxClient("http://127.0.0.1:5000", protocol=Protocol.TOOLBOX) as toolbox:
+    # Use client
+    pass
+```
+
+If you want to pin the MCP Version 2025-03-26:
+
+```py
+from toolbox_core import ToolboxClient
+from toolbox_core.protocol import Protocol
+
+async with ToolboxClient("http://127.0.0.1:5000", protocol=Protocol.MCP_v20250326) as toolbox:
+    # Use client
+    pass
+```
+
+## Loading Tools
+
+You can load tools individually or in groups (toolsets) as defined in your
+Toolbox service configuration. Loading a toolset is convenient when working with
+multiple related functions, while loading a single tool offers more granular
+control.
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset
+or a specific one:
+
+```py
+# Load all tools
+tools = await toolbox.load_toolset()
+
+# Load a specific toolset
+tools = await toolbox.load_toolset("my-toolset")
+```
+
+### Load a single tool
+
+Loads a specific tool by its unique name. This provides fine-grained control.
+
+```py
+tool = await toolbox.load_tool("my-tool")
+```
+
+## Invoking Tools
+
+Once loaded, tools behave like awaitable Python functions. You invoke them using
+`await` and pass arguments corresponding to the parameters defined in the tool's
+configuration within the Toolbox service.
+
+```py
+tool = await toolbox.load_tool("my-tool")
+result = await tool("foo", bar="baz")
+```
+
+{{< notice tip>}}
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](getting-started/local_quickstart).
+{{< /notice >}}
+
+## Synchronous Usage
+
+By default, the `ToolboxClient` and the `ToolboxTool` objects it produces behave like asynchronous Python functions, requiring the use of `await`.
+
+If your application primarily uses synchronous code, or you prefer not to manage an asyncio event loop, you can use the synchronous alternatives provided:
+
+* `ToolboxSyncClient`: The synchronous counterpart to `ToolboxClient`.
+* `ToolboxSyncTool`: The synchronous counterpart to `ToolboxTool`.
+
+The `ToolboxSyncClient` handles communication with the Toolbox service synchronously and produces `ToolboxSyncTool` instances when you load tools. You do not use the `await` keyword when interacting with these synchronous versions.
+
+```py
+from toolbox_core import ToolboxSyncClient
+
+with ToolboxSyncClient("http://127.0.0.1:5000") as toolbox:
+    weather_tool = toolbox.load_tool("get_weather")
+    result = weather_tool(location="Paris")
+    print(result)
+```
+
+{{< notice tip>}}
+While synchronous invocation is available for convenience, it's generally considered best practice to use asynchronous operations (like those provided by the default `ToolboxClient` and `ToolboxTool`) for an I/O-bound task like tool invocation. Asynchronous programming allows for cooperative multitasking, often leading to better performance and resource utilization, especially in applications handling concurrent requests.
+{{< /notice >}}
+
+## Use with LangGraph
+
+The Toolbox Core SDK integrates smoothly with frameworks like LangGraph,
+allowing you to incorporate tools managed by the Toolbox service into your
+agentic workflows.
+
+{{< notice tip>}}
+The loaded tools (both async `ToolboxTool` and sync `ToolboxSyncTool`) are callable and can often be used directly. However, to ensure parameter descriptions from Google-style docstrings are accurately parsed and made available to the LLM (via `bind_tools()`) and LangGraph internals, it's recommended to wrap the loaded tools using LangChain's [`StructuredTool`](https://python.langchain.com/api_reference/core/tools/langchain_core.tools.structured.StructuredTool.html).
+{{< /notice >}}
+
+
+Here's a conceptual example adapting the [official LangGraph tool calling
+guide](https://langchain-ai.github.io/langgraph/how-tos/tool-calling):
+
+```py
+import asyncio
+from typing import Annotated
+from typing_extensions import TypedDict
+from langchain_core.messages import HumanMessage, BaseMessage
+from toolbox_core import ToolboxClient
+from langchain_google_vertexai import ChatVertexAI
+from langgraph.graph import StateGraph, START, END
+from langgraph.prebuilt import ToolNode
+from langchain.tools import StructuredTool
+from langgraph.graph.message import add_messages
+
+class State(TypedDict):
+    messages: Annotated[list[BaseMessage], add_messages]
+
+async def main():
+    async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+        tools = await toolbox.load_toolset()
+        wrapped_tools = [StructuredTool.from_function(tool, parse_docstring=True) for tool in tools]
+        model_with_tools = ChatVertexAI(model="gemini-3-flash-preview").bind_tools(wrapped_tools)
+        tool_node = ToolNode(wrapped_tools)
+
+        def call_agent(state: State):
+            response = model_with_tools.invoke(state["messages"])
+            return {"messages": [response]}
+
+        def should_continue(state: State):
+            last_message = state["messages"][-1]
+            if last_message.tool_calls:
+                return "tools"
+            return END
+
+        graph_builder = StateGraph(State)
+
+        graph_builder.add_node("agent", call_agent)
+        graph_builder.add_node("tools", tool_node)
+
+        graph_builder.add_edge(START, "agent")
+        graph_builder.add_conditional_edges(
+            "agent",
+            should_continue,
+        )
+        graph_builder.add_edge("tools", "agent")
+
+        app = graph_builder.compile()
+
+        prompt = "What is the weather in London?"
+        inputs = {"messages": [HumanMessage(content=prompt)]}
+
+        print(f"User: {prompt}\n")
+        print("--- Streaming Agent Steps ---")
+
+        events = app.stream(
+            inputs,
+            stream_mode="values",
+        )
+
+        for event in events:
+            event["messages"][-1].pretty_print()
+            print("\n---\n")
+
+asyncio.run(main())
+```
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to an MCP Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE,  or any environment where unauthenticated access is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar
+  authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `load_tool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` (and `ToolboxSyncClient`) allows you to specify functions
+(or coroutines for the async client) that dynamically generate HTTP headers for
+every request sent to the Toolbox server. The most common use case is to add an
+Authorization header with a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring
+that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as seen below:
+
+```python
+from toolbox_core import ToolboxClient
+
+async with ToolboxClient("toolbox-url", client_headers={"header1": header1_getter, "header2": header2_getter, ...}) as client:
+    # Use client
+    pass
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-core/src/toolbox_core/auth_methods.py) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**: [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) the `roles/run.invoker` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+
+    ```python
+    from toolbox_core import auth_methods
+
+    auth_token_provider = auth_methods.aget_google_id_token(URL) # can also use sync method
+    async with ToolboxClient(
+        URL,
+        client_headers={"Authorization": auth_token_provider},
+    ) as client:
+        tools = await client.load_toolset()
+
+        # Now, you can use the client as usual.
+    ```
+
+## Authenticating Tools
+
+{{< notice info >}}
+**Always use HTTPS** to connect your application with the Toolbox service, especially in **production environments** or whenever the communication involves **sensitive data** (including scenarios where tools require authentication tokens). Using plain HTTP lacks encryption and exposes your application and data to significant security risks, such as eavesdropping and tampering.
+{{</notice>}}
+
+Tools can be configured within the Toolbox service to require authentication,
+ensuring only authorized users or applications can invoke them, especially when
+accessing sensitive data.
+
+### When is Authentication Needed?
+
+Authentication is configured per-tool within the Toolbox service itself. If a
+tool you intend to use is marked as requiring authentication in the service, you
+must configure the SDK client to provide the necessary credentials (currently
+Oauth2 tokens) when invoking that specific tool.
+
+### Supported Authentication Mechanisms
+
+The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Authenticated Parameters](resources/tools/#authenticated-parameters)
+
+### Step 1: Configure Tools in Toolbox Service
+
+First, ensure the target tool(s) are configured correctly in the Toolbox service
+to require authentication. Refer to the [Authenticated Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters)
+for instructions.
+
+### Step 2: Configure SDK Client
+
+Your application needs a way to obtain the required Oauth2 token for the
+authenticated user. The SDK requires you to provide a function capable of
+retrieving this token *when the tool is invoked*.
+
+#### Provide an ID Token Retriever Function
+
+You must provide the SDK with a function (sync or async) that returns the
+necessary token when called. The implementation depends on your application's
+authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
+
+{{< notice info>}}
+The name used when registering the getter function with the SDK (e.g.,`"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+{{</notice>}}
+
+```py
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
+```
+
+{{< notice tip>}}
+Your token retriever function is invoked every time an authenticated parameter requires a token for a tool call. Consider implementing caching logic within this function to avoid redundant token fetching or generation, especially for tokens with longer validity periods or if the retrieval process is resource-intensive.
+{{</notice>}}
+
+#### Option A: Add Authentication to a Loaded Tool
+
+You can add the token retriever function to a tool object *after* it has been
+loaded. This modifies the specific tool instance.
+
+```py
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tool = await toolbox.load_tool("my-tool")
+
+    auth_tool = tool.add_auth_token_getter("my_auth", get_auth_token)  # Single token
+
+    # OR
+
+    multi_auth_tool = tool.add_auth_token_getters({
+        "my_auth_1": get_auth_token_1,
+        "my_auth_2": get_auth_token_2,
+    })  # Multiple tokens
+```
+
+#### Option B: Add Authentication While Loading Tools
+
+You can provide the token retriever(s) directly during the `load_tool` or
+`load_toolset` calls. This applies the authentication configuration only to the
+tools loaded in that specific call, without modifying the original tool objects
+if they were loaded previously.
+
+```py
+auth_tool = await toolbox.load_tool(auth_token_getters={"my_auth": get_auth_token})
+
+# OR
+
+auth_tools = await toolbox.load_toolset(auth_token_getters={"my_auth": get_auth_token})
+```
+
+{{< notice >}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{</notice>}}
+
+### Complete Authentication Example
+
+```py
+import asyncio
+from toolbox_core import ToolboxClient
+
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
+
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tool = await toolbox.load_tool("my-tool")
+
+    auth_tool = tool.add_auth_token_getters({"my_auth": get_auth_token})
+    result = auth_tool(input="some input")
+    print(result)
+```
+
+{{< notice >}}
+An auth token getter for a specific name (e.g., `“GOOGLE_ID”`) will replace any client header with the same name followed by `“_token”` (e.g., `“GOOGLE_ID_token”`).
+{{</notice>}}
+
+
+## Parameter Binding
+
+The SDK allows you to pre-set, or "bind", values for specific tool parameters
+before the tool is invoked or even passed to an LLM. These bound values are
+fixed and will not be requested or modified by the LLM during tool use.
+
+### Why Bind Parameters?
+
+- **Protecting sensitive information:**  API keys, secrets, etc.
+- **Enforcing consistency:** Ensuring specific values for certain parameters.
+- **Pre-filling known data:**  Providing defaults or context.
+
+{{< notice info >}}
+The parameter names used for binding (e.g., `"api_key"`) must exactly match the parameter names defined in the tool’s configuration within the Toolbox service.
+{{</notice>}}
+
+{{< notice >}}
+You do not need to modify the tool’s configuration in the Toolbox service to bind parameter values using the SDK.
+{{</notice>}}
+
+### Option A: Binding Parameters to a Loaded Tool
+
+Bind values to a tool object *after* it has been loaded. This modifies the
+specific tool instance.
+
+```py
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tool = await toolbox.load_tool("my-tool")
+
+    bound_tool = tool.bind_param("param", "value")
+
+    # OR
+
+    bound_tool = tool.bind_params({"param": "value"})
+```
+
+### Option B: Binding Parameters While Loading Tools
+
+Specify bound parameters directly when loading tools. This applies the binding
+only to the tools loaded in that specific call.
+
+```py
+bound_tool = await toolbox.load_tool("my-tool", bound_params={"param": "value"})
+
+# OR
+
+bound_tools = await toolbox.load_toolset(bound_params={"param": "value"})
+```
+
+### Binding Dynamic Values
+
+Instead of a static value, you can bind a parameter to a synchronous or
+asynchronous function. This function will be called *each time* the tool is
+invoked to dynamically determine the parameter's value at runtime.
+
+{{< notice >}}
+ You don’t need to modify tool configurations to bind parameter values.
+{{</notice>}}
+
+```py
+async def get_dynamic_value():
+    # Logic to determine the value
+    return "dynamic_value"
+
+# Assuming `tool` is a loaded tool instance from a ToolboxClient
+dynamic_bound_tool = tool.bind_param("param", get_dynamic_value)
+```
+
+
+# LangChain/LangGraph
+MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your LangChain/LangGraph apps.
+
+
+## Overview
+
+The `toolbox-langchain` package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+pip install toolbox-langchain
+```
+## Quickstart
+
+Here's a minimal example to get you started using
+[LangGraph](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent):
+
+```py
+from toolbox_langchain import ToolboxClient
+from langchain_google_vertexai import ChatVertexAI
+from langgraph.prebuilt import create_react_agent
+
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tools = toolbox.load_toolset()
+
+    model = ChatVertexAI(model="gemini-3-flash-preview")
+    agent = create_react_agent(model, tools)
+
+    prompt = "How's the weather today?"
+
+    for s in agent.stream({"messages": [("user", prompt)]}, stream_mode="values"):
+        message = s["messages"][-1]
+        if isinstance(message, tuple):
+            print(message)
+        else:
+            message.pretty_print()
+```
+{{< notice tip >}}
+For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [Toolbox Quickstart Tutorial](getting-started/local_quickstart)
+{{< /notice >}}
+
+## Usage
+
+Import and initialize the toolbox client.
+
+```py
+from toolbox_langchain import ToolboxClient
+
+# Replace with your Toolbox service's URL
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+```
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols for communicating with the Toolbox server. By default, the client uses the latest supported version of the **Model Context Protocol (MCP)**.
+
+You can explicitly select a protocol using the `protocol` option during client initialization. This is useful if you need to use the native Toolbox HTTP protocol or pin the client to a specific legacy version of MCP.
+
+{{< notice note >}}
+* **Native Toolbox Transport**: This uses the service's native **REST over HTTP** API.
+* **MCP Transports**: These options use the **Model Context Protocol over HTTP**.
+{{< /notice >}}
+
+### Supported Protocols
+
+| Constant | Description |
+| :--- | :--- |
+| `Protocol.MCP` | **(Default)** Alias for the default MCP version (currently `2025-06-18`). |
+| `Protocol.TOOLBOX` | **DEPRECATED**: The native Toolbox HTTP protocol. Will be removed on March 4, 2026. |
+| `Protocol.MCP_v20251125` | MCP Protocol version 2025-11-25. |
+| `Protocol.MCP_v20250618` | MCP Protocol version 2025-06-18. |
+| `Protocol.MCP_v20250326` | MCP Protocol version 2025-03-26. |
+| `Protocol.MCP_v20241105` | MCP Protocol version 2024-11-05. |
+
+{{< notice note >}}
+The **Native Toolbox Protocol** (`Protocol.TOOLBOX`) is deprecated and will be removed on **March 4, 2026**.
+Please migrate to using the **MCP Protocol** (`Protocol.MCP`), which is the default.
+{{< /notice >}}
+
+### Example
+
+If you wish to use the native Toolbox protocol:
+
+```py
+from toolbox_langchain import ToolboxClient
+from toolbox_core.protocol import Protocol
+
+async with ToolboxClient("http://127.0.0.1:5000", protocol=Protocol.TOOLBOX) as toolbox:
+    # Use client
+    pass
+```
+
+If you want to pin the MCP Version 2025-03-26:
+
+```py
+from toolbox_langchain import ToolboxClient
+from toolbox_core.protocol import Protocol
+
+async with ToolboxClient("http://127.0.0.1:5000", protocol=Protocol.MCP_v20250326) as toolbox:
+    # Use client
+    pass
+```
+
+## Loading Tools
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset
+or a specific one:
+
+```py
+# Load all tools
+tools = toolbox.load_toolset()
+
+# Load a specific toolset
+tools = toolbox.load_toolset("my-toolset")
+```
+
+### Load a single tool
+
+```py
+tool = toolbox.load_tool("my-tool")
+```
+
+Loading individual tools gives you finer-grained control over which tools are
+available to your LLM agent.
+
+## Use with LangChain
+
+LangChain's agents can dynamically choose and execute tools based on the user
+input. Include tools loaded from the Toolbox SDK in the agent's toolkit:
+
+```py
+from langchain_google_vertexai import ChatVertexAI
+
+model = ChatVertexAI(model="gemini-3-flash-preview")
+
+# Initialize agent with tools
+agent = model.bind_tools(tools)
+
+# Run the agent
+result = agent.invoke("Do something with the tools")
+```
+
+## Use with LangGraph
+
+Integrate the Toolbox SDK with LangGraph to use Toolbox service tools within a
+graph-based workflow. Follow the [official
+guide](https://langchain-ai.github.io/langgraph/) with minimal changes.
+
+### Represent Tools as Nodes
+
+Represent each tool as a LangGraph node, encapsulating the tool's execution within the node's functionality:
+
+```py
+from toolbox_langchain import ToolboxClient
+from langgraph.graph import StateGraph, MessagesState
+from langgraph.prebuilt import ToolNode
+
+# Define the function that calls the model
+def call_model(state: MessagesState):
+    messages = state['messages']
+    response = model.invoke(messages)
+    return {"messages": [response]}  # Return a list to add to existing messages
+
+model = ChatVertexAI(model="gemini-3-flash-preview")
+builder = StateGraph(MessagesState)
+tool_node = ToolNode(tools)
+
+builder.add_node("agent", call_model)
+builder.add_node("tools", tool_node)
+```
+
+### Connect Tools with LLM
+
+Connect tool nodes with LLM nodes. The LLM decides which tool to use based on
+input or context. Tool output can be fed back into the LLM:
+
+```py
+from typing import Literal
+from langgraph.graph import END, START
+from langchain_core.messages import HumanMessage
+
+# Define the function that determines whether to continue or not
+def should_continue(state: MessagesState) -> Literal["tools", END]:
+    messages = state['messages']
+    last_message = messages[-1]
+    if last_message.tool_calls:
+        return "tools"  # Route to "tools" node if LLM makes a tool call
+    return END  # Otherwise, stop
+
+builder.add_edge(START, "agent")
+builder.add_conditional_edges("agent", should_continue)
+builder.add_edge("tools", 'agent')
+
+graph = builder.compile()
+
+graph.invoke({"messages": [HumanMessage(content="Do something with the tools")]})
+```
+
+## Manual usage
+
+Execute a tool manually using the `invoke` method:
+
+```py
+result = tools[0].invoke({"name": "Alice", "age": 30})
+```
+
+This is useful for testing tools or when you need precise control over tool
+execution outside of an agent framework.
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to a Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE, or any environment where unauthenticated access
+is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar
+  authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `load_tool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` allows you to specify functions (or coroutines for the async
+client) that dynamically generate HTTP headers for every request sent to the
+Toolbox server. The most common use case is to add an Authorization header with
+a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring
+that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as follows:
+
+```python
+from toolbox_langchain import ToolboxClient
+
+async with ToolboxClient(
+    "toolbox-url", 
+    client_headers={"header1": header1_getter, "header2": header2_getter, ...}
+) as client:
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-core/src/toolbox_core/auth_methods.py) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**:
+   [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals)
+   the `roles/run.invoker` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+
+    ```python
+    from toolbox_langchain import ToolboxClient
+    from toolbox_core import auth_methods
+
+    auth_token_provider = auth_methods.aget_google_id_token(URL) # can also use sync method
+    async with ToolboxClient(
+        URL,
+        client_headers={"Authorization": auth_token_provider},
+    ) as client:
+        tools = client.load_toolset()
+
+        # Now, you can use the client as usual.
+    ```
+
+
+## Authenticating Tools
+
+{{< notice info >}}
+Always use HTTPS to connect your application with the Toolbox service, especially when using tools with authentication configured. Using HTTP exposes your application to serious security risks.
+{{< /notice >}}
+
+Some tools require user authentication to access sensitive data.
+
+### Supported Authentication Mechanisms
+Toolbox currently supports authentication using the [OIDC
+protocol](https://openid.net/specs/openid-connect-core-1_0.html) with [ID
+tokens](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) (not
+access tokens) for [Google OAuth
+2.0](https://cloud.google.com/apigee/docs/api-platform/security/oauth/oauth-home).
+
+### Configure Tools
+
+Refer to [these
+instructions](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters) on
+configuring tools for authenticated parameters.
+
+### Configure SDK
+
+You need a method to retrieve an ID token from your authentication service:
+
+```py
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
+```
+
+#### Add Authentication to a Tool
+
+```py
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tools = toolbox.load_toolset()
+
+    auth_tool = tools[0].add_auth_token_getter("my_auth", get_auth_token) # Single token
+
+    multi_auth_tool = tools[0].add_auth_token_getters({"auth_1": get_auth_1}, {"auth_2": get_auth_2}) # Multiple tokens
+
+    # OR
+
+    auth_tools = [tool.add_auth_token_getter("my_auth", get_auth_token) for tool in tools]
+```
+
+#### Add Authentication While Loading
+
+```py
+auth_tool = toolbox.load_tool(auth_token_getters={"my_auth": get_auth_token})
+
+auth_tools = toolbox.load_toolset(auth_token_getters={"my_auth": get_auth_token})
+```
+{{< notice note >}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{< /notice >}}
+
+### Complete Example
+
+```py
+import asyncio
+from toolbox_langchain import ToolboxClient
+
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
+
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tool = toolbox.load_tool("my-tool")
+
+    auth_tool = tool.add_auth_token_getter("my_auth", get_auth_token)
+    result = auth_tool.invoke({"input": "some input"})
+    print(result)
+```
+
+## Parameter Binding
+
+Predetermine values for tool parameters using the SDK. These values won't be
+modified by the LLM. This is useful for:
+
+* **Protecting sensitive information:**  API keys, secrets, etc.
+* **Enforcing consistency:** Ensuring specific values for certain parameters.
+* **Pre-filling known data:**  Providing defaults or context.
+
+### Binding Parameters to a Tool
+
+```py
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tools = toolbox.load_toolset()
+
+    bound_tool = tool[0].bind_param("param", "value") # Single param
+
+    multi_bound_tool = tools[0].bind_params({"param1": "value1", "param2": "value2"}) # Multiple params
+
+    # OR
+
+    bound_tools = [tool.bind_param("param", "value") for tool in tools]
+```
+
+### Binding Parameters While Loading
+
+```py
+bound_tool = toolbox.load_tool("my-tool", bound_params={"param": "value"})
+
+bound_tools = toolbox.load_toolset(bound_params={"param": "value"})
+```
+{{< notice note >}}
+Bound values during loading only affect the tools loaded in that call.
+{{< /notice >}}
+
+### Binding Dynamic Values
+
+Use a function to bind dynamic values:
+
+```py
+def get_dynamic_value():
+  # Logic to determine the value
+  return "dynamic_value"
+
+dynamic_bound_tool = tool.bind_param("param", get_dynamic_value)
+```
+{{< notice note >}}
+You don’t need to modify tool configurations to bind parameter values.
+{{< /notice >}}
+
+## Asynchronous Usage
+
+For better performance through [cooperative
+multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking), you can
+use the asynchronous interfaces of the `ToolboxClient`.
+
+{{< notice note >}}
+Asynchronous interfaces like `aload_tool` and `aload_toolset` require an asynchronous environment. For guidance on running asynchronous Python programs, see [asyncio documentation](https://docs.python.org/3/library/asyncio-runner.html#running-an-asyncio-program).
+{{< /notice >}}
+
+```py
+import asyncio
+from toolbox_langchain import ToolboxClient
+
+async def main():
+    async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+        tool = await client.aload_tool("my-tool")
+        tools = await client.aload_toolset()
+        response = await tool.ainvoke()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+
+# LlamaIndex
+MCP Toolbox LlamaIndex SDK for integrating functionalities of MCP Toolbox into your LlamaIndex apps.
+
+
+## Overview
+
+The `toolbox-llamaindex` package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+pip install toolbox-llamaindex
+```
+
+## Quickstart
+
+Here's a minimal example to get you started using
+[LlamaIndex](https://docs.llamaindex.ai/en/stable/#getting-started):
+
+```py
+import asyncio
+
+from llama_index.llms.google_genai import GoogleGenAI
+from llama_index.core.agent.workflow import AgentWorkflow
+
+from toolbox_llamaindex import ToolboxClient
+
+async def run_agent():
+  async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tools = toolbox.load_toolset()
+
+    vertex_model = GoogleGenAI(
+        model="gemini-3-flash-preview",
+        vertexai_config={"project": "project-id", "location": "us-central1"},
+    )
+    agent = AgentWorkflow.from_tools_or_functions(
+        tools,
+        llm=vertex_model,
+        system_prompt="You are a helpful assistant.",
+    )
+    response = await agent.run(user_msg="Get some response from the agent.")
+    print(response)
+
+asyncio.run(run_agent())
+```
+
+{{< notice tip >}}
+For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [Toolbox Quickstart Tutorial](getting-started/local_quickstart)
+{{< /notice >}}
+
+## Usage
+
+Import and initialize the toolbox client.
+
+```py
+from toolbox_llamaindex import ToolboxClient
+
+# Replace with your Toolbox service's URL
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+```
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols for communicating with the Toolbox server. By default, the client uses the latest supported version of the **Model Context Protocol (MCP)**.
+
+You can explicitly select a protocol using the `protocol` option during client initialization. This is useful if you need to use the native Toolbox HTTP protocol or pin the client to a specific legacy version of MCP.
+
+{{< notice note >}}
+* **Native Toolbox Transport**: This uses the service's native **REST over HTTP** API.
+* **MCP Transports**: These options use the **Model Context Protocol over HTTP**.
+{{< /notice >}}
+
+### Supported Protocols
+
+| Constant | Description |
+| :--- | :--- |
+| `Protocol.MCP` | **(Default)** Alias for the default MCP version (currently `2025-06-18`). |
+| `Protocol.TOOLBOX` | **DEPRECATED**: The native Toolbox HTTP protocol. Will be removed on March 4, 2026. |
+| `Protocol.MCP_v20251125` | MCP Protocol version 2025-11-25. |
+| `Protocol.MCP_v20250618` | MCP Protocol version 2025-06-18. |
+| `Protocol.MCP_v20250326` | MCP Protocol version 2025-03-26. |
+| `Protocol.MCP_v20241105` | MCP Protocol version 2024-11-05. |
+
+{{< notice note >}}
+The **Native Toolbox Protocol** (`Protocol.TOOLBOX`) is deprecated and will be removed on **March 4, 2026**.
+Please migrate to using the **MCP Protocol** (`Protocol.MCP`), which is the default.
+{{< /notice >}}
+
+### Example
+
+If you wish to use the native Toolbox protocol:
+
+```py
+from toolbox_llamaindex import ToolboxClient
+from toolbox_core.protocol import Protocol
+
+async with ToolboxClient("http://127.0.0.1:5000", protocol=Protocol.TOOLBOX) as toolbox:
+    # Use client
+    pass
+```
+
+If you want to pin the MCP Version 2025-03-26:
+
+```py
+from toolbox_llamaindex import ToolboxClient
+from toolbox_core.protocol import Protocol
+
+async with ToolboxClient("http://127.0.0.1:5000", protocol=Protocol.MCP_v20250326) as toolbox:
+    # Use client
+    pass
+```
+
+## Loading Tools
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset
+or a specific one:
+
+```py
+# Load all tools
+tools = toolbox.load_toolset()
+
+# Load a specific toolset
+tools = toolbox.load_toolset("my-toolset")
+```
+
+### Load a single tool
+
+```py
+tool = toolbox.load_tool("my-tool")
+```
+
+Loading individual tools gives you finer-grained control over which tools are
+available to your LLM agent.
+
+## Use with LlamaIndex
+
+LlamaIndex's agents can dynamically choose and execute tools based on the user
+input. Include tools loaded from the Toolbox SDK in the agent's toolkit:
+
+```py
+from llama_index.llms.google_genai import GoogleGenAI
+from llama_index.core.agent.workflow import AgentWorkflow
+
+vertex_model = GoogleGenAI(
+    model="gemini-3-flash-preview",
+    vertexai_config={"project": "project-id", "location": "us-central1"},
+)
+
+# Initialize agent with tools
+agent = AgentWorkflow.from_tools_or_functions(
+    tools,
+    llm=vertex_model,
+    system_prompt="You are a helpful assistant.",
+)
+
+# Query the agent
+response = await agent.run(user_msg="Get some response from the agent.")
+print(response)
+```
+
+### Maintain state
+
+To maintain state for the agent, add context as follows:
+
+```py
+from llama_index.core.agent.workflow import AgentWorkflow
+from llama_index.core.workflow import Context
+from llama_index.llms.google_genai import GoogleGenAI
+
+vertex_model = GoogleGenAI(
+    model="gemini-3-flash-preview",
+    vertexai_config={"project": "project-id", "location": "us-central1"},
+)
+agent = AgentWorkflow.from_tools_or_functions(
+    tools,
+    llm=vertex_model,
+    system_prompt="You are a helpful assistant.",
+)
+
+# Save memory in agent context
+ctx = Context(agent)
+response = await agent.run(user_msg="Give me some response.", ctx=ctx)
+print(response)
+```
+
+## Manual usage
+
+Execute a tool manually using the `call` method:
+
+```py
+result = tools[0].call(name="Alice", age=30)
+```
+
+This is useful for testing tools or when you need precise control over tool
+execution outside of an agent framework.
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to a Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE,  or any environment where unauthenticated access is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar
+  authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `load_tool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` allows you to specify functions (or coroutines for the async
+client) that dynamically generate HTTP headers for every request sent to the
+Toolbox server. The most common use case is to add an Authorization header with
+a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring
+that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as follows:
+
+```python
+from toolbox_llamaindex import ToolboxClient
+
+async with ToolboxClient(
+    "toolbox-url", 
+    client_headers={"header1": header1_getter, "header2": header2_getter},
+) as client:
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-python/blob/main/packages/toolbox-core/src/toolbox_core/auth_methods.py) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**: [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) the `roles/run.invoker` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+
+    ```python
+    from toolbox_llamaindex import ToolboxClient
+    from toolbox_core import auth_methods
+
+    auth_token_provider = auth_methods.aget_google_id_token(URL)
+    async with ToolboxClient(
+        URL,
+        client_headers={"Authorization": auth_token_provider},
+    ) as client:
+        tools = await client.aload_toolset()
+
+        # Now, you can use the client as usual.
+    ```
+
+## Authenticating Tools
+
+{{< notice info >}}
+Always use HTTPS to connect your application with the Toolbox service, especially when using tools with authentication configured. Using HTTP exposes your application to serious security risks.
+{{< /notice >}}
+
+Some tools require user authentication to access sensitive data.
+
+### Supported Authentication Mechanisms
+Toolbox currently supports authentication using the [OIDC
+protocol](https://openid.net/specs/openid-connect-core-1_0.html) with [ID
+tokens](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) (not
+access tokens) for [Google OAuth
+2.0](https://cloud.google.com/apigee/docs/api-platform/security/oauth/oauth-home).
+
+### Configure Tools
+
+Refer to [these
+instructions](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters) on
+configuring tools for authenticated parameters.
+
+### Configure SDK
+
+You need a method to retrieve an ID token from your authentication service:
+
+```py
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
+```
+
+#### Add Authentication to a Tool
+
+```py
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tools = toolbox.load_toolset()
+
+    auth_tool = tools[0].add_auth_token_getter("my_auth", get_auth_token) # Single token
+
+    multi_auth_tool = tools[0].add_auth_token_getters({"auth_1": get_auth_1}, {"auth_2": get_auth_2}) # Multiple tokens
+
+    # OR
+
+    auth_tools = [tool.add_auth_token_getter("my_auth", get_auth_token) for tool in tools]
+```
+
+#### Add Authentication While Loading
+
+```py
+auth_tool = toolbox.load_tool(auth_token_getters={"my_auth": get_auth_token})
+
+auth_tools = toolbox.load_toolset(auth_token_getters={"my_auth": get_auth_token})
+```
+
+{{< notice note >}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{< /notice >}}
+
+### Complete Example
+
+```py
+import asyncio
+from toolbox_llamaindex import ToolboxClient
+
+async def get_auth_token():
+    # ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    # This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" # Placeholder
+
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tool = toolbox.load_tool("my-tool")
+
+    auth_tool = tool.add_auth_token_getter("my_auth", get_auth_token)
+    result = auth_tool.call(input="some input")
+    print(result)
+```
+
+## Parameter Binding
+
+Predetermine values for tool parameters using the SDK. These values won't be
+modified by the LLM. This is useful for:
+
+* **Protecting sensitive information:**  API keys, secrets, etc.
+* **Enforcing consistency:** Ensuring specific values for certain parameters.
+* **Pre-filling known data:**  Providing defaults or context.
+
+### Binding Parameters to a Tool
+
+```py
+async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+    tools = toolbox.load_toolset()
+
+    bound_tool = tool[0].bind_param("param", "value") # Single param
+
+    multi_bound_tool = tools[0].bind_params({"param1": "value1", "param2": "value2"}) # Multiple params
+
+    # OR
+
+    bound_tools = [tool.bind_param("param", "value") for tool in tools]
+```
+
+### Binding Parameters While Loading
+
+```py
+bound_tool = toolbox.load_tool("my-tool", bound_params={"param": "value"})
+
+bound_tools = toolbox.load_toolset(bound_params={"param": "value"})
+```
+
+{{< notice note >}}
+Bound values during loading only affect the tools loaded in that call.
+{{< /notice >}}
+
+### Binding Dynamic Values
+
+Use a function to bind dynamic values:
+
+```py
+def get_dynamic_value():
+  # Logic to determine the value
+  return "dynamic_value"
+
+dynamic_bound_tool = tool.bind_param("param", get_dynamic_value)
+```
+
+{{< notice note >}}
+You don't need to modify tool configurations to bind parameter values.
+{{< /notice >}}
+
+## Asynchronous Usage
+
+For better performance through [cooperative
+multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking), you can
+use the asynchronous interfaces of the `ToolboxClient`.
+
+{{< notice note >}}
+Asynchronous interfaces like `aload_tool` and `aload_toolset` require an asynchronous environment. For guidance on running asynchronous Python programs, see [asyncio documentation](https://docs.python.org/3/library/asyncio-runner.html#running-an-asyncio-program).
+{{< /notice >}}
+
+```py
+import asyncio
+from toolbox_llamaindex import ToolboxClient
+
+async def main():
+    async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
+        tool = await client.aload_tool("my-tool")
+        tools = await client.aload_toolset()
+        response = await tool.ainvoke()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+
+# Javascript
+Javascript SDKs to connect to the MCP Toolbox server.
+
+
+## Overview
+
+The MCP Toolbox service provides a centralized way to manage and expose tools
+(like API connectors, database query tools, etc.) for use by GenAI applications.
+
+These JS SDKs act as clients for that service. They handle the communication needed to:
+
+* Fetch tool definitions from your running Toolbox instance.
+* Provide convenient JS objects or functions representing those tools.
+* Invoke the tools (calling the underlying APIs/services configured in Toolbox).
+* Handle authentication and parameter binding as needed.
+
+By using these SDKs, you can easily leverage your Toolbox-managed tools directly
+within your JS applications or AI orchestration frameworks.
+
+## Which Package Should I Use?
+
+Choosing the right package depends on how you are building your application:
+
+- [`@toolbox-sdk/core`](https://github.com/googleapis/mcp-toolbox-sdk-js/tree/main/packages/toolbox-core):
+  This is a framework agnostic way to connect the tools to popular frameworks
+  like Langchain, LlamaIndex and Genkit.
+- [`@toolbox-sdk/adk`](https://github.com/googleapis/mcp-toolbox-sdk-js/tree/main/packages/toolbox-adk):
+  This package provides a seamless way to connect to [Google ADK TS](https://github.com/google/adk-js).
+
+## Available Packages
+
+This repository hosts the following TS packages. See the package-specific
+README for detailed installation and usage instructions:
+
+| Package | Target Use Case | Integration | Path | Details (README) | Npm Version |
+| :------ | :---------- | :---------- | :---------------------- | :---------- | :---------- |
+| `toolbox-core` | Framework-agnostic / Custom applications | Use directly / Custom | `packages/toolbox-core/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-js/blob/main/packages/toolbox-core/README.md) | ![npm](https://img.shields.io/npm/v/@toolbox-sdk/core) |
+| `toolbox-adk` | ADK applications | ADK | `packages/toolbox-adk/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-js/blob/main/packages/toolbox-adk/README.md) | ![npm](https://img.shields.io/npm/v/@toolbox-sdk/adk) |
+
+
+## Getting Started
+
+To get started using Toolbox tools with an application, follow these general steps:
+
+1. **Set up and Run the Toolbox Service:**
+
+    Before using the SDKs, you need the main MCP Toolbox service running. Follow
+    the instructions here: [**Toolbox Getting Started
+    Guide**](https://github.com/googleapis/genai-toolbox?tab=readme-ov-file#getting-started)
+
+2. **Install the Appropriate SDK:**
+
+    Choose the package based on your needs (see "[Which Package Should I Use?](#which-package-should-i-use)" above) and install it:
+
+    ```bash
+    # For the core, framework-agnostic SDK
+    npm install @toolbox-sdk/core
+
+    # For ADK applications
+    npm install @toolbox-sdk/adk
+    ```
+
+
+
+{{< notice note >}}
+Source code for [js-sdk](https://github.com/googleapis/mcp-toolbox-sdk-js)
+{{< /notice >}}
+
+
+# ADK
+MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your ADK apps.
+
+
+## Overview
+
+The `@toolbox-sdk/adk` package provides a Javascript interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Supported Environments
+
+This SDK is a standard Node.js package built with TypeScript, ensuring broad compatibility with the modern JavaScript ecosystem.
+
+- Node.js: Actively supported on Node.js v18.x and higher. The package is compatible with both modern ES Module (import) and legacy CommonJS (require).
+- TypeScript: The SDK is written in TypeScript and ships with its own type declarations, providing a first-class development experience with autocompletion and type-checking out of the box.
+- JavaScript: Fully supports modern JavaScript in Node.js environments.
+
+## Installation
+
+```bash
+npm install @toolbox-sdk/adk
+```
+
+## Quickstart
+
+
+1. **Start the Toolbox Service**
+   - Make sure the MCP Toolbox service is running. See the [Toolbox Getting Started Guide](/getting-started/introduction/#getting-started).
+
+2. **Minimal Example**
+
+Here's a minimal example to get you started. Ensure your Toolbox service is running and accessible.
+
+```javascript
+
+import { ToolboxClient } from '@toolbox-sdk/adk';
+const URL = 'http://127.0.0.1:5000'; // Replace with your Toolbox service URL
+const client = new ToolboxClient(URL);
+
+async function quickstart() {  
+  try {  
+      const tools = await client.loadToolset();  
+      // Use tools  
+  } catch (error) {  
+      console.error("unable to load toolset:", error.message);  
+  }  
+}  
+quickstart();  
+```
+
+{{< notice note>}}
+ This guide uses modern ES Module (`import`) syntax. If your project uses CommonJS, you can import the library using require: `const { ToolboxClient } = require('@toolbox-sdk/adk')`;.
+{{< /notice >}}
+
+## Usage
+
+Import and initialize a Toolbox client, pointing it to the URL of your running Toolbox service.
+
+```javascript
+import { ToolboxClient } from '@toolbox-sdk/adk';
+
+// Replace with the actual URL where your Toolbox service is running
+const URL = 'http://127.0.0.1:5000';
+
+let client = new ToolboxClient(URL);
+const tools = await client.loadToolset();
+
+// Use the client and tools as per requirement
+```
+
+All interactions for loading and invoking tools happen through this client.
+
+{{< notice note>}}
+Closing the `ToolboxClient` also closes the underlying network session shared by all tools loaded from that client. As a result, any tool instances you have loaded will cease to function and will raise an error if you attempt to invoke them after the client is closed.
+{{< /notice >}}
+
+{{< notice note>}}
+For advanced use cases, you can provide an external `AxiosInstance` during initialization (e.g., `ToolboxClient(url, my_session)`).
+{{< /notice >}}
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols to communicate with the Toolbox server. You can specify the protocol version during client initialization.
+
+### Available Protocols
+
+{{< notice note >}}
+The native Toolbox protocol (`Protocol.TOOLBOX`) is deprecated and will be removed on March 4, 2026. Please use `Protocol.MCP` or specific MCP versions.
+{{< /notice >}}
+
+- `Protocol.MCP`: The default protocol version (currently aliases to `MCP_v20250618`).
+- `Protocol.MCP_v20241105`: Use this for compatibility with older MCP servers (November 2024 version).
+- `Protocol.MCP_v20250326`: March 2025 version.
+- `Protocol.MCP_v20250618`: June 2025 version.
+- `Protocol.MCP_v20251125`: November 2025 version.
+- `Protocol.TOOLBOX`: **Deprecated** Legacy Toolbox protocol.
+
+### Specifying a Protocol
+
+You can explicitly set the protocol by passing the `protocol` argument to the `ToolboxClient` constructor.
+
+```javascript
+import { ToolboxClient, Protocol } from '@toolbox-sdk/adk';
+
+const URL = 'http://127.0.0.1:5000';
+
+// Initialize with a specific protocol version
+const client = new ToolboxClient(URL, null, null, Protocol.MCP_v20241105);
+
+const tools = await client.loadToolset();
+```
+
+## Loading Tools
+
+You can load tools individually or in groups (toolsets) as defined in your Toolbox service configuration. Loading a toolset is convenient when working with multiple related functions, while loading a single tool offers more granular control.
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset or a specific one:
+
+```javascript
+// Load all tools
+const tools = await toolbox.loadToolset()
+
+// Load a specific toolset
+const tools = await toolbox.loadToolset("my-toolset")
+```
+
+### Load a single tool
+
+Loads a specific tool by its unique name. This provides fine-grained control.
+
+```javascript
+const tool = await toolbox.loadTool("my-tool")
+```
+
+## Invoking Tools
+
+Once loaded, tools behave like awaitable JS functions. You invoke them using `await` and pass arguments corresponding to the parameters defined in the tool's configuration within the Toolbox service.
+
+```javascript
+const tool = await client.loadTool("my-tool")
+const result = await tool.runAsync(args: {a: 5, b: 2})
+```
+
+{{< notice tip>}}
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](getting-started/local_quickstart).
+{{< /notice >}}
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to a Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE,  or any environment where unauthenticated access is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar
+  authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `load_tool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` allows you to specify functions that dynamically generate
+HTTP headers for every request sent to the Toolbox server. The most common use
+case is to add an [Authorization
+header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization)
+with a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring
+that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as seen below:
+
+```javascript
+import { ToolboxClient } from '@toolbox-sdk/adk';
+import {getGoogleIdToken} from '@toolbox-sdk/core/auth'
+
+const URL = 'http://127.0.0.1:5000';
+const getGoogleIdTokenGetter = () => getGoogleIdToken(URL);
+const client = new ToolboxClient(URL, null, {"Authorization": getGoogleIdTokenGetter});
+
+// Use the client as usual
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](src/toolbox_core/authMethods.ts) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**: [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) the `roles/run.invoker` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+
+    ```javascript
+    import { ToolboxClient } from '@toolbox-sdk/adk';
+    import {getGoogleIdToken} from '@toolbox-sdk/core/auth'
+
+    const URL = 'http://127.0.0.1:5000';
+    const getGoogleIdTokenGetter = () => getGoogleIdToken(URL);
+    const client = new ToolboxClient(URL, null, {"Authorization": getGoogleIdTokenGetter});
+
+    // Use the client as usual
+    ```
+
+## Authenticating Tools
+
+{{< notice note>}}
+**Always use HTTPS** to connect your application with the Toolbox service, especially in **production environments** or whenever the communication involves **sensitive data** (including scenarios where tools require authentication tokens). Using plain HTTP lacks encryption and exposes your application and data to significant security risks, such as eavesdropping and tampering.
+{{< /notice >}}
+
+Tools can be configured within the Toolbox service to require authentication,
+ensuring only authorized users or applications can invoke them, especially when
+accessing sensitive data.
+
+### When is Authentication Needed?
+
+Authentication is configured per-tool within the Toolbox service itself. If a
+tool you intend to use is marked as requiring authentication in the service, you
+must configure the SDK client to provide the necessary credentials (currently
+Oauth2 tokens) when invoking that specific tool.
+
+### Supported Authentication Mechanisms
+
+The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](resources/tools/#authenticated-parameters)
+
+### Step 1: Configure Tools in Toolbox Service
+
+First, ensure the target tool(s) are configured correctly in the Toolbox service
+to require authentication. Refer to the [Toolbox Service Documentation -
+Authenticated
+Parameters](resources/tools/#authenticated-parameters)
+for instructions.
+
+### Step 2: Configure SDK Client
+
+Your application needs a way to obtain the required Oauth2 token for the
+authenticated user. The SDK requires you to provide a function capable of
+retrieving this token *when the tool is invoked*.
+
+#### Provide an ID Token Retriever Function
+
+You must provide the SDK with a function (sync or async) that returns the
+necessary token when called. The implementation depends on your application's
+authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
+
+{{< notice note>}}
+The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+```javascript
+
+async function getAuthToken() {
+    // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    // This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" // Placeholder
+}    
+```
+{{< notice tip>}}
+Your token retriever function is invoked every time an authenticated parameter requires a token for a tool call. Consider implementing caching logic within this function to avoid redundant token fetching or generation, especially for tokens with longer validity periods or if the retrieval process is resource-intensive.
+{{< /notice >}}
+
+#### Option A: Add Authentication to a Loaded Tool
+
+You can add the token retriever function to a tool object *after* it has been
+loaded. This modifies the specific tool instance.
+
+```javascript
+const URL = 'http://127.0.0.1:5000';
+let client = new ToolboxClient(URL);
+let tool = await client.loadTool("my-tool")
+
+const authTool = tool.addAuthTokenGetter("my_auth", get_auth_token)  // Single token
+
+// OR
+
+const multiAuthTool = tool.addAuthTokenGetters({
+    "my_auth_1": getAuthToken1,
+    "my_auth_2": getAuthToken2,
+})  // Multiple tokens
+```
+
+#### Option B: Add Authentication While Loading Tools
+
+You can provide the token retriever(s) directly during the `loadTool` or
+`loadToolset` calls. This applies the authentication configuration only to the
+tools loaded in that specific call, without modifying the original tool objects
+if they were loaded previously.
+
+```javascript
+const authTool = await toolbox.loadTool("toolName", {"myAuth": getAuthToken})
+
+// OR
+
+const authTools = await toolbox.loadToolset({"myAuth": getAuthToken})
+```
+
+{{< notice note>}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{< /notice >}}
+
+### Complete Authentication Example
+
+```javascript
+import { ToolboxClient } from '@toolbox-sdk/adk';
+
+async function getAuthToken() {
+    // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    // This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" // Placeholder
+}
+
+const URL = 'http://127.0.0.1:5000';
+let client = new ToolboxClient(URL);
+const tool = await client.loadTool("my-tool");
+const authTool = tool.addAuthTokenGetters({"my_auth": getAuthToken});
+const result = await authTool.runAsync(args: {input:"some input"});
+console.log(result);
+```
+
+## Binding Parameter Values
+
+The SDK allows you to pre-set, or "bind", values for specific tool parameters
+before the tool is invoked or even passed to an LLM. These bound values are
+fixed and will not be requested or modified by the LLM during tool use.
+
+### Why Bind Parameters?
+
+- **Protecting sensitive information:**  API keys, secrets, etc.
+- **Enforcing consistency:** Ensuring specific values for certain parameters.
+- **Pre-filling known data:**  Providing defaults or context.
+
+{{< notice note>}}
+The parameter names used for binding (e.g., `"api_key"`) must exactly match the parameter names defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+{{< notice note>}}
+You do not need to modify the tool's configuration in the Toolbox service to
+> bind parameter values using the SDK.
+{{< /notice >}}
+
+### Option A: Binding Parameters to a Loaded Tool
+
+Bind values to a tool object *after* it has been loaded. This modifies the
+specific tool instance.
+
+```javascript
+
+import { ToolboxClient } from '@toolbox-sdk/adk';
+
+const URL = 'http://127.0.0.1:5000';
+let client = new ToolboxClient(URL);
+const tool = await client.loadTool("my-tool");
+
+const boundTool = tool.bindParam("param", "value");
+
+// OR
+
+const boundTool = tool.bindParams({"param": "value"});
+```
+
+### Option B: Binding Parameters While Loading Tools
+
+Specify bound parameters directly when loading tools. This applies the binding
+only to the tools loaded in that specific call.
+
+```javascript
+const boundTool = await client.loadTool("my-tool", null, {"param": "value"})
+
+// OR
+
+const boundTools = await client.loadToolset(null, {"param": "value"})
+```
+
+{{< notice note>}}
+Bound values during loading only affect the tools loaded in that call.
+{{< /notice >}}
+
+### Binding Dynamic Values
+
+Instead of a static value, you can bind a parameter to a synchronous or
+asynchronous function. This function will be called *each time* the tool is
+invoked to dynamically determine the parameter's value at runtime.
+
+```javascript
+
+async function getDynamicValue() {
+    // Logic to determine the value
+    return "dynamicValue";
+}
+
+const dynamicBoundTool = tool.bindParam("param", getDynamicValue)
+```
+
+{{< notice note>}}
+You don't need to modify tool configurations to bind parameter values.
+{{< /notice >}}
+
+# Using with ADK
+
+ADK JS:
+
+```javascript
+import {FunctionTool, InMemoryRunner, LlmAgent} from '@google/adk';
+import {Content} from '@google/genai';
+import {ToolboxClient} from '@toolbox-sdk/core'
+
+const toolboxClient = new ToolboxClient("http://127.0.0.1:5000");
+const loadedTools = await toolboxClient.loadToolset();
+
+export const rootAgent = new LlmAgent({
+  name: 'weather_time_agent',
+  model: 'gemini-3-flash-preview',
+  description:
+    'Agent to answer questions about the time and weather in a city.',
+  instruction:
+    'You are a helpful agent who can answer user questions about the time and weather in a city.',
+  tools: loadedTools,
+});
+
+async function main() {
+  const userId = 'test_user';
+  const appName = rootAgent.name;
+  const runner = new InMemoryRunner({agent: rootAgent, appName});
+  const session = await runner.sessionService.createSession({
+    appName,
+    userId,
+  });
+
+  const prompt = 'What is the weather in New York? And the time?';
+  const content: Content = {
+    role: 'user',
+    parts: [{text: prompt}],
+  };
+  console.log(content);
+  for await (const e of runner.runAsync({
+    userId,
+    sessionId: session.id,
+    newMessage: content,
+  })) {
+    if (e.content?.parts?.[0]?.text) {
+      console.log(`${e.author}: ${JSON.stringify(e.content, null, 2)}`);
+    }
+  }
+}
+
+main().catch(console.error);
+```
+
+
+# Core
+MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
+
+
+## Overview
+
+The `@toolbox-sdk/core` package provides a Javascript interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Supported Environments
+
+This SDK is a standard Node.js package built with TypeScript, ensuring broad compatibility with the modern JavaScript ecosystem.
+
+- Node.js: Actively supported on Node.js v18.x and higher. The package is compatible with both modern ES Module (import) and legacy CommonJS (require).
+- TypeScript: The SDK is written in TypeScript and ships with its own type declarations, providing a first-class development experience with autocompletion and type-checking out of the box.
+- JavaScript: Fully supports modern JavaScript in Node.js environments.
+
+## Installation
+
+```bash
+npm install @toolbox-sdk/core
+```
+
+## Quickstart
+
+
+1. **Start the Toolbox Service**
+   - Make sure the MCP Toolbox service is running. See the [Toolbox Getting Started Guide](/getting-started/introduction/#getting-started).
+
+2. **Minimal Example**
+
+Here's a minimal example to get you started. Ensure your Toolbox service is running and accessible.
+
+```javascript
+
+import { ToolboxClient } from '@toolbox-sdk/core';  
+const URL = 'http://127.0.0.1:5000'; // Replace with your Toolbox service URL
+const client = new ToolboxClient(URL);
+
+async function quickstart() {  
+  try {  
+      const tools = await client.loadToolset();  
+      // Use tools  
+  } catch (error) {  
+      console.error("unable to load toolset:", error.message);  
+  }  
+}  
+quickstart();  
+```
+
+{{< notice note>}}
+ This guide uses modern ES Module (`import`) syntax. If your project uses CommonJS, you can import the library using require: `const { ToolboxClient } = require('@toolbox-sdk/core')`;.
+{{< /notice >}}
+
+## Usage
+
+Import and initialize a Toolbox client, pointing it to the URL of your running Toolbox service.
+
+```javascript
+import { ToolboxClient } from '@toolbox-sdk/core';
+
+// Replace with the actual URL where your Toolbox service is running
+const URL = 'http://127.0.0.1:5000';
+
+let client = new ToolboxClient(URL);
+const tools = await client.loadToolset();
+
+// Use the client and tools as per requirement
+```
+
+All interactions for loading and invoking tools happen through this client.
+
+{{< notice note>}}
+Closing the `ToolboxClient` also closes the underlying network session shared by all tools loaded from that client. As a result, any tool instances you have loaded will cease to function and will raise an error if you attempt to invoke them after the client is closed.
+{{< /notice >}}
+
+{{< notice note>}}
+For advanced use cases, you can provide an external `AxiosInstance` during initialization (e.g., `ToolboxClient(url, my_session)`).
+{{< /notice >}}
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols to communicate with the Toolbox server. You can specify the protocol version during client initialization.
+
+### Available Protocols
+
+{{ <notice note > }}
+The native Toolbox protocol (Protocol.TOOLBOX) is deprecated and will be removed on March 4, 2026. Please use Protocol.MCP or specific MCP versions.
+{{ < /notice >}}
+
+- `Protocol.MCP`: The default protocol version (currently aliases to `MCP_v20250618`).
+- `Protocol.MCP_v20241105`: Use this for compatibility with older MCP servers (November 2024 version).
+- `Protocol.MCP_v20250326`: March 2025 version.
+- `Protocol.MCP_v20250618`: June 2025 version.
+- `Protocol.MCP_v20251125`: November 2025 version.
+- `Protocol.TOOLBOX`: **Deprecated** Legacy Toolbox protocol.
+
+### Specifying a Protocol
+
+You can explicitly set the protocol by passing the `protocol` argument to the `ToolboxClient` constructor.
+
+```javascript
+import { ToolboxClient, Protocol } from '@toolbox-sdk/core';
+
+const URL = 'http://127.0.0.1:5000';
+
+// Initialize with a specific protocol version
+const client = new ToolboxClient(URL, null, null, Protocol.MCP_v20241105);
+
+const tools = await client.loadToolset();
+```
+
+## Loading Tools
+
+You can load tools individually or in groups (toolsets) as defined in your Toolbox service configuration. Loading a toolset is convenient when working with multiple related functions, while loading a single tool offers more granular control.
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset or a specific one:
+
+```javascript
+// Load all tools
+const tools = await client.loadToolset()
+
+// Load a specific toolset
+const tools = await client.loadToolset("my-toolset")
+```
+
+### Load a single tool
+
+Loads a specific tool by its unique name. This provides fine-grained control.
+
+```javascript
+const tool = await client.loadTool("my-tool")
+```
+
+## Invoking Tools
+
+Once loaded, tools behave like awaitable JS functions. You invoke them using `await` and pass arguments corresponding to the parameters defined in the tool's configuration within the Toolbox service.
+
+```javascript
+const tool = await client.loadTool("my-tool")
+const result = await tool({a: 5, b: 2})
+```
+
+{{< notice tip>}}
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](getting-started/local_quickstart).
+{{< /notice >}}
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to a Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE,  or any environment where unauthenticated access is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `load_tool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` allows you to specify functions that dynamically generate
+HTTP headers for every request sent to the Toolbox server. The most common use
+case is to add an [Authorization
+header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization)
+with a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as seen below:
+
+```javascript
+import { ToolboxClient } from '@toolbox-sdk/core';
+import {getGoogleIdToken} from '@toolbox-sdk/core/auth'
+
+const URL = 'http://127.0.0.1:5000';
+const getGoogleIdTokenGetter = () => getGoogleIdToken(URL);
+const client = new ToolboxClient(URL, null, {"Authorization": getGoogleIdTokenGetter});
+
+// Use the client as usual
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-js/blob/main/packages/toolbox-core/src/toolbox_core/authMethods.ts) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**: [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) the `roles/run.invoker` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+
+    ```javascript
+    import { ToolboxClient } from '@toolbox-sdk/core';
+    import {getGoogleIdToken} from '@toolbox-sdk/core/auth'
+
+    const URL = 'http://127.0.0.1:5000';
+    const getGoogleIdTokenGetter = () => getGoogleIdToken(URL);
+    const client = new ToolboxClient(URL, null, {"Authorization": getGoogleIdTokenGetter});
+
+    // Use the client as usual
+    ```
+
+## Authenticating Tools
+
+{{< notice note>}}
+**Always use HTTPS** to connect your application with the Toolbox service, especially in **production environments** or whenever the communication involves **sensitive data** (including scenarios where tools require authentication tokens). Using plain HTTP lacks encryption and exposes your application and data to significant security risks, such as eavesdropping and tampering.
+{{< /notice >}}
+
+Tools can be configured within the Toolbox service to require authentication,
+ensuring only authorized users or applications can invoke them, especially when
+accessing sensitive data.
+
+### When is Authentication Needed?
+
+Authentication is configured per-tool within the Toolbox service itself. If a
+tool you intend to use is marked as requiring authentication in the service, you
+must configure the SDK client to provide the necessary credentials (currently
+Oauth2 tokens) when invoking that specific tool.
+
+### Supported Authentication Mechanisms
+
+The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](resources/tools/#authenticated-parameters)
+
+### Step 1: Configure Tools in Toolbox Service
+
+First, ensure the target tool(s) are configured correctly in the Toolbox service
+to require authentication. Refer to the [Toolbox Service Documentation -
+Authenticated
+Parameters](resources/tools/#authenticated-parameters)
+for instructions.
+
+### Step 2: Configure SDK Client
+
+Your application needs a way to obtain the required Oauth2 token for the
+authenticated user. The SDK requires you to provide a function capable of
+retrieving this token *when the tool is invoked*.
+
+#### Provide an ID Token Retriever Function
+
+You must provide the SDK with a function (sync or async) that returns the
+necessary token when called. The implementation depends on your application's
+authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
+
+{{< notice note>}}
+The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+```javascript
+
+async function getAuthToken() {
+    // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    // This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" // Placeholder
+}    
+```
+{{< notice tip>}}
+Your token retriever function is invoked every time an authenticated parameter requires a token for a tool call. Consider implementing caching logic within this function to avoid redundant token fetching or generation, especially for tokens with longer validity periods or if the retrieval process is resource-intensive.
+{{< /notice >}}
+
+#### Option A: Add Authentication to a Loaded Tool
+
+You can add the token retriever function to a tool object *after* it has been
+loaded. This modifies the specific tool instance.
+
+```javascript
+const URL = 'http://127.0.0.1:5000';
+let client = new ToolboxClient(URL);
+let tool = await client.loadTool("my-tool")
+
+const authTool = tool.addAuthTokenGetter("my_auth", get_auth_token)  // Single token
+
+// OR
+
+const multiAuthTool = tool.addAuthTokenGetters({
+    "my_auth_1": getAuthToken1,
+    "my_auth_2": getAuthToken2,
+})  // Multiple tokens
+```
+
+#### Option B: Add Authentication While Loading Tools
+
+You can provide the token retriever(s) directly during the `loadTool` or
+`loadToolset` calls. This applies the authentication configuration only to the
+tools loaded in that specific call, without modifying the original tool objects
+if they were loaded previously.
+
+```javascript
+const authTool = await client.loadTool("toolName", {"myAuth": getAuthToken})
+
+// OR
+
+const authTools = await client.loadToolset({"myAuth": getAuthToken})
+```
+
+{{< notice note>}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{< /notice >}}
+
+### Complete Authentication Example
+
+```javascript
+import { ToolboxClient } from '@toolbox-sdk/core';
+
+async function getAuthToken() {
+    // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+    // This example just returns a placeholder. Replace with your actual token retrieval.
+    return "YOUR_ID_TOKEN" // Placeholder
+}
+
+const URL = 'http://127.0.0.1:5000';
+let client = new ToolboxClient(URL);
+const tool = await client.loadTool("my-tool");
+const authTool = tool.addAuthTokenGetters({"my_auth": getAuthToken});
+const result = await authTool({input:"some input"});
+console.log(result);
+```
+
+## Binding Parameter Values
+
+The SDK allows you to pre-set, or "bind", values for specific tool parameters
+before the tool is invoked or even passed to an LLM. These bound values are
+fixed and will not be requested or modified by the LLM during tool use.
+
+### Why Bind Parameters?
+
+- **Protecting sensitive information:**  API keys, secrets, etc.
+- **Enforcing consistency:** Ensuring specific values for certain parameters.
+- **Pre-filling known data:**  Providing defaults or context.
+
+{{< notice note>}}
+The parameter names used for binding (e.g., `"api_key"`) must exactly match the parameter names defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+{{< notice note>}}
+You do not need to modify the tool's configuration in the Toolbox service to bind parameter values using the SDK.
+{{< /notice >}}
+
+### Option A: Binding Parameters to a Loaded Tool
+
+Bind values to a tool object *after* it has been loaded. This modifies the
+specific tool instance.
+
+```javascript
+
+import { ToolboxClient } from '@toolbox-sdk/core';
+
+const URL = 'http://127.0.0.1:5000';
+let client = new ToolboxClient(URL);
+const tool = await client.loadTool("my-tool");
+
+const boundTool = tool.bindParam("param", "value");
+
+// OR
+
+const boundTool = tool.bindParams({"param": "value"});
+```
+
+### Option B: Binding Parameters While Loading Tools
+
+Specify bound parameters directly when loading tools. This applies the binding
+only to the tools loaded in that specific call.
+
+```javascript
+const boundTool = await client.loadTool("my-tool", null, {"param": "value"})
+
+// OR
+
+const boundTools = await client.loadToolset(null, {"param": "value"})
+```
+
+{{< notice note>}}
+Bound values during loading only affect the tools loaded in that call.
+{{< /notice >}}
+
+### Binding Dynamic Values
+
+Instead of a static value, you can bind a parameter to a synchronous or
+asynchronous function. This function will be called *each time* the tool is
+invoked to dynamically determine the parameter's value at runtime.
+
+
+```javascript
+
+async function getDynamicValue() {
+    // Logic to determine the value
+    return "dynamicValue";
+}
+
+const dynamicBoundTool = tool.bindParam("param", getDynamicValue)
+```
+
+{{< notice note>}}
+You don't need to modify tool configurations to bind parameter values.
+{{< /notice >}}
+
+# Using with Orchestration Frameworks
+
+<details open>
+
+<summary>Langchain</summary>
+
+[LangchainJS](https://js.langchain.com/docs/introduction/)
+
+```javascript
+import {ToolboxClient} from "@toolbox-sdk/core"
+import { tool } from "@langchain/core/tools";
+
+let client = ToolboxClient(URL)
+multiplyTool = await client.loadTool("multiply")
+
+const multiplyNumbers = tool(multiplyTool, {
+    name: multiplyTool.getName(),
+    description: multiplyTool.getDescription(),
+    schema: multiplyTool.getParamSchema()
+});
+
+await multiplyNumbers.invoke({ a: 2, b: 3 });
+```
+
+The `multiplyNumbers` tool is compatible with [Langchain/Langraph
+agents](http://js.langchain.com/docs/concepts/agents/)
+such as [React
+Agents](https://langchain-ai.github.io/langgraphjs/reference/functions/langgraph_prebuilt.createReactAgent.html).
+
+</details>
+
+<details>
+
+<summary>LlamaIndex</summary>
+
+[LlamaindexTS](https://ts.llamaindex.ai/)
+
+```javascript
+import {ToolboxClient} from "@toolbox-sdk/core"
+import { tool } from "llamaindex";
+
+let client = ToolboxClient(URL)
+multiplyTool = await client.loadTool("multiply")
+
+const multiplyNumbers = tool({
+    name: multiplyTool.getName(),
+    description: multiplyTool.getDescription(),
+    parameters: multiplyTool.getParamSchema(),
+    execute: multiplyTool
+});
+
+await multiplyNumbers.call({ a: 2, b: 3 });
+```
+
+The `multiplyNumbers` tool is compatible with LlamaIndex
+[agents](https://ts.llamaindex.ai/docs/llamaindex/migration/deprecated/agent)
+and [agent
+workflows](https://ts.llamaindex.ai/docs/llamaindex/modules/agents/agent_workflow).
+
+</details>
+
+<details>
+
+<summary>Genkit</summary>
+
+[GenkitJS](https://genkit.dev/docs/get-started/#_top)
+```javascript
+import {ToolboxClient} from "@toolbox-sdk/core"
+import { genkit, z } from 'genkit';
+import { googleAI } from '@genkit-ai/googleai';
+
+
+let client = ToolboxClient(URL)
+multiplyTool = await client.loadTool("multiply")
+
+const ai = genkit({
+  plugins: [googleAI()],
+  model: googleAI.model('gemini-3-flash-preview'),
+});
+
+const multiplyNumbers = ai.defineTool({
+    name: multiplyTool.getName(),
+    description: multiplyTool.getDescription(),
+    inputSchema: multiplyTool.getParamSchema(),
+  },
+  multiplyTool,
+);
+
+await ai.generate({
+  prompt: 'Can you multiply 5 and 7?',
+  tools: [multiplyNumbers],
+});
+```
+
+</details>
+
+
+# Go
+Go SDKs to connect to the MCP Toolbox server.
+
+
+## Overview
+
+The MCP Toolbox service provides a centralized way to manage and expose tools
+(like API connectors, database query tools, etc.) for use by GenAI applications.
+
+The Go SDK act as clients for that service. They handle the communication needed to:
+
+* Fetch tool definitions from your running Toolbox instance.
+* Provide convenient Go structs representing those tools.
+* Invoke the tools (calling the underlying APIs/services configured in Toolbox).
+* Handle authentication and parameter binding as needed.
+
+By using the SDK, you can easily leverage your Toolbox-managed tools directly
+within your Go applications or AI orchestration frameworks.
+
+## Which Package Should I Use?
+
+Choosing the right package depends on how you are building your application:
+
+- [**`core`**](core/):
+  This is a framework-agnostic way to connect tools to popular frameworks
+  like Google GenAI, LangChain, etc.
+
+- [**`tbadk`**](tbadk/):
+  This package provides a way to connect tools to ADK Go.
+
+- [**`tbgenkit`**](tbgenkit/):
+  This package provides functionality to convert the Tool fetched using the core package
+  into a Genkit Go compatible tool.
+
+## Available Packages
+
+This repository hosts the following Go packages. See the package-specific
+README for detailed installation and usage instructions:
+
+| Package | Target Use Case | Integration | Path | Details (README) |
+| :------ | :----------| :---------- | :---------------------- | :---------- |
+| [`core`](core/) | Framework-agnostic / Custom applications | Use directly / Custom | `core/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/README.md) |
+| [`tbadk`](tbadk/) | ADK Go | Use directly | `tbadk/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/tbadk/README.md) |
+| [`tbgenkit`](tbgenkit/) | Genkit Go | Along with core | `tbgenkit/` | 📄 [View README](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/tbgenkit/README.md) |
+
+## Getting Started
+
+To get started using Toolbox tools with an application, follow these general steps:
+
+1. **Set up and Run the Toolbox Service:**
+
+    Before using the SDKs, you need the MCP Toolbox server running. Follow
+    the instructions here: [**Toolbox Getting Started
+    Guide**](https://github.com/googleapis/genai-toolbox?tab=readme-ov-file#getting-started)
+
+2. **Install the Appropriate SDK:**
+
+    Choose the package based on your needs (see "[Which Package Should I Use?](#which-package-should-i-use)" above)
+    Use this command to install the SDK module
+
+    ```bash
+    # For the core, framework-agnostic SDK
+    go get github.com/googleapis/mcp-toolbox-sdk-go
+    ```
+
+{{< notice note >}}
+Source code for [Go-sdk](https://github.com/googleapis/mcp-toolbox-sdk-go)
+{{< /notice >}}
+
+
+# ADK Package
+MCP Toolbox ADK for integrating functionalities of MCP Toolbox into your Agentic apps.
+
+
+## Overview
+
+The `tbadk` package provides a Go interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+go get github.com/googleapis/mcp-toolbox-sdk-go/tbadk
+```
+This SDK is supported on Go version 1.24.4 and higher.
+
+{{< notice note >}}
+While the SDK itself is synchronous, you can execute its functions within goroutines to achieve asynchronous behavior.
+{{< /notice >}}
+
+{{< notice note >}}
+**Breaking Change Notice**: As of version `0.6.0`, this repository has transitioned to a multi-module structure.
+*   **For new versions (`v0.6.0`+)**: You must import specific modules (e.g., `go get github.com/googleapis/mcp-toolbox-sdk-go/tbadk`).
+*   **For older versions (`v0.5.1` and below)**: The repository remains a single-module library (`go get github.com/googleapis/mcp-toolbox-sdk-go`).
+*   Please update your imports and `go.mod` accordingly when upgrading.
+{{< /notice >}}
+
+## Quickstart
+
+Here's a minimal example to get you started. Ensure your Toolbox service is
+running and accessible.
+
+```go
+package main
+
+import (
+  "context"
+  "fmt"
+  "github.com/googleapis/mcp-toolbox-sdk-go/tbadk"
+)
+
+func quickstart() string {
+  inputs := map[string]any{"location": "London"}
+  client, err := tbadk.NewToolboxClient("http://localhost:5000")
+  if err != nil {
+    return fmt.Sprintln("Could not start Toolbox Client", err)
+  }
+  tool, err := client.LoadTool("get_weather", ctx)
+  if err != nil {
+    return fmt.Sprintln("Could not load Toolbox Tool", err)
+  }
+  // pass the tool.Context as ctx into the Run() method
+  result, err := tool.Run(ctx, inputs)
+  if err != nil {
+    return fmt.Sprintln("Could not invoke tool", err)
+  }
+  return fmt.Sprintln(result["output"])
+}
+
+func main() {
+  fmt.Println(quickstart())
+}
+```
+
+## Usage
+
+Import and initialize a Toolbox client, pointing it to the URL of your running
+Toolbox service.
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/tbadk"
+
+client, err := tbadk.NewToolboxClient("http://localhost:5000")
+```
+
+All interactions for loading and invoking tools happen through this client.
+
+{{< notice note >}}
+For advanced use cases, you can provide an external custom `http.Client`
+during initialization (e.g., `tbadk.NewToolboxClient(URL, core.WithHTTPClient(myClient)`). If you provide your own session, you are responsible for managing its lifecycle;
+`ToolboxClient` *will not* close it.
+{{< /notice >}}
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols. By default, the client uses the latest supported version of the **Model Context Protocol (MCP)**.
+
+You can explicitly select a protocol using the `core.WithProtocol` option during client initialization.
+
+{{< notice note >}}
+* **Native Toolbox Transport**: This uses the service's native **REST over HTTP** API.
+* **MCP Transports**: These options use the **Model Context Protocol over HTTP**.
+{{< /notice >}}
+
+### Supported Protocols
+
+{{< notice note >}}
+The native Toolbox protocol (`core.Toolbox`) is deprecated and will be removed on March 4, 2026. Please use `core.MCP` or specific MCP versions.
+{{< /notice >}}
+
+| Constant | Description |
+| :--- | :--- |
+| `core.MCP` | **(Default)** Alias for the latest supported MCP version (currently `v2025-06-18`). |
+| `core.Toolbox` | **Deprecated** The native Toolbox HTTP protocol. |
+| `core.MCPv20251125` | MCP Protocol version 2025-11-25. |
+| `core.MCPv20250618` | MCP Protocol version 2025-06-18. |
+| `core.MCPv20250326` | MCP Protocol version 2025-03-26. |
+| `core.MCPv20241105` | MCP Protocol version 2024-11-05. |
+
+### Example
+
+```go
+import (
+    "github.com/googleapis/mcp-toolbox-sdk-go/core"
+    "github.com/googleapis/mcp-toolbox-sdk-go/tbadk"
+)
+
+// Initialize with the native Toolbox protocol
+client, err := tbadk.NewToolboxClient(
+    "http://localhost:5000",
+    core.WithProtocol(core.Toolbox),
+)
+
+// Initialize with the MCP Protocol 2025-03-26
+client, err := tbadk.NewToolboxClient(
+    "http://localhost:5000",
+    core.WithProtocol(core.MCPv20250326),
+)
+
+```
+
+## Loading Tools
+
+You can load tools individually or in groups (toolsets) as defined in your
+Toolbox service configuration. Loading a toolset is convenient when working with
+multiple related functions, while loading a single tool offers more granular
+control.
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset
+or a specific one:
+
+```go
+// Load default toolset by providing an empty string as the name
+tools, err := client.LoadToolset("", ctx)
+
+// Load a specific toolset
+tools, err := client.LoadToolset("my-toolset", ctx)
+```
+
+`LoadToolset` returns a slice of the ToolboxTool structs (`[]ToolboxTool`).
+
+
+### Load a single tool
+
+Loads a specific tool by its unique name. This provides fine-grained control.
+
+```go
+tool, err = client.LoadTool("my-tool", ctx)
+```
+
+## Invoking Tools
+
+Once loaded, tools behave like Go structs. You invoke them using `Run` method
+by passing arguments corresponding to the parameters defined in the tool's
+configuration within the Toolbox service.
+
+```go
+tool, err = client.LoadTool("my-tool", ctx)
+inputs := map[string]any{"location": "London"}
+// Pass the tool.Context as ctx to the Run() function
+result, err := tool.Run(ctx, inputs)
+```
+
+{{< notice tip >}}For a more comprehensive guide on setting up the Toolbox service itself, which
+you'll need running to use this SDK, please refer to the [Toolbox Quickstart
+Guide](https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart).
+{{< /notice >}}
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to a Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE,  or any environment where unauthenticated access is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar
+  authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `LoadTool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` allows you to specify TokenSources that dynamically generate HTTP headers for
+every request sent to the Toolbox server. The most common use case is to add an
+Authorization header with a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring
+that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as seen below:
+
+
+```go
+import (
+  "github.com/googleapis/mcp-toolbox-sdk-go/core"
+  "github.com/googleapis/mcp-toolbox-sdk-go/tbadk"
+)
+
+tokenProvider := func() string {
+  return "header3_value"
+}
+
+staticTokenSource := oauth2.StaticTokenSource(&oauth2.Token{AccessToken: "header2_value"})
+dynamicTokenSource := core.NewCustomTokenSource(tokenProvider)
+
+client, err := tbadk.NewToolboxClient(
+  "toolbox-url",
+  core.WithClientHeaderString("header1", "header1_value"),
+  core.WithClientHeaderTokenSource("header2", staticTokenSource),
+  core.WithClientHeaderTokenSource("header3", dynamicTokenSource),
+)
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](/core/auth.go) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**: [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) the `roles/run.Runr` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+    ```go
+    import (
+      "github.com/googleapis/mcp-toolbox-sdk-go/core"
+      "github.com/googleapis/mcp-toolbox-sdk-go/tbadk"
+      "context"
+    )
+
+    ctx := context.Background()
+
+    token, err := core.GetGoogleIDToken(ctx, URL)
+
+    client, err := tbadk.NewToolboxClient(
+      URL,
+      core.WithClientHeaderString("Authorization", token),
+    )
+
+    // Now, you can use the client as usual.
+    ```
+
+## Authenticating Tools
+
+{{< notice warning >}} **Always use HTTPS** to connect your application with the Toolbox service,
+especially in **production environments** or whenever the communication
+involves **sensitive data** (including scenarios where tools require
+authentication tokens). Using plain HTTP lacks encryption and exposes your
+application and data to significant security risks, such as eavesdropping and tampering.
+{{< /notice >}}
+
+Tools can be configured within the Toolbox service to require authentication,
+ensuring only authorized users or applications can invoke them, especially when
+accessing sensitive data.
+
+### When is Authentication Needed?
+
+Authentication is configured per-tool within the Toolbox service itself. If a
+tool you intend to use is marked as requiring authentication in the service, you
+must configure the SDK client to provide the necessary credentials (currently
+Oauth2 tokens) when invoking that specific tool.
+
+### Supported Authentication Mechanisms
+
+The Toolbox service enables secure tool usage through **Authenticated Parameters**.
+For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters).
+
+### Step 1: Configure Tools in Toolbox Service
+
+First, ensure the target tool(s) are configured correctly in the Toolbox service
+to require authentication. Refer to the [Toolbox Service Documentation -
+Authenticated
+Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters)
+for instructions.
+
+### Step 2: Configure SDK Client
+
+Your application needs a way to obtain the required Oauth2 token for the
+authenticated user. The SDK requires you to provide a function capable of
+retrieving this token *when the tool is invoked*.
+
+#### Provide an ID Token Retriever Function
+
+You must provide the SDK with a function that returns the
+necessary token when called. The implementation depends on your application's
+authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
+
+{{< notice info >}}
+The name used when registering the getter function with the SDK (e.g.,
+`"my_api_token"`) must exactly match the `name` of the corresponding
+`authServices` defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+```go
+func getAuthToken() string {
+  // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+  // This example just returns a placeholder. Replace with your actual token retrieval.
+  return "YOUR_ID_TOKEN" // Placeholder
+}
+```
+
+{{< notice tip >}} Your token retriever function is invoked every time an authenticated parameter
+requires a token for a tool call. Consider implementing caching logic within
+this function to avoid redundant token fetching or generation, especially for
+tokens with longer validity periods or if the retrieval process is resource-intensive.
+{{< /notice >}}
+
+#### Option A: Add Default Authentication to a Client
+
+You can add default tool level authentication to a client.
+Every tool / toolset loaded by the client will contain the auth token.
+
+```go
+
+ctx := context.Background()
+
+client, err := tbadk.NewToolboxClient("http://127.0.0.1:5000",
+  core.WithDefaultToolOptions(
+    core.WithAuthTokenString("my-auth-1", "auth-value"),
+  ),
+)
+
+AuthTool, err := client.LoadTool("my-tool", ctx)
+```
+
+#### Option B: Add Authentication to a Loaded Tool
+
+You can add the token retriever function to a tool object *after* it has been
+loaded. This modifies the specific tool instance.
+
+```go
+
+ctx := context.Background()
+
+client, err := tbadk.NewToolboxClient("http://127.0.0.1:5000")
+
+tool, err := client.LoadTool("my-tool", ctx)
+
+AuthTool, err := tool.ToolFrom(
+  core.WithAuthTokenSource("my-auth", headerTokenSource),
+  core.WithAuthTokenString("my-auth-1", "value"),
+  )
+```
+
+#### Option C: Add Authentication While Loading Tools
+
+You can provide the token retriever(s) directly during the `LoadTool` or
+`LoadToolset` calls. This applies the authentication configuration only to the
+tools loaded in that specific call, without modifying the original tool objects
+if they were loaded previously.
+
+```go
+AuthTool, err := client.LoadTool("my-tool", ctx, core.WithAuthTokenString("my-auth-1", "value"))
+
+// or
+
+AuthTools, err := client.LoadToolset(
+  "my-toolset",
+  ctx,
+  core.WithAuthTokenString("my-auth-1", "value"),
+)
+```
+
+{{< notice note >}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{< /notice >}}
+
+### Complete Authentication Example
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+import "fmt"
+
+func getAuthToken() string {
+  // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+  // This example just returns a placeholder. Replace with your actual token retrieval.
+  return "YOUR_ID_TOKEN" // Placeholder
+}
+
+func main() {
+  ctx := context.Background()
+  inputs := map[string]any{"input": "some input"}
+
+  dynamicTokenSource := core.NewCustomTokenSource(getAuthToken)
+
+  client, err := tbadk.NewToolboxClient("http://127.0.0.1:5000")
+  tool, err := client.LoadTool("my-tool", ctx)
+  AuthTool, err := tool.ToolFrom(core.WithAuthTokenSource("my_auth", dynamicTokenSource))
+
+  result, err := AuthTool.Run(ctx, inputs)
+
+  fmt.Println(result)
+}
+```
+
+{{< notice note >}}An auth token getter for a specific name (e.g., "GOOGLE_ID") will replace any client header with the same name followed by "_token" (e.g.,"GOOGLE_ID_token").
+{{< /notice >}}
+
+## Binding Parameter Values
+
+The SDK allows you to pre-set, or "bind", values for specific tool parameters
+before the tool is invoked or even passed to an LLM. These bound values are
+fixed and will not be requested or modified by the LLM during tool use.
+
+### Why Bind Parameters?
+
+- **Protecting sensitive information:**  API keys, secrets, etc.
+- **Enforcing consistency:** Ensuring specific values for certain parameters.
+- **Pre-filling known data:**  Providing defaults or context.
+
+{{< notice info >}}
+The parameter names used for binding (e.g., `"api_key"`) must exactly match the
+parameter names defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+{{< notice note >}}
+You do not need to modify the tool's configuration in the Toolbox service to bind parameter values using the SDK.
+{{< /notice >}}
+
+#### Option A: Add Default Bound Parameters to a Client
+
+You can add default tool level bound parameters to a client. Every tool / toolset
+loaded by the client will have the bound parameter.
+
+```go
+
+ctx := context.Background()
+
+client, err := tbadk.NewToolboxClient("http://127.0.0.1:5000",
+  core.WithDefaultToolOptions(
+    core.WithBindParamString("param1", "value"),
+  ),
+)
+
+boundTool, err := client.LoadTool("my-tool", ctx)
+```
+
+### Option B: Binding Parameters to a Loaded Tool
+
+Bind values to a tool object *after* it has been loaded. This modifies the
+specific tool instance.
+
+```go
+client, err := tbadk.NewToolboxClient("http://127.0.0.1:5000")
+
+tool, err := client.LoadTool("my-tool", ctx)
+
+boundTool, err := tool.ToolFrom(
+  core.WithBindParamString("param1", "value"),
+  core.WithBindParamString("param2", "value")
+  )
+```
+
+### Option C: Binding Parameters While Loading Tools
+
+Specify bound parameters directly when loading tools. This applies the binding
+only to the tools loaded in that specific call.
+
+```go
+boundTool, err := client.LoadTool("my-tool", ctx, core.WithBindParamString("param", "value"))
+
+// OR
+
+boundTool, err := client.LoadToolset("", ctx, core.WithBindParamString("param", "value"))
+```
+
+{{< notice note >}} 
+Bound values during loading only affect the tools loaded in that call.
+{{< /notice >}}
+
+### Binding Dynamic Values
+
+Instead of a static value, you can bind a parameter to a synchronous or
+asynchronous function. This function will be called *each time* the tool is
+invoked to dynamically determine the parameter's value at runtime.
+Functions with the return type (data_type, error) can be provided.
+
+```go
+getDynamicValue := func() (string, error) { return "req-123", nil }
+
+dynamicBoundTool, err := tool.ToolFrom(core.WithBindParamStringFunc("param", getDynamicValue))
+```
+
+{{< notice info >}} 
+You don't need to modify tool configurations to bind parameter values.
+{{< /notice >}}
+
+## Default Parameters
+
+Tools defined in the MCP Toolbox server can specify default values for their optional parameters. When invoking a tool using the SDK, if an input for a parameter with a default value is not provided, the SDK will automatically populate the request with the default value.
+
+```go
+tool, err = client.LoadTool("my-tool", ctx)
+
+// If 'my-tool' has a parameter 'param2' with a default value of "default-value",
+// we can omit 'param2' from the inputs.
+inputs := map[string]any{"param1": "value"}
+
+// The invocation will automatically use param2="default-value" if not provided
+result, err := tool.Run(ctx, inputs)
+```
+
+## Using with ADK Go
+
+After altering the tool to your needs, type-assert the ToolboxTool and pass it to the LLM agent.
+
+### For a single tool
+
+```go
+
+toolboxtool, err = client.LoadTool("my-tool", ctx)
+
+// <Bind parameters & add authentication here>
+
+llmagent, err := llmagent.New(llmagent.Config{
+  Name:        "assistant",
+  Model:       model,
+  Description: "Agent to answer questions.",
+  Tools:       []tool.Tool{&toolboxtool},
+})
+```
+
+### For a toolset
+
+```go
+toolboxtools, err := client.LoadToolset("", ctx)
+
+// <Bind parameters & add authentication here>
+
+toolsList := make([]tool.Tool, len(toolboxtools))
+	for i := range toolboxtools {
+		toolsList[i] = &toolboxtools[i]
+	}
+
+llmagent, err := llmagent.New(llmagent.Config{
+  Name:        "assistant",
+  Model:       model,
+  Description: "Agent to answer questions.",
+  Tools:       toolsList,
+})
+
+```
+
+The reason we have to type assert it before passing it to ADK Go, is because it requires a generic `tool.Tool` interface. You can always convert it back to `ToolboxTool` format to access the specialized  methods.
+
+# Using with Orchestration Frameworks
+
+To see how the MCP Toolbox Go SDK works with orchestration frameworks, check out these end-to-end examples given below.
+
+<details>
+<summary>ADK Go</summary>
+
+```go
+//This sample contains a complete example on how to integrate MCP Toolbox Go SDK with ADK Go using the tbadk package.
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/googleapis/mcp-toolbox-sdk-go/tbadk"
+	"google.golang.org/adk/agent"
+	"google.golang.org/adk/agent/llmagent"
+	"google.golang.org/adk/model/gemini"
+	"google.golang.org/adk/runner"
+	"google.golang.org/adk/session"
+	"google.golang.org/adk/tool"
+	"google.golang.org/genai"
+)
+
+func main() {
+	genaiKey := os.Getenv("GEMINI_API_KEY")
+	toolboxURL := "http://localhost:5000"
+	ctx := context.Background()
+
+	// Initialize MCP Toolbox client
+	toolboxClient, err := tbadk.NewToolboxClient(toolboxURL)
+	if err != nil {
+		log.Fatalf("Failed to create MCP Toolbox client: %v", err)
+	}
+
+	toolsetName := "my-toolset"
+	toolset, err := toolboxClient.LoadToolset(toolsetName, ctx)
+	if err != nil {
+		log.Fatalf("Failed to load MCP toolset '%s': %v\nMake sure your Toolbox server is running.", toolsetName, err)
+	}
+
+	// Create Gemini model
+	model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+		APIKey: genaiKey,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create model: %v", err)
+	}
+
+	tools := make([]tool.Tool, len(toolset))
+	for i := range toolset {
+		tools[i] = &toolset[i]
+	}
+
+	llmagent, err := llmagent.New(llmagent.Config{
+		Name:        "hotel_assistant",
+		Model:       model,
+		Description: "Agent to answer questions about hotels.",
+		Tools:       tools,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create agent: %v", err)
+	}
+
+	appName := "hotel_assistant"
+	userID := "user-123"
+
+	sessionService := session.InMemoryService()
+	resp, err := sessionService.Create(ctx, &session.CreateRequest{
+		AppName: appName,
+		UserID:  userID,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create the session service: %v", err)
+	}
+	session := resp.Session
+
+	r, err := runner.New(runner.Config{
+		AppName:        appName,
+		Agent:          llmagent,
+		SessionService: sessionService,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create runner: %v", err)
+	}
+
+	query := "Find hotels with Basel in its name."
+
+	fmt.Println(query)
+	userMsg := genai.NewContentFromText(query, genai.RoleUser)
+
+	streamingMode := agent.StreamingModeSSE
+	for event, err := range r.Run(ctx, userID, session.ID(), userMsg, agent.RunConfig{
+		StreamingMode: streamingMode,
+	}) {
+		if err != nil {
+			fmt.Printf("\nAGENT_ERROR: %v\n", err)
+		} else {
+			if event.LLMResponse.Content != nil {
+				for _, p := range event.LLMResponse.Content.Parts {
+					if streamingMode != agent.StreamingModeSSE || event.LLMResponse.Partial {
+						fmt.Print(p.Text)
+					}
+				}
+			}
+		}
+	}
+	fmt.Println()
+}
+```
+
+</details>
+
+# Core Package
+MCP Toolbox Core SDK for integrating functionalities of MCP Toolbox into your Agentic apps.
+
+
+## Overview
+
+The `core` package provides a Go interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+go get github.com/googleapis/mcp-toolbox-sdk-go/core
+```
+This SDK is supported on Go version 1.24.4 and higher.
+
+{{< notice note >}}
+While the SDK itself is synchronous, you can execute its functions within goroutines to achieve asynchronous behavior.
+{{< /notice >}}
+
+{{< notice note >}}
+**Breaking Change Notice**: As of version `0.6.0`, this repository has transitioned to a multi-module structure.
+*   **For new versions (`v0.6.0`+)**: You must import specific modules (e.g., `go get github.com/googleapis/mcp-toolbox-sdk-go/core`).
+*   **For older versions (`v0.5.1` and below)**: The repository remains a single-module library (`go get github.com/googleapis/mcp-toolbox-sdk-go`).
+*   Please update your imports and `go.mod` accordingly when upgrading.
+{{< /notice >}}
+
+## Quickstart
+
+Here's a minimal example to get you started. Ensure your Toolbox service is
+running and accessible.
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+)
+
+func quickstart() string {
+	ctx := context.Background()
+	inputs := map[string]any{"location": "London"}
+	client, err := core.NewToolboxClient("http://localhost:5000")
+	if err != nil {
+		return fmt.Sprintln("Could not start Toolbox Client", err)
+	}
+	tool, err := client.LoadTool("get_weather", ctx)
+	if err != nil {
+		return fmt.Sprintln("Could not load Toolbox Tool", err)
+	}
+	result, err := tool.Invoke(ctx, inputs)
+	if err != nil {
+		return fmt.Sprintln("Could not invoke tool", err)
+	}
+	return fmt.Sprintln(result)
+}
+
+func main() {
+	fmt.Println(quickstart())
+}
+```
+
+## Usage
+
+Import and initialize a Toolbox client, pointing it to the URL of your running
+Toolbox service.
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+
+client, err := core.NewToolboxClient("http://localhost:5000")
+```
+
+All interactions for loading and invoking tools happen through this client.
+
+{{< notice note >}} 
+For advanced use cases, you can provide an external custom `http.Client` during initialization (e.g., `core.NewToolboxClient(URL, core.WithHTTPClient(myClient)`). 
+If you provide your own session, you are responsible for managing its lifecycle; `ToolboxClient` *will not* close it.
+{{< /notice >}}
+
+{{< notice info >}}
+Closing the `ToolboxClient` also closes the underlying network session shared by all tools loaded from that client. As a result, any tool instances you have loaded will cease to function and will raise an error if you attempt to invoke them after the client is closed.
+{{< /notice >}}
+
+## Transport Protocols
+
+The SDK supports multiple transport protocols for communicating with the Toolbox server. By default, the client uses the latest supported version of the **Model Context Protocol (MCP)**.
+
+You can explicitly select a protocol using the `core.WithProtocol` option during client initialization. This is useful if you need to use the native Toolbox HTTP protocol or pin the client to a specific legacy version of MCP.
+
+{{< notice note >}}
+* **Native Toolbox Transport**: This uses the service's native **REST over HTTP** API.
+* **MCP Transports**: These options use the **Model Context Protocol over HTTP**.
+{{< /notice >}}
+
+### Supported Protocols
+
+{{< notice note >}}
+The native Toolbox protocol (`core.Toolbox`) is deprecated and will be removed on March 4, 2026. Please use `core.MCP` or specific MCP versions.
+{{< /notice >}}
+
+| Constant | Description |
+| :--- | :--- |
+| `core.MCP` | **(Default)** Alias for the latest supported MCP version (currently `v2025-06-18`). |
+| `core.Toolbox` |  **Deprecated** The native Toolbox HTTP protocol. |
+| `core.MCPv20251125` | MCP Protocol version 2025-11-25. |
+| `core.MCPv20250618` | MCP Protocol version 2025-06-18. |
+| `core.MCPv20250326` | MCP Protocol version 2025-03-26. |
+| `core.MCPv20241105` | MCP Protocol version 2024-11-05. |
+
+### Example
+
+If you wish to use the native Toolbox protocol:
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+
+client, err := core.NewToolboxClient(
+    "http://localhost:5000",
+    core.WithProtocol(core.Toolbox),
+)
+```
+If you want to pin the MCP Version 2025-03-26:
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+
+client, err := core.NewToolboxClient(
+    "http://localhost:5000",
+    core.WithProtocol(core.MCPv20250326),
+)
+```
+
+## Loading Tools
+
+You can load tools individually or in groups (toolsets) as defined in your
+Toolbox service configuration. Loading a toolset is convenient when working with
+multiple related functions, while loading a single tool offers more granular
+control.
+
+### Load a toolset
+
+A toolset is a collection of related tools. You can load all tools in a toolset
+or a specific one:
+
+```go
+// Load default toolset by providing an empty string as the name
+tools, err := client.LoadToolset("", ctx)
+
+// Load a specific toolset
+tools, err := client.LoadToolset("my-toolset", ctx)
+```
+
+
+### Load a single tool
+
+Loads a specific tool by its unique name. This provides fine-grained control.
+
+```go
+tool, err = client.LoadTool("my-tool", ctx)
+```
+
+## Invoking Tools
+
+Once loaded, tools behave like Go structs. You invoke them using `Invoke` method
+by passing arguments corresponding to the parameters defined in the tool's
+configuration within the Toolbox service.
+
+```go
+tool, err = client.LoadTool("my-tool", ctx)
+inputs := map[string]any{"location": "London"}
+result, err := tool.Invoke(ctx, inputs)
+```
+
+{{< notice tip >}}
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart).
+{{< /notice >}}
+
+## Client to Server Authentication
+
+This section describes how to authenticate the ToolboxClient itself when
+connecting to a Toolbox server instance that requires authentication. This is
+crucial for securing your Toolbox server endpoint, especially when deployed on
+platforms like Cloud Run, GKE,  or any environment where unauthenticated access is restricted.
+
+This client-to-server authentication ensures that the Toolbox server can verify
+the identity of the client making the request before any tool is loaded or
+called. It is different from [Authenticating Tools](#authenticating-tools),
+which deals with providing credentials for specific tools within an already
+connected Toolbox session.
+
+### When is Client-to-Server Authentication Needed?
+
+You'll need this type of authentication if your Toolbox server is configured to
+deny unauthenticated requests. For example:
+
+- Your Toolbox server is deployed on Cloud Run and configured to "Require authentication."
+- Your server is behind an Identity-Aware Proxy (IAP) or a similar
+  authentication layer.
+- You have custom authentication middleware on your self-hosted Toolbox server.
+
+Without proper client authentication in these scenarios, attempts to connect or
+make calls (like `LoadTool`) will likely fail with `Unauthorized` errors.
+
+### How it works
+
+The `ToolboxClient` allows you to specify TokenSources that dynamically generate HTTP headers for
+every request sent to the Toolbox server. The most common use case is to add an
+Authorization header with a bearer token (e.g., a Google ID token).
+
+These header-generating functions are called just before each request, ensuring
+that fresh credentials or header values can be used.
+
+### Configuration
+
+You can configure these dynamic headers as seen below:
+
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+
+tokenProvider := func() string {
+	return "header3_value"
+}
+
+staticTokenSource := oauth2.StaticTokenSource(&oauth2.Token{AccessToken: "header2_value"})
+dynamicTokenSource := core.NewCustomTokenSource(tokenProvider)
+
+client, err := core.NewToolboxClient(
+  "toolbox-url",
+  core.WithClientHeaderString("header1", "header1_value"),
+  core.WithClientHeaderTokenSource("header2", staticTokenSource),
+  core.WithClientHeaderTokenSource("header3", dynamicTokenSource),
+)
+```
+
+### Authenticating with Google Cloud Servers
+
+For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
+`Google ID token` authentication, the helper module
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/auth.go) provides utility functions.
+
+### Step by Step Guide for Cloud Run
+
+1. **Configure Permissions**: [Grant](https://cloud.google.com/run/docs/securing/managing-access#service-add-principals) the `roles/run.invoker` IAM role on the Cloud
+   Run service to the principal. This could be your `user account email` or a
+   `service account`.
+2. **Configure Credentials**
+    - Local Development: Set up
+   [ADC](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment).
+    - Google Cloud Environments: When running within Google Cloud (e.g., Compute
+      Engine, GKE, another Cloud Run service, Cloud Functions), ADC is typically
+      configured automatically, using the environment's default service account.
+3. **Connect to the Toolbox Server**
+    ```go
+    import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+    import "context"
+
+    ctx := context.Background()
+
+    token, err := core.GetGoogleIDToken(ctx, URL)
+
+    client, err := core.NewToolboxClient(
+      URL,
+      core.WithClientHeaderString("Authorization", token),
+    )
+
+    // Now, you can use the client as usual.
+    ```
+
+## Authenticating Tools
+
+{{< notice info >}}
+**Always use HTTPS** to connect your application with the Toolbox service, especially in **production environments** or whenever the communication involves **sensitive data** (including scenarios where tools requireauthentication tokens). Using plain HTTP lacks encryption and exposes your application and data to significant security risks, such as eavesdropping and tampering.
+{{< /notice >}}
+
+Tools can be configured within the Toolbox service to require authentication,
+ensuring only authorized users or applications can invoke them, especially when
+accessing sensitive data.
+
+### When is Authentication Needed?
+
+Authentication is configured per-tool within the Toolbox service itself. If a
+tool you intend to use is marked as requiring authentication in the service, you
+must configure the SDK client to provide the necessary credentials (currently
+Oauth2 tokens) when invoking that specific tool.
+
+### Supported Authentication Mechanisms
+
+The Toolbox service enables secure tool usage through **Authenticated Parameters**.
+For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters).
+
+### Step 1: Configure Tools in Toolbox Service
+
+First, ensure the target tool(s) are configured correctly in the Toolbox service
+to require authentication. Refer to the [Toolbox Service Documentation -
+Authenticated
+Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters)
+for instructions.
+
+### Step 2: Configure SDK Client
+
+Your application needs a way to obtain the required Oauth2 token for the
+authenticated user. The SDK requires you to provide a function capable of
+retrieving this token *when the tool is invoked*.
+
+#### Provide an ID Token Retriever Function
+
+You must provide the SDK with a function that returns the
+necessary token when called. The implementation depends on your application's
+authentication flow (e.g., retrieving a stored token, initiating an OAuth flow).
+
+{{< notice info >}}
+The name used when registering the getter function with the SDK (e.g., `"my_api_token"`) must exactly match the `name` of the corresponding `authServices` defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+```go
+func getAuthToken() string {
+  // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+  // This example just returns a placeholder. Replace with your actual token retrieval.
+	return "YOUR_ID_TOKEN" // Placeholder
+}
+```
+
+{{< notice tip >}}
+Your token retriever function is invoked every time an authenticated parameter requires a token for a tool call. Consider implementing caching logic within this function to avoid redundant token fetching or generation, especially for tokens with longer validity periods or if the retrieval process is resource-intensive.
+{{< /notice >}}
+
+#### Option A: Add Default Authentication to a Client
+
+You can add default tool level authentication to a client.
+Every tool / toolset loaded by the client will contain the auth token.
+
+```go
+
+ctx := context.Background()
+
+client, err := core.NewToolboxClient("http://127.0.0.1:5000",
+	core.WithDefaultToolOptions(
+		core.WithAuthTokenString("my-auth-1", "auth-value"),
+	),
+)
+
+AuthTool, err := client.LoadTool("my-tool", ctx)
+```
+
+#### Option B: Add Authentication to a Loaded Tool
+
+You can add the token retriever function to a tool object *after* it has been
+loaded. This modifies the specific tool instance.
+
+```go
+
+ctx := context.Background()
+
+client, err := core.NewToolboxClient("http://127.0.0.1:5000")
+
+tool, err := client.LoadTool("my-tool", ctx)
+
+AuthTool, err := tool.ToolFrom(
+  core.WithAuthTokenSource("my-auth", headerTokenSource),
+  core.WithAuthTokenString("my-auth-1", "value"),
+  )
+```
+
+#### Option C: Add Authentication While Loading Tools
+
+You can provide the token retriever(s) directly during the `LoadTool` or
+`LoadToolset` calls. This applies the authentication configuration only to the
+tools loaded in that specific call, without modifying the original tool objects
+if they were loaded previously.
+
+```go
+AuthTool, err := client.LoadTool("my-tool", ctx, core.WithAuthTokenString("my-auth-1", "value"))
+
+// or
+
+AuthTools, err := client.LoadToolset(
+  "my-toolset",
+  ctx,
+  core.WithAuthTokenString("my-auth-1", "value"),
+)
+```
+
+{{< notice note >}}
+Adding auth tokens during loading only affect the tools loaded within that call.
+{{< /notice >}}
+
+### Complete Authentication Example
+
+```go
+import "github.com/googleapis/mcp-toolbox-sdk-go/core"
+import "fmt"
+
+func getAuthToken() string {
+  // ... Logic to retrieve ID token (e.g., from local storage, OAuth flow)
+  // This example just returns a placeholder. Replace with your actual token retrieval.
+	return "YOUR_ID_TOKEN" // Placeholder
+}
+
+func main() {
+  ctx := context.Background()
+  inputs := map[string]any{"input": "some input"}
+
+  dynamicTokenSource := core.NewCustomTokenSource(getAuthToken)
+
+  client, err := core.NewToolboxClient("http://127.0.0.1:5000")
+  tool, err := client.LoadTool("my-tool", ctx)
+  AuthTool, err := tool.ToolFrom(core.WithAuthTokenSource("my_auth", dynamicTokenSource))
+
+  result, err := AuthTool.Invoke(ctx, inputs)
+
+  fmt.Println(result)
+}
+```
+
+{{< notice note >}}
+An auth token getter for a specific name (e.g., "GOOGLE_ID") will replace any client header with the same name followed by "_token" (e.g., "GOOGLE_ID_token").
+{{< /notice >}}
+
+## Binding Parameter Values
+
+The SDK allows you to pre-set, or "bind", values for specific tool parameters
+before the tool is invoked or even passed to an LLM. These bound values are
+fixed and will not be requested or modified by the LLM during tool use.
+
+### Why Bind Parameters?
+
+- **Protecting sensitive information:**  API keys, secrets, etc.
+- **Enforcing consistency:** Ensuring specific values for certain parameters.
+- **Pre-filling known data:**  Providing defaults or context.
+
+{{< notice info >}}
+The parameter names used for binding (e.g., `"api_key"`) must exactly match the parameter names defined in the tool's configuration within the Toolbox service.
+{{< /notice >}}
+
+{{< notice note >}}
+You do not need to modify the tool's configuration in the Toolbox service to bind parameter values using the SDK.
+{{< /notice >}}
+
+#### Option A: Add Default Bound Parameters to a Client
+
+You can add default tool level bound parameters to a client. Every tool / toolset  
+loaded by the client will have the bound parameter.
+
+```go
+
+ctx := context.Background()
+
+client, err := core.NewToolboxClient("http://127.0.0.1:5000",
+	core.WithDefaultToolOptions(
+		core.WithBindParamString("param1", "value"),
+	),
+)
+
+boundTool, err := client.LoadTool("my-tool", ctx)
+```
+
+### Option B: Binding Parameters to a Loaded Tool
+
+Bind values to a tool object *after* it has been loaded. This modifies the
+specific tool instance.
+
+```go
+client, err := core.NewToolboxClient("http://127.0.0.1:5000")
+
+tool, err := client.LoadTool("my-tool", ctx)
+
+boundTool, err := tool.ToolFrom(
+  core.WithBindParamString("param1", "value"),
+  core.WithBindParamString("param2", "value")
+  )
+```
+
+### Option C: Binding Parameters While Loading Tools
+
+Specify bound parameters directly when loading tools. This applies the binding
+only to the tools loaded in that specific call.
+
+```go
+boundTool, err := client.LoadTool("my-tool", ctx, core.WithBindParamString("param", "value"))
+
+// OR
+
+boundTool, err := client.LoadToolset("", ctx, core.WithBindParamString("param", "value"))
+```
+
+{{< notice note >}} Bound values during loading only affect the tools loaded in that call. {{< /notice >}}
+
+### Binding Dynamic Values
+
+Instead of a static value, you can bind a parameter to a synchronous or
+asynchronous function. This function will be called *each time* the tool is
+invoked to dynamically determine the parameter's value at runtime.
+Functions with the return type (data_type, error) can be provided.
+
+```go
+getDynamicValue := func() (string, error) { return "req-123", nil }
+
+dynamicBoundTool, err := tool.ToolFrom(core.WithBindParamStringFunc("param", getDynamicValue))
+```
+
+{{< notice info >}} You don't need to modify tool configurations to bind parameter values. {{< /notice >}}
+
+## Default Parameters
+
+Tools defined in the MCP Toolbox server can specify default values for their optional parameters. When invoking a tool using the SDK, if an input for a parameter with a default value is not provided, the SDK will automatically populate the request with the default value.
+
+```go
+tool, err = client.LoadTool("my-tool", ctx)
+
+// If 'my-tool' has a parameter 'param2' with a default value of "default-value",
+// we can omit 'param2' from the inputs.
+inputs := map[string]any{"param1": "value"}
+
+// The invocation will automatically use param2="default-value" if not provided
+result, err := tool.Invoke(ctx, inputs)
+```
+
+
+# Using with Orchestration Frameworks
+
+To see how the MCP Toolbox Go SDK works with orchestration frameworks, check out these end-to-end examples given below.
+
+<details>
+<summary>Google GenAI</summary>
+
+```go
+// This sample demonstrates integration with the standard Google GenAI framework.
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	"google.golang.org/genai"
+)
+
+// ConvertToGenaiTool translates a ToolboxTool into the genai.FunctionDeclaration format.
+func ConvertToGenaiTool(toolboxTool *core.ToolboxTool) *genai.Tool {
+
+	inputschema, err := toolboxTool.InputSchema()
+	if err != nil {
+		return &genai.Tool{}
+	}
+
+	var schema *genai.Schema
+	_ = json.Unmarshal(inputschema, &schema)
+	// First, create the function declaration.
+	funcDeclaration := &genai.FunctionDeclaration{
+		Name:        toolboxTool.Name(),
+		Description: toolboxTool.Description(),
+		Parameters:  schema,
+	}
+
+	// Then, wrap the function declaration in a genai.Tool struct.
+	return &genai.Tool{
+		FunctionDeclarations: []*genai.FunctionDeclaration{funcDeclaration},
+	}
+}
+
+// printResponse extracts and prints the relevant parts of the model's response.
+func printResponse(resp *genai.GenerateContentResponse) {
+	for _, cand := range resp.Candidates {
+		if cand.Content != nil {
+			for _, part := range cand.Content.Parts {
+				fmt.Println(part.Text)
+			}
+		}
+	}
+}
+
+func main() {
+	// Setup
+	ctx := context.Background()
+	apiKey := os.Getenv("GOOGLE_API_KEY")
+	toolboxURL := "http://localhost:5000"
+
+	// Initialize the Google GenAI client using the explicit ClientConfig.
+	client, err := genai.NewClient(ctx, &genai.ClientConfig{
+		APIKey: apiKey,
+	})
+	if err != nil {
+		log.Fatalf("Failed to create Google GenAI client: %v", err)
+	}
+
+	// Initialize the MCP Toolbox client.
+	toolboxClient, err := core.NewToolboxClient(toolboxURL)
+	if err != nil {
+		log.Fatalf("Failed to create Toolbox client: %v", err)
+	}
+
+	// Load the tools using the MCP Toolbox SDK.
+	tools, err := toolboxClient.LoadToolset("my-toolset", ctx)
+	if err != nil {
+		log.Fatalf("Failed to load tools: %v\nMake sure your Toolbox server is running and the tool is configured.", err)
+	}
+
+  genAITools := make([]*genai.Tool, len(tools))
+	toolsMap := make(map[string]*core.ToolboxTool, len(tools))
+
+	for i, tool := range tools {
+    // Convert the tools into usable format
+		genAITools[i] = ConvertToGenaiTool(tool)
+    // Add tool to a map for lookup later
+		toolsMap[tool.Name()] = tool
+	}
+
+	// Set up the generative model with the available tool.
+	modelName := "gemini-2.0-flash"
+
+	query := "Find hotels in Basel with Basel in it's name and share the names with me"
+
+	// Create the initial content prompt for the model.
+	contents := []*genai.Content{
+		genai.NewContentFromText(query, genai.RoleUser),
+	}
+	config := &genai.GenerateContentConfig{
+		Tools: genAITools,
+		ToolConfig: &genai.ToolConfig{
+			FunctionCallingConfig: &genai.FunctionCallingConfig{
+				Mode: genai.FunctionCallingConfigModeAny,
+			},
+		},
+	}
+	genContentResp, _ := client.Models.GenerateContent(ctx, modelName, contents, config)
+
+	printResponse(genContentResp)
+
+	functionCalls := genContentResp.FunctionCalls()
+	if len(functionCalls) == 0 {
+		log.Println("No function call returned by the AI. The model likely answered directly.")
+		return
+	}
+
+	// Process the first function call (the example assumes one for simplicity).
+	fc := functionCalls[0]
+	log.Printf("--- Gemini requested function call: %s ---\n", fc.Name)
+	log.Printf("--- Arguments: %+v ---\n", fc.Args)
+
+	var toolResultString string
+
+	if fc.Name == "search-hotels-by-name" {
+		tool := toolsMap["search-hotels-by-name"]
+		toolResult, err := tool.Invoke(ctx, fc.Args)
+		toolResultString = fmt.Sprintf("%v", toolResult)
+		if err != nil {
+			log.Fatalf("Failed to execute tool '%s': %v", fc.Name, err)
+		}
+
+	} else {
+		log.Println("LLM did not request our tool")
+	}
+	resultContents := []*genai.Content{
+		genai.NewContentFromText("The tool returned this result, share it with the user based of their previous querys"+toolResultString, genai.RoleUser),
+	}
+	finalResponse, err := client.Models.GenerateContent(ctx, modelName, resultContents, &genai.GenerateContentConfig{})
+	if err != nil {
+		log.Fatalf("Error calling GenerateContent (with function result): %v", err)
+	}
+	log.Println("=== Final Response from Model (after processing function result) ===")
+	printResponse(finalResponse)
+
+}
+```
+
+</details>
+
+<details>
+<summary>LangChain</summary>
+
+```go
+// This sample demonstrates how to use Toolbox tools as function definitions in LangChain Go.
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	"github.com/tmc/langchaingo/llms"
+	"github.com/tmc/langchaingo/llms/googleai"
+)
+
+// ConvertToLangchainTool converts a generic core.ToolboxTool into a LangChainGo llms.Tool.
+func ConvertToLangchainTool(toolboxTool *core.ToolboxTool) llms.Tool {
+
+	// Fetch the tool's input schema
+	inputschema, err := toolboxTool.InputSchema()
+	if err != nil {
+		return llms.Tool{}
+	}
+
+	var paramsSchema map[string]any
+	_ = json.Unmarshal(inputschema, &paramsSchema)
+
+	// Convert into LangChain's llms.Tool
+	return llms.Tool{
+		Type: "function",
+		Function: &llms.FunctionDefinition{
+			Name:        toolboxTool.Name(),
+			Description: toolboxTool.Description(),
+			Parameters:  paramsSchema,
+		},
+	}
+}
+
+func main() {
+	genaiKey := os.Getenv("GOOGLE_API_KEY")
+	toolboxURL := "http://localhost:5000"
+	ctx := context.Background()
+
+	// Initialize the Google AI client (LLM).
+	llm, err := googleai.New(ctx, googleai.WithAPIKey(genaiKey), googleai.WithDefaultModel("gemini-1.5-flash"))
+	if err != nil {
+		log.Fatalf("Failed to create Google AI client: %v", err)
+	}
+
+	// Initialize the MCP Toolbox client.
+	toolboxClient, err := core.NewToolboxClient(toolboxURL)
+	if err != nil {
+		log.Fatalf("Failed to create Toolbox client: %v", err)
+	}
+
+	// Load the tools using the MCP Toolbox SDK.
+	tools, err := toolboxClient.LoadToolset("my-toolset", ctx)
+	if err != nil {
+		log.Fatalf("Failed to load tools: %v\nMake sure your Toolbox server is running and the tool is configured.", err)
+	}
+
+	toolsMap := make(map[string]*core.ToolboxTool, len(tools))
+
+	langchainTools := make([]llms.Tool, len(tools))
+	for i, tool := range tools {
+    // Convert the loaded ToolboxTools into the format LangChainGo requires.
+		langchainTools[i] = ConvertToLangchainTool(tool)
+    // Add tool to a map for lookup later
+		toolsMap[tool.Name()] = tool
+	}
+
+	// Start the conversation history.
+	messageHistory := []llms.MessageContent{
+		llms.TextParts(llms.ChatMessageTypeHuman, "Find hotels in Basel with Basel in it's name."),
+	}
+
+	// Make the first call to the LLM, making it aware of the tool.
+	resp, err := llm.GenerateContent(ctx, messageHistory, llms.WithTools(langchainTools))
+	if err != nil {
+		log.Fatalf("LLM call failed: %v", err)
+	}
+
+	// Add the model's response (which should be a tool call) to the history.
+	respChoice := resp.Choices[0]
+	assistantResponse := llms.TextParts(llms.ChatMessageTypeAI, respChoice.Content)
+	for _, tc := range respChoice.ToolCalls {
+		assistantResponse.Parts = append(assistantResponse.Parts, tc)
+	}
+	messageHistory = append(messageHistory, assistantResponse)
+
+	// Process each tool call requested by the model.
+	for _, tc := range respChoice.ToolCalls {
+		toolName := tc.FunctionCall.Name
+
+		switch tc.FunctionCall.Name {
+		case "search-hotels-by-name":
+			var args map[string]any
+			if err := json.Unmarshal([]byte(tc.FunctionCall.Arguments), &args); err != nil {
+				log.Fatalf("Failed to unmarshal arguments for tool '%s': %v", toolName, err)
+			}
+			tool := toolsMap["search-hotels-by-name"]
+			toolResult, err := tool.Invoke(ctx, args)
+			if err != nil {
+				log.Fatalf("Failed to execute tool '%s': %v", toolName, err)
+			}
+
+			// Create the tool call response message and add it to the history.
+			toolResponse := llms.MessageContent{
+				Role: llms.ChatMessageTypeTool,
+				Parts: []llms.ContentPart{
+					llms.ToolCallResponse{
+						Name:    toolName,
+						Content: fmt.Sprintf("%v", toolResult),
+					},
+				},
+			}
+			messageHistory = append(messageHistory, toolResponse)
+		default:
+			log.Fatalf("got unexpected function call: %v", tc.FunctionCall.Name)
+		}
+	}
+
+	// Final LLM Call for Natural Language Response
+	log.Println("Sending tool response back to LLM for a final answer...")
+
+	// Call the LLM again with the updated history, which now includes the tool's result.
+	finalResp, err := llm.GenerateContent(ctx, messageHistory)
+	if err != nil {
+		log.Fatalf("Final LLM call failed: %v", err)
+	}
+
+	// Display the Result
+	fmt.Println("\n======================================")
+	fmt.Println("Final Response from LLM:")
+	fmt.Println(finalResp.Choices[0].Content)
+	fmt.Println("======================================")
+}
+
+```
+</details>
+
+<details>
+<summary>OpenAI</summary>
+
+```go
+// This sample demonstrates integration with the OpenAI Go client.
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"log"
+
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	openai "github.com/openai/openai-go"
+)
+
+// ConvertToOpenAITool converts a ToolboxTool into the go-openai library's Tool format.
+func ConvertToOpenAITool(toolboxTool *core.ToolboxTool) openai.ChatCompletionToolParam {
+	// Get the input schema
+	jsonSchemaBytes, err := toolboxTool.InputSchema()
+	if err != nil {
+		return openai.ChatCompletionToolParam{}
+	}
+
+	// Unmarshal the JSON bytes into FunctionParameters
+	var paramsSchema openai.FunctionParameters
+	if err := json.Unmarshal(jsonSchemaBytes, &paramsSchema); err != nil {
+		return openai.ChatCompletionToolParam{}
+	}
+
+	// Create and return the final tool parameter struct.
+	return openai.ChatCompletionToolParam{
+		Function: openai.FunctionDefinitionParam{
+			Name:        toolboxTool.Name(),
+			Description: openai.String(toolboxTool.Description()),
+			Parameters:  paramsSchema,
+		},
+	}
+}
+
+func main() {
+	// Setup
+	ctx := context.Background()
+	toolboxURL := "http://localhost:5000"
+	openAIClient := openai.NewClient()
+
+	// Initialize the MCP Toolbox client.
+	toolboxClient, err := core.NewToolboxClient(toolboxURL)
+	if err != nil {
+		log.Fatalf("Failed to create Toolbox client: %v", err)
+	}
+
+	// Load the tools using the MCP Toolbox SDK.
+	tools, err := toolboxClient.LoadToolset("my-toolset", ctx)
+	if err != nil {
+		log.Fatalf("Failed to load tool : %v\nMake sure your Toolbox server is running and the tool is configured.", err)
+	}
+
+	openAITools := make([]openai.ChatCompletionToolParam, len(tools))
+	toolsMap := make(map[string]*core.ToolboxTool, len(tools))
+
+	for i, tool := range tools {
+		// Convert the Toolbox tool into the openAI FunctionDeclaration format.
+		openAITools[i] = ConvertToOpenAITool(tool)
+		// Add tool to a map for lookup later
+		toolsMap[tool.Name()] = tool
+
+	}
+	question := "Find hotels in Basel with Basel in it's name "
+
+	params := openai.ChatCompletionNewParams{
+		Messages: []openai.ChatCompletionMessageParamUnion{
+			openai.UserMessage(question),
+		},
+		Tools: openAITools,
+		Seed:  openai.Int(0),
+		Model: openai.ChatModelGPT4o,
+	}
+
+	// Make initial chat completion request
+	completion, err := openAIClient.Chat.Completions.New(ctx, params)
+	if err != nil {
+		panic(err)
+	}
+
+	toolCalls := completion.Choices[0].Message.ToolCalls
+
+	// Return early if there are no tool calls
+	if len(toolCalls) == 0 {
+		fmt.Printf("No function call")
+		return
+	}
+
+// If there was a function call, continue the conversation
+	params.Messages = append(params.Messages, completion.Choices[0].Message.ToParam())
+	for _, toolCall := range toolCalls {
+		if toolCall.Function.Name == "search-hotels-by-name" {
+			// Extract the location from the function call arguments
+			var args map[string]interface{}
+			tool := toolsMap["search-hotels-by-name"]
+			err := json.Unmarshal([]byte(toolCall.Function.Arguments), &args)
+			if err != nil {
+				panic(err)
+			}
+
+			result, err := tool.Invoke(ctx, args)
+			if err != nil {
+				log.Fatal("Could not invoke tool", err)
+			}
+
+			params.Messages = append(params.Messages, openai.ToolMessage(result.(string), toolCall.ID))
+		}
+	}
+
+	completion, err = openAIClient.Chat.Completions.New(ctx, params)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(completion.Choices[0].Message.Content)
+}
+```
+
+</details>
+
+
+# Genkit Package
+MCP Toolbox Genkit for integrating functionalities of MCP Toolbox into your Agentic apps.
+
+
+## Overview
+
+The `tbgenkit` package provides a Go interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.
+
+## Installation
+
+```bash
+go get github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit
+```
+This SDK is supported on Go version 1.24.4 and higher.
+
+{{< notice note >}}
+**Breaking Change Notice**: As of version `0.6.0`, this repository has transitioned to a multi-module structure.
+*   **For new versions (`v0.6.0`+)**: You must import specific modules (e.g., `go get github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit`).
+*   **For older versions (`v0.5.1` and below)**: The repository remains a single-module library (`go get github.com/googleapis/mcp-toolbox-sdk-go`).
+*   Please update your imports and `go.mod` accordingly when upgrading.
+{{< /notice >}}
+
+## Quickstart
+
+For more information on how to load a `ToolboxTool`, see [the core package](https://github.com/googleapis/mcp-toolbox-sdk-go/tree/main/core)
+
+## Convert Toolbox Tool to a Genkit Tool
+
+```go
+"github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit"
+
+func main() {
+  // Assuming the toolbox tool is loaded
+  // Make sure to add error checks for debugging
+  ctx := context.Background()
+  g, err := genkit.Init(ctx)
+
+  genkitTool, err := tbgenkit.ToGenkitTool(toolboxTool, g)
+
+}
+```
+
+# Using with Orchestration Frameworks
+
+To see how the MCP Toolbox Go SDK works with orchestration frameworks, check out these end-to-end examples given below.
+
+<details>
+<summary>Genkit Go</summary>
+
+```go
+//This sample contains a complete example on how to integrate MCP Toolbox Go SDK with Genkit Go using the tbgenkit package.
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+
+	"github.com/googleapis/mcp-toolbox-sdk-go/core"
+	"github.com/googleapis/mcp-toolbox-sdk-go/tbgenkit"
+
+	"github.com/firebase/genkit/go/ai"
+	"github.com/firebase/genkit/go/genkit"
+	"github.com/firebase/genkit/go/plugins/googlegenai"
+)
+
+func main() {
+	ctx := context.Background()
+	toolboxClient, err := core.NewToolboxClient("http://127.0.0.1:5000")
+	if err != nil {
+		log.Fatalf("Failed to create Toolbox client: %v", err)
+	}
+
+	// Load the tools using the MCP Toolbox SDK.
+	tools, err := toolboxClient.LoadToolset("my-toolset", ctx)
+	if err != nil {
+		log.Fatalf("Failed to load tools: %v\nMake sure your Toolbox server is running and the tool is configured.", err)
+	}
+
+	// Initialize genkit
+  g := genkit.Init(ctx,
+		genkit.WithPlugins(&googlegenai.GoogleAI{}),
+		genkit.WithDefaultModel("googleai/gemini-1.5-flash"),
+	)
+
+	// Convert your tool to a Genkit tool.
+	genkitTools := make([]ai.Tool, len(tools))
+	for i, tool := range tools {
+		newTool, err := tbgenkit.ToGenkitTool(tool, g)
+		if err != nil {
+			log.Fatalf("Failed to convert tool: %v\n", err)
+		}
+		genkitTools[i] = newTool
+	}
+
+	toolRefs := make([]ai.ToolRef, len(genkitTools))
+
+	for i, tool := range genkitTools {
+		toolRefs[i] = tool
+	}
+
+	// Generate llm response using prompts and tools.
+	resp, err := genkit.Generate(ctx, g,
+		ai.WithPrompt("Find hotels in Basel with Basel in it's name."),
+		ai.WithTools(toolRefs...),
+	)
+	if err != nil {
+		log.Fatalf("%v\n", err)
+	}
+	fmt.Println(resp.Text())
+}
+```
+
+</details>
 
 # Reference
 This section contains reference documentation.
