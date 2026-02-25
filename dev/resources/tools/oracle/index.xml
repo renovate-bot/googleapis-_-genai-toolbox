@@ -24,9 +24,6 @@ Oracle database. It&amp;rsquo;s compatible with the following source:&lt;/p>
 &lt;p>The specified SQL statement is executed using &lt;a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html">prepared statements&lt;/a>
 for security and performance. It expects parameter placeholders in the SQL query
 to be in the native Oracle format (e.g., &lt;code>:1&lt;/code>, &lt;code>:2&lt;/code>).&lt;/p>
-&lt;h2 id="example">Example&lt;/h2>
-&lt;blockquote>
-&lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
-Query parameters can be used as substitutes for arbitrary expressions.
-Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item></channel></rss>
+&lt;p>By default, tools are configured as &lt;strong>read-only&lt;/strong> (SAFE mode). To execute data modification
+statements (INSERT, UPDATE, DELETE), you must explicitly set the &lt;code>readOnly&lt;/code>
+field to &lt;code>false&lt;/code>.&lt;/p></description></item></channel></rss>
