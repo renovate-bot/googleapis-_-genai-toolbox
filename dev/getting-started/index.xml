@@ -126,6 +126,8 @@ your preferred virtual environment tool for managing dependencies e.g.
 
 
 
+
+
  &lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
 &lt;code>vertexai=True&lt;/code> or a Google GenAI model), follow these one-time setup steps for
 local development:&lt;/p>
@@ -251,6 +253,8 @@ local development:&lt;/p>
  
  
  
+
+
 
 
 
@@ -388,6 +392,8 @@ local development:&lt;/p>
  
  
  
+
+
 
 
 
