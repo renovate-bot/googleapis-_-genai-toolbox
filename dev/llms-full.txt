@@ -8985,6 +8985,64 @@ This abbreviated syntax works for the qualified predicates except for `label` in
 | project   |  string  |     true     | ID of the GCP project used for quota and billing purposes (e.g. "my-project-id").|
 
 
+# Dataproc Clusters
+Google Cloud Dataproc Clusters lets you provision and manage Apache Spark and Hadoop clusters.
+
+
+## About
+
+The [Dataproc
+Clusters](https://cloud.google.com/dataproc/docs/concepts/overview) source
+allows Toolbox to interact with Dataproc Clusters hosted on Google Cloud.
+
+## Available Tools
+
+- [`dataproc-get-cluster`](../tools/dataproc/dataproc-get-cluster.md)
+  Get a specific Dataproc cluster.
+- [`dataproc-list-clusters`](../tools/dataproc/dataproc-list-clusters.md)
+  List and filter Dataproc clusters.
+- [`dataproc-get-job`](../tools/dataproc/dataproc-get-job.md)
+  Get a specific Dataproc job.
+- [`dataproc-list-jobs`](../tools/dataproc/dataproc-list-jobs.md)
+  List and filter Dataproc jobs.
+
+## Requirements
+
+### IAM Permissions
+
+Dataproc uses [Identity and Access Management
+(IAM)](https://cloud.google.com/dataproc/docs/concepts/iam/iam) to control user
+and group access to Dataproc resources.
+
+Toolbox will use your [Application Default Credentials
+(ADC)](https://cloud.google.com/docs/authentication#adc) to authorize and
+authenticate when interacting with Dataproc. When using this method, you need to
+ensure the IAM identity associated with your ADC has the correct
+[permissions](https://cloud.google.com/dataproc/docs/concepts/iam/iam)
+for the actions you intend to perform. Common roles include
+`roles/dataproc.editor` or `roles/dataproc.viewer`. Follow this
+[guide](https://cloud.google.com/docs/authentication/provide-credentials-adc) to
+set up your ADC.
+
+## Example
+
+```yaml
+kind: sources
+name: my-dataproc-source
+type: dataproc
+project: my-project
+region: us-central1
+```
+
+## Reference
+
+| **field** | **type** | **required** | **description**                                    |
+| --------- | :------: | :----------: | -------------------------------------------------- |
+| type      |  string  |     true     | Must be "dataproc".                                |
+| project   |  string  |     true     | ID of the GCP project with Dataproc resources.     |
+| region    |  string  |     true     | Region containing Dataproc resources.            |
+
+
 # Dgraph
 Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
 
@@ -12764,6 +12822,16 @@ Tools that work with Dataform.
 # Dataplex
 Tools that work with Dataplex Sources.
 
+
+
+# Dataproc
+Tools that work with Google Cloud Dataproc Sources.
+
+
+- [dataproc-get-cluster](./dataproc-get-cluster.md)
+- [dataproc-get-job](./dataproc-get-job.md)
+- [dataproc-list-clusters](./dataproc-list-clusters.md)
+- [dataproc-list-jobs](./dataproc-list-jobs.md)
 
 
 # Dgraph
@@ -20773,6 +20841,20 @@ See [Usage Examples](../reference/cli.md#examples).
         Catalog.
     *   `search_aspect_types`: Finds aspect types relevant to the
         query.
+
+## Dataproc
+
+*   `--prebuilt` value: `dataproc`
+*   **Environment Variables:**
+    *   `DATAPROC_PROJECT`: The GCP project ID.
+    *   `DATAPROC_REGION`: The Dataproc region.
+*   **Permissions:**
+    *   **Dataproc Viewer** (`roles/dataproc.viewer`) to examine clusters and jobs.
+*   **Tools:**
+    *   `list_clusters`: Lists Dataproc clusters.
+    *   `get_cluster`: Gets a Dataproc cluster.
+    *   `list_jobs`: Lists Dataproc jobs.
+    *   `get_job`: Gets a Dataproc job.
 
 ## Elasticsearch
 

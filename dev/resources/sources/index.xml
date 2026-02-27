@@ -570,7 +570,35 @@ powers AI, analytics, and business intelligence at scale.&lt;/p>
 centralized inventory of the data assets in your organization. Dataplex
 Universal Catalog holds business, technical, and runtime metadata for all of
 your data. It helps you discover relationships and semantics in the metadata by
-applying artificial intelligence and machine learning.&lt;/p></description></item><item><title>Dgraph</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dgraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dgraph/</guid><description>&lt;style type="text/css">
+applying artificial intelligence and machine learning.&lt;/p></description></item><item><title>Dataproc Clusters</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dataproc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dataproc/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>The &lt;a href="https://cloud.google.com/dataproc/docs/concepts/overview">Dataproc
+Clusters&lt;/a> source
+allows Toolbox to interact with Dataproc Clusters hosted on Google Cloud.&lt;/p>
+&lt;h2 id="available-tools">Available Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataproc/dataproc-get-cluster/">&lt;code>dataproc-get-cluster&lt;/code>&lt;/a>
+Get a specific Dataproc cluster.&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataproc/dataproc-list-clusters/">&lt;code>dataproc-list-clusters&lt;/code>&lt;/a>
+List and filter Dataproc clusters.&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataproc/dataproc-get-job/">&lt;code>dataproc-get-job&lt;/code>&lt;/a>
+Get a specific Dataproc job.&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataproc/dataproc-list-jobs/">&lt;code>dataproc-list-jobs&lt;/code>&lt;/a>
+List and filter Dataproc jobs.&lt;/li>
+&lt;/ul>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>
+&lt;p>Dataproc uses &lt;a href="https://cloud.google.com/dataproc/docs/concepts/iam/iam">Identity and Access Management
+(IAM)&lt;/a> to control user
+and group access to Dataproc resources.&lt;/p>
+&lt;p>Toolbox will use your &lt;a href="https://cloud.google.com/docs/authentication#adc">Application Default Credentials
+(ADC)&lt;/a> to authorize and
+authenticate when interacting with Dataproc. When using this method, you need to
+ensure the IAM identity associated with your ADC has the correct
+&lt;a href="https://cloud.google.com/dataproc/docs/concepts/iam/iam">permissions&lt;/a>
+for the actions you intend to perform. Common roles include
+&lt;code>roles/dataproc.editor&lt;/code> or &lt;code>roles/dataproc.viewer&lt;/code>. Follow this
+&lt;a href="https://cloud.google.com/docs/authentication/provide-credentials-adc">guide&lt;/a> to
+set up your ADC.&lt;/p></description></item><item><title>Dgraph</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dgraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dgraph/</guid><description>&lt;style type="text/css">
  
  .notice {
  --title-color: #fff;

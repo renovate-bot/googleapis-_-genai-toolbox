@@ -72,6 +72,7 @@ List of reference documentation for resources in Toolbox.
   - [CockroachDB](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/cockroachdb/): CockroachDB is a distributed SQL database built for cloud applications.
   - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/couchbase/): A "couchbase" source connects to a Couchbase database.
   - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dataplex/): Dataplex Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
+  - [Dataproc Clusters](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dataproc/): Google Cloud Dataproc Clusters lets you provision and manage Apache Spark and Hadoop clusters.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
   - [Elasticsearch](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/elasticsearch/): Elasticsearch is a distributed, free and open search and analytics engine  for all types of data, including textual, numerical, geospatial, structured,  and unstructured.
   - [Firebird](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/firebird/): Firebird is a powerful, cross-platform, and open-source relational database.
@@ -118,6 +119,7 @@ List of reference documentation for resources in Toolbox.
   - [Couchbase](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/couchbase/): Tools that work with Couchbase Sources.
   - [Dataform](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataform/): Tools that work with Dataform.
   - [Dataplex](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/): Tools that work with Dataplex Sources.
+  - [Dataproc](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataproc/): Tools that work with Google Cloud Dataproc Sources.
   - [Dgraph](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dgraph/): Tools that work with Dgraph Sources.
   - [Elasticsearch](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/elasticsearch/): Tools that work with Elasticsearch Sources.
   - [Firebird](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/firebird/): Tools that work with Firebird Sources.
