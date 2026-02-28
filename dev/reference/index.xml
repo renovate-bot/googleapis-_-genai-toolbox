@@ -118,6 +118,12 @@
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;code>--poll-interval&lt;/code>&lt;/td>
+ &lt;td>Specifies the polling frequency (seconds) for configuration file updates.&lt;/td>
+ &lt;td>&lt;code>0&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
  &lt;td>&lt;code>-v&lt;/code>&lt;/td>
  &lt;td>&lt;code>--version&lt;/code>&lt;/td>
  &lt;td>version for toolbox&lt;/td>
