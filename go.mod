@@ -46,7 +46,8 @@ require (
 	github.com/neo4j/neo4j-go-driver/v6 v6.0.0
 	github.com/redis/go-redis/v9 v9.17.2
 	github.com/sijms/go-ora/v2 v2.9.0
-	github.com/snowflakedb/gosnowflake v1.18.1
+	github.com/snowflakedb/gosnowflake v1.19.0
+	github.com/snowflakedb/gosnowflake/v2 v2.0.0
 	github.com/spf13/cobra v1.10.1
 	github.com/testcontainers/testcontainers-go v0.40.0
 	github.com/thlib/go-timezone-local v0.0.7
