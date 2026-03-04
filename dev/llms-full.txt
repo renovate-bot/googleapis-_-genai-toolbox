@@ -10453,6 +10453,10 @@ Apache Spark.
   Create a Serverless Spark PySpark batch operation.
 - [`serverless-spark-create-spark-batch`](../tools/serverless-spark/serverless-spark-create-spark-batch.md)
   Create a Serverless Spark Java batch operation.
+- [`serverless-spark-list-sessions`](../tools/serverless-spark/serverless-spark-list-sessions.md)
+  List and filter Serverless Spark sessions.
+- [`serverless-spark-get-session`](../tools/serverless-spark/serverless-spark-get-session.md)
+  Get a Serverless Spark session.
 
 ## Requirements
 
@@ -13080,6 +13084,8 @@ Tools that work with Google Cloud Serverless for Apache Spark Sources.
 - [serverless-spark-cancel-batch](./serverless-spark-cancel-batch.md)
 - [serverless-spark-create-pyspark-batch](./serverless-spark-create-pyspark-batch.md)
 - [serverless-spark-create-spark-batch](./serverless-spark-create-spark-batch.md)
+- [serverless-spark-get-session](./serverless-spark-get-session.md)
+- [serverless-spark-list-sessions](./serverless-spark-list-sessions.md)
 
 
 # SingleStore
@@ -21166,6 +21172,8 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `cancel_batch`: Cancels a Spark batch.
     *   `create_pyspark_batch`: Creates a PySpark batch.
     *   `create_spark_batch`: Creates a Spark batch.
+    *   `list_sessions`: Lists Spark sessions.
+    *   `get_session`: Gets a Spark session.
 
 ## SingleStore
 
