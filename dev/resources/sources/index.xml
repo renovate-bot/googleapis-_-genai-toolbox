@@ -1275,6 +1275,8 @@ Create a Serverless Spark Java batch operation.&lt;/li>
 List and filter Serverless Spark sessions.&lt;/li>
 &lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/serverless-spark/serverless-spark-get-session/">&lt;code>serverless-spark-get-session&lt;/code>&lt;/a>
 Get a Serverless Spark session.&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/serverless-spark/serverless-spark-get-session-template/">&lt;code>serverless-spark-get-session-template&lt;/code>&lt;/a>
+Get a Serverless Spark session template.&lt;/li>
 &lt;/ul>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;h3 id="iam-permissions">IAM Permissions&lt;/h3>

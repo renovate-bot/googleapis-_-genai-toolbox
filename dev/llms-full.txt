@@ -10462,6 +10462,8 @@ Apache Spark.
   List and filter Serverless Spark sessions.
 - [`serverless-spark-get-session`](../tools/serverless-spark/serverless-spark-get-session.md)
   Get a Serverless Spark session.
+- [`serverless-spark-get-session-template`](../tools/serverless-spark/serverless-spark-get-session-template.md)
+  Get a Serverless Spark session template.
 
 ## Requirements
 
@@ -13143,6 +13145,7 @@ Tools that work with Google Cloud Serverless for Apache Spark Sources.
 - [serverless-spark-create-spark-batch](./serverless-spark-create-spark-batch.md)
 - [serverless-spark-get-session](./serverless-spark-get-session.md)
 - [serverless-spark-list-sessions](./serverless-spark-list-sessions.md)
+- [serverless-spark-get-session-template](./serverless-spark-get-session-template.md)
 
 
 # SingleStore
@@ -21228,6 +21231,7 @@ See [Usage Examples](../reference/cli.md#examples).
     *   `create_spark_batch`: Creates a Spark batch.
     *   `list_sessions`: Lists Spark sessions.
     *   `get_session`: Gets a Spark session.
+    *   `get_session_template`: Gets a Spark session template.
 
 ## SingleStore
 
