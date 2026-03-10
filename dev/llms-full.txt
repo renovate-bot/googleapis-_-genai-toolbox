@@ -5216,9 +5216,8 @@ testing and debugging Toolbox server.
 | Claude Desktop     | ✅         | <https://modelcontextprotocol.io/quickstart/user#1-download-claude-for-desktop> |
 | MCP Inspector      | ✅         | <https://github.com/modelcontextprotocol/inspector>                             |
 | Cursor             | ✅         | <https://docs.cursor.com/context/model-context-protocol>                        |
-| Windsurf           | ✅         | <https://docs.windsurf.com/windsurf/mcp>                                        |
+| Windsurf           | ✅         | <https://docs.windsurf.com/windsurf/cascade/mcp#model-context-protocol-mcp>                                        |
 | VS Code (Insiders) | ✅         | <https://code.visualstudio.com/docs/copilot/chat/mcp-servers>                   |
-
 
 # Toolbox UI
 How to effectively use Toolbox UI.
@@ -11334,9 +11333,9 @@ parameters:
 
 MCP Toolbox provides two main approaches for tools: **prebuilt** and **custom**.
 
-[**Prebuilt tools**](../../reference/prebuilt-tools/) are ready to use out of
+[**Prebuilt tools**](../../reference/prebuilt-tools.md) are ready to use out of
 the box. For example, a tool like
-[`postgres-execute-sql`](postgres/postgres-execute-sql/) has fixed parameters
+[`postgres-execute-sql`](postgres/postgres-execute-sql.md) has fixed parameters
 and always works the same way, allowing the agent to execute arbitrary SQL.
 While these are convenient, they are typically only safe when a developer is in
 the loop (e.g., during prototyping, developing, or debugging).
@@ -11348,7 +11347,7 @@ production is highly dangerous.
 To secure your application, you should **use custom tools** to suit your
 specific schema and application needs. Creating a custom tool restricts the
 agent's capabilities to only what is necessary. For example, you can use the
-[`postgres-sql`](postgres/postgres-sql/) tool to define a specific action. This
+[`postgres-sql`](postgres/postgres-sql.md) tool to define a specific action. This
 typically involves:
 
 *   **Prepared Statements:** Writing a SQL query ahead of time and letting the
@@ -11647,7 +11646,6 @@ Annotations appear in the `tools/list` MCP response:
 ```
 
 ## Kinds of tools
-
 
 # AlloyDB AI NL
 AlloyDB AI NL Tool.
@@ -16035,7 +16033,7 @@ The `ToolboxClient` (and its synchronous counterpart `ToolboxSyncClient`) intera
 ## Quickstart
 
 1. **Start the Toolbox Service**
-   - Make sure the MCP Toolbox service is running on port `5000` of your local machine. See the [Toolbox Getting Started Guide](/getting-started/introduction/#getting-started).
+   - Make sure the MCP Toolbox service is running on port `5000` of your local machine. See the [Toolbox Getting Started Guide](../../../getting-started/introduction/_index.md#getting-started).
 
 2. **Minimal Example**
 
@@ -16056,7 +16054,7 @@ if __name__ == "__main__":
 
 
 {{< notice tip>}}
-For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [**Toolbox Quickstart Tutorial**](https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart)
+For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [**Toolbox Quickstart Tutorial**](../../../getting-started/local_quickstart.md)
 {{< /notice >}}
 
 {{< notice note>}}
@@ -16183,7 +16181,7 @@ result = await tool("foo", bar="baz")
 ```
 
 {{< notice tip>}}
-For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](getting-started/local_quickstart).
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](../../../getting-started/local_quickstart.md).
 {{< /notice >}}
 
 ## Synchronous Usage
@@ -16387,12 +16385,11 @@ Oauth2 tokens) when invoking that specific tool.
 
 ### Supported Authentication Mechanisms
 
-The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Authenticated Parameters](resources/tools/#authenticated-parameters)
-
+The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Authenticated Parameters](../../../resources/tools/_index.md#authenticated-parameters)
 ### Step 1: Configure Tools in Toolbox Service
 
 First, ensure the target tool(s) are configured correctly in the Toolbox service
-to require authentication. Refer to the [Authenticated Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters)
+to require authentication. Refer to the [Authenticated Parameters](../../../resources/tools/_index.md#authenticated-parameters)
 for instructions.
 
 ### Step 2: Configure SDK Client
@@ -16552,7 +16549,6 @@ async def get_dynamic_value():
 dynamic_bound_tool = tool.bind_param("param", get_dynamic_value)
 ```
 
-
 # LangChain/LangGraph
 MCP Toolbox SDK for integrating functionalities of MCP Toolbox into your LangChain/LangGraph apps.
 
@@ -16592,7 +16588,7 @@ async with ToolboxClient("http://127.0.0.1:5000") as toolbox:
             message.pretty_print()
 ```
 {{< notice tip >}}
-For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [Toolbox Quickstart Tutorial](getting-started/local_quickstart)
+For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [Toolbox Quickstart Tutorial](../../../getting-started/local_quickstart.md)
 {{< /notice >}}
 
 ## Usage
@@ -17050,7 +17046,7 @@ asyncio.run(run_agent())
 ```
 
 {{< notice tip >}}
-For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [Toolbox Quickstart Tutorial](getting-started/local_quickstart)
+For a complete, end-to-end example including setting up the service and using an SDK, see the full tutorial: [Toolbox Quickstart Tutorial](../../../getting-started/local_quickstart.md)
 {{< /notice >}}
 
 ## Usage
@@ -17533,7 +17529,7 @@ npm install @toolbox-sdk/adk
 
 
 1. **Start the Toolbox Service**
-   - Make sure the MCP Toolbox service is running. See the [Toolbox Getting Started Guide](/getting-started/introduction/#getting-started).
+   - Make sure the MCP Toolbox service is running. See the [Toolbox Getting Started Guide](../../../getting-started/introduction/_index.md#getting-started).
 
 2. **Minimal Example**
 
@@ -17652,7 +17648,7 @@ const result = await tool.runAsync(args: {a: 5, b: 2})
 ```
 
 {{< notice tip>}}
-For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](getting-started/local_quickstart).
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](../../../getting-started/local_quickstart.md).
 {{< /notice >}}
 
 ## Client to Server Authentication
@@ -17711,7 +17707,8 @@ const client = new ToolboxClient(URL, null, {"Authorization": getGoogleIdTokenGe
 
 For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
 `Google ID token` authentication, the helper module
-[auth_methods](src/toolbox_core/authMethods.ts) provides utility functions.
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-js/blob/main/packages/toolbox-core/src/toolbox_core/authMethods.ts) provides utility functions.
+
 
 ### Step by Step Guide for Cloud Run
 
@@ -17756,14 +17753,13 @@ Oauth2 tokens) when invoking that specific tool.
 
 ### Supported Authentication Mechanisms
 
-The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](resources/tools/#authenticated-parameters)
-
+The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](../../../resources/tools/_index.md#authenticated-parameters)
 ### Step 1: Configure Tools in Toolbox Service
 
 First, ensure the target tool(s) are configured correctly in the Toolbox service
 to require authentication. Refer to the [Toolbox Service Documentation -
 Authenticated
-Parameters](resources/tools/#authenticated-parameters)
+Parameters](../../../resources/tools/_index.md#authenticated-parameters)
 for instructions.
 
 ### Step 2: Configure SDK Client
@@ -18008,7 +18004,7 @@ npm install @toolbox-sdk/core
 
 
 1. **Start the Toolbox Service**
-   - Make sure the MCP Toolbox service is running. See the [Toolbox Getting Started Guide](/getting-started/introduction/#getting-started).
+   - Make sure the MCP Toolbox service is running. See the [Toolbox Getting Started Guide](../../../getting-started/introduction/_index.md#getting-started).
 
 2. **Minimal Example**
 
@@ -18127,7 +18123,7 @@ const result = await tool({a: 5, b: 2})
 ```
 
 {{< notice tip>}}
-For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](getting-started/local_quickstart).
+For a more comprehensive guide on setting up the Toolbox service itself, which you'll need running to use this SDK, please refer to the [Toolbox Quickstart Guide](../../../getting-started/local_quickstart.md).
 {{< /notice >}}
 
 ## Client to Server Authentication
@@ -18229,14 +18225,14 @@ Oauth2 tokens) when invoking that specific tool.
 
 ### Supported Authentication Mechanisms
 
-The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](resources/tools/#authenticated-parameters)
+The Toolbox service enables secure tool usage through **Authenticated Parameters**. For detailed information on how these mechanisms work within the Toolbox service and how to configure them, please refer to [Toolbox Service Documentation - Authenticated Parameters](../../../resources/tools/_index.md#authenticated-parameters)
 
 ### Step 1: Configure Tools in Toolbox Service
 
 First, ensure the target tool(s) are configured correctly in the Toolbox service
 to require authentication. Refer to the [Toolbox Service Documentation -
 Authenticated
-Parameters](resources/tools/#authenticated-parameters)
+Parameters](../../../resources/tools/_index.md#authenticated-parameters)
 for instructions.
 
 ### Step 2: Configure SDK Client
@@ -18428,9 +18424,7 @@ await multiplyNumbers.invoke({ a: 2, b: 3 });
 ```
 
 The `multiplyNumbers` tool is compatible with [Langchain/Langraph
-agents](http://js.langchain.com/docs/concepts/agents/)
-such as [React
-Agents](https://langchain-ai.github.io/langgraphjs/reference/functions/langgraph_prebuilt.createReactAgent.html).
+agents](http://js.langchain.com/docs/concepts/agents/).
 
 </details>
 
@@ -18746,7 +18740,7 @@ result, err := tool.Run(ctx, inputs)
 
 {{< notice tip >}}For a more comprehensive guide on setting up the Toolbox service itself, which
 you'll need running to use this SDK, please refer to the [Toolbox Quickstart
-Guide](https://googleapis.github.io/genai-toolbox/getting-started/local_quickstart).
+Guide](../../../getting-started/local_quickstart.md).
 {{< /notice >}}
 
 ## Client to Server Authentication
@@ -18814,7 +18808,7 @@ client, err := tbadk.NewToolboxClient(
 
 For Toolbox servers hosted on Google Cloud (e.g., Cloud Run) and requiring
 `Google ID token` authentication, the helper module
-[auth_methods](/core/auth.go) provides utility functions.
+[auth_methods](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/auth.go) provides utility functions.
 
 ### Step by Step Guide for Cloud Run
 
