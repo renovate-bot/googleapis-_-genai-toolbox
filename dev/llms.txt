@@ -19,6 +19,7 @@ How to get started with Toolbox.
 
 Some core concepts in Toolbox
 - [Telemetry](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/concepts/telemetry/): An overview of telemetry and observability in Toolbox.
+- [Style Guide](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/concepts/style-guide/): Style guidelines and best practices for developers building MCP tools using MCP Toolbox.
 
 ### Featured Articles
 
