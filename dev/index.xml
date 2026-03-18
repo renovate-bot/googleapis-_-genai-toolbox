@@ -6537,7 +6537,22 @@ in a given model in the source.&lt;/p>
  &lt;td>Description of the tool that is passed to the LLM.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>looker-health-analyze</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/looker/looker-health-analyze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/looker/looker-health-analyze/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;/table></description></item><item><title>looker-git-branch</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/looker/looker-git-branch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/looker/looker-git-branch/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>looker-git-branch&lt;/code> tool is used to retrieve and manipulate the git branch
+of a LookML project.&lt;/p>
+&lt;p>It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/looker/">looker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>looker-git-branch&lt;/code> requires two parameters, the LookML &lt;code>project_id&lt;/code> and the
+&lt;code>operation&lt;/code>. The operation must be one of &lt;code>list&lt;/code>, &lt;code>get&lt;/code>, &lt;code>create&lt;/code>, &lt;code>switch&lt;/code>,
+or &lt;code>delete&lt;/code>.&lt;/p>
+&lt;p>The &lt;code>list&lt;/code> operation retrieves the list of available branches. The &lt;code>get&lt;/code>
+operation retrieves the current branch.&lt;/p>
+&lt;p>&lt;code>create&lt;/code>, &lt;code>switch&lt;/code> and &lt;code>delete&lt;/code> all require an additional parameter, the
+&lt;code>branch&lt;/code> name. The &lt;code>create&lt;/code> operation creates a new branch. The &lt;code>switch&lt;/code>
+operation switches to the specified branch. The &lt;code>delete&lt;/code> operation deletes
+the specified branch.&lt;/p></description></item><item><title>looker-health-analyze</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/looker/looker-health-analyze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/looker/looker-health-analyze/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>looker-health-analyze&lt;/code> tool performs various analysis tasks on a Looker
 instance. The &lt;code>action&lt;/code> parameter selects the type of analysis to perform:&lt;/p>
 &lt;ul>
