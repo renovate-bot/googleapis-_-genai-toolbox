@@ -3700,6 +3700,9 @@ It&amp;rsquo;s compatible with the following sources:&lt;/p>
 entries are filtered and returned to the user. It also optionally accepts
 following parameters:&lt;/p>
 &lt;ul>
+&lt;li>&lt;code>scope&lt;/code> - A scope limits the search space to a particular project or organization.
+It must be in the format: organizations/&amp;lt;org_id&amp;gt; or projects/&amp;lt;project_id&amp;gt;
+or projects/&amp;lt;project_number&amp;gt;.&lt;/li>
 &lt;li>&lt;code>pageSize&lt;/code> - Number of results in the search page. Defaults to &lt;code>5&lt;/code>.&lt;/li>
 &lt;li>&lt;code>orderBy&lt;/code> - Specifies the ordering of results. Supported values are: relevance
 (default), last_modified_timestamp, last_modified_timestamp asc.&lt;/li>
