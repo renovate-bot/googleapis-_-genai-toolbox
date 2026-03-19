@@ -8411,16 +8411,16 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field** | **type** | **required** | **description**                                                                                      |
-|-----------|:--------:|:------------:|------------------------------------------------------------------------------------------------------|
-| type      |  string  |     true     | Must be "cloud-sql-mysql".                                                                           |
-| project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").                        |
-| region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                         |
-| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                              |
-| database  |  string  |     true     | Name of the MySQL database to connect to (e.g. "my_db").                                             |
-| user      |  string  |     false     | Name of the MySQL user to connect as (e.g "my-mysql-user"). Defaults to IAM auth using [ADC][adc] email if unspecified.                                            |
-| password  |  string  |     false     | Password of the MySQL user (e.g. "my-password"). Defaults to attempting IAM authentication if unspecified.                                                    |
-| ipType    |  string  |    false     | IP Type of the Cloud SQL instance, must be either `public`,  `private`, or `psc`. Default: `public`. |
+| **field** | **type** | **required** | **description**                                                                                                         |
+|-----------|:--------:|:------------:|-------------------------------------------------------------------------------------------------------------------------|
+| type      |  string  |     true     | Must be "cloud-sql-mysql".                                                                                              |
+| project   |  string  |     true     | Id of the GCP project that the cluster was created in (e.g. "my-project-id").                                           |
+| region    |  string  |     true     | Name of the GCP region that the cluster was created in (e.g. "us-central1").                                            |
+| instance  |  string  |     true     | Name of the Cloud SQL instance within the cluster (e.g. "my-instance").                                                 |
+| database  |  string  |    false     | Name of the MySQL database to connect to (e.g. "my_db").                                                                |
+| user      |  string  |    false     | Name of the MySQL user to connect as (e.g "my-mysql-user"). Defaults to IAM auth using [ADC][adc] email if unspecified. |
+| password  |  string  |    false     | Password of the MySQL user (e.g. "my-password"). Defaults to attempting IAM authentication if unspecified.              |
+| ipType    |  string  |    false     | IP Type of the Cloud SQL instance, must be either `public`,  `private`, or `psc`. Default: `public`.                    |
 
 
 # Cloud SQL for PostgreSQL
@@ -10332,16 +10332,16 @@ instead of hardcoding your secrets into the configuration file.
 
 ## Reference
 
-| **field**    | **type** | **required** | **description**                                                                                 |
-| ------------ | :------: | :----------: | ----------------------------------------------------------------------------------------------- |
-| type         |  string  |     true     | Must be "mysql".                                                                                |
-| host         |  string  |     true     | IP address to connect to (e.g. "127.0.0.1").                                                    |
-| port         |  string  |     true     | Port to connect to (e.g. "3306").                                                               |
-| database     |  string  |     true     | Name of the MySQL database to connect to (e.g. "my_db").                                        |
-| user         |  string  |     true     | Name of the MySQL user to connect as (e.g. "my-mysql-user").                                    |
-| password     |  string  |     true     | Password of the MySQL user (e.g. "my-password").                                                |
-| queryTimeout |  string  |    false     | Maximum time to wait for query execution (e.g. "30s", "2m"). By default, no timeout is applied. |
-| queryParams | map<string,string> | false | Arbitrary DSN parameters passed to the driver (e.g. `tls: preferred`, `charset: utf8mb4`). Useful for enabling TLS or other connection options. |
+| **field**    |      **type**      | **required** | **description**                                                                                                                                 |
+|--------------|:------------------:|:------------:|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| type         |       string       |     true     | Must be "mysql".                                                                                                                                |
+| host         |       string       |     true     | IP address to connect to (e.g. "127.0.0.1").                                                                                                    |
+| port         |       string       |     true     | Port to connect to (e.g. "3306").                                                                                                               |
+| user         |       string       |    false     | Name of the MySQL user to connect as (e.g. "my-mysql-user").                                                                                    |
+| password     |       string       |    false     | Password of the MySQL user (e.g. "my-password").                                                                                                |
+| database     |       string       |    false     | Name of the MySQL database to connect to (e.g. "my_db").                                                                                        |
+| queryTimeout |       string       |    false     | Maximum time to wait for query execution (e.g. "30s", "2m"). By default, no timeout is applied.                                                 |
+| queryParams  | map<string,string> |    false     | Arbitrary DSN parameters passed to the driver (e.g. `tls: preferred`, `charset: utf8mb4`). Useful for enabling TLS or other connection options. |
 
 
 # Neo4j
