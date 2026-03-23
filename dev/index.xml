@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on MCP Toolbox for Databases</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/</link><description>Recent content in Documentation on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>ADK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/adk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/adk/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on MCP Toolbox for Databases</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/</link><description>Recent content in Documentation on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>ADK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js/adk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js/adk/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>@toolbox-sdk/adk&lt;/code> package provides a Javascript interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="supported-environments">Supported Environments&lt;/h2>
 &lt;p>This SDK is a standard Node.js package built with TypeScript, ensuring broad compatibility with the modern JavaScript ecosystem.&lt;/p>
@@ -12,7 +12,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="quickstart">Quickstart&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Start the Toolbox Service&lt;/strong>&lt;/p></description></item><item><title>ADK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/adk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/adk/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;strong>Start the Toolbox Service&lt;/strong>&lt;/p></description></item><item><title>ADK</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/adk/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/adk/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>toolbox-adk&lt;/code> package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install google-adk&lt;span class="o">[&lt;/span>toolbox&lt;span class="o">]&lt;/span>
@@ -10805,7 +10805,26 @@ with database and analytics services and popular open-source databases.&lt;/p>
 &lt;p>Gemini CLI is highly extensible, allowing for the addition of new tools and
 capabilities through extensions. You can load the extensions from a GitHub URL,
 a local directory, or a configurable registry. They provide new tools, slash
-commands, and prompts to assist with your workflow.&lt;/p></description></item><item><title>Core</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js-sdk/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+commands, and prompts to assist with your workflow.&lt;/p></description></item><item><title>Core</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/java/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/java/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>The package provides a java interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;p>This SDK is distributed via a &lt;a href="https://mvnrepository.com/artifact/com.google.cloud.mcp/mcp-toolbox-sdk-java">Maven Central Repository&lt;/a>.&lt;/p>
+&lt;h3 id="maven">Maven&lt;/h3>
+&lt;p>Add the dependency to your &lt;code>pom.xml&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.cloud.mcp&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>mcp-toolbox-sdk-java&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- Replace &amp;#39;VERSION&amp;#39; with the latest version from https://mvnrepository.com/artifact/com.google.cloud.mcp/mcp-toolbox-sdk-java --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>VERSION&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;scope&amp;gt;&lt;/span>compile&lt;span class="nt">&amp;lt;/scope&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gradle">Gradle&lt;/h3>
+&lt;pre tabindex="0">&lt;code>dependencies {
+ // Replace &amp;#39;VERSION&amp;#39; with the latest version from https://mvnrepository.com/artifact/com.google.cloud.mcp/mcp-toolbox-sdk-java
+ implementation(&amp;#34;com.google.cloud.mcp:mcp-toolbox-sdk-java:VERSION&amp;#34;) 
+}
+&lt;/code>&lt;/pre>&lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;p>Here is the minimal code needed to connect to a MCP Toolbox and invoke a tool.&lt;/p></description></item><item><title>Core</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/js/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>@toolbox-sdk/core&lt;/code> package provides a Javascript interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="supported-environments">Supported Environments&lt;/h2>
 &lt;p>This SDK is a standard Node.js package built with TypeScript, ensuring broad compatibility with the modern JavaScript ecosystem.&lt;/p>
@@ -10819,7 +10838,7 @@ commands, and prompts to assist with your workflow.&lt;/p></description></item><
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="quickstart">Quickstart&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>Start the Toolbox Service&lt;/strong>&lt;/p></description></item><item><title>Core</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;strong>Start the Toolbox Service&lt;/strong>&lt;/p></description></item><item><title>Core</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/core/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>toolbox-core&lt;/code> package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install toolbox-core
@@ -11935,7 +11954,7 @@ local development:&lt;/p>
 (ADC)&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Set your project and enable Vertex AI&lt;/p></description></item><item><title>LangChain/LangGraph</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/langchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/langchain/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Set your project and enable Vertex AI&lt;/p></description></item><item><title>LangChain/LangGraph</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/langchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/langchain/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>toolbox-langchain&lt;/code> package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install toolbox-langchain
@@ -12640,7 +12659,7 @@ local development:&lt;/p>
 (ADC)&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Set your project and enable Vertex AI&lt;/p></description></item><item><title>LlamaIndex</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/llamaindex/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python-sdk/llamaindex/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Set your project and enable Vertex AI&lt;/p></description></item><item><title>LlamaIndex</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/llamaindex/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/sdks/python/llamaindex/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>toolbox-llamaindex&lt;/code> package provides a Python interface to the MCP Toolbox service, enabling you to load and invoke tools from your own applications.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install toolbox-llamaindex
