@@ -175,7 +175,7 @@ Samples and guides for using Toolbox.
 ### About
 
 A list of other information related to Toolbox.
-- [FAQ](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/about/faq/): Frequently asked questions about Toolbox.
+- [FAQ](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/about/faq/): Frequently asked questions about Toolbox.- [Versioning Policy](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/about/versioning/): How MCP Toolbox manages versions and breaking changes.
 ### SDKs
 
 Client SDKs to connect to the MCP Toolbox server.

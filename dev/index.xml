@@ -12250,7 +12250,22 @@ syntax.&lt;/p></description></item><item><title>Style Guide</title><link>https:/
 &lt;/ul>
 &lt;h2 id="naming-conventions">Naming Conventions&lt;/h2>
 &lt;h3 id="tool-names">Tool Names&lt;/h3>
-&lt;p>Use &lt;code>snake_case&lt;/code> with the pattern &lt;code>&amp;lt;action&amp;gt;_&amp;lt;resource&amp;gt;&lt;/code>. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.&lt;/p></description></item><item><title>clickhouse-list-tables</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/clickhouse/clickhouse-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/clickhouse/clickhouse-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>Use &lt;code>snake_case&lt;/code> with the pattern &lt;code>&amp;lt;action&amp;gt;_&amp;lt;resource&amp;gt;&lt;/code>. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.&lt;/p></description></item><item><title>Versioning Policy</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/about/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/about/versioning/</guid><description>&lt;p>MCP Toolbox for Databases follows &lt;a href="https://semver.org/">Semantic Versioning&lt;/a>.&lt;/p>
+&lt;h2 id="definition-of-the-public-api">Definition of the Public API&lt;/h2>
+&lt;p>For the purposes of this policy, the &amp;ldquo;Public API&amp;rdquo; includes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Server&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>CLI:&lt;/strong> The execution engine and lifecycle manager for tool hosting.&lt;/li>
+&lt;li>&lt;strong>Configuration Manifests:&lt;/strong> The structural specification of &lt;code>tools.yaml&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Pre-built Configs:&lt;/strong> Curated sets of tools (and other MCP primitives) including the CLI flag, source configuration, toolsets names, and tools.&lt;/li>
+&lt;li>&lt;strong>MCP versions&lt;/strong>: Supporting MCP revisions and transport protocols.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Client SDKs:&lt;/strong> Both the foundational &amp;ldquo;Base SDKs&amp;rdquo; and the orchestration-specific &amp;ldquo;Integrated SDKs&amp;rdquo;.&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-constitutes-a-breaking-change-major-version-bump">What Constitutes a Breaking Change (Major Version Bump)&lt;/h2>
+&lt;p>A major version bump (e.g., v1.x.x to v2.0.0) is required for the following modifications:&lt;/p></description></item><item><title>clickhouse-list-tables</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/clickhouse/clickhouse-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/clickhouse/clickhouse-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>clickhouse-list-tables&lt;/code> tool lists all available tables in a specified
 ClickHouse database. It&amp;rsquo;s compatible with the
 &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/clickhouse/">clickhouse&lt;/a> source.&lt;/p>
