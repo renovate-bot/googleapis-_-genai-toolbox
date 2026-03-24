@@ -18,7 +18,7 @@
  &lt;tr>
  &lt;td>&lt;/td>
  &lt;td>&lt;code>--disable-reload&lt;/code>&lt;/td>
- &lt;td>Disables dynamic reloading of tools file.&lt;/td>
+ &lt;td>Disables dynamic reloading of config.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
@@ -77,20 +77,20 @@
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;/td>
- &lt;td>&lt;code>--tools-file&lt;/code>&lt;/td>
- &lt;td>File path specifying the tool configuration. Cannot be used with &amp;ndash;tools-files or &amp;ndash;tools-folder.&lt;/td>
+ &lt;td>&lt;code>--config&lt;/code>&lt;/td>
+ &lt;td>File path specifying the tool configuration. Cannot be used with &amp;ndash;configs or &amp;ndash;config-folder.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;/td>
- &lt;td>&lt;code>--tools-files&lt;/code>&lt;/td>
- &lt;td>Multiple file paths specifying tool configurations. Files will be merged. Cannot be used with &amp;ndash;tools-file or &amp;ndash;tools-folder.&lt;/td>
+ &lt;td>&lt;code>--configs&lt;/code>&lt;/td>
+ &lt;td>Multiple file paths specifying tool configurations. Files will be merged. Cannot be used with &amp;ndash;config or &amp;ndash;config-folder.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;/td>
- &lt;td>&lt;code>--tools-folder&lt;/code>&lt;/td>
- &lt;td>Directory path containing YAML tool configuration files. All .yaml and .yml files in the directory will be loaded and merged. Cannot be used with &amp;ndash;tools-file or &amp;ndash;tools-files.&lt;/td>
+ &lt;td>&lt;code>--config-folder&lt;/code>&lt;/td>
+ &lt;td>Directory path containing YAML tool configuration files. All .yaml and .yml files in the directory will be loaded and merged. Cannot be used with &amp;ndash;config or &amp;ndash;configs.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
