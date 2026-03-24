@@ -3641,7 +3641,17 @@ powers AI, analytics, and business intelligence at scale.&lt;/p>
 centralized inventory of the data assets in your organization. Dataplex
 Universal Catalog holds business, technical, and runtime metadata for all of
 your data. It helps you discover relationships and semantics in the metadata by
-applying artificial intelligence and machine learning.&lt;/p></description></item><item><title>dataplex-lookup-entry</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/dataplex-lookup-entry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/dataplex-lookup-entry/</guid><description>&lt;h2 id="about">About&lt;/h2>
+applying artificial intelligence and machine learning.&lt;/p></description></item><item><title>dataplex-lookup-context</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/dataplex-lookup-context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/dataplex-lookup-context/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>A &lt;code>dataplex-lookup-context&lt;/code> tool provides rich metadata of one or more data assets along with their relationships.
+It&amp;rsquo;s compatible with the following sources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/sources/dataplex/">dataplex&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>dataplex-lookup-context&lt;/code> takes a required &lt;code>name&lt;/code> parameter which contains the
+project and location to which the request should be attributed in the following
+form: projects/{project}/locations/{location} and also a required &lt;code>resources&lt;/code>
+parameter which is a list of resource names for which metadata is needed in the
+following form: projects/{project}/locations/{location}/entryGroups/{group}/entries/{entry}&lt;/p></description></item><item><title>dataplex-lookup-entry</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/dataplex-lookup-entry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/tools/dataplex/dataplex-lookup-entry/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>A &lt;code>dataplex-lookup-entry&lt;/code> tool returns details of a particular entry in Dataplex
 Catalog. It&amp;rsquo;s compatible with the following sources:&lt;/p>
 &lt;ul>
