@@ -18,7 +18,7 @@
  &lt;tr>
  &lt;td>&lt;/td>
  &lt;td>&lt;code>--disable-reload&lt;/code>&lt;/td>
- &lt;td>Disables dynamic reloading of config.&lt;/td>
+ &lt;td>Disables dynamic reloading config.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
@@ -48,7 +48,7 @@
  &lt;tr>
  &lt;td>&lt;/td>
  &lt;td>&lt;code>--prebuilt&lt;/code>&lt;/td>
- &lt;td>Use one or more prebuilt tool configuration by source type. See &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/prebuilt-tools/">Prebuilt Tools Reference&lt;/a> for allowed values.&lt;/td>
+ &lt;td>Use one or more prebuilt tool configuration by source type. See &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/prebuilt-configs/">Prebuilt Tools Reference&lt;/a> for allowed values.&lt;/td>
  &lt;td>&lt;/td>
  &lt;/tr>
  &lt;tr>
@@ -134,130 +134,40 @@
 &lt;h2 id="sub-commands">Sub Commands&lt;/h2>
 &lt;details>
 &lt;summary>&lt;code>invoke&lt;/code>&lt;/summary>
-&lt;p>Executes a tool directly with the provided parameters. This is useful for testing tool configurations and parameters without needing a full client setup.&lt;/p></description></item><item><title>Prebuilt Tools</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/prebuilt-tools/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/prebuilt-tools/</guid><description>&lt;p>Prebuilt tools are reusable, pre-packaged toolsets that are designed to extend
-the capabilities of agents. These tools are built to be generic and adaptable,
-allowing developers to interact with and take action on databases.&lt;/p>
-&lt;p>See guides, &lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/how-to/connect-ide/">Connect from your IDE&lt;/a>, for
-details on how to connect your AI tools (IDEs) to databases via Toolbox and MCP.&lt;/p>
-&lt;style type="text/css">
- 
- .notice {
- --title-color: #fff;
- --title-background-color: #6be;
- --content-color: #444;
- --content-background-color: #e7f2fa;
- }
-
- .notice.info {
- --title-background-color: #fb7;
- --content-background-color: #fec;
- }
-
- .notice.tip {
- --title-background-color: #5a5;
- --content-background-color: #efe;
- }
-
- .notice.warning {
- --title-background-color: #c33;
- --content-background-color: #fee;
- }
-
- 
- @media (prefers-color-scheme:dark) {
- .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
- }
-
- body.dark .notice {
- --title-color: #fff;
- --title-background-color: #069;
- --content-color: #ddd;
- --content-background-color: #023;
- }
-
- body.dark .notice.info {
- --title-background-color: #a50;
- --content-background-color: #420;
- }
-
- body.dark .notice.tip {
- --title-background-color: #363;
- --content-background-color: #121;
- }
-
- body.dark .notice.warning {
- --title-background-color: #800;
- --content-background-color: #400;
- }
-
- 
- .notice {
- padding: 18px;
- line-height: 24px;
- margin-bottom: 24px;
- border-radius: 4px;
- color: var(--content-color);
- background: var(--content-background-color);
- }
-
- .notice p:last-child {
- margin-bottom: 0
- }
-
- 
- .notice-title {
- margin: -18px -18px 12px;
- padding: 4px 18px;
- border-radius: 4px 4px 0 0;
- font-weight: 700;
- color: var(--title-color);
- background: var(--title-background-color);
- }
-
- 
- .icon-notice {
- display: inline-flex;
- align-self: center;
- margin-right: 8px;
- }
-
- .icon-notice img,
- .icon-notice svg {
- height: 1em;
- width: 1em;
- fill: currentColor;
- }
-
- .icon-notice img,
- .icon-notice.baseline svg {
- top: .125em;
- position: relative;
- }
-&lt;/style>&lt;div class="notice tip" >
- &lt;p class="notice-title">
- &lt;span class="icon-notice baseline">
- &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="300.5 134 300 300">
- &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
-&lt;/svg>
-
- &lt;/span>Tip&lt;/p></description></item></channel></rss>
+&lt;p>Executes a tool directly with the provided parameters. This is useful for testing tool configurations and parameters without needing a full client setup.&lt;/p></description></item><item><title>FAQ</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox">How can I deploy or run Toolbox?&lt;/h2>
+&lt;p>MCP Toolbox for Databases is open-source and can be run or deployed to a
+multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/genai-toolbox/releases/">compiled binaries and
+docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
+&lt;p>For detailed instructions, check out these resources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/getting-started/local_quickstart/">Quickstart: How to Run Locally&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/deploy-to/cloud-run/">Deploy to Cloud Run&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox">Do I need a Google Cloud account/project to get started with Toolbox?&lt;/h2>
+&lt;p>Nope! While some of the sources Toolbox connects to may require GCP credentials,
+Toolbox doesn&amp;rsquo;t require them and can connect to a bunch of different resources
+that don&amp;rsquo;t.&lt;/p></description></item><item><title>Style Guide</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/style-guide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/style-guide/</guid><description>&lt;p>This document provides style guidelines and best practices for developers building MCP tools using &lt;strong>MCP Toolbox&lt;/strong>. Following these standards ensures that agents can reason effectively, security is maintained, and user intent is met with high precision.&lt;/p>
+&lt;h2 id="combatting-context-rot-and-tool-limits">Combatting &amp;ldquo;Context Rot&amp;rdquo; and Tool Limits&lt;/h2>
+&lt;p>Excessive or irrelevant tool definitions lead to &lt;strong>&amp;ldquo;Context Rot&amp;rdquo;&lt;/strong>, where the model&amp;rsquo;s attention is diluted by &amp;ldquo;distractor&amp;rdquo; tokens, causing reasoning accuracy to collapse.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Toolsets:&lt;/strong> Use the MCP Toolbox &lt;strong>toolsets&lt;/strong> feature to group tools by capability or persona (e.g., &lt;code>cloud-sql-admin&lt;/code> vs. &lt;code>cloud-sql-data&lt;/code>). This ensures the agent only sees tools relevant to its immediate intent.&lt;/li>
+&lt;li>&lt;strong>Target Limits:&lt;/strong> Aim for &lt;strong>5–8 tools per toolset&lt;/strong> (organized by Critical User Journey). While the platform supports more, performance and accuracy are highest when the agent is exposed to a cognitively manageable list of actions. The current rule of thumb is to try to keep it to 40 tools per server as an upper limit, though even this amount may cause performance issues. Performance degrades as more tools are added, so teams should heavily weigh adding new tools against the negative impact on tool accuracy until other mechanisms are in place to deal with this.&lt;/li>
+&lt;/ul>
+&lt;h2 id="naming-conventions">Naming Conventions&lt;/h2>
+&lt;h3 id="tool-names">Tool Names&lt;/h3>
+&lt;p>Use &lt;code>snake_case&lt;/code> with the pattern &lt;code>&amp;lt;action&amp;gt;_&amp;lt;resource&amp;gt;&lt;/code>. Avoid product-specific prefixes, as agents can disambiguate tools by the MCP server name.&lt;/p></description></item><item><title>Versioning Policy</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/versioning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/versioning/</guid><description>&lt;p>MCP Toolbox for Databases follows &lt;a href="https://semver.org/">Semantic Versioning&lt;/a>.&lt;/p>
+&lt;h2 id="definition-of-the-public-api">Definition of the Public API&lt;/h2>
+&lt;p>For the purposes of this policy, the &amp;ldquo;Public API&amp;rdquo; includes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Server&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>CLI:&lt;/strong> The execution engine and lifecycle manager for tool hosting.&lt;/li>
+&lt;li>&lt;strong>Configuration Manifests:&lt;/strong> The structural specification of &lt;code>tools.yaml&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Pre-built Configs:&lt;/strong> Curated sets of tools (and other MCP primitives) including the CLI flag, source configuration, toolsets names, and tools.&lt;/li>
+&lt;li>&lt;strong>MCP versions&lt;/strong>: Supporting MCP revisions and transport protocols.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Client SDKs:&lt;/strong> Both the foundational &amp;ldquo;Base SDKs&amp;rdquo; and the orchestration-specific &amp;ldquo;Integrated SDKs&amp;rdquo;.&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-constitutes-a-breaking-change-major-version-bump">What Constitutes a Breaking Change (Major Version Bump)&lt;/h2>
+&lt;p>A major version bump (e.g., v1.x.x to v2.0.0) is required for the following modifications:&lt;/p></description></item></channel></rss>
