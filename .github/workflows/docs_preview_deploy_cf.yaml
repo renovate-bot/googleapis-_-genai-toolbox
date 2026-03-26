@@ -45,10 +45,10 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Checkout base repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Download Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: cf-preview-data
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -71,22 +71,40 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         id: cf_deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy downloaded-artifact/public --project-name toolbox-docs --branch pr-${{ steps.get_pr.outputs.pr_number }}
 
-      - name: Comment
+      - name: Post Preview URL Comment
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           script: |
             const prNumber = parseInt('${{ steps.get_pr.outputs.pr_number }}', 10);
             const deployUrl = '${{ steps.cf_deploy.outputs.pages-deployment-alias-url }}';
+            const marker = '<!-- cf-preview-comment-marker -->';
 
-            await github.rest.issues.createComment({
-              issue_number: prNumber,
+            // Fetch all comments on the PR
+            const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🚀 **Cloudflare Preview Ready!**\n\n🔎 View Preview: ${deployUrl}\n\n*(Note: It may take a minute or two for Cloudflare to finish deploying the branch)*`
+              issue_number: prNumber,
+            });
+
+            // Look for the invisible HTML marker
+            const existingComment = comments.find(c => c.body.includes(marker));
+
+            // Exit early if we've already posted a comment for this PR to avoid duplicates
+            if (existingComment) {
+              console.log("Preview link already posted on this PR. Skipping.");
+              return;
+            }
+
+            // Create the comment since it's the first deployment for this PR
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: `${marker}\n🚀 **Cloudflare Preview Ready!**\n\n🔎 View Preview: ${deployUrl}\n\n*(Note: Subsequent pushes to this PR will automatically update the preview at this same URL)*`
             });
