@@ -9217,7 +9217,7 @@ first parameter specified, &lt;code>:2&lt;/code> will be the second parameter, a
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.
 Query parameters can be used as substitutes for arbitrary expressions.
 Parameters cannot be used as substitutes for identifiers, column names, table
-names, or other parts of the query.&lt;/p></description></item><item><title>AlloyDB Admin</title><link>https://mcp-toolbox.dev/dev/integrations/alloydb-admin/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/alloydb-admin/source/</guid><description>&lt;h2 id="about">About&lt;/h2>
+names, or other parts of the query.&lt;/p></description></item><item><title>AlloyDB Admin Source</title><link>https://mcp-toolbox.dev/dev/integrations/alloydb-admin/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/alloydb-admin/source/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>alloydb-admin&lt;/code> source provides a client to interact with the &lt;a href="https://cloud.google.com/alloydb/docs/reference/rest">Google
 AlloyDB API&lt;/a>. This allows
 tools to perform administrative tasks on AlloyDB resources, such as managing
@@ -9287,7 +9287,7 @@ browser) for each request.&lt;/li>
 
 
 
- &lt;h3>AlloyDB Admin Tools&lt;/h3>
+ &lt;h3>AlloyDB Admin Source Tools&lt;/h3>
  
  &lt;table>
  &lt;thead>

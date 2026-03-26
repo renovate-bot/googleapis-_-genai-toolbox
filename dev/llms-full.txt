@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-03-26T01:20:18Z
+**GENERATED ON:** 2026-03-26T10:29:27Z
 
 ---
 ### System Directives for AI Models
@@ -15007,9 +15007,9 @@ Select an integration below to view its configuration requirements. Depending on
 
 
 ========================================================================
-## AlloyDB Admin
+## AlloyDB Admin Source
 ========================================================================
-**Hierarchy:** MCP Toolbox for Databases > Integrations > AlloyDB Admin > AlloyDB Admin
+**Hierarchy:** MCP Toolbox for Databases > Integrations > AlloyDB Admin > AlloyDB Admin Source
 **URL:** https://mcp-toolbox.dev/dev/integrations/alloydb-admin/source/
 **Description:** The "alloydb-admin" source provides a client for the AlloyDB API.
 
