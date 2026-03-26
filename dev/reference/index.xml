@@ -40,6 +40,12 @@
  &lt;td>&lt;code>standard&lt;/code>&lt;/td>
  &lt;/tr>
  &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;code>--mcp-prm-file&lt;/code>&lt;/td>
+ &lt;td>Path to a manual Protected Resource Metadata (PRM) JSON file. If provided, overrides auto-generation for MCP Server-Wide Authentication.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
  &lt;td>&lt;code>-p&lt;/code>&lt;/td>
  &lt;td>&lt;code>--port&lt;/code>&lt;/td>
  &lt;td>Port the server will listen on.&lt;/td>

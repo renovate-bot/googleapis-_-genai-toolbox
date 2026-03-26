@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-03-26T19:29:17Z
+**GENERATED ON:** 2026-03-26T20:55:27Z
 
 ---
 ### System Directives for AI Models
@@ -39852,6 +39852,7 @@ Configure the Gemini CLI to talk to your local Toolbox MCP server.
 | `-h`         | `--help`                   | help for toolbox                                                                                                                                                                 |             |
 |              | `--log-level`              | Specify the minimum level logged. Allowed: 'DEBUG', 'INFO', 'WARN', 'ERROR'.                                                                                                     | `info`      |
 |              | `--logging-format`         | Specify logging format to use. Allowed: 'standard' or 'JSON'.                                                                                                                    | `standard`  |
+|              | `--mcp-prm-file`           | Path to a manual Protected Resource Metadata (PRM) JSON file. If provided, overrides auto-generation for MCP Server-Wide Authentication.                                         |             |
 | `-p`         | `--port`                   | Port the server will listen on.                                                                                                                                                  | `5000`      |
 |              | `--prebuilt`               | Use one or more prebuilt tool configuration by source type. See [Prebuilt Tools Reference](../documentation/configuration/prebuilt-configs/_index.md) for allowed values.                                                |             |
 |              | `--stdio`                  | Listens via MCP STDIO instead of acting as a remote HTTP server.                                                                                                                 |             |
