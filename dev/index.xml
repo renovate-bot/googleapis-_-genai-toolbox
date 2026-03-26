@@ -7411,7 +7411,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p>
 &lt;p>The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
-&lt;h2 id="hahahugoshortcode300s0hbhb">
+&lt;h2 id="hahahugoshortcode301s0hbhb">
 
 
 &lt;div class="compatibility-section">
@@ -16241,7 +16241,11 @@ local development:&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>Cloud SQL for SQL Server Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
+ &lt;/span>Tip&lt;/p></description></item><item><title>Toolbox with MCP Authorization</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/toolbox_mcp_auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/configuration/toolbox_mcp_auth/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Toolbox supports integration with Model Context Protocol (MCP) clients by acting as a Resource Server that implements OAuth 2.1 authorization. This enables Toolbox to validate JWT-based Bearer tokens before processing requests for resources or tool executions.&lt;/p>
+&lt;p>This guide details the specific configuration steps required to deploy Toolbox with MCP Auth enabled.&lt;/p>
+&lt;h2 id="step-1-configure-the-generic-auth-service">Step 1: Configure the &lt;code>generic&lt;/code> Auth Service&lt;/h2>
+&lt;p>Update your &lt;code>tools.yaml&lt;/code> file to use a &lt;code>generic&lt;/code> authorization service with &lt;code>mcpEnabled&lt;/code> set to &lt;code>true&lt;/code>. This instructs Toolbox to intercept requests on the &lt;code>/mcp&lt;/code> routes and validate Bearer tokens using the JWKS (JSON Web Key Set) fetched from your OIDC provider endpoint (&lt;code>authorizationServer&lt;/code>).&lt;/p></description></item><item><title>Cloud SQL for SQL Server Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
 developer assistant tools to create and manage Cloud SQL for SQL Server
 instance, database and users:&lt;/p>
 &lt;ul>
