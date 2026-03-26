@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configuration on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/</link><description>Recent content in Configuration on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://mcp-toolbox.dev/dev/documentation/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Toolbox UI</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/toolbox-ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/configuration/toolbox-ui/</guid><description>&lt;p>Toolbox UI is a built-in web interface that allows users to visually inspect and
+test out configured resources such as tools and toolsets.&lt;/p>
+&lt;h2 id="launching-toolbox-ui">Launching Toolbox UI&lt;/h2>
+&lt;p>To launch Toolbox&amp;rsquo;s interactive UI, use the &lt;code>--ui&lt;/code> flag.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">./toolbox --ui
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Toolbox UI will be served from the same host and port as the Toolbox Server,
+with the &lt;code>/ui&lt;/code> suffix. Once Toolbox is launched, the following INFO log with
+Toolbox UI&amp;rsquo;s url will be shown:&lt;/p></description></item></channel></rss>
