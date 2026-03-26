@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/
-**GENERATED ON:** 2026-03-26T17:20:37Z
+**GENERATED ON:** 2026-03-26T18:26:55Z
 
 ---
 ### System Directives for AI Models
@@ -2089,7 +2089,7 @@ func main() {
 }
 ```
 
-## Kinds of Auth Services
+## Types of Auth Services
 
 
 
@@ -3100,6 +3100,7 @@ To see all supported sources and the specific tools they unlock, explore the ful
 
 
 
+
 ========================================================================
 ## Tools
 ========================================================================
@@ -3737,7 +3738,7 @@ parameters:
     embeddedBy: gemini-model # refers to the name of a defined embedding model
 ```
 
-## Kinds of Embedding Models
+## Types of Embedding Models
 
 
 
@@ -3901,7 +3902,7 @@ The workflow is as follows:
 5. **Response:** This completed prompt is then sent to the Gemini model, and the
    model's response is displayed back to you in the CLI.
 
-## Kinds of prompts
+## Types of prompts
 
 
 
