@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/
-**GENERATED ON:** 2026-03-26T22:48:51Z
+**GENERATED ON:** 2026-03-26T23:05:57Z
 
 ---
 ### System Directives for AI Models
@@ -81,6 +81,9 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
       - [Google Sign-In](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/authentication/google/): Use Google Sign-In for Oauth 2.0 flow and token lifecycle.
+
+
+      - [Generic OIDC Auth](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/authentication/generic/): Use a Generic OpenID Connect (OIDC) provider for OAuth 2.0 flow and token lifecycle.
 
 
     - [Prebuilt Configs](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/prebuilt-configs/): This page lists all the prebuilt configs available.
@@ -1354,6 +1357,3 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
   - [Versioning Policy](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/reference/versioning/): How MCP Toolbox manages versions and breaking changes.
-- [Resources](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/): No description provided.
-
-  - [Generic OIDC Auth](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/authservices/generic/): Use a Generic OpenID Connect (OIDC) provider for OAuth 2.0 flow and token lifecycle.
