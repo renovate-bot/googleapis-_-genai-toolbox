@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/
-**GENERATED ON:** 2026-03-26T19:06:39Z
+**GENERATED ON:** 2026-03-26T19:30:03Z
 
 ---
 ### System Directives for AI Models
@@ -87,6 +87,9 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Sources](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/sources/): Sources represent your different data sources that a tool can interact with.
+
+
+    - [Toolbox with MCP Authorization](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/toolbox_mcp_auth/): How to set up and configure Toolbox with [MCP Authorization](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization).
 
 
     - [Tools](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/configuration/tools/): Tools define actions an agent can take -- such as reading and writing to a source.
