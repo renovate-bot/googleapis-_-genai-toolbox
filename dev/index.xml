@@ -14828,7 +14828,15 @@ that don&amp;rsquo;t.&lt;/p></description></item><item><title>Firestore using MC
  &lt;a href="https://cloud.google.com/firestore/native/docs/connect-ide-using-mcp-toolbox">click here to proceed&lt;/a>.
  &lt;/p>
  &lt;/body>
-&lt;/html></description></item><item><title>Looker using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/connect-to/ides/looker_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/connect-to/ides/looker_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
+&lt;/html></description></item><item><title>Generic OIDC Auth</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/authservices/generic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/resources/authservices/generic/</guid><description>&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>The Generic Auth Service allows you to integrate with any OpenID Connect (OIDC)
+compliant identity provider (IDP). It discovers the JWKS (JSON Web Key Set) URL
+either through the provider&amp;rsquo;s &lt;code>/.well-known/openid-configuration&lt;/code> endpoint or
+directly via the provided &lt;code>authorizationServer&lt;/code>.&lt;/p>
+&lt;p>To configure this auth service, you need to provide the &lt;code>audience&lt;/code> (typically
+your client ID or the intended audience for the token), the
+&lt;code>authorizationServer&lt;/code> of your identity provider, and optionally a list of
+&lt;code>scopesRequired&lt;/code> that must be present in the token&amp;rsquo;s claims.&lt;/p></description></item><item><title>Looker using MCP</title><link>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/connect-to/ides/looker_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/documentation/connect-to/ides/looker_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
 like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
 to expose your developer assistant tools to a Looker instance:&lt;/p>
