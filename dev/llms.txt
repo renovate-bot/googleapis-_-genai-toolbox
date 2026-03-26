@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/
-**GENERATED ON:** 2026-03-26T01:21:45Z
+**GENERATED ON:** 2026-03-26T10:29:20Z
 
 ---
 ### System Directives for AI Models
@@ -259,7 +259,7 @@ This documentation is structured following the Diátaxis framework to assist in 
 
   - [AlloyDB Admin](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/integrations/alloydb-admin/): No description provided.
 
-    - [AlloyDB Admin](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/integrations/alloydb-admin/source/): The "alloydb-admin" source provides a client for the AlloyDB API.
+    - [AlloyDB Admin Source](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/integrations/alloydb-admin/source/): The "alloydb-admin" source provides a client for the AlloyDB API.
 
 
     - [Tools](https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/integrations/alloydb-admin/tools/): No description provided.
