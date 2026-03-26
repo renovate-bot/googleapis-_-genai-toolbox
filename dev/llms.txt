@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-03-26T22:09:31Z
+**GENERATED ON:** 2026-03-26T22:32:46Z
 
 ---
 ### System Directives for AI Models
@@ -297,6 +297,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [alloydb-wait-for-operation](https://mcp-toolbox.dev/dev/integrations/alloydb-admin/tools/alloydb-wait-for-operation/): Wait for a long-running AlloyDB operation to complete.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/alloydb-admin/prebuilt-configs/): Prebuilt configurations for Alloydb Admin.
+
+      - [AlloyDB Postgres Admin](https://mcp-toolbox.dev/dev/integrations/alloydb-admin/prebuilt-configs/alloydb-postgres-admin/): Details of the AlloyDB Postgres Admin prebuilt configuration.
+
   - [AlloyDB PostgreSQL](https://mcp-toolbox.dev/dev/integrations/alloydb/): No description provided.
 
     - [AlloyDB for PostgreSQL Source](https://mcp-toolbox.dev/dev/integrations/alloydb/source/): AlloyDB for PostgreSQL is a fully-managed, PostgreSQL-compatible database for demanding transactional workloads.
@@ -314,6 +318,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [Getting started with alloydb-ai-nl tool](https://mcp-toolbox.dev/dev/integrations/alloydb/samples/ai-nl/): An end to end tutorial for building an ADK agent using the AlloyDB AI NL tool.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/alloydb/prebuilt-configs/): Prebuilt configurations for Alloydb.
+
+      - [AlloyDB Postgres](https://mcp-toolbox.dev/dev/integrations/alloydb/prebuilt-configs/alloydb-postgres/): Details of the AlloyDB Postgres prebuilt configuration.
 
   - [BigQuery](https://mcp-toolbox.dev/dev/integrations/bigquery/): No description provided.
 
@@ -360,6 +368,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [Quickstart (MCP with BigQuery)](https://mcp-toolbox.dev/dev/integrations/bigquery/samples/mcp_quickstart/): How to get started running Toolbox with MCP Inspector and BigQuery as the source.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/bigquery/prebuilt-configs/): Prebuilt configurations for Bigquery.
+
+      - [BigQuery](https://mcp-toolbox.dev/dev/integrations/bigquery/prebuilt-configs/bigquery/): Details of the BigQuery prebuilt configuration.
+
   - [Bigtable](https://mcp-toolbox.dev/dev/integrations/bigtable/): No description provided.
 
     - [Bigtable Source](https://mcp-toolbox.dev/dev/integrations/bigtable/source/): Bigtable is a low-latency NoSQL database service for machine learning, operational analytics, and user-facing operations. It's a wide-column, key-value store that can scale to billions of rows and thousands of columns. With Bigtable, you can replicate your data to regions across the world for high availability and data resiliency.
@@ -398,6 +410,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [clickhouse-list-tables](https://mcp-toolbox.dev/dev/integrations/clickhouse/tools/clickhouse-list-tables/): A "clickhouse-list-tables" tool lists all tables in a specific ClickHouse database.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/clickhouse/prebuilt-configs/): Prebuilt configurations for Clickhouse.
+
+      - [ClickHouse](https://mcp-toolbox.dev/dev/integrations/clickhouse/prebuilt-configs/clickhouse/): Details of the ClickHouse prebuilt configuration.
 
   - [Cloud Healthcare](https://mcp-toolbox.dev/dev/integrations/cloudhealthcare/): No description provided.
 
@@ -451,6 +467,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [cloud-healthcare-search-dicom-studies](https://mcp-toolbox.dev/dev/integrations/cloudhealthcare/tools/cloud-healthcare-search-dicom-studies/): A "cloud-healthcare-search-dicom-studies" tool searches for DICOM studies in a DICOM store.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloudhealthcare/prebuilt-configs/): Prebuilt configurations for Cloud Healthcare.
+
+      - [Google Cloud Healthcare API](https://mcp-toolbox.dev/dev/integrations/cloudhealthcare/prebuilt-configs/google-cloud-healthcare-api/): Details of the Google Cloud Healthcare API prebuilt configuration.
+
   - [Cloud Logging Admin](https://mcp-toolbox.dev/dev/integrations/cloudloggingadmin/): No description provided.
 
     - [Cloud Logging Admin Source](https://mcp-toolbox.dev/dev/integrations/cloudloggingadmin/source/): The Cloud Logging Admin source enables tools to interact with the Cloud Logging API, allowing for the retrieval of log names, monitored resource types, and the querying of log data.
@@ -475,6 +495,16 @@ This documentation is structured following the Diátaxis framework to assist in 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/tools/): No description provided.
 
       - [cloud-monitoring-query-prometheus](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/tools/cloud-monitoring-query-prometheus/): The "cloud-monitoring-query-prometheus" tool fetches time series metrics for a project using a given prometheus query.
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/prebuilt-configs/): Prebuilt configurations for Cloud Monitoring.
+
+      - [AlloyDB Postgres Observability](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/prebuilt-configs/alloydb-postgres-observability/): Details of the AlloyDB Postgres Observability prebuilt configuration.
+
+      - [Cloud SQL for MySQL Observability](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/prebuilt-configs/cloud-sql-for-mysql-observability/): Details of the Cloud SQL for MySQL Observability prebuilt configuration.
+
+      - [Cloud SQL for PostgreSQL Observability](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/prebuilt-configs/cloud-sql-for-postgresql-observability/): Details of the Cloud SQL for PostgreSQL Observability prebuilt configuration.
+
+      - [Cloud SQL for SQL Server Observability](https://mcp-toolbox.dev/dev/integrations/cloudmonitoring/prebuilt-configs/cloud-sql-for-sql-server-observability/): Details of the Cloud SQL for SQL Server Observability prebuilt configuration.
 
   - [Cloud SQL Admin](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/): No description provided.
 
@@ -514,12 +544,24 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [postgres-upgrade-precheck](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlpgupgradeprecheck/): Perform a pre-check for a Cloud SQL for PostgreSQL major version upgrade.
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/prebuilt-configs/): Prebuilt configurations for Cloud Sql Admin.
+
+      - [Cloud SQL for MySQL Admin](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/prebuilt-configs/cloud-sql-for-mysql-admin/): Details of the Cloud SQL for MySQL Admin prebuilt configuration.
+
+      - [Cloud SQL for PostgreSQL Admin](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/prebuilt-configs/cloud-sql-for-postgresql-admin/): Details of the Cloud SQL for PostgreSQL Admin prebuilt configuration.
+
+      - [Cloud SQL for SQL Server Admin](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/prebuilt-configs/cloud-sql-for-sql-server-admin/): Details of the Cloud SQL for SQL Server Admin prebuilt configuration.
+
   - [Cloud SQL for MySQL](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mysql/): No description provided.
 
     - [Cloud SQL for MySQL Source](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mysql/source/): Cloud SQL for MySQL is a fully-managed database service for MySQL.
 
 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mysql/tools/): No description provided.
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mysql/prebuilt-configs/): Prebuilt configurations for Cloud Sql Mysql.
+
+      - [Cloud SQL for MySQL](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mysql/prebuilt-configs/cloud-sql-for-mysql/): Details of the Cloud SQL for MySQL prebuilt configuration.
 
   - [Cloud SQL for PostgreSQL](https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/): No description provided.
 
@@ -528,12 +570,20 @@ This documentation is structured following the Diátaxis framework to assist in 
 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/tools/): No description provided.
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/prebuilt-configs/): Prebuilt configurations for Cloud Sql Postgres.
+
+      - [Cloud SQL for PostgreSQL](https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/prebuilt-configs/cloud-sql-for-postgresql/): Details of the Cloud SQL for PostgreSQL prebuilt configuration.
+
   - [Cloud SQL for SQL Server](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/): No description provided.
 
     - [Cloud SQL for SQL Server Source](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/source/): Cloud SQL for SQL Server is a fully-managed database service for SQL Server.
 
 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/tools/): No description provided.
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/prebuilt-configs/): Prebuilt configurations for Cloud Sql Mssql.
+
+      - [Cloud SQL for SQL Server](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/prebuilt-configs/cloud-sql-for-sql-server/): Details of the Cloud SQL for SQL Server prebuilt configuration.
 
   - [CockroachDB](https://mcp-toolbox.dev/dev/integrations/cockroachdb/): No description provided.
 
@@ -590,6 +640,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [dataplex-search-entries](https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-search-entries/): A "dataplex-search-entries" tool allows to search for entries based on the provided query.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/dataplex/prebuilt-configs/): Prebuilt configurations for Dataplex.
+
+      - [Dataplex](https://mcp-toolbox.dev/dev/integrations/dataplex/prebuilt-configs/dataplex/): Details of the Dataplex prebuilt configuration.
+
   - [Dataproc Clusters](https://mcp-toolbox.dev/dev/integrations/dataproc/): No description provided.
 
     - [Dataproc Clusters Source](https://mcp-toolbox.dev/dev/integrations/dataproc/source/): Google Cloud Dataproc Clusters lets you provision and manage Apache Spark and Hadoop clusters.
@@ -608,6 +662,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [dataproc-list-jobs](https://mcp-toolbox.dev/dev/integrations/dataproc/tools/dataproc-list-jobs/): A "dataproc-list-jobs" tool returns a list of Dataproc jobs from the source.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/dataproc/prebuilt-configs/): Prebuilt configurations for Dataproc.
+
+      - [Dataproc](https://mcp-toolbox.dev/dev/integrations/dataproc/prebuilt-configs/dataproc/): Details of the Dataproc prebuilt configuration.
 
   - [Dgraph](https://mcp-toolbox.dev/dev/integrations/dgraph/): No description provided.
 
@@ -628,6 +686,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [elasticsearch-esql](https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-esql/): Execute ES|QL queries.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/elasticsearch/prebuilt-configs/): Prebuilt configurations for Elasticsearch.
+
+      - [Elasticsearch](https://mcp-toolbox.dev/dev/integrations/elasticsearch/prebuilt-configs/elasticsearch/): Details of the Elasticsearch prebuilt configuration.
 
   - [Firebird](https://mcp-toolbox.dev/dev/integrations/firebird/): No description provided.
 
@@ -675,6 +737,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [firestore-validate-rules](https://mcp-toolbox.dev/dev/integrations/firestore/tools/firestore-validate-rules/): A "firestore-validate-rules" tool validates Firestore security rules syntax and semantic correctness without deploying them. It provides detailed error reporting with source positions and code snippets.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/firestore/prebuilt-configs/): Prebuilt configurations for Firestore.
+
+      - [Firestore](https://mcp-toolbox.dev/dev/integrations/firestore/prebuilt-configs/firestore/): Details of the Firestore prebuilt configuration.
 
   - [Gemini Data Analytics](https://mcp-toolbox.dev/dev/integrations/cloudgda/): No description provided.
 
@@ -831,6 +897,14 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [Quickstart (MCP with Looker)](https://mcp-toolbox.dev/dev/integrations/looker/samples/looker_mcp_inspector/): How to get started running Toolbox with MCP Inspector and Looker as the source.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/looker/prebuilt-configs/): Prebuilt configurations for Looker.
+
+      - [Looker](https://mcp-toolbox.dev/dev/integrations/looker/prebuilt-configs/looker/): Details of the Looker prebuilt configuration.
+
+      - [Looker Conversational Analytics](https://mcp-toolbox.dev/dev/integrations/looker/prebuilt-configs/looker-conversational-analytics/): Details of the Looker Conversational Analytics prebuilt configuration.
+
+      - [Looker Dev](https://mcp-toolbox.dev/dev/integrations/looker/prebuilt-configs/looker-dev/): Details of the Looker Dev prebuilt configuration.
+
   - [MariaDB](https://mcp-toolbox.dev/dev/integrations/mariadb/): No description provided.
 
     - [MariaDB Source](https://mcp-toolbox.dev/dev/integrations/mariadb/source/): MariaDB is an open-source relational database compatible with MySQL.
@@ -850,6 +924,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [mindsdb-sql](https://mcp-toolbox.dev/dev/integrations/mindsdb/tools/mindsdb-sql/): A "mindsdb-sql" tool executes a pre-defined SQL statement against a MindsDB federated database.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/mindsdb/prebuilt-configs/): Prebuilt configurations for Mindsdb.
+
+      - [MindsDB](https://mcp-toolbox.dev/dev/integrations/mindsdb/prebuilt-configs/mindsdb/): Details of the MindsDB prebuilt configuration.
 
   - [MongoDB](https://mcp-toolbox.dev/dev/integrations/mongodb/): No description provided.
 
@@ -913,6 +991,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [mysql-sql](https://mcp-toolbox.dev/dev/integrations/mysql/tools/mysql-sql/): A "mysql-sql" tool executes a pre-defined SQL statement against a MySQL database.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/mysql/prebuilt-configs/): Prebuilt configurations for Mysql.
+
+      - [MySQL](https://mcp-toolbox.dev/dev/integrations/mysql/prebuilt-configs/mysql/): Details of the MySQL prebuilt configuration.
+
   - [Neo4j](https://mcp-toolbox.dev/dev/integrations/neo4j/): No description provided.
 
     - [Neo4j Source](https://mcp-toolbox.dev/dev/integrations/neo4j/source/): Neo4j is a powerful, open source graph database system
@@ -934,6 +1016,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [Quickstart (MCP with Neo4j)](https://mcp-toolbox.dev/dev/integrations/neo4j/samples/mcp_quickstart/): How to get started running Toolbox with MCP Inspector and Neo4j as the source.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/neo4j/prebuilt-configs/): Prebuilt configurations for Neo4J.
+
+      - [Neo4j](https://mcp-toolbox.dev/dev/integrations/neo4j/prebuilt-configs/neo4j/): Details of the Neo4j prebuilt configuration.
+
   - [OceanBase](https://mcp-toolbox.dev/dev/integrations/oceanbase/): No description provided.
 
     - [OceanBase Source](https://mcp-toolbox.dev/dev/integrations/oceanbase/source/): OceanBase is a distributed relational database that provides high availability, scalability, and compatibility with MySQL.
@@ -946,6 +1032,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [oceanbase-sql](https://mcp-toolbox.dev/dev/integrations/oceanbase/tools/oceanbase-sql/): An "oceanbase-sql" tool executes a pre-defined SQL statement against an OceanBase database.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/oceanbase/prebuilt-configs/): Prebuilt configurations for Oceanbase.
+
+      - [OceanBase](https://mcp-toolbox.dev/dev/integrations/oceanbase/prebuilt-configs/oceanbase/): Details of the OceanBase prebuilt configuration.
 
   - [Oracle](https://mcp-toolbox.dev/dev/integrations/oracle/): No description provided.
 
@@ -962,6 +1052,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [oracle-sql](https://mcp-toolbox.dev/dev/integrations/oracle/tools/oracle-sql/): An "oracle-sql" tool executes a pre-defined SQL statement against an Oracle database.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/oracle/prebuilt-configs/): Prebuilt configurations for Oracle.
+
+      - [Oracle](https://mcp-toolbox.dev/dev/integrations/oracle/prebuilt-configs/oracle/): Details of the Oracle prebuilt configuration.
 
   - [PostgreSQL](https://mcp-toolbox.dev/dev/integrations/postgres/): No description provided.
 
@@ -1042,6 +1136,12 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [postgres-sql](https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-sql/): A "postgres-sql" tool executes a pre-defined SQL statement against a Postgres database.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/postgres/prebuilt-configs/): Prebuilt configurations for Postgres.
+
+      - [AlloyDB Omni](https://mcp-toolbox.dev/dev/integrations/postgres/prebuilt-configs/alloydb-omni/): Details of the AlloyDB Omni prebuilt configuration.
+
+      - [PostgreSQL](https://mcp-toolbox.dev/dev/integrations/postgres/prebuilt-configs/postgresql/): Details of the PostgreSQL prebuilt configuration.
+
   - [Redis](https://mcp-toolbox.dev/dev/integrations/redis/): No description provided.
 
     - [Redis Source](https://mcp-toolbox.dev/dev/integrations/redis/source/): Redis is a in-memory data structure store.
@@ -1077,6 +1177,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [serverless-spark-create-spark-batch](https://mcp-toolbox.dev/dev/integrations/serverless-spark/tools/serverless-spark-create-spark-batch/): A "serverless-spark-create-spark-batch" tool submits a Spark batch to run asynchronously.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/serverless-spark/prebuilt-configs/): Prebuilt configurations for Serverless Spark.
+
+      - [Google Cloud Serverless for Apache Spark](https://mcp-toolbox.dev/dev/integrations/serverless-spark/prebuilt-configs/google-cloud-serverless-for-apache-spark/): Details of the Google Cloud Serverless for Apache Spark prebuilt configuration.
+
   - [SingleStore](https://mcp-toolbox.dev/dev/integrations/singlestore/): No description provided.
 
     - [SingleStore Source](https://mcp-toolbox.dev/dev/integrations/singlestore/source/): SingleStore is the cloud-native database built with speed and scale to power data-intensive applications.
@@ -1089,6 +1193,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [singlestore-sql](https://mcp-toolbox.dev/dev/integrations/singlestore/tools/singlestore-sql/): A "singlestore-sql" tool executes a pre-defined SQL statement against a SingleStore database.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/singlestore/prebuilt-configs/): Prebuilt configurations for Singlestore.
+
+      - [SingleStore](https://mcp-toolbox.dev/dev/integrations/singlestore/prebuilt-configs/singlestore/): Details of the SingleStore prebuilt configuration.
 
   - [Snowflake](https://mcp-toolbox.dev/dev/integrations/snowflake/): No description provided.
 
@@ -1107,6 +1215,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [Snowflake](https://mcp-toolbox.dev/dev/integrations/snowflake/samples/sample/): How to get started running Toolbox with MCP Inspector and Snowflake as the source.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/snowflake/prebuilt-configs/): Prebuilt configurations for Snowflake.
+
+      - [Snowflake](https://mcp-toolbox.dev/dev/integrations/snowflake/prebuilt-configs/snowflake/): Details of the Snowflake prebuilt configuration.
 
   - [Spanner](https://mcp-toolbox.dev/dev/integrations/spanner/): No description provided.
 
@@ -1127,6 +1239,12 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [spanner-list-tables](https://mcp-toolbox.dev/dev/integrations/spanner/tools/spanner-list-tables/): A "spanner-list-tables" tool retrieves schema information about tables in a Google Cloud Spanner database.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/spanner/prebuilt-configs/): Prebuilt configurations for Spanner.
+
+      - [Spanner (GoogleSQL dialect)](https://mcp-toolbox.dev/dev/integrations/spanner/prebuilt-configs/spanner-googlesql-dialect/): Details of the Spanner (GoogleSQL dialect) prebuilt configuration.
+
+      - [Spanner (PostgreSQL dialect)](https://mcp-toolbox.dev/dev/integrations/spanner/prebuilt-configs/spanner-postgresql-dialect/): Details of the Spanner (PostgreSQL dialect) prebuilt configuration.
+
   - [SQL Server](https://mcp-toolbox.dev/dev/integrations/mssql/): No description provided.
 
     - [SQL Server Source](https://mcp-toolbox.dev/dev/integrations/mssql/source/): SQL Server is a relational database management system (RDBMS).
@@ -1143,6 +1261,10 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [mssql-sql](https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-sql/): A "mssql-sql" tool executes a pre-defined SQL statement against a SQL Server database.
 
 
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/mssql/prebuilt-configs/): Prebuilt configurations for SQL Server.
+
+      - [Microsoft SQL Server](https://mcp-toolbox.dev/dev/integrations/mssql/prebuilt-configs/microsoft-sql-server/): Details of the Microsoft SQL Server prebuilt configuration.
+
   - [SQLite](https://mcp-toolbox.dev/dev/integrations/sqlite/): No description provided.
 
     - [SQLite Source](https://mcp-toolbox.dev/dev/integrations/sqlite/source/): SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
@@ -1155,6 +1277,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [sqlite-sql](https://mcp-toolbox.dev/dev/integrations/sqlite/tools/sqlite-sql/): Execute SQL statements against a SQLite database.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/sqlite/prebuilt-configs/): Prebuilt configurations for Sqlite.
+
+      - [SQLite](https://mcp-toolbox.dev/dev/integrations/sqlite/prebuilt-configs/sqlite/): Details of the SQLite prebuilt configuration.
 
   - [TiDB](https://mcp-toolbox.dev/dev/integrations/tidb/): No description provided.
 
