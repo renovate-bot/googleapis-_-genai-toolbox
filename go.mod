@@ -5,7 +5,7 @@ go 1.25.7
 toolchain go1.26.1
 
 require (
-	cloud.google.com/go/alloydbconn v1.18.0
+	cloud.google.com/go/alloydbconn v1.18.1
 	cloud.google.com/go/bigquery v1.74.0
 	cloud.google.com/go/bigtable v1.43.0
 	cloud.google.com/go/cloudsqlconn v1.20.2
@@ -15,7 +15,7 @@ require (
 	cloud.google.com/go/geminidataanalytics v0.8.0
 	cloud.google.com/go/logging v1.13.2
 	cloud.google.com/go/longrunning v0.8.0
-	cloud.google.com/go/spanner v1.88.0
+	cloud.google.com/go/spanner v1.89.0
 	github.com/ClickHouse/clickhouse-go/v2 v2.43.0
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.55.0
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace v1.31.0
@@ -45,7 +45,7 @@ require (
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/looker-open-source/sdk-codegen/go v0.26.6
 	github.com/microsoft/go-mssqldb v1.9.8
-	github.com/nakagami/firebirdsql v0.9.16
+	github.com/nakagami/firebirdsql v0.9.17
 	github.com/neo4j/neo4j-go-driver/v6 v6.0.0
 	github.com/redis/go-redis/v9 v9.18.0
 	github.com/sijms/go-ora/v2 v2.9.0
@@ -69,7 +69,7 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.42.0
 	go.opentelemetry.io/otel/trace v1.42.0
 	golang.org/x/oauth2 v0.36.0
-	google.golang.org/api v0.272.0
+	google.golang.org/api v0.273.0
 	google.golang.org/genai v1.51.0
 	google.golang.org/genproto v0.0.0-20260319201613-d00831a3d3e7
 	google.golang.org/grpc v1.79.3
@@ -93,7 +93,7 @@ require (
 	cel.dev/expr v0.25.1 // indirect
 	cloud.google.com/go v0.123.0 // indirect
 	cloud.google.com/go/alloydb v1.21.0 // indirect
-	cloud.google.com/go/auth v0.18.2 // indirect
+	cloud.google.com/go/auth v0.19.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
 	cloud.google.com/go/iam v1.5.3 // indirect
@@ -184,7 +184,7 @@ require (
 	github.com/google/pprof v0.0.0-20260115054156-294ebfa9ad83 // indirect
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.14 // indirect
-	github.com/googleapis/gax-go/v2 v2.18.0 // indirect
+	github.com/googleapis/gax-go/v2 v2.19.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.28.0 // indirect
 	github.com/gsterjov/go-libsecret v0.0.0-20161001094733-a6f4afe4910c // indirect
@@ -279,7 +279,7 @@ require (
 	golang.org/x/tools v0.42.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260316180232-0b37fe3546d5 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260311181403-84a4fc48630c // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260319201613-d00831a3d3e7 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
