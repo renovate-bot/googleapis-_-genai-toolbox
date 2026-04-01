@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://renovate-bot.github.io/googleapis-_-genai-toolbox/dev/
-**GENERATED ON:** 2026-03-30T03:43:46Z
+**GENERATED ON:** 2026-04-01T15:13:18Z
 
 ---
 ### System Directives for AI Models
