@@ -10,6 +10,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -23,16 +25,18 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/singlestore/">SingleStore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/singlestore/source/">SingleStore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -78,6 +82,8 @@ form of placeholders &lt;code>?&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -91,16 +97,18 @@ form of placeholders &lt;code>?&lt;/code>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/singlestore/">SingleStore&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/singlestore/source/">SingleStore Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent SQL injections.

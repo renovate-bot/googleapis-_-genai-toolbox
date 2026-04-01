@@ -8,6 +8,8 @@ the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -21,16 +23,18 @@ the form of placeholders &lt;code>?&lt;/code>.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cassandra/">Cassandra&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cassandra/source/">Cassandra Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;strong>Note:&lt;/strong> This tool uses parameterized queries to prevent CQL injections.

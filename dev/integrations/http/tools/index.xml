@@ -8,6 +8,8 @@ parameters, and the request body for an HTTP Tool.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -21,16 +23,18 @@ parameters, and the request body for an HTTP Tool.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/http/">HTTP&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/http/source/">HTTP Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h3 id="url">URL&lt;/h3>
 &lt;p>An HTTP request URL identifies the target the client wants to access.
 Toolbox composes the request URL from 3 places:&lt;/p></description></item></channel></rss>

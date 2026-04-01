@@ -15,6 +15,8 @@ return an error.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -28,16 +30,18 @@ return an error.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here is an example that performs a cleanup task by deleting all products from
@@ -60,6 +64,8 @@ results (&lt;strong>sorting&lt;/strong>), and restricting the number of document
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -73,16 +79,18 @@ results (&lt;strong>sorting&lt;/strong>), and restricting the number of document
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example that finds up to 10 users from the &lt;code>customers&lt;/code> collection who
 live in a specific city. The results are sorted by their last name, and only
@@ -95,6 +103,8 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p>
 JSON array.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
 &lt;h2 id="hahahugoshortcode341s0hbhb">
+
+
 
 
 &lt;div class="compatibility-section">
@@ -115,6 +125,8 @@ tool returns the unique &lt;code>_id&lt;/code> of the newly created document.&lt
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -128,16 +140,18 @@ tool returns the unique &lt;code>_id&lt;/code> of the newly created document.&lt
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here is an example configuration for a tool that adds a new user to a &lt;code>users&lt;/code>
 collection.&lt;/p></description></item><item><title>mongodb-update-many</title><link>https://mcp-toolbox.dev/dev/integrations/mongodb/tools/mongodb-update-many/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/mongodb/tools/mongodb-update-many/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -149,6 +163,8 @@ MongoDB collection that match a given filter. It locates the documents using a
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -162,16 +178,18 @@ MongoDB collection that match a given filter. It locates the documents using a
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example configuration. This tool applies a discount to all items
@@ -184,6 +202,8 @@ multiple documents, only the first one found will be updated.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -197,16 +217,18 @@ multiple documents, only the first one found will be updated.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/">MongoDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mongodb/source/">MongoDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;hr>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;p>Here&amp;rsquo;s an example of a &lt;code>mongodb-update-one&lt;/code> tool configuration. This tool

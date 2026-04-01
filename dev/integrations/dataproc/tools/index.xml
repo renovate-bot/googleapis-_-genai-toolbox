@@ -12,6 +12,8 @@ Google Cloud Dataproc source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -25,16 +27,18 @@ Google Cloud Dataproc source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/dataproc/">Dataproc Clusters&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/dataproc/source/">Dataproc Clusters Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_cluster&lt;/span>&lt;span class="w">
@@ -102,6 +106,8 @@ Google Cloud Dataproc source.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -115,16 +121,18 @@ Google Cloud Dataproc source.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/dataproc/">Dataproc Clusters&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/dataproc/source/">Dataproc Clusters Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">get_job&lt;/span>&lt;span class="w">

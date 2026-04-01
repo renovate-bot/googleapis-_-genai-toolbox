@@ -15,6 +15,8 @@
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -28,16 +30,18 @@
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cockroachdb/source/">CockroachDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h3 id="requirements">Requirements&lt;/h3>
 &lt;p>To list schemas, the user needs:&lt;/p></description></item><item><title>cockroachdb-list-tables</title><link>https://mcp-toolbox.dev/dev/integrations/cockroachdb/tools/cockroachdb-list-tables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cockroachdb/tools/cockroachdb-list-tables/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cockroachdb-list-tables&lt;/code> tool retrieves a list of tables from a CockroachDB database. It provides detailed information about table structure, including columns, constraints, indexes, and foreign key relationships.&lt;/p>
@@ -52,6 +56,8 @@
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -65,16 +71,18 @@
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cockroachdb/source/">CockroachDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>The tool accepts optional runtime parameters:&lt;/p></description></item><item><title>cockroachdb-sql</title><link>https://mcp-toolbox.dev/dev/integrations/cockroachdb/tools/cockroachdb-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cockroachdb/tools/cockroachdb-sql/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>cockroachdb-sql&lt;/code> tool allows you to execute parameterized SQL queries against a CockroachDB database. This tool supports prepared statements with parameter binding, template parameters for dynamic query construction, and automatic transaction retry for resilience against serialization conflicts.&lt;/p>
@@ -82,6 +90,8 @@
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -95,15 +105,17 @@
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cockroachdb/">CockroachDB&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cockroachdb/source/">CockroachDB Source&lt;/a>&lt;/td>
  &lt;/tr>
  
 
  
+
  
  
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="parameters">Parameters&lt;/h2>
 &lt;p>Parameters allow you to safely pass values into your SQL queries using prepared statements. CockroachDB uses PostgreSQL-style parameter placeholders: &lt;code>$1&lt;/code>, &lt;code>$2&lt;/code>, etc.&lt;/p></description></item></channel></rss>

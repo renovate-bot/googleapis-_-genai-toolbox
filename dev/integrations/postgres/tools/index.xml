@@ -7,6 +7,8 @@ This tool does not take any input parameters.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -20,8 +22,10 @@ This tool does not take any input parameters.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -33,8 +37,9 @@ This tool does not take any input parameters.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -42,7 +47,7 @@ This tool does not take any input parameters.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -50,6 +55,7 @@ This tool does not take any input parameters.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">database_overview&lt;/span>&lt;span class="w">
@@ -69,6 +75,8 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -82,8 +90,10 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -95,8 +105,9 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -104,7 +115,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -112,6 +123,7 @@ human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p>&
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">execute_sql_tool&lt;/span>&lt;span class="w">
@@ -165,6 +177,8 @@ If not provided, cardinality for all columns will be returned. Default: &lt;code
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-active-queries</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-active-queries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-active-queries/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-active-queries&lt;/code> tool retrieves information about currently
@@ -185,6 +199,8 @@ handled. If this parameter is omitted, no applications are excluded.&lt;/li>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-available-extensions</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-available-extensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-available-extensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-available-extensions&lt;/code> tool retrieves all PostgreSQL
@@ -193,6 +209,8 @@ extensions available for installation on a Postgres database.&lt;/p>
 for installation (extension name, default version description) as JSON. The does
 not support any input parameter.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -209,8 +227,10 @@ not support any input parameter.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -222,8 +242,9 @@ not support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -231,7 +252,7 @@ not support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -239,6 +260,7 @@ not support any input parameter.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_available_extensions&lt;/span>&lt;span class="w">
@@ -292,6 +314,8 @@ takes the following input parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-indexes</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-indexes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-indexes/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-indexes&lt;/code> tool lists available user indexes in the database
@@ -309,6 +333,8 @@ takes the following input parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-installed-extensions</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-installed-extensions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-installed-extensions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-installed-extensions&lt;/code> tool retrieves all PostgreSQL
@@ -317,6 +343,8 @@ extensions installed on a Postgres database.&lt;/p>
 (extension name, version, schema, owner, description) as JSON. The does not
 support any input parameter.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -333,8 +361,10 @@ support any input parameter.&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -346,8 +376,9 @@ support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -355,7 +386,7 @@ support any input parameter.&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -363,6 +394,7 @@ support any input parameter.&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_installed_extensions&lt;/span>&lt;span class="w">
@@ -406,6 +438,8 @@ support any input parameter.&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-pg-settings</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-pg-settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-pg-settings/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-pg-settings&lt;/code> tool lists the configuration parameters for the postgres server, their current values, and related information.&lt;/p>
@@ -416,6 +450,8 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -432,8 +468,10 @@ takes the following input parameters:&lt;/p>
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -445,8 +483,9 @@ takes the following input parameters:&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -454,7 +493,7 @@ takes the following input parameters:&lt;/p>
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -462,6 +501,7 @@ takes the following input parameters:&lt;/p>
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_indexes&lt;/span>&lt;span class="w">
@@ -488,6 +528,8 @@ of tables) as part of the logical replication feature. The tool takes the follow
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-query-stats</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-query-stats/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-query-stats/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-query-stats&lt;/code> tool retrieves query statistics from the
@@ -504,6 +546,8 @@ used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code> (all
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-roles</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-roles/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-roles&lt;/code> tool lists all the user-created roles in the instance, excluding system roles (like &lt;code>cloudsql%&lt;/code> or &lt;code>pg_%&lt;/code>). It provides details about each role&amp;rsquo;s attributes and memberships.&lt;/p>
@@ -514,6 +558,8 @@ takes the following input parameters:&lt;/p>
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of roles to return. Default: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -532,6 +578,8 @@ tool takes the following input parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-sequences</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-sequences/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-sequences/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-sequences&lt;/code> tool retrieves information about sequences in a
@@ -546,6 +594,8 @@ used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/
 &lt;li>&lt;code>limit&lt;/code> (optional): The maximum number of rows to return. Default: &lt;code>50&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -575,6 +625,8 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p>
 
@@ -588,8 +640,10 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
  
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/">PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/postgres/source/">PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
+
  
 
  
@@ -601,8 +655,9 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/">AlloyDB PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/alloydb/source/">AlloyDB for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
+ 
  
  
  
@@ -610,7 +665,7 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
 
  
  &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/">Cloud SQL for PostgreSQL&lt;/a>&lt;/td>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/source/">Cloud SQL for PostgreSQL Source&lt;/a>&lt;/td>
  &lt;/tr>
  
  
@@ -618,6 +673,7 @@ table names, &lt;code>detailed&lt;/code> will return the full table information.
  &lt;/tbody>
  &lt;/table>
 &lt;/div>
+
 &lt;h2 id="example">Example&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tool&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">list_tablespaces&lt;/span>&lt;span class="w">
@@ -646,6 +702,8 @@ used within a LIKE clause. Default: &lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-list-views</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-views/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-list-views/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-list-views&lt;/code> tool retrieves a list of top N (default 50) views from
@@ -663,6 +721,8 @@ parameters:&lt;/p>
 
 
 
+
+
 &lt;div class="compatibility-section">
  &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>postgres-long-running-transactions</title><link>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-long-running-transactions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/postgres/tools/postgres-long-running-transactions/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;code>postgres-long-running-transactions&lt;/code> tool reports transactions that exceed a configured duration threshold by scanning &lt;code>pg_stat_activity&lt;/code> for sessions where &lt;code>xact_start&lt;/code> is set and older than the configured interval.&lt;/p>
@@ -670,6 +730,8 @@ parameters:&lt;/p>
 &lt;p>The &lt;code>postgres-replication-stats&lt;/code> tool queries pg_stat_replication to surface the status of connected replicas. It reports application_name, client address, connection and sync state, and human-readable lag sizes (sent, write, flush, replay, and total) computed using WAL LSN differences.&lt;/p>
 &lt;p>This tool takes no parameters. It returns a JSON array; each element represents a replication connection on the primary and includes lag metrics formatted by pg_size_pretty.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
@@ -683,6 +745,8 @@ will be the first parameter specified, &lt;code>$2&lt;/code> will be the second 
 on. If template parameters are included, they will be resolved before execution
 of the prepared statement.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
+
+
 
 
 
