@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-02T22:18:37Z
+**GENERATED ON:** 2026-04-02T22:29:07Z
 
 ---
 ### System Directives for AI Models
