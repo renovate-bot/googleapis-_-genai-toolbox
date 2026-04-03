@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-02T22:59:51Z
+**GENERATED ON:** 2026-04-03T19:19:58Z
 
 ---
 ### System Directives for AI Models
@@ -754,6 +754,19 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [cloud-gemini-data-analytics-query](https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/cloud-gda-query/): A tool to convert natural language queries into SQL statements using the Gemini Data Analytics QueryData API.
 
+
+      - [conversational-analytics-ask-data-agent](https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/conversational-analytics-ask-data-agent/): A "conversational-analytics-ask-data-agent" tool allows conversational interaction with a Conversational Analytics source.
+
+
+      - [conversational-analytics-get-data-agent-info](https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/conversational-analytics-get-data-agent-info/): A "conversational-analytics-get-data-agent-info" tool allows retrieving information about a specific Conversational Analytics data agent.
+
+
+      - [conversational-analytics-list-accessible-data-agents](https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/conversational-analytics-list-accessible-data-agents/): A "conversational-analytics-list-accessible-data-agents" tool allows listing accessible Conversational Analytics data agents.
+
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloudgda/prebuilt-configs/): Prebuilt configurations for Conversational Analytics to perform natural language data analysis via Data Agents.
+
+      - [Conversational Analytics with Data Agent](https://mcp-toolbox.dev/dev/integrations/cloudgda/prebuilt-configs/conversational-analytics-with-data-agent/): Details of the Conversational Analytics with Data Agent prebuilt configuration.
 
   - [HTTP](https://mcp-toolbox.dev/dev/integrations/http/): No description provided.
 

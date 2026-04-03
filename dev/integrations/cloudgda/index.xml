@@ -19,6 +19,18 @@
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -40,6 +52,24 @@
  &lt;tr>
  &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/cloud-gda-query/">&lt;strong>cloud-gemini-data-analytics-query&lt;/strong>&lt;/a>&lt;/td>
  &lt;td>A tool to convert natural language queries into SQL statements using the Gemini Data Analytics QueryData API.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/conversational-analytics-ask-data-agent/">&lt;strong>conversational-analytics-ask-data-agent&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>A &amp;#34;conversational-analytics-ask-data-agent&amp;#34; tool allows conversational interaction with a Conversational Analytics source.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/conversational-analytics-get-data-agent-info/">&lt;strong>conversational-analytics-get-data-agent-info&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>A &amp;#34;conversational-analytics-get-data-agent-info&amp;#34; tool allows retrieving information about a specific Conversational Analytics data agent.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloudgda/tools/conversational-analytics-list-accessible-data-agents/">&lt;strong>conversational-analytics-list-accessible-data-agents&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>A &amp;#34;conversational-analytics-list-accessible-data-agents&amp;#34; tool allows listing accessible Conversational Analytics data agents.
 &lt;/td>
  &lt;/tr>
  
