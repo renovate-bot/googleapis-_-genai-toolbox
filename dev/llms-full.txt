@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-06T19:23:00Z
+**GENERATED ON:** 2026-04-08T13:56:18Z
 
 ---
 ### System Directives for AI Models
@@ -28143,6 +28143,62 @@ description: |
 
 
 ========================================================================
+## looker-create-agent Tool
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-create-agent Tool
+**URL:** https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-create-agent/
+**Description:** "looker-create-agent" creates a Looker Conversation Analytics agent.
+
+
+
+## About
+
+The `looker-create-agent` tool allows LLMs to create a Looker Agent using the Looker Go SDK.
+
+```json
+{
+  "name": "looker-create-agent",
+  "parameters": {
+    "name": "My Agent",
+    "instructions": "You are a helpful assistant.",
+    "sources": [{"model": "my_model", "explore": "my_explore"}],
+    "code_interpreter": true
+  }
+}
+```
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Example
+
+```yaml
+kind: tool
+name: create_agent
+type: looker-create-agent
+source: my-looker-instance
+description: |
+  Create a new Looker agent.
+  - `name` (string): The name of the agent.
+  - `description` (string): The description of the agent.
+  - `instructions` (string): The instructions (system prompt) for the agent.
+  - `sources` (array): Optional. A list of JSON-encoded data sources for the agent (e.g., `[{"model": "my_model", "explore": "my_explore"}]`).
+  - `code_interpreter` (boolean): Optional. Enables Code Interpreter for this Agent.
+```
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                    |
+|-------------|:--------:|:------------:|----------------------------------------------------|
+| type        |  string  |     true     | Must be "looker-create-agent".                     |
+| source      |  string  |     true     | Name of the Looker source.                         |
+| description |  string  |     true     | Description of the tool that is passed to the LLM. |
+
+
+
+
+========================================================================
 ## looker-create-project-directory
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-create-project-directory
@@ -28237,6 +28293,57 @@ description: |
 |-------------|:--------:|:------------:|----------------------------------------------------|
 | type        |  string  |     true     | Must be "looker-create-project-file".              |
 | source      |  string  |     true     | Name of the source Looker instance.                |
+| description |  string  |     true     | Description of the tool that is passed to the LLM. |
+
+
+
+
+========================================================================
+## looker-delete-agent Tool
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-delete-agent Tool
+**URL:** https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-delete-agent/
+**Description:** "looker-delete-agent" deletes a Looker Conversation Analytics agent.
+
+
+
+## About
+
+The `looker-delete-agent` tool allows LLMs to delete a Looker Agent using the Looker Go SDK.
+
+```json
+{
+  "name": "looker-delete-agent",
+  "parameters": {
+    "agent_id": "123"
+  }
+}
+```
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Example
+
+To use the `looker-delete-agent` tool, you must define it in your `server.yaml` file.
+
+```yaml
+kind: tool
+name: delete_agent
+type: looker-delete-agent
+source: my-looker-instance
+description: |
+  Delete a Looker agent.
+  - `agent_id` (string): The ID of the agent.
+```
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                    |
+|-------------|:--------:|:------------:|----------------------------------------------------|
+| type        |  string  |     true     | Must be "looker-delete-agent".                     |
+| source      |  string  |     true     | Name of the Looker source.                         |
 | description |  string  |     true     | Description of the tool that is passed to the LLM. |
 
 
@@ -28444,6 +28551,57 @@ description: |
 |-------------|:--------:|:------------:|----------------------------------------------------|
 | type        |  string  |     true     | Must be "looker-generate-embed-url"                |
 | source      |  string  |     true     | Name of the source the SQL should execute on.      |
+| description |  string  |     true     | Description of the tool that is passed to the LLM. |
+
+
+
+
+========================================================================
+## looker-get-agent Tool
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-get-agent Tool
+**URL:** https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-get-agent/
+**Description:** "looker-get-agent" retrieves a Looker Conversation Analytics agent.
+
+
+
+## About
+
+The `looker-get-agent` tool allows LLMs to retrieve a specific Looker Agent by ID using the Looker Go SDK.
+
+To use the `looker-get-agent` tool, you must define it in your `server.yaml` file.
+
+```json
+{
+  "name": "looker-get-agent",
+  "parameters": {
+    "agent_id": "123"
+  }
+}
+```
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Example
+
+```yaml
+kind: tool
+name: get_agent
+type: looker-get-agent
+source: my-looker-instance
+description: |
+  Retrieve a Looker agent.
+  - `agent_id` (string): The ID of the agent.
+```
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                    |
+|-------------|:--------:|:------------:|----------------------------------------------------|
+| type        |  string  |     true     | Must be "looker-get-agent".                        |
+| source      |  string  |     true     | Name of the Looker source.                         |
 | description |  string  |     true     | Description of the tool that is passed to the LLM. |
 
 
@@ -29720,6 +29878,54 @@ description: |
 
 
 ========================================================================
+## looker-list-agents Tool
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-list-agents Tool
+**URL:** https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-list-agents/
+**Description:** "looker-list-agents" retrieves the list of Looker Conversation Analytics agents.
+
+
+
+## About
+
+The `looker-list-agents` tool allows LLMs to list Looker Agents using the Looker Go SDK.
+
+```json
+{
+  "name": "looker-list-agents"
+}
+```
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Example
+
+To use the `looker-list-agents` tool, you must define it in your `server.yaml` file.
+
+```yaml
+kind: tool
+name: list_agents
+type: looker-list-agents
+source: my-looker-instance
+description: |
+  List all Looker agents.
+  This tool takes no parameters.
+```
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                    |
+|-------------|:--------:|:------------:|----------------------------------------------------|
+| type        |  string  |     true     | Must be "looker-list-agents".                      |
+| source      |  string  |     true     | Name of the Looker source.                         |
+| description |  string  |     true     | Description of the tool that is passed to the LLM. |
+
+
+
+
+========================================================================
 ## looker-make-dashboard
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-make-dashboard
@@ -30582,6 +30788,63 @@ description: |
 |-------------|:--------:|:------------:|----------------------------------------------------|
 | type        |  string  |     true     | Must be "looker-run-look"                          |
 | source      |  string  |     true     | Name of the source the SQL should execute on.      |
+| description |  string  |     true     | Description of the tool that is passed to the LLM. |
+
+
+
+
+========================================================================
+## looker-update-agent Tool
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Looker > Tools > looker-update-agent Tool
+**URL:** https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-update-agent/
+**Description:** "looker-update-agent" updates a Looker Conversation Analytics agent.
+
+
+
+## About
+
+The `looker-update-agent` tool allows LLMs to update an existing Looker Agent using the Looker Go SDK.
+
+```json
+{
+  "name": "looker-update-agent",
+  "parameters": {
+    "agent_id": "123",
+    "name": "Updated Agent Name"
+  }
+}
+```
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Example
+
+To use the `looker-update-agent` tool, you must define it in your `server.yaml` file.
+
+```yaml
+kind: tool
+name: update_agent
+type: looker-update-agent
+source: my-looker-instance
+description: |
+  Update a Looker agent.
+  - `agent_id` (string): The ID of the agent.
+  - `name` (string): The name of the agent.
+  - `description` (string): The description of the agent.
+  - `instructions` (string): The instructions (system prompt) for the agent.
+  - `sources` (array): Optional. A list of JSON-encoded data sources for the agent (e.g., `[{"model": "my_model", "explore": "my_explore"}]`).
+  - `code_interpreter` (boolean): Optional. Enables Code Interpreter for this Agent.
+```
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                    |
+|-------------|:--------:|:------------:|----------------------------------------------------|
+| type        |  string  |     true     | Must be "looker-update-agent".                     |
+| source      |  string  |     true     | Name of the Looker source.                         |
 | description |  string  |     true     | Description of the tool that is passed to the LLM. |
 
 

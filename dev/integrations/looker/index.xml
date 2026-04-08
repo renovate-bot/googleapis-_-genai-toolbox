@@ -168,6 +168,26 @@ in the cloud, on GCP, or on premises.&lt;/p>
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -205,6 +225,12 @@ in the cloud, on GCP, or on premises.&lt;/p>
  &lt;/tr>
  
  &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-create-agent/">&lt;strong>looker-create-agent Tool&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>&amp;#34;looker-create-agent&amp;#34; creates a Looker Conversation Analytics agent.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
  &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-create-project-directory/">&lt;strong>looker-create-project-directory&lt;/strong>&lt;/a>&lt;/td>
  &lt;td>A &amp;#34;looker-create-project-directory&amp;#34; tool creates a new directory in a LookML project.
 &lt;/td>
@@ -213,6 +239,12 @@ in the cloud, on GCP, or on premises.&lt;/p>
  &lt;tr>
  &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-create-project-file/">&lt;strong>looker-create-project-file&lt;/strong>&lt;/a>&lt;/td>
  &lt;td>A &amp;#34;looker-create-project-file&amp;#34; tool creates a new LookML file in a project.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-delete-agent/">&lt;strong>looker-delete-agent Tool&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>&amp;#34;looker-delete-agent&amp;#34; deletes a Looker Conversation Analytics agent.
 &lt;/td>
  &lt;/tr>
  
@@ -237,6 +269,12 @@ in the cloud, on GCP, or on premises.&lt;/p>
  &lt;tr>
  &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-generate-embed-url/">&lt;strong>looker-generate-embed-url&lt;/strong>&lt;/a>&lt;/td>
  &lt;td>&amp;#34;looker-generate-embed-url&amp;#34; generates an embeddable URL for Looker content.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-get-agent/">&lt;strong>looker-get-agent Tool&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>&amp;#34;looker-get-agent&amp;#34; retrieves a Looker Conversation Analytics agent.
 &lt;/td>
  &lt;/tr>
  
@@ -367,6 +405,12 @@ in the cloud, on GCP, or on premises.&lt;/p>
  &lt;/tr>
  
  &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-list-agents/">&lt;strong>looker-list-agents Tool&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>&amp;#34;looker-list-agents&amp;#34; retrieves the list of Looker Conversation Analytics agents.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
  &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-make-dashboard/">&lt;strong>looker-make-dashboard&lt;/strong>&lt;/a>&lt;/td>
  &lt;td>&amp;#34;looker-make-dashboard&amp;#34; generates a Looker dashboard in the users personal folder in Looker
 &lt;/td>
@@ -405,6 +449,12 @@ in the cloud, on GCP, or on premises.&lt;/p>
  &lt;tr>
  &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-run-look/">&lt;strong>looker-run-look&lt;/strong>&lt;/a>&lt;/td>
  &lt;td>&amp;#34;looker-run-look&amp;#34; runs the query associated with a saved Look.
+&lt;/td>
+ &lt;/tr>
+ 
+ &lt;tr>
+ &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-update-agent/">&lt;strong>looker-update-agent Tool&lt;/strong>&lt;/a>&lt;/td>
+ &lt;td>&amp;#34;looker-update-agent&amp;#34; updates a Looker Conversation Analytics agent.
 &lt;/td>
  &lt;/tr>
  
