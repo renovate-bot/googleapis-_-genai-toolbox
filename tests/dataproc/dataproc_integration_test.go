@@ -593,7 +593,7 @@ func listClustersRpc(t *testing.T, client *dataproc.ClusterControllerClient, ctx
 }
 
 func runAuthTest(t *testing.T, toolName string, request map[string]any, wantStatus int) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}

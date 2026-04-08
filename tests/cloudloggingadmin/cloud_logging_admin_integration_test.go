@@ -235,7 +235,7 @@ func runListLogNamesTest(t *testing.T) {
 }
 
 func runAuthListLogNamesTest(t *testing.T) {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}

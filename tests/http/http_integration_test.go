@@ -43,7 +43,7 @@ var (
 )
 
 func getHTTPSourceConfig(t *testing.T) map[string]any {
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting ID token: %s", err)
 	}

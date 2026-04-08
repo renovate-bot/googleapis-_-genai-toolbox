@@ -159,7 +159,7 @@ func runAINLToolGetTest(t *testing.T) {
 
 func runAINLToolInvokeTest(t *testing.T) {
 	// Get ID token
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}

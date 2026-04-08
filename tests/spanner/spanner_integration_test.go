@@ -465,7 +465,7 @@ func addTemplateParamConfig(t *testing.T, config map[string]any) map[string]any 
 
 func runSpannerExecuteSqlToolInvokeTest(t *testing.T, select1Want, invokeParamWant, tableNameParam string) {
 	// Get ID token
-	idToken, err := tests.GetGoogleIdToken(tests.ClientId)
+	idToken, err := tests.GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}

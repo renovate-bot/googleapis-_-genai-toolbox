@@ -249,7 +249,7 @@ func RunToolInvokeTest(t *testing.T, select1Want string, options ...InvokeTestOp
 	}
 
 	// Get ID token
-	idToken, err := GetGoogleIdToken(ClientId)
+	idToken, err := GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -624,7 +624,7 @@ func RunExecuteSqlToolInvokeTest(t *testing.T, createTableStatement, select1Want
 	}
 
 	// Get ID token
-	idToken, err := GetGoogleIdToken(ClientId)
+	idToken, err := GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
@@ -819,7 +819,7 @@ func RunMCPToolCallMethod(t *testing.T, myFailToolWant, select1Want string, opti
 	}
 	accessToken = "Bearer " + accessToken
 
-	idToken, err := GetGoogleIdToken(ClientId)
+	idToken, err := GetGoogleIdToken(t)
 	if err != nil {
 		t.Fatalf("error getting Google ID token: %s", err)
 	}
