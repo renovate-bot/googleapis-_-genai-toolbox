@@ -20,6 +20,7 @@ entries.&lt;/li>
 Catalog.&lt;/li>
 &lt;li>&lt;code>search_aspect_types&lt;/code>: Finds aspect types relevant to the
 query.&lt;/li>
+&lt;li>&lt;code>lookup_context&lt;/code>: Retrieves rich metadata regarding one or more data assets along with their relationships.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul></description></item></channel></rss>

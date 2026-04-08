@@ -8256,7 +8256,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p>
 &lt;p>The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p>
 &lt;h2 id="compatible-sources">Compatible Sources&lt;/h2>
-&lt;h2 id="hahahugoshortcode350s0hbhb">
+&lt;h2 id="hahahugoshortcode351s0hbhb">
 
 
 
@@ -9781,7 +9781,7 @@ of the prepared statement.&lt;/p>
 
 
 &lt;div class="compatibility-section">
- &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://mcp-toolbox.dev/dev/integrations/bigquery/samples/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/bigquery/samples/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
+ &lt;p>This tool can be used with the following database sources:&lt;/p></description></item><item><title>Quickstart (Local with BigQuery)</title><link>https://mcp-toolbox.dev/dev/integrations/bigquery/samples/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/bigquery/samples/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
 Colab">&lt;/a>&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
@@ -15923,7 +15923,7 @@ for more information.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">required&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>FAQ</title><link>https://mcp-toolbox.dev/dev/reference/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/reference/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox">How can I deploy or run Toolbox?&lt;/h2>
 &lt;p>MCP Toolbox for Databases is open-source and can be run or deployed to a
-multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/genai-toolbox/releases/">compiled binaries and
+multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/mcp-toolbox/releases/">compiled binaries and
 docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;p>For detailed instructions, check out these resources:&lt;/p>
 &lt;ul>
@@ -15954,7 +15954,7 @@ your client ID or the intended audience for the token), the
 &lt;code>authorizationServer&lt;/code> of your identity provider, and optionally a list of
 &lt;code>scopesRequired&lt;/code> that must be present in the token&amp;rsquo;s claims.&lt;/p></description></item><item><title>Looker using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a>
 to expose your developer assistant tools to a Looker instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/#configure-your-mcp-client">Gemini-CLI&lt;/a>&lt;/li>
@@ -15978,7 +15978,7 @@ something like &lt;code>https://looker.example.com&lt;/code>. In some cases the 
 listening at a different port, and you will need to use
 &lt;code>https://looker.example.com:19999&lt;/code> instead.&lt;/p></description></item><item><title>MySQL using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/mysql_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/mysql_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like MySQL. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to
+like MySQL. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a> to
 expose your developer assistant tools to a MySQL instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mcp-toolbox.dev/dev/documentation/connect-to/ides/mysql_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
@@ -15997,12 +15997,12 @@ expose your developer assistant tools to a MySQL instance:&lt;/p>
 &lt;h2 id="install-mcp-toolbox">Install MCP Toolbox&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/genai-toolbox/releases">correct
+&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/mcp-toolbox/releases">correct
 binary&lt;/a> corresponding
 to your OS and CPU architecture. You are required to use Toolbox version
 V0.10.0+:&lt;/p></description></item><item><title>Neo4j using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/neo4j_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/neo4j_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like Neo4j. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to
+like Neo4j. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a> to
 expose your developer assistant tools to a Neo4j instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mcp-toolbox.dev/dev/documentation/connect-to/ides/neo4j_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
@@ -16022,12 +16022,12 @@ instance.&lt;/a>&lt;/li>
 &lt;h2 id="install-mcp-toolbox">Install MCP Toolbox&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/genai-toolbox/releases">correct
+&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/mcp-toolbox/releases">correct
 binary&lt;/a> corresponding
 to your OS and CPU architecture. You are required to use Toolbox version
 v0.15.0+:&lt;/p></description></item><item><title>Oracle using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/oracle_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/oracle_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like Oracle. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+like Oracle. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a>
 to expose your developer assistant tools to an Oracle instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mcp-toolbox.dev/dev/documentation/connect-to/ides/oracle_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
@@ -16047,7 +16047,7 @@ to expose your developer assistant tools to an Oracle instance:&lt;/p>
 &lt;li>
 &lt;p>Create or reuse a database user and have the username and password ready.&lt;/p></description></item><item><title>PostgreSQL using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/postgres_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/postgres_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a>
 to expose your developer assistant tools to a Postgres instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mcp-toolbox.dev/dev/documentation/connect-to/ides/postgres_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
@@ -16180,7 +16180,7 @@ to expose your developer assistant tools to a Postgres instance:&lt;/p>
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
 &lt;/svg>
 
- &lt;/span>Tip&lt;/p></description></item><item><title>Python Quickstart (Local)</title><link>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+ &lt;/span>Tip&lt;/p></description></item><item><title>Python Quickstart (Local)</title><link>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart/</guid><description>&lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
@@ -16393,7 +16393,7 @@ to execute with.&lt;/li>
  &lt;/body>
 &lt;/html></description></item><item><title>SQL Server using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/mssql_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/mssql_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like SQL Server. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for
+like SQL Server. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for
 Databases&lt;/a> to expose your developer assistant tools to a SQL Server
 instance:&lt;/p>
 &lt;ul>
@@ -16414,12 +16414,12 @@ instance.&lt;/a>&lt;/li>
 &lt;h2 id="install-mcp-toolbox">Install MCP Toolbox&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/genai-toolbox/releases">correct
+&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/mcp-toolbox/releases">correct
 binary&lt;/a> corresponding
 to your OS and CPU architecture. You are required to use Toolbox version
 V0.10.0+:&lt;/p></description></item><item><title>SQLite using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/sqlite_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/sqlite_mcp/</guid><description>&lt;p>&lt;a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP)&lt;/a> is
 an open protocol for connecting Large Language Models (LLMs) to data sources
-like SQLite. This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a>
+like SQLite. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a>
 to expose your developer assistant tools to a SQLite instance:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mcp-toolbox.dev/dev/documentation/connect-to/ides/sqlite_mcp/#configure-your-mcp-client">Cursor&lt;/a>&lt;/li>
@@ -16438,7 +16438,7 @@ to expose your developer assistant tools to a SQLite instance:&lt;/p>
 &lt;h2 id="install-mcp-toolbox">Install MCP Toolbox&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/genai-toolbox/releases">correct
+&lt;p>Download the latest version of Toolbox as a binary. Select the &lt;a href="https://github.com/googleapis/mcp-toolbox/releases">correct
 binary&lt;/a> corresponding
 to your OS and CPU architecture. You are required to use Toolbox version
 V0.10.0+:&lt;/p></description></item><item><title>Telemetry</title><link>https://mcp-toolbox.dev/dev/documentation/monitoring/telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/monitoring/telemetry/</guid><description>&lt;h2 id="about">About&lt;/h2>
@@ -16494,7 +16494,7 @@ discovery and exploration tasks.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-clickhouse-instance&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">List all available databases in the ClickHouse instance&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="output-format">Output Format&lt;/h2>
-&lt;p>The tool returns an array of objects, where each object contains:&lt;/p></description></item><item><title>Cloud SQL for PostgreSQL Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_pg_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_pg_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
+&lt;p>The tool returns an array of objects, where each object contains:&lt;/p></description></item><item><title>Cloud SQL for PostgreSQL Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_pg_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_pg_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
 developer assistant tools to create and manage Cloud SQL for PostgreSQL
 instance, database and users:&lt;/p>
 &lt;ul>
@@ -17045,7 +17045,7 @@ user, making it useful for schema exploration and table discovery tasks.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">source&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-clickhouse-instance&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">List all tables in a specific ClickHouse database&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="output-format">Output Format&lt;/h2>
-&lt;p>The tool returns an array of objects, where each object contains:&lt;/p></description></item><item><title>Cloud SQL for MySQL Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mysql_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mysql_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
+&lt;p>The tool returns an array of objects, where each object contains:&lt;/p></description></item><item><title>Cloud SQL for MySQL Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mysql_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mysql_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
 developer assistant tools to create and manage Cloud SQL for MySQL instance,
 database and users:&lt;/p>
 &lt;ul>
@@ -17375,7 +17375,7 @@ local development:&lt;/p>
 &lt;p>Toolbox supports integration with Model Context Protocol (MCP) clients by acting as a Resource Server that implements OAuth 2.1 authorization. This enables Toolbox to validate JWT-based Bearer tokens before processing requests for resources or tool executions.&lt;/p>
 &lt;p>This guide details the specific configuration steps required to deploy Toolbox with MCP Auth enabled.&lt;/p>
 &lt;h2 id="step-1-configure-the-generic-auth-service">Step 1: Configure the &lt;code>generic&lt;/code> Auth Service&lt;/h2>
-&lt;p>Update your &lt;code>tools.yaml&lt;/code> file to use a &lt;code>generic&lt;/code> authorization service with &lt;code>mcpEnabled&lt;/code> set to &lt;code>true&lt;/code>. This instructs Toolbox to intercept requests on the &lt;code>/mcp&lt;/code> routes and validate Bearer tokens using the JWKS (JSON Web Key Set) fetched from your OIDC provider endpoint (&lt;code>authorizationServer&lt;/code>).&lt;/p></description></item><item><title>Cloud SQL for SQL Server Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/genai-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
+&lt;p>Update your &lt;code>tools.yaml&lt;/code> file to use a &lt;code>generic&lt;/code> authorization service with &lt;code>mcpEnabled&lt;/code> set to &lt;code>true&lt;/code>. This instructs Toolbox to intercept requests on the &lt;code>/mcp&lt;/code> routes and validate Bearer tokens using the JWKS (JSON Web Key Set) fetched from your OIDC provider endpoint (&lt;code>authorizationServer&lt;/code>).&lt;/p></description></item><item><title>Cloud SQL for SQL Server Admin using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/cloud_sql_mssql_admin_mcp/</guid><description>&lt;p>This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP Toolbox for Databases&lt;/a> to expose your
 developer assistant tools to create and manage Cloud SQL for SQL Server
 instance, database and users:&lt;/p>
 &lt;ul>
@@ -18631,13 +18631,13 @@ It helps identify potential incompatibilities or issues before starting the actu
 &lt;/table></description></item><item><title>Getting started with alloydb-ai-nl tool</title><link>https://mcp-toolbox.dev/dev/integrations/alloydb/samples/ai-nl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/alloydb/samples/ai-nl/</guid><description>&lt;div class="notebook-markdown">
  
  
- &lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/alloydb/ai-nl/alloydb_ai_nl.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
+ &lt;p>&lt;a href="https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/samples/alloydb/ai-nl/alloydb_ai_nl.ipynb">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In
 Colab">&lt;/a>&lt;/p>
 &lt;h1 id="objective">Objective&lt;/h1>
-&lt;p>In this notebook, we will be using the &lt;a href="https://googleapis.github.io/genai-toolbox/resources/tools/alloydbainl/alloydb-ai-nl/">AlloyDB AI NL
+&lt;p>In this notebook, we will be using the &lt;a href="https://mcp-toolbox.dev/integrations/alloydb/tools/alloydb-ai-nl/">AlloyDB AI NL
 tool&lt;/a>
 to generate and execute SQL queries on AlloyDB databases. We will start by
-setting up an AlloyDB database and then connecting to it using &lt;a href="https://github.com/googleapis/genai-toolbox">MCP
+setting up an AlloyDB database and then connecting to it using &lt;a href="https://github.com/googleapis/mcp-toolbox">MCP
 Toolbox&lt;/a> and &lt;a href="https://google.github.io/adk-docs/">ADK&lt;/a>. This allows us to leverage AlloyDB
 NL to SQL capabilities in agentic applications.&lt;/p>
 &lt;p>For detailed information on the AlloyDB capability, please see &lt;a href="https://cloud.google.com/alloydb/docs/ai/natural-language-overview">AlloyDB AI
@@ -19523,6 +19523,7 @@ entries.&lt;/li>
 Catalog.&lt;/li>
 &lt;li>&lt;code>search_aspect_types&lt;/code>: Finds aspect types relevant to the
 query.&lt;/li>
+&lt;li>&lt;code>lookup_context&lt;/code>: Retrieves rich metadata regarding one or more data assets along with their relationships.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul></description></item><item><title>Dataproc</title><link>https://mcp-toolbox.dev/dev/integrations/dataproc/prebuilt-configs/dataproc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataproc/prebuilt-configs/dataproc/</guid><description>&lt;h2 id="dataproc">Dataproc&lt;/h2>

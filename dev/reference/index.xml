@@ -142,7 +142,7 @@
 &lt;summary>&lt;code>invoke&lt;/code>&lt;/summary>
 &lt;p>Executes a tool directly with the provided parameters. This is useful for testing tool configurations and parameters without needing a full client setup.&lt;/p></description></item><item><title>FAQ</title><link>https://mcp-toolbox.dev/dev/reference/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/reference/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox">How can I deploy or run Toolbox?&lt;/h2>
 &lt;p>MCP Toolbox for Databases is open-source and can be run or deployed to a
-multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/genai-toolbox/releases/">compiled binaries and
+multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/mcp-toolbox/releases/">compiled binaries and
 docker images&lt;/a> (but you can always compile yourself as well!).&lt;/p>
 &lt;p>For detailed instructions, check out these resources:&lt;/p>
 &lt;ul>

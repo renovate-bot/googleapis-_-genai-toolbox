@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-08T13:56:18Z
+**GENERATED ON:** 2026-04-08T21:41:27Z
 
 ---
 ### System Directives for AI Models
@@ -121,6 +121,11 @@ It serves a **dual purpose**:
 1. **Ready-to-use MCP Server (aka ['Build-Time'](/getting-started/#build-time)):** Instantly connect Gemini CLI, Google Antigravity, Claude Code, Codex, or other MCP clients to your databases using our *prebuilt generic tools*. Talk to your data, explore schemas, and generate code without writing boilerplate.
 2. **Custom Tools Framework (aka ['Run-Time'](/getting-started/#runtime)):** A robust framework to build specialized, highly secure AI tools for your production agents. Define structured queries, semantic search, and NL2SQL capabilities safely and easily.
 
+{{< notice tip >}}
+**Repository Name Update:** The GitHub repository for this project has been officially renamed from `genai-toolbox` to `mcp-toolbox`. We recommend updating your local Git remote URL for consistency:
+`git remote set-url origin https://github.com/googleapis/mcp-toolbox.git`
+{{< /notice >}}
+
 {{< notice note >}}
 This document has been updated to support the flat configuration file format. To
 view documentation with original configuration file format, please navigate to the
@@ -176,7 +181,7 @@ Add the following to your client's MCP configuration file (usually `mcp.json` or
 }
 ```
 
-Set the appropriate environment variables to connect, see the [Prebuilt Tools Reference](https://googleapis.github.io/genai-toolbox/reference/prebuilt-tools/).
+Set the appropriate environment variables to connect, see the [Prebuilt Tools Reference](https://mcp-toolbox.dev/documentation/configuration/prebuilt-configs/).
 
 When you run Toolbox with a `--prebuilt=<database>` flag, you instantly get access to standard tools to interact with that database. 
 
@@ -184,7 +189,7 @@ Supported databases currently include:
 - **Google Cloud:** AlloyDB, BigQuery, Cloud SQL (PostgreSQL, MySQL, SQL Server), Spanner, Firestore, Dataplex
 - **Other Databases:** PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Redis, Elasticsearch, CockroachDB, ClickHouse, Couchbase, Neo4j, Snowflake, Trino, and more.
 
-For a full list of available tools and their capabilities across all supported databases, see the [Prebuilt Tools Reference](https://googleapis.github.io/genai-toolbox/reference/prebuilt-tools/).
+For a full list of available tools and their capabilities across all supported databases, see the [Prebuilt Tools Reference](https://mcp-toolbox.dev/documentation/configuration/prebuilt-configs/).
 
 #### Custom Tools
 
@@ -203,7 +208,7 @@ This method is optimized for convenience rather than performance. For a more sta
 For the latest version, check the [releases page][releases] and use the
 following instructions for your OS and CPU architecture.
 
-[releases]: https://github.com/googleapis/genai-toolbox/releases
+[releases]: https://github.com/googleapis/mcp-toolbox/releases
 
 <!-- {x-release-please-start-version} -->
 {{< tabpane text=true >}}
@@ -215,7 +220,7 @@ To install Toolbox as a binary on Linux (AMD64):
 ```sh
 # see releases page for other versions
 export VERSION=0.31.0
-curl -L -o toolbox https://storage.googleapis.com/genai-toolbox/v$VERSION/linux/amd64/toolbox
+curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/linux/amd64/toolbox
 chmod +x toolbox
 ```
 
@@ -226,7 +231,7 @@ To install Toolbox as a binary on macOS (Apple Silicon):
 ```sh
 # see releases page for other versions
 export VERSION=0.31.0
-curl -L -o toolbox https://storage.googleapis.com/genai-toolbox/v$VERSION/darwin/arm64/toolbox
+curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/darwin/arm64/toolbox
 chmod +x toolbox
 ```
 
@@ -237,7 +242,7 @@ To install Toolbox as a binary on macOS (Intel):
 ```sh
 # see releases page for other versions
 export VERSION=0.31.0
-curl -L -o toolbox https://storage.googleapis.com/genai-toolbox/v$VERSION/darwin/amd64/toolbox
+curl -L -o toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/darwin/amd64/toolbox
 chmod +x toolbox
 ```
 
@@ -248,7 +253,7 @@ To install Toolbox as a binary on Windows (Command Prompt):
 ```cmd
 :: see releases page for other versions
 set VERSION=0.31.0
-curl -o toolbox.exe "https://storage.googleapis.com/genai-toolbox/v%VERSION%/windows/amd64/toolbox.exe"
+curl -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v%VERSION%/windows/amd64/toolbox.exe"
 ```
 
 {{% /tab %}}
@@ -258,7 +263,7 @@ To install Toolbox as a binary on Windows (PowerShell):
 ```powershell
 # see releases page for other versions
 $VERSION = "0.31.0"
-curl.exe -o toolbox.exe "https://storage.googleapis.com/genai-toolbox/v$VERSION/windows/amd64/toolbox.exe"
+curl.exe -o toolbox.exe "https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/windows/amd64/toolbox.exe"
 ```
 
 {{% /tab %}}
@@ -288,7 +293,7 @@ To install from source, ensure you have the latest version of
 [Go installed](https://go.dev/doc/install), and then run the following command:
 
 ```sh
-go install github.com/googleapis/genai-toolbox@v0.31.0
+go install github.com/googleapis/mcp-toolbox@v0.31.0
 ```
 
 {{% /tab %}}
@@ -845,7 +850,7 @@ For end-to-end samples on using the Toolbox Go SDK with ADK Go, see the [module'
 For more detailed instructions on using the Toolbox Go SDK, see the
 [README](https://github.com/googleapis/mcp-toolbox-sdk-go/blob/main/core/README.md).
 
-For more details, see the [Generate Agent Skills guide](https://googleapis.github.io/genai-toolbox/how-to/generate_skill/).
+For more details, see the [Agent Skills guide](https://mcp-toolbox.dev/documentation/configuration/skills/).
 
 
 
@@ -1032,13 +1037,13 @@ In this section, we will download Toolbox, configure our tools in a
 
     {{< notice tip >}}
   Select the
-  [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+  [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
   corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -1206,7 +1211,7 @@ In this section, we will download Toolbox, configure our tools in a
 
 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/getting-started/colab_quickstart.ipynb)
 
 ## Before you begin
 
@@ -4128,7 +4133,7 @@ To get started using Toolbox tools with an application, follow these general ste
 
     Before using the SDKs, you need the main MCP Toolbox service running. Follow
     the instructions here: [**Toolbox Getting Started
-    Guide**](https://github.com/googleapis/genai-toolbox?tab=readme-ov-file#getting-started)
+    Guide**](https://github.com/googleapis/mcp-toolbox?tab=readme-ov-file#getting-started)
 
 2. **Install the Appropriate SDK:**
 
@@ -4438,7 +4443,7 @@ toolset = ToolboxToolset(
 )
 ```
 
-Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://googleapis.github.io/genai-toolbox/sdks/python-sdk/core/#opentelemetry) for a full setup example.
+Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://mcp-toolbox.dev/documentation/connect-to/toolbox-sdks/python-sdk/core/#opentelemetry) for a full setup example.
 
 
 
@@ -5511,7 +5516,7 @@ with ToolboxClient("http://127.0.0.1:5000", telemetry_enabled=True) as toolbox:
     result = tool.invoke({"param": "value"})
 ```
 
-Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://googleapis.github.io/genai-toolbox/sdks/python-sdk/core/#opentelemetry) for a full setup example.
+Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://mcp-toolbox.dev/documentation/connect-to/toolbox-sdks/python-sdk/core/#opentelemetry) for a full setup example.
 
 
 
@@ -5968,7 +5973,7 @@ with ToolboxClient("http://127.0.0.1:5000", telemetry_enabled=True) as toolbox:
     result = tool(param="value")
 ```
 
-Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://googleapis.github.io/genai-toolbox/sdks/python-sdk/core/#opentelemetry) for a full setup example.
+Configure your OpenTelemetry `TracerProvider` and `MeterProvider` before creating the client. See the [toolbox-core OpenTelemetry documentation](https://mcp-toolbox.dev/documentation/connect-to/toolbox-sdks/python-sdk/core/#opentelemetry) for a full setup example.
 
 
 
@@ -6025,7 +6030,7 @@ To get started using Toolbox tools with an application, follow these general ste
 
     Before using the SDKs, you need the main MCP Toolbox service running. Follow
     the instructions here: [**Toolbox Getting Started
-    Guide**](https://github.com/googleapis/genai-toolbox?tab=readme-ov-file#getting-started)
+    Guide**](https://github.com/googleapis/mcp-toolbox?tab=readme-ov-file#getting-started)
 
 2. **Install the Appropriate SDK:**
 
@@ -7106,7 +7111,7 @@ To get started using Toolbox tools with an application, follow these general ste
 
     Before using the SDKs, you need the MCP Toolbox server running. Follow
     the instructions here: [**Toolbox Getting Started
-    Guide**](https://github.com/googleapis/genai-toolbox?tab=readme-ov-file#getting-started)
+    Guide**](https://github.com/googleapis/mcp-toolbox?tab=readme-ov-file#getting-started)
 
 2. **Install the Appropriate SDK:**
 
@@ -8922,7 +8927,7 @@ within your Java applications or AI orchestration frameworks.
 ## Getting Started
 
 First make sure MCP Toolbox Server is set up and is running (either locally or deployed on Cloud Run). Follow the instructions here: [**MCP Toolbox Getting Started
-    Guide**](https://googleapis.github.io/genai-toolbox/getting-started/introduction/#getting-started)
+    Guide**](https://mcp-toolbox.dev/documentation/introduction/#getting-started)
 
 ## Installation
 
@@ -9189,11 +9194,11 @@ Authentication is configured per-tool within the MCP Toolbox service itself. If 
 
 ### Supported Authentication Mechanisms
 
-The MCP Toolbox service enables secure tool usage through Authenticated Parameters. For detailed information on how these mechanisms work within the MCP Toolbox service and how to configure them, please refer to [MCP Toolbox Service Documentation \- Authenticated Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters)
+The MCP Toolbox service enables secure tool usage through Authenticated Parameters. For detailed information on how these mechanisms work within the MCP Toolbox service and how to configure them, please refer to [MCP Toolbox Service Documentation \- Authenticated Parameters](https://mcp-toolbox.dev/documentation/configuration/tools/#authenticated-parameters)
 
 ### Step 1: Configure Tools in MCP Toolbox Service
 
-First, ensure the target tool(s) are configured correctly in the MCP Toolbox service to require authentication. Refer to the [MCP Toolbox Service Documentation \- Authenticated Parameters](https://googleapis.github.io/genai-toolbox/resources/tools/#authenticated-parameters) for instructions.
+First, ensure the target tool(s) are configured correctly in the MCP Toolbox service to require authentication. Refer to the [MCP Toolbox Service Documentation \- Authenticated Parameters](https://mcp-toolbox.dev/documentation/configuration/tools/#authenticated-parameters) for instructions.
 
 ### Step 2: Configure SDK Client
 
@@ -9592,7 +9597,7 @@ to expose your developer assistant tools to a Looker instance:
 * [Claude code][claudecode]
 * [Antigravity][antigravity]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [gemini-cli]: #configure-your-mcp-client
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
@@ -9673,7 +9678,7 @@ After you install Looker in the MCP Store, resources and tools from the server a
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    v0.10.0+:
 
@@ -9681,19 +9686,19 @@ After you install Looker in the MCP Store, resources and tools from the server a
 
 {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -10155,7 +10160,7 @@ expose your developer assistant tools to a MySQL instance:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -10172,26 +10177,26 @@ expose your developer assistant tools to a MySQL instance:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.10.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -10480,7 +10485,7 @@ expose your developer assistant tools to a Neo4j instance:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -10498,26 +10503,26 @@ expose your developer assistant tools to a Neo4j instance:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    v0.15.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -10802,7 +10807,7 @@ to expose your developer assistant tools to an Oracle instance:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -10821,26 +10826,26 @@ to expose your developer assistant tools to an Oracle instance:
 ## Install MCP Toolbox
 
 3. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.26.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -11137,7 +11142,7 @@ to expose your developer assistant tools to a Postgres instance:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -11166,26 +11171,26 @@ Omni](https://cloud.google.com/alloydb/omni/docs/overview).
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.6.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -11501,7 +11506,7 @@ instance:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -11519,26 +11524,26 @@ instance:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.10.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -11828,7 +11833,7 @@ to expose your developer assistant tools to a SQLite instance:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -11845,26 +11850,26 @@ to expose your developer assistant tools to a SQLite instance:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.10.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.31.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.31.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -12121,7 +12126,7 @@ instance, database and users:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -12161,26 +12166,26 @@ instance, database and users:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.15.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -12436,7 +12441,7 @@ database and users:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -12476,26 +12481,26 @@ database and users:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.15.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -12751,7 +12756,7 @@ instance, database and users:
 * [Gemini CLI][geminicli]
 * [Gemini Code Assist][geminicodeassist]
 
-[toolbox]: https://github.com/googleapis/genai-toolbox
+[toolbox]: https://github.com/googleapis/mcp-toolbox
 [cursor]: #configure-your-mcp-client
 [windsurf]: #configure-your-mcp-client
 [vscode]: #configure-your-mcp-client
@@ -12791,26 +12796,26 @@ instance, database and users:
 ## Install MCP Toolbox
 
 1. Download the latest version of Toolbox as a binary. Select the [correct
-   binary](https://github.com/googleapis/genai-toolbox/releases) corresponding
+   binary](https://github.com/googleapis/mcp-toolbox/releases) corresponding
    to your OS and CPU architecture. You are required to use Toolbox version
    V0.15.0+:
 
    <!-- {x-release-please-start-version} -->
    {{< tabpane persist=header >}}
 {{< tab header="linux/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/linux/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/linux/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/arm64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/darwin/arm64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/darwin/arm64/toolbox
 {{< /tab >}}
 
 {{< tab header="darwin/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/darwin/amd64/toolbox
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/darwin/amd64/toolbox
 {{< /tab >}}
 
 {{< tab header="windows/amd64" lang="bash" >}}
-curl -O https://storage.googleapis.com/genai-toolbox/v0.15.0/windows/amd64/toolbox.exe
+curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.15.0/windows/amd64/toolbox.exe
 {{< /tab >}}
 {{< /tabpane >}}
     <!-- {x-release-please-end} -->
@@ -13378,7 +13383,7 @@ contain the specific error message needed to diagnose the problem.
 
 Create a `tools.yaml` file that contains your configuration for Toolbox. For
 details, see the
-[configuration](https://github.com/googleapis/genai-toolbox/blob/main/README.md#configuration)
+[configuration](https://github.com/googleapis/mcp-toolbox/blob/main/README.md#configuration)
 section.
 
 ## Deploy using Docker Compose
@@ -15431,14 +15436,14 @@ In this section, we will download and install the Toolbox binary.
 
     {{< notice tip >}}
    Select the
-   [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+   [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
    corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
     export VERSION="0.30.0"
-    curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -15826,7 +15831,7 @@ avoiding full table scans or complex filters.
 ### Pre-built Configurations
 
 - [BigQuery using
-  MCP](https://googleapis.github.io/genai-toolbox/how-to/connect-ide/bigquery_mcp/)
+  MCP](https://mcp-toolbox.dev/documentation/connect-to/ides/bigquery_mcp/)
   Connect your IDE to BigQuery using Toolbox.
 
 ## Requirements
@@ -16711,7 +16716,7 @@ templateParameters:
 
 
 [![Open In
-Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/genai-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb)
+Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googleapis/mcp-toolbox/blob/main/docs/en/samples/bigquery/colab_quickstart_bigquery.ipynb)
 
 ## Before you begin
 
@@ -16876,13 +16881,13 @@ to use BigQuery, and then run the Toolbox server.
 
     {{< notice tip >}}
  Select the
- [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+ [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
  corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.30.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.30.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -17521,13 +17526,13 @@ In this section, we will download Toolbox, configure our tools in a
 
     {{< notice tip >}}
    Select the
-   [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+   [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
    corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.30.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.30.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -20998,7 +21003,7 @@ to a database by following these instructions][csql-mysql-quickstart].
 ### Pre-built Configurations
 
 - [Cloud SQL for MySQL using
-  MCP](https://googleapis.github.io/genai-toolbox/how-to/connect-ide/cloud_sql_mysql_mcp/)
+  MCP](https://mcp-toolbox.dev/documentation/connect-to/ides/cloud_sql_mysql_mcp/)
   Connect your IDE to Cloud SQL for MySQL using Toolbox.
 
 ## Requirements
@@ -21213,7 +21218,7 @@ to a database by following these instructions][csql-pg-quickstart].
 ### Pre-built Configurations
 
 - [Cloud SQL for Postgres using
-  MCP](https://googleapis.github.io/genai-toolbox/how-to/connect-ide/cloud_sql_pg_mcp/)
+  MCP](https://mcp-toolbox.dev/documentation/connect-to/ides/cloud_sql_pg_mcp/)
 Connect your IDE to Cloud SQL for Postgres using Toolbox.
 
 ## Requirements
@@ -24107,6 +24112,7 @@ description: Use this tool to get all the entries based on the provided query.
         Catalog.
     *   `search_aspect_types`: Finds aspect types relevant to the
         query.
+    *   `lookup_context`: Retrieves rich metadata regarding one or more data assets along with their relationships.
 
 
 
@@ -31008,13 +31014,13 @@ In this section, we will download Toolbox and run the Toolbox server.
 
     {{< notice tip >}}
    Select the
-   [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+   [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
    corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.30.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.30.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -31140,13 +31146,13 @@ In this section, we will download Toolbox and run the Toolbox server.
 
     {{< notice tip >}}
    Select the
-   [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+   [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
    corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.30.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.30.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -31263,13 +31269,13 @@ In this section, we will download Toolbox and run the Toolbox server.
 
     {{< notice tip >}}
    Select the
-   [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+   [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
    corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-    curl -O https://storage.googleapis.com/genai-toolbox/v0.30.0/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v0.30.0/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -33750,7 +33756,7 @@ The simplest way to get started is to download the latest binary for your operat
 
 ```bash
 export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
-curl -O [https://storage.googleapis.com/genai-toolbox/v0.16.0/$OS/toolbox](https://storage.googleapis.com/genai-toolbox/v0.16.0/$OS/toolbox)
+curl -O [https://storage.googleapis.com/mcp-toolbox-for-databases/v0.16.0/$OS/toolbox](https://storage.googleapis.com/mcp-toolbox-for-databases/v0.16.0/$OS/toolbox)
 ```
 
   + 
@@ -38132,14 +38138,14 @@ In this section, we will download and install the Toolbox binary.
 
     {{< notice tip >}}
    Select the
-   [correct binary](https://github.com/googleapis/genai-toolbox/releases)
+   [correct binary](https://github.com/googleapis/mcp-toolbox/releases)
    corresponding to your OS and CPU architecture.
     {{< /notice >}}
     <!-- {x-release-please-start-version} -->
     ```bash
     export OS="linux/amd64" # one of linux/amd64, darwin/arm64, darwin/amd64, or windows/amd64
     export VERSION="0.10.0"
-    curl -O https://storage.googleapis.com/genai-toolbox/v$VERSION/$OS/toolbox
+    curl -O https://storage.googleapis.com/mcp-toolbox-for-databases/v$VERSION/$OS/toolbox
     ```
     <!-- {x-release-please-end} -->
 
@@ -41356,7 +41362,7 @@ For detailed instructions, check out these resources:
 - [Quickstart: How to Run Locally](../documentation/getting-started/local_quickstart.md)
 - [Deploy to Cloud Run](../documentation/deploy-to/cloud-run/_index.md)
 
-[release-notes]: https://github.com/googleapis/genai-toolbox/releases/
+[release-notes]: https://github.com/googleapis/mcp-toolbox/releases/
 
 ## Do I need a Google Cloud account/project to get started with Toolbox?
 
@@ -41370,8 +41376,8 @@ Absolutely! Please check out our [DEVELOPER.md][] for instructions on how to get
 started developing _on_ Toolbox instead of with it, and the [CONTRIBUTING.md][]
 for instructions on completing the CLA and getting a PR accepted.
 
-[DEVELOPER.md]: https://github.com/googleapis/genai-toolbox/blob/main/DEVELOPER.md
-[CONTRIBUTING.MD]: https://github.com/googleapis/genai-toolbox/blob/main/CONTRIBUTING.md
+[DEVELOPER.md]: https://github.com/googleapis/mcp-toolbox/blob/main/DEVELOPER.md
+[CONTRIBUTING.MD]: https://github.com/googleapis/mcp-toolbox/blob/main/CONTRIBUTING.md
 
 ## Can Toolbox support a feature to let me do _$FOO_?
 
@@ -41380,7 +41386,7 @@ discussion (or seeing if there is already one open), so we can better understand
 your use case and the best way to solve it. Generally we aim to prioritize the
 most popular issues, so make sure to +1 ones you are the most interested in.
 
-[github-issue]: https://github.com/googleapis/genai-toolbox/issues
+[github-issue]: https://github.com/googleapis/mcp-toolbox/issues
 
 ## Can Toolbox be used for non-database tools?
 
