@@ -33,8 +33,8 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/google/uuid"
-	"github.com/googleapis/genai-toolbox/internal/server/mcp/jsonrpc"
-	"github.com/googleapis/genai-toolbox/internal/sources"
+	"github.com/googleapis/mcp-toolbox/internal/server/mcp/jsonrpc"
+	"github.com/googleapis/mcp-toolbox/internal/sources"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
@@ -1417,7 +1417,7 @@ func RunPostgresListSchemasTest(t *testing.T, ctx context.Context, pool *pgxpool
 			wantStatusCode: http.StatusOK,
 			want:           []map[string]any{wantSchema},
 		},
-		// TODO: Re-enable this test case after this issue is fixed: https://github.com/googleapis/genai-toolbox/issues/2562
+		// TODO: Re-enable this test case after this issue is fixed: https://github.com/googleapis/mcp-toolbox/issues/2562
 		// {
 		// 	name:           "invoke list_schemas with owner name",
 		// 	requestBody:    bytes.NewBuffer([]byte(fmt.Sprintf(`{"owner": "%s"}`, owner))),
