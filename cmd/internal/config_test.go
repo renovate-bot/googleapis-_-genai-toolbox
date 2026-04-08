@@ -531,19 +531,30 @@ tools:
 `,
 		},
 		{
-			desc: "invalid source",
-			in:   `sources: invalid`,
-			want: "",
+			desc:   "invalid source",
+			in:     `sources: invalid`,
+			isErr:  true,
+			errStr: `doc 1: invalid config format at key "sources": expected map`,
 		},
 		{
-			desc: "invalid toolset",
-			in:   `toolsets: invalid`,
-			want: "",
+			desc:   "invalid toolset",
+			in:     `toolsets: invalid`,
+			isErr:  true,
+			errStr: `doc 1: invalid config format at key "toolsets": expected map`,
 		},
 	}
 	for _, tc := range tcs {
 		t.Run(tc.desc, func(t *testing.T) {
 			output, err := ConvertConfig([]byte(tc.in))
+			if tc.isErr {
+				if err == nil {
+					t.Fatalf("expected error")
+				}
+				if tc.errStr != "" && err.Error() != tc.errStr {
+					t.Fatalf("incorrect error string: got %s, want %s", err, tc.errStr)
+				}
+				return
+			}
 			if err != nil {
 				t.Fatalf("unexpected error: %s", err)
 			}
