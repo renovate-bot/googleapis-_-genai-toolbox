@@ -8291,7 +8291,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p&gt;
 &lt;p&gt;The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
-&lt;h2 id="hahahugoshortcode306s0hbhb"&gt;
+&lt;h2 id="hahahugoshortcode506s0hbhb"&gt;
 
 
 
@@ -11840,6 +11840,10 @@ for more information.&lt;/p&gt;
  
  
  
+ 
+ 
+ 
+ 
 
 
 
@@ -11861,6 +11865,12 @@ for more information.&lt;/p&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-esql/"&gt;&lt;strong&gt;elasticsearch-esql&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
  &lt;td&gt;Execute ES|QL queries.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-execute-esql/"&gt;&lt;strong&gt;elasticsearch-execute-esql&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Execute arbitrary ES|QL statements.
 &lt;/td&gt;
  &lt;/tr&gt;
  
@@ -15302,8 +15312,8 @@ tool in your &lt;code&gt;tools.yaml&lt;/code&gt; file:&lt;/p&gt;</description></
 &lt;p&gt;Execute ES|QL queries.&lt;/p&gt;
 &lt;p&gt;This tool allows you to execute ES|QL queries against your Elasticsearch
 cluster. You can use this to perform complex searches and aggregations.&lt;/p&gt;
-&lt;p&gt;See the &lt;a href="https://www.elastic.co/docs/reference/query-languages/esql/esql-getting-started"&gt;official
-documentation&lt;/a&gt;
+&lt;p&gt;See the
+&lt;a href="https://www.elastic.co/docs/reference/query-languages/esql/esql-getting-started"&gt;official documentation&lt;/a&gt;
 for more information.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
 
@@ -15336,11 +15346,26 @@ for more information.&lt;/p&gt;
  &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;h2 id="parameters"&gt;Parameters&lt;/h2&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;tool&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;query_my_index&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;elasticsearch-esql&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;elasticsearch-source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Use this tool to execute ES|QL queries.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;query&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="sd"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; FROM my-index
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; | KEEP *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; | LIMIT ?limit&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;parameters&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;limit&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;integer&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Limit the number of results.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;required&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="reference"&gt;Reference&lt;/h2&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
- &lt;th&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;field&lt;/strong&gt;&lt;/th&gt;
  &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
  &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
  &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
@@ -15357,7 +15382,7 @@ for more information.&lt;/p&gt;
  &lt;td&gt;format&lt;/td&gt;
  &lt;td style="text-align: center"&gt;string&lt;/td&gt;
  &lt;td style="text-align: center"&gt;false&lt;/td&gt;
- &lt;td&gt;The format of the query. Default is json. Valid values are csv, json, tsv, txt, yaml, cbor, smile, or arrow.&lt;/td&gt;
+ &lt;td&gt;The format of the query. Default is json. Valid values are &lt;code&gt;csv&lt;/code&gt;, &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;tsv&lt;/code&gt;, &lt;code&gt;txt&lt;/code&gt;, &lt;code&gt;yaml&lt;/code&gt;, &lt;code&gt;cbor&lt;/code&gt;, &lt;code&gt;smile&lt;/code&gt;, or &lt;code&gt;arrow&lt;/code&gt;.&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;timeout&lt;/td&gt;
@@ -15367,28 +15392,12 @@ for more information.&lt;/p&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;parameters&lt;/td&gt;
- &lt;td style="text-align: center"&gt;&lt;a href="https://mcp-toolbox.dev/dev/documentation/configuration/tools/#specifying-parameters"&gt;parameters&lt;/a&gt;&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/#specifying-parameters"&gt;parameters&lt;/a&gt;&lt;/td&gt;
  &lt;td style="text-align: center"&gt;false&lt;/td&gt;
- &lt;td&gt;List of &lt;a href="https://mcp-toolbox.dev/dev/documentation/configuration/tools/#specifying-parameters"&gt;parameters&lt;/a&gt; that will be used with the ES|QL query.&lt;br/&gt;Only supports “string”, “integer”, “float”, “boolean”.&lt;/td&gt;
+ &lt;td&gt;List of &lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/#specifying-parameters"&gt;parameters&lt;/a&gt; that will be used with the ES|QL query.&lt;br/&gt;Only supports “string”, “integer”, “float”, “boolean”.&lt;/td&gt;
  &lt;/tr&gt;
  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="example"&gt;Example&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;tool&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;query_my_index&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;elasticsearch-esql&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;elasticsearch-source&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Use this tool to execute ES|QL queries.&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;query&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="sd"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; FROM my-index
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; | KEEP *
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; | LIMIT ?limit&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;parameters&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;limit&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;integer&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Limit the number of results.&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;required&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>FAQ</title><link>https://mcp-toolbox.dev/dev/reference/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/reference/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox"&gt;How can I deploy or run Toolbox?&lt;/h2&gt;
+&lt;/table&gt;</description></item><item><title>FAQ</title><link>https://mcp-toolbox.dev/dev/reference/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/reference/faq/</guid><description>&lt;h2 id="how-can-i-deploy-or-run-toolbox"&gt;How can I deploy or run Toolbox?&lt;/h2&gt;
 &lt;p&gt;MCP Toolbox for Databases is open-source and can be run or deployed to a
 multitude of environments. For convenience, we release &lt;a href="https://github.com/googleapis/mcp-toolbox/releases/"&gt;compiled binaries and
 docker images&lt;/a&gt; (but you can always compile yourself as well!).&lt;/p&gt;
@@ -15983,7 +15992,108 @@ select or create a Google Cloud project.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project"&gt;Make sure that billing is enabled for your Google Cloud
-project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>JS Quickstart (Local)</title><link>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_js/</guid><description>&lt;h2 id="before-you-begin"&gt;Before you begin&lt;/h2&gt;
+project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>elasticsearch-execute-esql</title><link>https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-execute-esql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-execute-esql/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;Execute arbitrary ES|QL statements.&lt;/p&gt;
+&lt;p&gt;This tool allows you to execute arbitrary ES|QL statements against your
+Elasticsearch cluster at runtime. This is useful for ad-hoc queries where the
+statement is not known beforehand.&lt;/p&gt;
+&lt;p&gt;See the
+&lt;a href="https://www.elastic.co/docs/reference/query-languages/esql/esql-getting-started"&gt;official documentation&lt;/a&gt;
+for more information.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/source/"&gt;Elasticsearch Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="parameters"&gt;Parameters&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;query&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;The ES&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;tool&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;execute_ad_hoc_esql&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;elasticsearch-execute-esql&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;elasticsearch-source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Use this tool to execute arbitrary ES|QL statements.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;format&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;json&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="reference"&gt;Reference&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;&lt;strong&gt;field&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;type&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Must be &amp;ldquo;elasticsearch-execute-esql&amp;rdquo;.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;source&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Name of the source the ES&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;description&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Description of the tool that is passed to the LLM.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;format&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;false&lt;/td&gt;
+ &lt;td&gt;The format of the query. Default is json. Valid values are &lt;code&gt;csv&lt;/code&gt;, &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;tsv&lt;/code&gt;, &lt;code&gt;txt&lt;/code&gt;, &lt;code&gt;yaml&lt;/code&gt;, &lt;code&gt;cbor&lt;/code&gt;, &lt;code&gt;smile&lt;/code&gt;, or &lt;code&gt;arrow&lt;/code&gt;.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>JS Quickstart (Local)</title><link>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_js/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_js/</guid><description>&lt;h2 id="before-you-begin"&gt;Before you begin&lt;/h2&gt;
 &lt;p&gt;This guide assumes you have already done the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Installed &lt;a href="https://nodejs.org/"&gt;Node.js (v18 or higher)&lt;/a&gt;.&lt;/li&gt;

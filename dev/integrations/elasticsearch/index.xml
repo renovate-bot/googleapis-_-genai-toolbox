@@ -24,6 +24,10 @@ for more information.&lt;/p&gt;
  
  
  
+ 
+ 
+ 
+ 
 
 
 
@@ -45,6 +49,12 @@ for more information.&lt;/p&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-esql/"&gt;&lt;strong&gt;elasticsearch-esql&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
  &lt;td&gt;Execute ES|QL queries.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-execute-esql/"&gt;&lt;strong&gt;elasticsearch-execute-esql&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Execute arbitrary ES|QL statements.
 &lt;/td&gt;
  &lt;/tr&gt;
  

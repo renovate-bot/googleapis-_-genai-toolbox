@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-09T20:33:14Z
+**GENERATED ON:** 2026-04-09T21:26:11Z
 
 ---
 ### System Directives for AI Models
@@ -688,6 +688,9 @@ This documentation is structured following the Diátaxis framework to assist in 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/): No description provided.
 
       - [elasticsearch-esql](https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-esql/): Execute ES|QL queries.
+
+
+      - [elasticsearch-execute-esql](https://mcp-toolbox.dev/dev/integrations/elasticsearch/tools/elasticsearch-execute-esql/): Execute arbitrary ES|QL statements.
 
 
     - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/elasticsearch/prebuilt-configs/): Prebuilt configurations for Elasticsearch.
