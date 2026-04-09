@@ -714,7 +714,7 @@ ADK</button></li></ul><div class=tab-content id=tabs-5-content><div class="tab-p
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>async</span> <span class=kd>function</span> <span class=nx>main</span><span class=p>()</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>model</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ChatGoogleGenerativeAI</span><span class=p>({</span>
-</span></span><span class=line><span class=cl>    <span class=nx>model</span><span class=o>:</span> <span class=s2>&#34;gemini-2.0-flash&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>model</span><span class=o>:</span> <span class=s2>&#34;gemini-2.5-flash&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>  <span class=p>});</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>client</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ToolboxClient</span><span class=p>(</span><span class=s2>&#34;http://127.0.0.1:5000&#34;</span><span class=p>);</span>
@@ -791,7 +791,7 @@ ADK</button></li></ul><div class=tab-content id=tabs-5-content><div class="tab-p
 </span></span><span class=line><span class=cl>        <span class=nx>apiKey</span><span class=o>:</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>GEMINI_API_KEY</span> <span class=o>||</span> <span class=nx>GOOGLE_API_KEY</span>
 </span></span><span class=line><span class=cl>      <span class=p>})</span>
 </span></span><span class=line><span class=cl>    <span class=p>],</span>
-</span></span><span class=line><span class=cl>    <span class=nx>model</span><span class=o>:</span> <span class=nx>googleAI</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s1>&#39;gemini-2.0-flash&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nx>model</span><span class=o>:</span> <span class=nx>googleAI</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s1>&#39;gemini-2.5-flash&#39;</span><span class=p>),</span>
 </span></span><span class=line><span class=cl>  <span class=p>});</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>toolboxTools</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>toolboxClient</span><span class=p>.</span><span class=nx>loadToolset</span><span class=p>(</span><span class=s2>&#34;my-toolset&#34;</span><span class=p>);</span>
@@ -887,7 +887,7 @@ ADK</button></li></ul><div class=tab-content id=tabs-5-content><div class="tab-p
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=c1>// Initialize LLM
 </span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=nx>llm</span> <span class=o>=</span> <span class=nx>gemini</span><span class=p>({</span>
-</span></span><span class=line><span class=cl>    <span class=nx>model</span><span class=o>:</span> <span class=nx>GEMINI_MODEL</span><span class=p>.</span><span class=nx>GEMINI_2_0_FLASH</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>model</span><span class=o>:</span> <span class=nx>GEMINI_MODEL</span><span class=p>.</span><span class=nx>GEMINI_2_5_FLASH_LATEST</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>    <span class=nx>apiKey</span><span class=o>:</span> <span class=nx>GOOGLE_API_KEY</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>  <span class=p>});</span>
 </span></span><span class=line><span class=cl>
