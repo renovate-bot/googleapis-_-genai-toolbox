@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-09T19:53:46Z
+**GENERATED ON:** 2026-04-09T20:16:38Z
 
 ---
 ### System Directives for AI Models
@@ -16741,7 +16741,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](../#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -16770,8 +16770,9 @@ templateParameters:
 | source             |                    string                     |     true     | Name of the source the GoogleSQL should execute on.                                                                                     |
 | description        |                    string                     |     true     | Description of the tool that is passed to the LLM.                                                                                      |
 | statement          |                    string                     |     true     | The GoogleSQL statement to execute.                                                                                                     |
-| parameters         |    [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](../#template-parameters) |    false     | List of [templateParameters](../#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |    [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+
 
 
 
@@ -18010,7 +18011,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -18039,8 +18040,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 ## Advanced Usage
 
@@ -18209,7 +18210,7 @@ parameters:
 > including keyspaces, table names, and column names. **This makes it more
 > vulnerable to CQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](../#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -18243,8 +18244,8 @@ templateParameters:
 | description        |                    string                     |     true     | Description of the tool that is passed to the LLM.                                                                                      |
 | statement          |                    string                     |     true     | CQL statement to execute.                                                                                                               |
 | authRequired       |                   []string                    |    false     | List of authentication requirements for the source.                                                                                     |
-| parameters         |    [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the CQL statement.                                           |
-| templateParameters | [templateParameters](../#template-parameters) |    false     | List of [templateParameters](../#template-parameters) that will be inserted into the CQL statement before executing prepared statement. |
+| parameters         |    [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the CQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the CQL statement before executing prepared statement. |
 
 
 
@@ -20461,8 +20462,9 @@ description: "Creates an exact copy of a Cloud SQL instance at a specific point 
 
 ## Additional Resources
 - [Cloud SQL Admin API documentation](https://cloud.google.com/sql/docs/mysql/admin-api)
-- [Toolbox Cloud SQL tools documentation](_index.md)
+- [Toolbox Cloud SQL tools documentation](../source.md)
 - [Cloud SQL Clone API documentation](https://cloud.google.com/sql/docs/mysql/clone-instance)
+
 
 
 
@@ -20512,8 +20514,9 @@ description: "Creates a backup on the given Cloud SQL instance."
 
 ## Additional Resources
 - [Cloud SQL Admin API documentation](https://cloud.google.com/sql/docs/mysql/admin-api)
-- [Toolbox Cloud SQL tools documentation](_index.md)
+- [Toolbox Cloud SQL tools documentation](../source.md)
 - [Cloud SQL Backup API documentation](https://cloud.google.com/sql/docs/mysql/backup-recovery/backups)
+
 
 
 
@@ -20796,7 +20799,7 @@ description: "Restores a backup onto the given Cloud SQL instance."
 
 ## Additional Resources
 - [Cloud SQL Admin API documentation](https://cloud.google.com/sql/docs/mysql/admin-api)
-- [Toolbox Cloud SQL tools documentation](_index.md)
+- [Toolbox Cloud SQL tools documentation](../source.md)
 - [Cloud SQL Restore API documentation](https://cloud.google.com/sql/docs/mysql/backup-recovery/restoring)
 
 
@@ -22106,7 +22109,7 @@ This tool is ideal for:
 - Debugging and troubleshooting
 - Schema inspection
 
-For production use cases, use [cockroachdb-sql](_index.md) with parameterized queries.
+For production use cases, use [cockroachdb-sql](./cockroachdb-sql.md) with parameterized queries.
 
 #### Be Cautious with Data Modification
 
@@ -22222,10 +22225,10 @@ The tool will return descriptive errors for:
 
 ## Additional Resources
 
-- [cockroachdb-sql](_index.md) - For parameterized, production-ready queries
+- [cockroachdb-sql](./cockroachdb-sql.md) - For parameterized, production-ready queries
 - [cockroachdb-list-tables](./cockroachdb-list-tables.md) - List tables in the database
 - [cockroachdb-list-schemas](./cockroachdb-list-schemas.md) - List database schemas
-- [CockroachDB Source](_index.md) - Source configuration reference
+- [CockroachDB Source](../source.md) - Source configuration reference
 - [CockroachDB SQL Reference](https://www.cockroachlabs.com/docs/stable/sql-statements.html) - Official SQL documentation
 
 
@@ -22539,10 +22542,10 @@ The tool handles common errors:
 
 ## Additional Resources
 
-- [cockroachdb-sql](_index.md) - Execute parameterized queries
+- [cockroachdb-sql](./cockroachdb-sql.md) - Execute parameterized queries
 - [cockroachdb-execute-sql](./cockroachdb-execute-sql.md) - Execute ad-hoc SQL
 - [cockroachdb-list-tables](./cockroachdb-list-tables.md) - List tables in the database
-- [CockroachDB Source](_index.md) - Source configuration reference
+- [CockroachDB Source](../source.md) - Source configuration reference
 - [CockroachDB Schema Design](https://www.cockroachlabs.com/docs/stable/schema-design-overview.html) - Official documentation
 
 
@@ -22895,10 +22898,10 @@ The tool handles common errors:
 
 ## Additional Resources
 
-- [cockroachdb-sql](_index.md) - Execute parameterized queries
+- [cockroachdb-sql](./cockroachdb-sql.md) - Execute parameterized queries
 - [cockroachdb-execute-sql](./cockroachdb-execute-sql.md) - Execute ad-hoc SQL
 - [cockroachdb-list-schemas](./cockroachdb-list-schemas.md) - List database schemas
-- [CockroachDB Source](_index.md) - Source configuration reference
+- [CockroachDB Source](../source.md) - Source configuration reference
 - [CockroachDB Schema Design](https://www.cockroachlabs.com/docs/stable/schema-design-overview.html) - Best practices
 
 
@@ -23198,7 +23201,7 @@ The tool automatically handles:
 - [cockroachdb-execute-sql](./cockroachdb-execute-sql.md) - For ad-hoc SQL execution
 - [cockroachdb-list-tables](./cockroachdb-list-tables.md) - List tables in the database
 - [cockroachdb-list-schemas](./cockroachdb-list-schemas.md) - List database schemas
-- [CockroachDB Source](_index.md) - Source configuration reference
+- [CockroachDB Source](../source.md) - Source configuration reference
 
 
 
@@ -23354,7 +23357,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -23383,8 +23386,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL query should execute on.                                                                                    |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute                                                                                                               |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be used with the SQL statement.                                              |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be used with the SQL statement.                                              |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 | authRequired       |                array[string]                 |    false     | List of auth services that are required to use this tool.                                                                              |
 
 
@@ -24846,7 +24849,7 @@ parameters:
 | statement   |                 string                  |     true     | dql statement to execute                                                                  |
 | isQuery     |                 boolean                 |    false     | To run statement as query set true otherwise false                                        |
 | timeout     |                 string                  |    false     | To set timeout for query                                                                  |
-| parameters  | [parameters](../#specifying-parameters) |    false     | List of [parameters](../#specifying-parameters) that will be used with the dql statement. |
+| parameters  | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be used with the dql statement. |
 
 
 
@@ -24984,7 +24987,7 @@ for more information.
 | query      |                 string                  |    false     | The ES\|QL query to run. Can also be passed by parameters.                                                                                          |
 | format     |                 string                  |    false     | The format of the query. Default is json. Valid values are csv, json, tsv, txt, yaml, cbor, smile, or arrow.                                        |
 | timeout    |                 integer                 |    false     | The timeout for the query in seconds. Default is 60 (1 minute).                                                                                     |
-| parameters | [parameters](../#specifying-parameters) |    false     | List of [parameters](../#specifying-parameters) that will be used with the ES\|QL query.<br/>Only supports “string”, “integer”, “float”, “boolean”. |
+| parameters | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be used with the ES\|QL query.<br/>Only supports “string”, “integer”, “float”, “boolean”. |
 
 ## Example
 
@@ -25276,7 +25279,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](../#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -25305,8 +25308,8 @@ templateParameters:
 | source             |                    string                     |     true     | Name of the source the SQL should execute on.                                                                                           |
 | description        |                    string                     |     true     | Description of the tool that is passed to the LLM.                                                                                      |
 | statement          |                    string                     |     true     | SQL statement to execute on.                                                                                                            |
-| parameters         |    [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](../#template-parameters) |    false     | List of [templateParameters](../#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |    [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -26332,7 +26335,7 @@ curl -X POST http://localhost:5000/api/tool/your-tool-name/invoke \
 
 - [firestore-query-collection](firestore-query-collection.md) -
   Non-parameterizable query tool
-- [Firestore Source Configuration](_index.md)
+- [Firestore Source Configuration](../source.md)
 - [Firestore Query
   Documentation](https://firebase.google.com/docs/firestore/query-data/queries)
 
@@ -27882,9 +27885,9 @@ headerParams:
 | method       |                 string                  |     true     | The HTTP method to use (e.g., GET, POST, PUT, DELETE).                                                                                                                                                                     |
 | headers      |            map[string]string            |    false     | A map of headers to include in the HTTP request (overrides source headers).                                                                                                                                                |
 | requestBody  |                 string                  |    false     | The request body payload. Use [go template][go-template-doc] with the parameter name as the placeholder (e.g., `{{.id}}` will be replaced with the value of the parameter that has name `id` in the `bodyParams` section). |
-| queryParams  | [parameters](../#specifying-parameters) |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the query string.                                                                                                                               |
-| bodyParams   | [parameters](../#specifying-parameters) |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the request body payload.                                                                                                                       |
-| headerParams | [parameters](../#specifying-parameters) |    false     | List of [parameters](../#specifying-parameters) that will be inserted as the request headers.                                                                                                                              |
+| queryParams  | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the query string.                                                                                                                               |
+| bodyParams   | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the request body payload.                                                                                                                       |
+| headerParams | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted as the request headers.                                                                                                                              |
 
 [go-template-doc]: <https://pkg.go.dev/text/template#pkg-overview>
 
@@ -32277,7 +32280,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](../#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -32366,8 +32369,8 @@ ORDER BY created_at DESC;
 | source             |                   string                         |     true     | Name of the source the SQL should execute on.                                                                                              |
 | description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
 | statement          |                   string                         |     true     | SQL statement to execute on.                                                                                                               |
-| parameters         | [parameters](../#specifying-parameters)       |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](../#template-parameters) |    false     | List of [templateParameters](../#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)       |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -33586,7 +33589,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -33615,8 +33618,8 @@ templateParameters:
 | source             |                   string                         |     true     | Name of the source the SQL should execute on.                                                                                              |
 | description        |                   string                         |     true     | Description of the tool that is passed to the LLM.                                                                                         |
 | statement          |                   string                         |     true     | SQL statement to execute on.                                                                                                               |
-| parameters         | [parameters](../#specifying-parameters)       |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)       |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -33826,7 +33829,7 @@ parameters:
 | source      |                 string                  |     true     | Name of the source the Cypher query should execute on.                                       |
 | description |                 string                  |     true     | Description of the tool that is passed to the LLM.                                           |
 | statement   |                 string                  |     true     | Cypher statement to execute                                                                  |
-| parameters  | [parameters](../#specifying-parameters) |    false     | List of [parameters](../#specifying-parameters) that will be used with the Cypher statement. |
+| parameters  | [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be used with the Cypher statement. |
 
 
 
@@ -34440,8 +34443,8 @@ parameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |    [parameters](..#specifying-parameters)    |    false     | List of [parameters](..#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |    [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -38017,7 +38020,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -38046,8 +38049,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -38292,7 +38295,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -38321,8 +38324,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 | authRequired       |                array[string]                 |    false     | List of auth services that are required to use this tool.                                                                              |
 
 
@@ -38825,7 +38828,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -38854,9 +38857,9 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
 | readOnly           |                     bool                     |    false     | When set to `true`, the `statement` is run as a read-only transaction. Default: `false`.                                               |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -39711,7 +39714,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -39740,8 +39743,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the T-SQL statement should execute on.                                                                              |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute.                                                                                                              |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -39986,7 +39989,7 @@ statement: SELECT * FROM users WHERE name LIKE ? AND age >= ?
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -40015,8 +40018,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQLite source configuration.                                                                                    |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | The SQL statement to execute.                                                                                                          |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -40295,7 +40298,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -40324,8 +40327,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |    [parameters](..#specifying-parameters)    |    false     | List of [parameters](..#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |    [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -40540,7 +40543,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -40569,8 +40572,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |   [parameters](../#specifying-parameters)    |    false     | List of [parameters](../#specifying-parameters) that will be inserted into the SQL statement.                                          |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |   [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                          |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 
@@ -40959,7 +40962,7 @@ parameters:
 > including identifiers, column names, and table names. **This makes it more
 > vulnerable to SQL injections**. Using basic parameters  only (see above) is
 > recommended for performance and safety reasons. For more details, please check
-> [templateParameters](..#template-parameters).
+> [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters).
 
 ```yaml
 kind: tool
@@ -40988,8 +40991,8 @@ templateParameters:
 | source             |                    string                    |     true     | Name of the source the SQL should execute on.                                                                                          |
 | description        |                    string                    |     true     | Description of the tool that is passed to the LLM.                                                                                     |
 | statement          |                    string                    |     true     | SQL statement to execute on.                                                                                                           |
-| parameters         |    [parameters](..#specifying-parameters)    |    false     | List of [parameters](..#specifying-parameters) that will be inserted into the SQL statement.                                           |
-| templateParameters | [templateParameters](..#template-parameters) |    false     | List of [templateParameters](..#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
+| parameters         |    [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters)    |    false     | List of [parameters](../../../documentation/configuration/tools/_index.md#specifying-parameters) that will be inserted into the SQL statement.                                           |
+| templateParameters | [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) |    false     | List of [templateParameters](../../../documentation/configuration/tools/_index.md#template-parameters) that will be inserted into the SQL statement before executing prepared statement. |
 
 
 

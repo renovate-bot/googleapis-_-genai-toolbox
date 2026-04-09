@@ -8291,7 +8291,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p&gt;
 &lt;p&gt;The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
-&lt;h2 id="hahahugoshortcode455s0hbhb"&gt;
+&lt;h2 id="hahahugoshortcode212s0hbhb"&gt;
 
 
 
@@ -15367,9 +15367,9 @@ for more information.&lt;/p&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;parameters&lt;/td&gt;
- &lt;td style="text-align: center"&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/#specifying-parameters"&gt;parameters&lt;/a&gt;&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;&lt;a href="https://mcp-toolbox.dev/dev/documentation/configuration/tools/#specifying-parameters"&gt;parameters&lt;/a&gt;&lt;/td&gt;
  &lt;td style="text-align: center"&gt;false&lt;/td&gt;
- &lt;td&gt;List of &lt;a href="https://mcp-toolbox.dev/dev/integrations/elasticsearch/#specifying-parameters"&gt;parameters&lt;/a&gt; that will be used with the ES|QL query.&lt;br/&gt;Only supports “string”, “integer”, “float”, “boolean”.&lt;/td&gt;
+ &lt;td&gt;List of &lt;a href="https://mcp-toolbox.dev/dev/documentation/configuration/tools/#specifying-parameters"&gt;parameters&lt;/a&gt; that will be used with the ES|QL query.&lt;br/&gt;Only supports “string”, “integer”, “float”, “boolean”.&lt;/td&gt;
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
