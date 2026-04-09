@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/tools/</link><description>Recent content in Tools on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://mcp-toolbox.dev/dev/documentation/configuration/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Invoke Tools via CLI</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/tools/invoke_tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/configuration/tools/invoke_tool/</guid><description>&lt;p>The &lt;code>invoke&lt;/code> command allows you to invoke tools defined in your configuration directly from the CLI. This is useful for:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Ephemeral Invocation:&lt;/strong> Executing a tool without spinning up a full MCP server/client.&lt;/li>
-&lt;li>&lt;strong>Debugging:&lt;/strong> Isolating tool execution logic and testing with various parameter combinations.&lt;/li>
-&lt;/ul>
-&lt;style type="text/css">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/tools/</link><description>Recent content in Tools on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://mcp-toolbox.dev/dev/documentation/configuration/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Invoke Tools via CLI</title><link>https://mcp-toolbox.dev/dev/documentation/configuration/tools/invoke_tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/configuration/tools/invoke_tool/</guid><description>&lt;p&gt;The &lt;code&gt;invoke&lt;/code&gt; command allows you to invoke tools defined in your configuration directly from the CLI. This is useful for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ephemeral Invocation:&lt;/strong&gt; Executing a tool without spinning up a full MCP server/client.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; Isolating tool execution logic and testing with various parameter combinations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style type="text/css"&gt;
  
  .notice {
  --title-color: #fff;
@@ -117,11 +117,11 @@
  top: .125em;
  position: relative;
  }
-&lt;/style>&lt;div class="notice tip" >
- &lt;p class="notice-title">
- &lt;span class="icon-notice baseline">
- &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="300.5 134 300 300">
- &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/>
-&lt;/svg>
+&lt;/style&gt;&lt;div class="notice tip" &gt;
+ &lt;p class="notice-title"&gt;
+ &lt;span class="icon-notice baseline"&gt;
+ &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="300.5 134 300 300"&gt;
+ &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/&gt;
+&lt;/svg&gt;
 
- &lt;/span>Tip&lt;/p></description></item></channel></rss>
+ &lt;/span&gt;Tip&lt;/p&gt;</description></item></channel></rss>

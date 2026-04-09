@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQL Server on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/integrations/mssql/</link><description>Recent content in SQL Server on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://mcp-toolbox.dev/dev/integrations/mssql/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Server Source</title><link>https://mcp-toolbox.dev/dev/integrations/mssql/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/mssql/source/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>&lt;a href="https://www.microsoft.com/en-us/sql-server">SQL Server&lt;/a> is a relational database management system (RDBMS)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQL Server on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/integrations/mssql/</link><description>Recent content in SQL Server on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://mcp-toolbox.dev/dev/integrations/mssql/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Server Source</title><link>https://mcp-toolbox.dev/dev/integrations/mssql/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/mssql/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.microsoft.com/en-us/sql-server"&gt;SQL Server&lt;/a&gt; is a relational database management system (RDBMS)
 developed by Microsoft that allows users to store, retrieve, and manage large
-amount of data through a structured format.&lt;/p>
-&lt;h2 id="available-tools">Available Tools&lt;/h2>
+amount of data through a structured format.&lt;/p&gt;
+&lt;h2 id="available-tools"&gt;Available Tools&lt;/h2&gt;
 
 
 
@@ -31,37 +31,37 @@ amount of data through a structured format.&lt;/p>
 
 
 
- &lt;h3>SQL Server Source Tools&lt;/h3>
+ &lt;h3&gt;SQL Server Source Tools&lt;/h3&gt;
  
- &lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Tool Name&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Tool Name&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-execute-sql/">&lt;strong>mssql-execute-sql&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>A &amp;#34;mssql-execute-sql&amp;#34; tool executes a SQL statement against a SQL Server database.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-execute-sql/"&gt;&lt;strong&gt;mssql-execute-sql&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;mssql-execute-sql&amp;#34; tool executes a SQL statement against a SQL Server database.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-list-tables/">&lt;strong>mssql-list-tables&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>The &amp;#34;mssql-list-tables&amp;#34; tool lists schema information for all or specified tables in a SQL server database.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-list-tables/"&gt;&lt;strong&gt;mssql-list-tables&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;The &amp;#34;mssql-list-tables&amp;#34; tool lists schema information for all or specified tables in a SQL server database.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-sql/">&lt;strong>mssql-sql&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>A &amp;#34;mssql-sql&amp;#34; tool executes a pre-defined SQL statement against a SQL Server database.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/mssql/tools/mssql-sql/"&gt;&lt;strong&gt;mssql-sql&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;mssql-sql&amp;#34; tool executes a pre-defined SQL statement against a SQL Server database.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;/tbody>
- &lt;/table>
+ &lt;/tbody&gt;
+ &lt;/table&gt;
 
 
 
@@ -71,7 +71,7 @@ amount of data through a structured format.&lt;/p>
 
 
 
-&lt;h2 id="requirements">Requirements&lt;/h2>
-&lt;h3 id="database-user">Database User&lt;/h3>
-&lt;p>This source only uses standard authentication. You will need to &lt;a href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver16">create a
-SQL Server user&lt;/a> to login to the database with.&lt;/p></description></item></channel></rss>
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;h3 id="database-user"&gt;Database User&lt;/h3&gt;
+&lt;p&gt;This source only uses standard authentication. You will need to &lt;a href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver16"&gt;create a
+SQL Server user&lt;/a&gt; to login to the database with.&lt;/p&gt;</description></item></channel></rss>

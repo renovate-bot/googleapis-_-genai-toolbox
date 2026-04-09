@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud SQL Admin on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/</link><description>Recent content in Cloud SQL Admin on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en</language><atom:link href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud SQL Admin Source</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/source/</guid><description>&lt;h2 id="about">About&lt;/h2>
-&lt;p>The &lt;code>cloud-sql-admin&lt;/code> source provides a client to interact with the &lt;a href="https://cloud.google.com/sql/docs/mysql/admin-api">Google
-Cloud SQL Admin API&lt;/a>. This
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud SQL Admin on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/</link><description>Recent content in Cloud SQL Admin on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud SQL Admin Source</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;cloud-sql-admin&lt;/code&gt; source provides a client to interact with the &lt;a href="https://cloud.google.com/sql/docs/mysql/admin-api"&gt;Google
+Cloud SQL Admin API&lt;/a&gt;. This
 allows tools to perform administrative tasks on Cloud SQL instances, such as
-creating users and databases.&lt;/p>
-&lt;p>Authentication can be handled in two ways:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Application Default Credentials (ADC):&lt;/strong> By default, the source uses ADC
-to authenticate with the API.&lt;/li>
-&lt;li>&lt;strong>Client-side OAuth:&lt;/strong> If &lt;code>useClientOAuth&lt;/code> is set to &lt;code>true&lt;/code>, the source will
+creating users and databases.&lt;/p&gt;
+&lt;p&gt;Authentication can be handled in two ways:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Application Default Credentials (ADC):&lt;/strong&gt; By default, the source uses ADC
+to authenticate with the API.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Client-side OAuth:&lt;/strong&gt; If &lt;code&gt;useClientOAuth&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the source will
 expect an OAuth 2.0 access token to be provided by the client (e.g., a web
-browser) for each request.&lt;/li>
-&lt;/ol>
-&lt;h2 id="available-tools">Available Tools&lt;/h2>
+browser) for each request.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="available-tools"&gt;Available Tools&lt;/h2&gt;
 
 
 
@@ -80,89 +80,89 @@ browser) for each request.&lt;/li>
 
 
 
- &lt;h3>Cloud SQL Admin Source Tools&lt;/h3>
+ &lt;h3&gt;Cloud SQL Admin Source Tools&lt;/h3&gt;
  
- &lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Tool Name&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Tool Name&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/">&lt;strong>cloud-sql-list-databases&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>List Cloud SQL databases in an instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/"&gt;&lt;strong&gt;cloud-sql-list-databases&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;List Cloud SQL databases in an instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistinstances/">&lt;strong>cloud-sql-list-instances&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>List Cloud SQL instances in a project.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistinstances/"&gt;&lt;strong&gt;cloud-sql-list-instances&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;List Cloud SQL instances in a project.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlmysqlcreateinstance/">&lt;strong>cloud-sql-mysql-create-instance&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Create a Cloud SQL for MySQL instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlmysqlcreateinstance/"&gt;&lt;strong&gt;cloud-sql-mysql-create-instance&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Create a Cloud SQL for MySQL instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcloneinstance/">&lt;strong>cloud-sql-clone-instance&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Clone a Cloud SQL instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcloneinstance/"&gt;&lt;strong&gt;cloud-sql-clone-instance&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Clone a Cloud SQL instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcreatebackup/">&lt;strong>cloud-sql-create-backup&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Creates a backup on a Cloud SQL instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcreatebackup/"&gt;&lt;strong&gt;cloud-sql-create-backup&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Creates a backup on a Cloud SQL instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcreatedatabase/">&lt;strong>cloud-sql-create-database&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Create a new database in a Cloud SQL instance.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcreatedatabase/"&gt;&lt;strong&gt;cloud-sql-create-database&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Create a new database in a Cloud SQL instance.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcreateusers/">&lt;strong>cloud-sql-create-users&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Create a new user in a Cloud SQL instance.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlcreateusers/"&gt;&lt;strong&gt;cloud-sql-create-users&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Create a new user in a Cloud SQL instance.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlgetinstances/">&lt;strong>cloud-sql-get-instance&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Get a Cloud SQL instance resource.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlgetinstances/"&gt;&lt;strong&gt;cloud-sql-get-instance&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Get a Cloud SQL instance resource.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlmssqlcreateinstance/">&lt;strong>cloud-sql-mssql-create-instance&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Create a Cloud SQL for SQL Server instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlmssqlcreateinstance/"&gt;&lt;strong&gt;cloud-sql-mssql-create-instance&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Create a Cloud SQL for SQL Server instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlpgcreateinstances/">&lt;strong>cloud-sql-postgres-create-instance&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Create a Cloud SQL for PostgreSQL instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlpgcreateinstances/"&gt;&lt;strong&gt;cloud-sql-postgres-create-instance&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Create a Cloud SQL for PostgreSQL instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlrestorebackup/">&lt;strong>cloud-sql-restore-backup&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Restores a backup of a Cloud SQL instance.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlrestorebackup/"&gt;&lt;strong&gt;cloud-sql-restore-backup&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Restores a backup of a Cloud SQL instance.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlwaitforoperation/">&lt;strong>cloud-sql-wait-for-operation&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Wait for a long-running Cloud SQL operation to complete.
-&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlwaitforoperation/"&gt;&lt;strong&gt;cloud-sql-wait-for-operation&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Wait for a long-running Cloud SQL operation to complete.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;tr>
- &lt;td>&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlpgupgradeprecheck/">&lt;strong>postgres-upgrade-precheck&lt;/strong>&lt;/a>&lt;/td>
- &lt;td>Perform a pre-check for a Cloud SQL for PostgreSQL major version upgrade.&lt;/td>
- &lt;/tr>
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqlpgupgradeprecheck/"&gt;&lt;strong&gt;postgres-upgrade-precheck&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Perform a pre-check for a Cloud SQL for PostgreSQL major version upgrade.&lt;/td&gt;
+ &lt;/tr&gt;
  
- &lt;/tbody>
- &lt;/table>
+ &lt;/tbody&gt;
+ &lt;/table&gt;
 
 
 
@@ -172,43 +172,43 @@ browser) for each request.&lt;/li>
 
 
 
-&lt;h2 id="example">Example&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-cloud-sql-admin&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-admin&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">source&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">my-oauth-cloud-sql-admin&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">cloud-sql-admin&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">useClientOAuth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>&lt;strong>field&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>type&lt;/strong>&lt;/th>
- &lt;th style="text-align: center">&lt;strong>required&lt;/strong>&lt;/th>
- &lt;th>&lt;strong>description&lt;/strong>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>type&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">true&lt;/td>
- &lt;td>Must be &amp;ldquo;cloud-sql-admin&amp;rdquo;.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>defaultProject&lt;/td>
- &lt;td style="text-align: center">string&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>The Google Cloud project ID to use for Cloud SQL infrastructure tools.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>useClientOAuth&lt;/td>
- &lt;td style="text-align: center">boolean&lt;/td>
- &lt;td style="text-align: center">false&lt;/td>
- &lt;td>If true, the source will use client-side OAuth for authorization. Otherwise, it will use Application Default Credentials. Defaults to &lt;code>false&lt;/code>.&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;my-cloud-sql-admin&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;cloud-sql-admin&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nn"&gt;---&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;my-oauth-cloud-sql-admin&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;cloud-sql-admin&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;useClientOAuth&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="reference"&gt;Reference&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;&lt;strong&gt;field&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;type&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Must be &amp;ldquo;cloud-sql-admin&amp;rdquo;.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;defaultProject&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;false&lt;/td&gt;
+ &lt;td&gt;The Google Cloud project ID to use for Cloud SQL infrastructure tools.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;useClientOAuth&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;boolean&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;false&lt;/td&gt;
+ &lt;td&gt;If true, the source will use client-side OAuth for authorization. Otherwise, it will use Application Default Credentials. Defaults to &lt;code&gt;false&lt;/code&gt;.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item></channel></rss>
