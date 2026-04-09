@@ -121,7 +121,11 @@ and LookML is required.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;get_lookml_tests&lt;/code&gt;: Retrieves a list of available LookML tests for a project.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;run_lookml_tests&lt;/code&gt;: Executes specific LookML tests within a project.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;create_view_from_table&lt;/code&gt;: Generates boilerplate LookML views directly from the database schema.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;project_git_branch&lt;/code&gt;: Fetch and manipulate the git branch of a LookML project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;list_git_branches&lt;/code&gt;: List the available git branches of a LookML project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_git_branch&lt;/code&gt;: Get the current git branch of a LookML project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;create_git_branch&lt;/code&gt;: Create a new git branch for a LookML project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switch_git_branch&lt;/code&gt;: Switch the git branch of a LookML project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;delete_git_branch&lt;/code&gt;: Delete a git branch of a LookML project.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

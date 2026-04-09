@@ -188,6 +188,22 @@ in the cloud, on GCP, or on premises.&lt;/p&gt;
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -205,6 +221,30 @@ in the cloud, on GCP, or on premises.&lt;/p&gt;
  &lt;/tr&gt;
  &lt;/thead&gt;
  &lt;tbody&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-create-git-branch/"&gt;&lt;strong&gt;Create Git Branch Tool&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;looker-create-git-branch&amp;#34; tool is used to create a new git branch for a LookML project.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-delete-git-branch/"&gt;&lt;strong&gt;Delete Git Branch Tool&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;looker-delete-git-branch&amp;#34; tool is used to delete a git branch of a LookML project.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-get-git-branch/"&gt;&lt;strong&gt;Get Git Branch Tool&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;looker-get-git-branch&amp;#34; tool is used to retrieve the current git branch of a LookML project.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-list-git-branches/"&gt;&lt;strong&gt;List Git Branches Tool&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;looker-list-git-branches&amp;#34; tool is used to retrieve the list of available git branches of a LookML project.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-add-dashboard-element/"&gt;&lt;strong&gt;looker-add-dashboard-element&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
@@ -381,12 +421,6 @@ in the cloud, on GCP, or on premises.&lt;/p&gt;
  &lt;/tr&gt;
  
  &lt;tr&gt;
- &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-git-branch/"&gt;&lt;strong&gt;looker-git-branch&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
- &lt;td&gt;A &amp;#34;looker-git-branch&amp;#34; tool is used to retrieve and manipulate the git branch of a LookML project.
-&lt;/td&gt;
- &lt;/tr&gt;
- 
- &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-health-analyze/"&gt;&lt;strong&gt;looker-health-analyze&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
  &lt;td&gt;&amp;#34;looker-health-analyze&amp;#34; provides a set of analytical commands for a Looker instance, allowing users to analyze projects, models, and explores.
 &lt;/td&gt;
@@ -467,6 +501,12 @@ in the cloud, on GCP, or on premises.&lt;/p&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-validate-project/"&gt;&lt;strong&gt;looker-validate-project&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
  &lt;td&gt;A &amp;#34;looker-validate-project&amp;#34; tool checks the syntax of a LookML project and reports any errors
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/looker/tools/looker-switch-git-branch/"&gt;&lt;strong&gt;Switch Git Branch Tool&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;looker-switch-git-branch&amp;#34; tool is used to switch the git branch of a LookML project.
 &lt;/td&gt;
  &lt;/tr&gt;
  
