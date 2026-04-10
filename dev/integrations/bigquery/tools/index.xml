@@ -160,7 +160,7 @@ will be used as the default value for the &lt;code&gt;dataset&lt;/code&gt; param
 
 &lt;div class="compatibility-section"&gt;
  &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>bigquery-search-catalog</title><link>https://mcp-toolbox.dev/dev/integrations/bigquery/tools/bigquery-search-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/bigquery/tools/bigquery-search-catalog/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
-&lt;p&gt;A &lt;code&gt;bigquery-search-catalog&lt;/code&gt; tool returns all entries in Dataplex Catalog (e.g.
+&lt;p&gt;A &lt;code&gt;bigquery-search-catalog&lt;/code&gt; tool returns all entries in Knowledge Catalog (e.g.
 tables, views, models) with system=bigquery that matches given user query.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;bigquery-search-catalog&lt;/code&gt; takes a required &lt;code&gt;query&lt;/code&gt; parameter based on which
 entries are filtered and returned to the user. It also optionally accepts

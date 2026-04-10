@@ -676,7 +676,7 @@ will be used as the default value for the &lt;code&gt;dataset&lt;/code&gt; param
 
 &lt;div class="compatibility-section"&gt;
  &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>bigquery-search-catalog</title><link>https://mcp-toolbox.dev/dev/integrations/bigquery/tools/bigquery-search-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/bigquery/tools/bigquery-search-catalog/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
-&lt;p&gt;A &lt;code&gt;bigquery-search-catalog&lt;/code&gt; tool returns all entries in Dataplex Catalog (e.g.
+&lt;p&gt;A &lt;code&gt;bigquery-search-catalog&lt;/code&gt; tool returns all entries in Knowledge Catalog (e.g.
 tables, views, models) with system=bigquery that matches given user query.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;bigquery-search-catalog&lt;/code&gt; takes a required &lt;code&gt;query&lt;/code&gt; parameter based on which
 entries are filtered and returned to the user. It also optionally accepts
@@ -3297,7 +3297,7 @@ project directory. The server process must have read access to this path.&lt;/li
 &lt;h3 id="dataform-cli"&gt;Dataform CLI&lt;/h3&gt;
 &lt;p&gt;This tool executes the &lt;code&gt;dataform&lt;/code&gt; command-line interface (CLI) via a system
 call. You must have the &lt;strong&gt;&lt;code&gt;dataform&lt;/code&gt; CLI&lt;/strong&gt; installed and available in the
-server&amp;rsquo;s system &lt;code&gt;PATH&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>dataplex-lookup-context</title><link>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-lookup-context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-lookup-context/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+server&amp;rsquo;s system &lt;code&gt;PATH&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>dataplex-lookup-context</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-lookup-context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-lookup-context/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;A &lt;code&gt;dataplex-lookup-context&lt;/code&gt; tool provides rich metadata of one or more data assets along with their relationships.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;dataplex-lookup-context&lt;/code&gt; takes a required &lt;code&gt;name&lt;/code&gt; parameter which contains the
 project and location to which the request should be attributed in the following
@@ -3311,9 +3311,8 @@ following form: projects/{project}/locations/{location}/entryGroups/{group}/entr
 
 
 &lt;div class="compatibility-section"&gt;
- &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>dataplex-lookup-entry</title><link>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-lookup-entry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-lookup-entry/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
-&lt;p&gt;A &lt;code&gt;dataplex-lookup-entry&lt;/code&gt; tool returns details of a particular entry in Dataplex
-Catalog.&lt;/p&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>dataplex-lookup-entry</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-lookup-entry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-lookup-entry/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;dataplex-lookup-entry&lt;/code&gt; tool returns details of a particular entry in Knowledge Catalog.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;dataplex-lookup-entry&lt;/code&gt; takes a required &lt;code&gt;name&lt;/code&gt; parameter which contains the
 project and location to which the request should be attributed in the following
 form: projects/{project}/locations/{location} and also a required &lt;code&gt;entry&lt;/code&gt;
@@ -3338,7 +3337,7 @@ paths within the Entry. It only works for CUSTOM view.&lt;/li&gt;
 
 
 &lt;div class="compatibility-section"&gt;
- &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>dataplex-search-aspect-types</title><link>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-search-aspect-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-search-aspect-types/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>dataplex-search-aspect-types</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-aspect-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-aspect-types/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;A &lt;code&gt;dataplex-search-aspect-types&lt;/code&gt; tool allows to fetch the metadata template of
 aspect types based on search query.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;dataplex-search-aspect-types&lt;/code&gt; accepts following parameters optionally:&lt;/p&gt;
@@ -3356,8 +3355,8 @@ If not provided, it fetches all aspect types available to the user.&lt;/li&gt;
 
 
 &lt;div class="compatibility-section"&gt;
- &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>dataplex-search-entries</title><link>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-search-entries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataplex/tools/dataplex-search-entries/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
-&lt;p&gt;A &lt;code&gt;dataplex-search-entries&lt;/code&gt; tool returns all entries in Dataplex Catalog (e.g.
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>dataplex-search-entries</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-entries/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-entries/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;dataplex-search-entries&lt;/code&gt; tool returns all entries in Knowledge Catalog (formerly known as Dataplex) (e.g.
 tables, views, models) that matches given user query.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;dataplex-search-entries&lt;/code&gt; takes a required &lt;code&gt;query&lt;/code&gt; parameter based on which
 entries are filtered and returned to the user. It also optionally accepts
@@ -8291,7 +8290,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p&gt;
 &lt;p&gt;The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
-&lt;h2 id="hahahugoshortcode418s0hbhb"&gt;
+&lt;h2 id="hahahugoshortcode380s0hbhb"&gt;
 
 
 
@@ -11766,15 +11765,7 @@ allowing tools to execute SQL queries against it.&lt;/p&gt;
  &lt;path d="M150 128c82.813 0 150 67.188 150 150 0 82.813-67.188 150-150 150C67.187 428 0 360.812 0 278c0-82.813 67.188-150 150-150Zm25 243.555v-37.11c0-3.515-2.734-6.445-6.055-6.445h-37.5c-3.515 0-6.445 2.93-6.445 6.445v37.11c0 3.515 2.93 6.445 6.445 6.445h37.5c3.32 0 6.055-2.93 6.055-6.445Zm-.39-67.188 3.515-121.289c0-1.367-.586-2.734-1.953-3.516-1.172-.976-2.93-1.562-4.688-1.562h-42.968c-1.758 0-3.516.586-4.688 1.563-1.367.78-1.953 2.148-1.953 3.515l3.32 121.29c0 2.734 2.93 4.882 6.64 4.882h36.134c3.515 0 6.445-2.148 6.64-4.883Z"/&gt;
 &lt;/svg&gt;
 
- &lt;/span&gt;Note&lt;/p&gt;</description></item><item><title>Dataplex Source</title><link>https://mcp-toolbox.dev/dev/integrations/dataplex/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataplex/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://cloud.google.com/dataplex/docs"&gt;Dataplex&lt;/a&gt; Universal Catalog is a unified, intelligent governance
-solution for data and AI assets in Google Cloud. Dataplex Universal Catalog
-powers AI, analytics, and business intelligence at scale.&lt;/p&gt;
-&lt;p&gt;At the heart of these governance capabilities is a catalog that contains a
-centralized inventory of the data assets in your organization. Dataplex
-Universal Catalog holds business, technical, and runtime metadata for all of
-your data. It helps you discover relationships and semantics in the metadata by
-applying artificial intelligence and machine learning.&lt;/p&gt;</description></item><item><title>Dataproc Clusters Source</title><link>https://mcp-toolbox.dev/dev/integrations/dataproc/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataproc/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+ &lt;/span&gt;Note&lt;/p&gt;</description></item><item><title>Dataproc Clusters Source</title><link>https://mcp-toolbox.dev/dev/integrations/dataproc/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataproc/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;The &lt;a href="https://cloud.google.com/dataproc/docs/concepts/overview"&gt;Dataproc
 Clusters&lt;/a&gt; source
 allows Toolbox to interact with Dataproc Clusters hosted on Google Cloud.&lt;/p&gt;
@@ -12228,7 +12219,15 @@ and other HTTP-accessible resources.&lt;/p&gt;
  &lt;path d="M551.281 252.36c0-3.32-1.172-6.641-3.515-8.985l-17.774-17.578c-2.344-2.344-5.469-3.711-8.789-3.711-3.32 0-6.445 1.367-8.789 3.71l-79.687 79.493-44.141-44.14c-2.344-2.344-5.469-3.712-8.79-3.712-3.32 0-6.444 1.368-8.788 3.711l-17.774 17.579c-2.343 2.343-3.515 5.664-3.515 8.984 0 3.32 1.172 6.445 3.515 8.789l70.704 70.703c2.343 2.344 5.664 3.711 8.789 3.711 3.32 0 6.64-1.367 8.984-3.71l106.055-106.056c2.343-2.343 3.515-5.468 3.515-8.789ZM600.5 284c0 82.813-67.188 150-150 150-82.813 0-150-67.188-150-150 0-82.813 67.188-150 150-150 82.813 0 150 67.188 150 150Z"/&gt;
 &lt;/svg&gt;
 
- &lt;/span&gt;Tip&lt;/p&gt;</description></item><item><title>Looker Source</title><link>https://mcp-toolbox.dev/dev/integrations/looker/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/looker/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+ &lt;/span&gt;Tip&lt;/p&gt;</description></item><item><title>Knowledge Catalog (formerly known as Dataplex) Source</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://cloud.google.com/dataplex/docs"&gt;Knowledge Catalog&lt;/a&gt; is a unified, intelligent governance
+solution for data and AI assets in Google Cloud. Knowledge Catalog
+powers AI, analytics, and business intelligence at scale.&lt;/p&gt;
+&lt;p&gt;At the heart of these governance capabilities is a catalog that contains a
+centralized inventory of the data assets in your organization. Knowledge Catalog
+holds business, technical, and runtime metadata for all of
+your data. It helps you discover relationships and semantics in the metadata by
+applying artificial intelligence and machine learning.&lt;/p&gt;</description></item><item><title>Looker Source</title><link>https://mcp-toolbox.dev/dev/integrations/looker/source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/looker/source/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://cloud.google.com/looker/docs"&gt;Looker&lt;/a&gt; is a web based business intelligence and data management
 tool that provides a semantic layer to facilitate querying. It can be deployed
 in the cloud, on GCP, or on premises.&lt;/p&gt;
@@ -18708,31 +18707,6 @@ documentation&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;list_accessible_data_agents&lt;/code&gt;: List data agents that are accessible.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Dataplex</title><link>https://mcp-toolbox.dev/dev/integrations/dataplex/prebuilt-configs/dataplex/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataplex/prebuilt-configs/dataplex/</guid><description>&lt;h2 id="dataplex"&gt;Dataplex&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;--prebuilt&lt;/code&gt; value: &lt;code&gt;dataplex&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Environment Variables:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;DATAPLEX_PROJECT&lt;/code&gt;: The GCP project ID.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Permissions:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Dataplex Reader&lt;/strong&gt; (&lt;code&gt;roles/dataplex.viewer&lt;/code&gt;) to search and look up
-entries.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Dataplex Editor&lt;/strong&gt; (&lt;code&gt;roles/dataplex.editor&lt;/code&gt;) to modify entries.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;search_entries&lt;/code&gt;: Searches for entries in Dataplex Catalog.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lookup_entry&lt;/code&gt;: Retrieves a specific entry from Dataplex
-Catalog.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;search_aspect_types&lt;/code&gt;: Finds aspect types relevant to the
-query.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lookup_context&lt;/code&gt;: Retrieves rich metadata regarding one or more data assets along with their relationships.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Dataproc</title><link>https://mcp-toolbox.dev/dev/integrations/dataproc/prebuilt-configs/dataproc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/dataproc/prebuilt-configs/dataproc/</guid><description>&lt;h2 id="dataproc"&gt;Dataproc&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;--prebuilt&lt;/code&gt; value: &lt;code&gt;dataproc&lt;/code&gt;&lt;/li&gt;
@@ -18867,6 +18841,30 @@ view serverless batches.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;list_sessions&lt;/code&gt;: Lists Spark sessions.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;get_session&lt;/code&gt;: Gets a Spark session.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;get_session_template&lt;/code&gt;: Gets a Spark session template.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Knowledge Catalog (formerly known as Dataplex)</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/dataplex/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/dataplex/</guid><description>&lt;h2 id="knowledge-catalog"&gt;Knowledge Catalog&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--prebuilt&lt;/code&gt; value: &lt;code&gt;dataplex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Environment Variables:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DATAPLEX_PROJECT&lt;/code&gt;: The GCP project ID.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Permissions:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dataplex Reader&lt;/strong&gt; (&lt;code&gt;roles/dataplex.viewer&lt;/code&gt;) to search and look up
+entries.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dataplex Editor&lt;/strong&gt; (&lt;code&gt;roles/dataplex.editor&lt;/code&gt;) to modify entries.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;search_entries&lt;/code&gt;: Searches for entries in Knowledge Catalog.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lookup_entry&lt;/code&gt;: Retrieves a specific entry from Knowledge Catalog.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;search_aspect_types&lt;/code&gt;: Finds aspect types relevant to the
+query.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lookup_context&lt;/code&gt;: Retrieves rich metadata regarding one or more data assets along with their relationships.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Looker</title><link>https://mcp-toolbox.dev/dev/integrations/looker/prebuilt-configs/looker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/looker/prebuilt-configs/looker/</guid><description>&lt;h2 id="looker"&gt;Looker&lt;/h2&gt;
