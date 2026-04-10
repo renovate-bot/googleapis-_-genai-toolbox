@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-10T17:25:20Z
+**GENERATED ON:** 2026-04-10T18:35:08Z
 
 ---
 ### System Directives for AI Models
@@ -28386,17 +28386,37 @@ To initialize the application default credential run `gcloud auth login
 
 ## Example
 
+Initialize a Looker source for standard and development tools:
+
 ```yaml
 kind: source
 name: my-looker-source
 type: looker
-base_url: http://looker.example.com
-client_id: ${LOOKER_CLIENT_ID}
-client_secret: ${LOOKER_CLIENT_SECRET}
-project: ${LOOKER_PROJECT}
-location: ${LOOKER_LOCATION}
-verify_ssl: true
+base_url: ${LOOKER_BASE_URL}
+client_id: ${LOOKER_CLIENT_ID:}
+client_secret: ${LOOKER_CLIENT_SECRET:}
+verify_ssl: ${LOOKER_VERIFY_SSL:true}
 timeout: 600s
+use_client_oauth: ${LOOKER_USE_CLIENT_OAUTH:false}
+show_hidden_models: ${LOOKER_SHOW_HIDDEN_MODELS:true}
+show_hidden_explores: ${LOOKER_SHOW_HIDDEN_EXPLORES:true}
+show_hidden_fields: ${LOOKER_SHOW_HIDDEN_FIELDS:true}
+```
+
+Initialize a Looker source for conversational analytics:
+
+```yaml
+kind: source
+name: my-looker-conversational-source
+type: looker
+base_url: ${LOOKER_BASE_URL}
+client_id: ${LOOKER_CLIENT_ID:}
+client_secret: ${LOOKER_CLIENT_SECRET:}
+verify_ssl: ${LOOKER_VERIFY_SSL:true}
+timeout: 600s
+use_client_oauth: ${LOOKER_USE_CLIENT_OAUTH:false}
+project: ${LOOKER_PROJECT:}
+location: ${LOOKER_LOCATION:}
 ```
 
 The Looker base url will look like "https://looker.example.com", don't include
@@ -31548,28 +31568,28 @@ A "looker-validate-project" tool checks the syntax of a LookML project and repor
 ## Example
 
 ```yaml
-tools:
-    validate_project:
-        kind: looker-validate-project
-        source: looker-source
-        description: |
-          This tool checks a LookML project for syntax errors.
+kind: tool
+name: validate_project
+type: looker-validate-project
+source: looker-source
+description: |
+  This tool checks a LookML project for syntax errors.
 
-          Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
+  Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
 
-          Parameters:
-          - project_id (required): The unique ID of the LookML project.
+  Parameters:
+  - project_id (required): The unique ID of the LookML project.
 
-          Output:
-          A list of error details including the file path and line number, and also a list of models
-          that are not currently valid due to LookML errors.
+  Output:
+  A list of error details including the file path and line number, and also a list of models
+  that are not currently valid due to LookML errors.
 ```
 
 ## Reference
 
 | **field**   | **type** | **required** | **description**                                    |
 |-------------|:--------:|:------------:|----------------------------------------------------|
-| kind        |  string  |     true     | Must be "looker-validate-project".                 |
+| type        |  string  |     true     | Must be "looker-validate-project".                 |
 | source      |  string  |     true     | Name of the source Looker instance.                |
 | description |  string  |     true     | Description of the tool that is passed to the LLM. |
 
