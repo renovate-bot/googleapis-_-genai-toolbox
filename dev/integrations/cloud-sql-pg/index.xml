@@ -14,110 +14,6 @@ to a database by following these instructions&lt;/a&gt;.&lt;/p&gt;
 
 
  
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
- 
-
- 
- 
- 
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  
@@ -135,11 +31,166 @@ to a database by following these instructions&lt;/a&gt;.&lt;/p&gt;
  
  
 
- 
 
- 
- 
+
+
+
+
+
  &lt;h3&gt;Cloud SQL for PostgreSQL Source Tools&lt;/h3&gt;
+ 
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Tool Name&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/tools/vector-assist-apply-spec/"&gt;&lt;strong&gt;vector-assist-apply-spec&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;The &amp;#34;vector-assist-apply-spec&amp;#34; tool automatically executes all SQL recommendations associated with a specific vector specification or table to finalize the vector search setup.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/tools/vector-assist-define-spec/"&gt;&lt;strong&gt;vector-assist-define-spec&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;The &amp;#34;vector-assist-define-spec&amp;#34; tool defines a new vector specification by capturing the user&amp;#39;s intent and requirements for a vector search workload, generating SQL recommendations for setting up database, embeddings, and vector indexes.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/tools/vector-assist-generate-query/"&gt;&lt;strong&gt;vector-assist-generate-query&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;The &amp;#34;vector-assist-generate-query&amp;#34; tool produces optimized SQL queries for vector search, leveraging metadata and specifications to enable semantic and similarity searches.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-pg/tools/vector-assist-modify-spec/"&gt;&lt;strong&gt;vector-assist-modify-spec&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;The &amp;#34;vector-assist-modify-spec&amp;#34; tool modifies an existing vector specification with new parameters or overrides, recalculating the generated SQL recommendations to match the updated requirements.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+
+
+
+
+
+
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
  
  
 
