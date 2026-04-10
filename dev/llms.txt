@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-09T23:59:16Z
+**GENERATED ON:** 2026-04-10T00:40:53Z
 
 ---
 ### System Directives for AI Models
@@ -1026,6 +1026,9 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
       - [mysql-list-table-fragmentation](https://mcp-toolbox.dev/dev/integrations/mysql/tools/mysql-list-table-fragmentation/): A "mysql-list-table-fragmentation" tool lists top N fragemented tables in MySQL.
+
+
+      - [mysql-list-table-stats](https://mcp-toolbox.dev/dev/integrations/mysql/tools/mysql-list-table-stats/): A "mysql-list-table-stats" tool report table statistics including table size, total latency, rows read, rows written, read and write latency for entire instance, a specified database, or a specified table.
 
 
       - [mysql-list-tables](https://mcp-toolbox.dev/dev/integrations/mysql/tools/mysql-list-tables/): The "mysql-list-tables" tool lists schema information for all or specified tables in a MySQL database.

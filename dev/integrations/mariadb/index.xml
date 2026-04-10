@@ -65,6 +65,10 @@ features with a focus on performance and reliability.&lt;/p&gt;
  
  
  
+ 
+ 
+ 
+ 
 
  
 
@@ -106,6 +110,12 @@ features with a focus on performance and reliability.&lt;/p&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/mysql/tools/mysql-list-table-fragmentation/"&gt;&lt;strong&gt;mysql-list-table-fragmentation&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
  &lt;td&gt;A &amp;#34;mysql-list-table-fragmentation&amp;#34; tool lists top N fragemented tables in MySQL.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/mysql/tools/mysql-list-table-stats/"&gt;&lt;strong&gt;mysql-list-table-stats&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;mysql-list-table-stats&amp;#34; tool report table statistics including table size, total latency, rows read, rows written, read and write latency for entire instance, a specified database, or a specified table.
 &lt;/td&gt;
  &lt;/tr&gt;
  
