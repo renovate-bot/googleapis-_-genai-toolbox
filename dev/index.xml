@@ -8290,7 +8290,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p&gt;
 &lt;p&gt;The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
-&lt;h2 id="hahahugoshortcode387s0hbhb"&gt;
+&lt;h2 id="hahahugoshortcode380s0hbhb"&gt;
 
 
 
@@ -18843,7 +18843,7 @@ view serverless batches.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;get_session_template&lt;/code&gt;: Gets a Spark session template.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Knowledge Catalog (formerly known as Dataplex)</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/dataplex/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/dataplex/</guid><description>&lt;h2 id="knowledge-catalog"&gt;Knowledge Catalog&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Knowledge Catalog (formerly known as Dataplex)</title><link>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/knowledge-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/knowledge-catalog/</guid><description>&lt;h2 id="knowledge-catalog"&gt;Knowledge Catalog&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;--prebuilt&lt;/code&gt; value: &lt;code&gt;dataplex&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Environment Variables:&lt;/strong&gt;

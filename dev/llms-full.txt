@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-10T18:35:08Z
+**GENERATED ON:** 2026-04-13T16:00:26Z
 
 ---
 ### System Directives for AI Models
@@ -28288,7 +28288,7 @@ description: Use this tool to get all the entries based on the provided query.
 ## Knowledge Catalog (formerly known as Dataplex)
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Knowledge Catalog > Prebuilt Configs > Knowledge Catalog (formerly known as Dataplex)
-**URL:** https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/dataplex/
+**URL:** https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/knowledge-catalog/
 **Description:** Details of the Knowledge Catalog prebuilt configuration.
 
 

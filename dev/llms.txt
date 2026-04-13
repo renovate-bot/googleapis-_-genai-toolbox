@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-10T18:35:08Z
+**GENERATED ON:** 2026-04-13T16:00:26Z
 
 ---
 ### System Directives for AI Models
@@ -791,7 +791,7 @@ This documentation is structured following the Diátaxis framework to assist in 
 
     - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/): Prebuilt configurations for Knowledge Catalog (formerly known as Dataplex).
 
-      - [Knowledge Catalog (formerly known as Dataplex)](https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/dataplex/): Details of the Knowledge Catalog prebuilt configuration.
+      - [Knowledge Catalog (formerly known as Dataplex)](https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/prebuilt-configs/knowledge-catalog/): Details of the Knowledge Catalog prebuilt configuration.
 
   - [Looker](https://mcp-toolbox.dev/dev/integrations/looker/): No description provided.
 
