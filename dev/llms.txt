@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-15T19:58:25Z
+**GENERATED ON:** 2026-04-16T14:41:02Z
 
 ---
 ### System Directives for AI Models
@@ -784,6 +784,9 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
       - [dataplex-search-aspect-types](https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-aspect-types/): A "dataplex-search-aspect-types" tool allows to to find aspect types relevant to the query.
+
+
+      - [dataplex-search-dq-scans](https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-dq-scans/): A "dataplex-search-dq-scans" tool allows to search for data quality scans based on the provided parameters.
 
 
       - [dataplex-search-entries](https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-entries/): A "dataplex-search-entries" tool allows to search for entries based on the provided query.
