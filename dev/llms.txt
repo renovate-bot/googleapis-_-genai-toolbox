@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-17T17:53:55Z
+**GENERATED ON:** 2026-04-23T03:55:17Z
 
 ---
 ### System Directives for AI Models
@@ -599,6 +599,19 @@ This documentation is structured following the Diátaxis framework to assist in 
     - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/prebuilt-configs/): Prebuilt configurations for Cloud Sql Mssql.
 
       - [Cloud SQL for SQL Server](https://mcp-toolbox.dev/dev/integrations/cloud-sql-mssql/prebuilt-configs/cloud-sql-for-sql-server/): Details of the Cloud SQL for SQL Server prebuilt configuration.
+
+  - [Cloud Storage](https://mcp-toolbox.dev/dev/integrations/cloud-storage/): No description provided.
+
+    - [Cloud Storage Source](https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/): Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list, read, and manage objects across any bucket the credentials can access.
+
+
+    - [Tools](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/): No description provided.
+
+      - [cloud-storage-list-objects](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/): A "cloud-storage-list-objects" tool lists objects in a Cloud Storage bucket, with optional prefix filtering and delimiter-based grouping.
+
+
+      - [cloud-storage-read-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/): A "cloud-storage-read-object" tool reads the UTF-8 text content of a Cloud Storage object, optionally constrained to a byte range.
+
 
   - [CockroachDB](https://mcp-toolbox.dev/dev/integrations/cockroachdb/): No description provided.
 

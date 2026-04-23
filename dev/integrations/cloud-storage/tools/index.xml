@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on MCP Toolbox for Databases</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/</link><description>Recent content in Tools on MCP Toolbox for Databases</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>cloud-storage-list-objects</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-list-objects&lt;/code&gt; tool returns the objects in a
+&lt;a href="https://cloud.google.com/storage/docs/buckets"&gt;Cloud Storage bucket&lt;/a&gt;. It supports the usual GCS listing options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;prefix&lt;/code&gt; — filter results to objects whose names begin with the given string.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;delimiter&lt;/code&gt; — group results by this character (typically &lt;code&gt;/&lt;/code&gt;) so subdirectory-like
+&amp;ldquo;common prefixes&amp;rdquo; are returned separately from the leaf objects.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;max_results&lt;/code&gt; / &lt;code&gt;page_token&lt;/code&gt; — paginate through large listings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The response is a JSON object with &lt;code&gt;objects&lt;/code&gt; (the full object metadata as
+returned by the Cloud Storage API — fields such as &lt;code&gt;Name&lt;/code&gt;, &lt;code&gt;Size&lt;/code&gt;, &lt;code&gt;ContentType&lt;/code&gt;,
+&lt;code&gt;Updated&lt;/code&gt;, &lt;code&gt;StorageClass&lt;/code&gt;, &lt;code&gt;MD5&lt;/code&gt;, etc.), &lt;code&gt;prefixes&lt;/code&gt; (the common prefixes when
+&lt;code&gt;delimiter&lt;/code&gt; is set), and &lt;code&gt;nextPageToken&lt;/code&gt; (empty when there are no more pages).&lt;/p&gt;</description></item><item><title>cloud-storage-read-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-read-object&lt;/code&gt; tool fetches the bytes of a single
+&lt;a href="https://cloud.google.com/storage/docs/objects"&gt;Cloud Storage object&lt;/a&gt; and returns them as plain UTF-8 text.&lt;/p&gt;
+&lt;p&gt;Only text objects are supported today: if the object bytes (or the requested
+range) are not valid UTF-8 the tool returns an agent-fixable error. This is
+because the MCP tool-result channel currently only carries text; binary
+payloads will be supported once MCP can carry embedded resources.&lt;/p&gt;
+&lt;p&gt;Reads are capped at &lt;strong&gt;8 MiB&lt;/strong&gt; per call to protect the server&amp;rsquo;s memory and keep
+LLM contexts manageable; objects or ranges larger than that are rejected with
+an agent-fixable error. Use the optional &lt;code&gt;range&lt;/code&gt; parameter to read a slice of
+a larger object.&lt;/p&gt;</description></item></channel></rss>
