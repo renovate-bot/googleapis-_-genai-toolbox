@@ -53,6 +53,18 @@
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;--tls-cert&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Path to the PEM-encoded TLS certificate file.&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;--tls-key&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Path to the PEM-encoded TLS private key file.&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
  &lt;td&gt;&lt;code&gt;--prebuilt&lt;/code&gt;&lt;/td&gt;
  &lt;td&gt;Use one or more prebuilt tool configuration by source type. See &lt;a href="https://mcp-toolbox.dev/dev/documentation/configuration/prebuilt-configs/"&gt;Prebuilt Tools Reference&lt;/a&gt; for allowed values.&lt;/td&gt;
  &lt;td&gt;&lt;/td&gt;
@@ -148,6 +160,7 @@ docker images&lt;/a&gt; (but you can always compile yourself as well!).&lt;/p&gt
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart/"&gt;Quickstart: How to Run Locally&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://mcp-toolbox.dev/dev/documentation/deploy-to/cloud-run/"&gt;Deploy to Cloud Run&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;To run Toolbox more securely or harden security, check out our &lt;a href="https://mcp-toolbox.dev/dev/reference/cli/#hardening-toolbox"&gt;hardening guidelines&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="do-i-need-a-google-cloud-accountproject-to-get-started-with-toolbox"&gt;Do I need a Google Cloud account/project to get started with Toolbox?&lt;/h2&gt;
 &lt;p&gt;Nope! While some of the sources Toolbox connects to may require GCP credentials,
