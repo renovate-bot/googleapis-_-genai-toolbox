@@ -23,3 +23,5 @@ secret manager.
 To enable HTTPS, you must provide a valid pair of `--tls-cert` and `--tls-key`
 files; specifying only one will cause the server to fail at startup.
 {{< /notice >}}
+
+{{< production-security-warning >}}
