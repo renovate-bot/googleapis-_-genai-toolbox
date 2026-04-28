@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-25T05:52:23Z
+**GENERATED ON:** 2026-04-28T05:55:49Z
 
 ---
 ### System Directives for AI Models
@@ -22109,7 +22109,7 @@ instead of hardcoding your secrets into the configuration file.
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Cloud Storage Source
 **URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/
-**Description:** Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list, read, and manage objects across any bucket the credentials can access.
+**Description:** Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list buckets, list objects, read object metadata and content, and transfer objects between Cloud Storage and the server filesystem.
 
 
 
@@ -22145,12 +22145,21 @@ interacting with Cloud Storage.
 In addition to [setting the ADC for your server][set-adc], ensure the IAM
 identity has the appropriate role for the tools being exposed. Common roles:
 
-- `roles/storage.objectViewer` — read-only access to objects (sufficient for
-  `cloud-storage-list-objects` and `cloud-storage-read-object`)
-- `roles/storage.objectUser` — read and write access to objects
+- `roles/storage.bucketViewer` — read-only access to bucket metadata, including
+  listing buckets with `cloud-storage-list-buckets`.
+- `roles/storage.objectViewer` — read-only access to objects and object
+  metadata, sufficient for `cloud-storage-list-objects`,
+  `cloud-storage-get-object-metadata`, `cloud-storage-read-object`, and
+  `cloud-storage-download-object`.
+- `roles/storage.objectUser` — read and write access to objects, sufficient for
+  `cloud-storage-upload-object`.
 - `roles/storage.admin` — full control, including bucket management
 
 See [Cloud Storage IAM roles][gcs-iam] for the full list.
+
+Tools that read from or write to local files operate on the filesystem of the
+Toolbox server process, not the client machine. The server process must have
+the corresponding local file permissions.
 
 [iam-overview]: https://cloud.google.com/storage/docs/access-control/iam
 [adc]: https://cloud.google.com/docs/authentication#adc
@@ -22183,6 +22192,70 @@ project: "my-project-id"
 **URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/
 **Description:** None
 
+
+
+
+
+========================================================================
+## cloud-storage-list-buckets
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-list-buckets
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-buckets/
+**Description:** A "cloud-storage-list-buckets" tool lists Cloud Storage buckets in a project, with optional prefix filtering and pagination.
+
+
+
+## About
+
+A `cloud-storage-list-buckets` tool returns the Cloud Storage buckets in a
+project. By default, it uses the project configured on the source. You can pass
+the optional `project` parameter to list buckets in a different project that
+the same credentials can access.
+
+The response is a JSON object with `buckets` (bucket metadata returned by the
+Cloud Storage API) and `nextPageToken` (empty when there are no more pages).
+
+[gcs-buckets]: https://cloud.google.com/storage/docs/buckets
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Parameters
+
+| **parameter** | **type** | **required** | **description**                                                                                                   |
+|---------------|:--------:|:------------:|-------------------------------------------------------------------------------------------------------------------|
+| project       |  string  |    false     | Project ID to list buckets in. When empty, the source's configured project is used.                               |
+| prefix        |  string  |    false     | Filter results to buckets whose names begin with this prefix.                                                     |
+| max_results   | integer  |    false     | Maximum number of buckets to return per page. A value of 0 uses the API default (1000); negative values and values above 1000 are rejected. |
+| page_token    |  string  |    false     | A previously-returned page token for retrieving the next page of results.                                         |
+
+## Example
+
+```yaml
+kind: tool
+name: list_buckets
+type: cloud-storage-list-buckets
+source: my-gcs-source
+description: Use this tool to list Cloud Storage buckets in the project.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field**     | **type** | **description**                                  |
+|---------------|:--------:|--------------------------------------------------|
+| buckets       |  array   | Bucket metadata returned by the Cloud Storage API. |
+| nextPageToken |  string  | Token to pass as `page_token` for the next page. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                         |
+|-------------|:--------:|:------------:|---------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-list-buckets".                   |
+| source      |  string  |     true     | Name of the Cloud Storage source to list buckets from.  |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.      |
 
 
 
@@ -22224,7 +22297,7 @@ returned by the Cloud Storage API — fields such as `Name`, `Size`, `ContentTyp
 | bucket        |  string  |     true     | Name of the Cloud Storage bucket to list objects from.                                                            |
 | prefix        |  string  |    false     | Filter results to objects whose names begin with this prefix.                                                     |
 | delimiter     |  string  |    false     | Delimiter used to group object names (typically '/'). When set, common prefixes are returned as `prefixes`.       |
-| max_results   | integer  |    false     | Maximum number of objects to return per page. A value of 0 uses the API default (1000); values above 1000 are rejected. |
+| max_results   | integer  |    false     | Maximum number of objects to return per page. A value of 0 uses the API default (1000); negative values and values above 1000 are rejected. |
 | page_token    |  string  |    false     | A previously-returned page token for retrieving the next page of results.                                         |
 
 ## Example
@@ -22244,6 +22317,64 @@ description: Use this tool to list objects in a Cloud Storage bucket.
 | type        |  string  |     true     | Must be "cloud-storage-list-objects".                   |
 | source      |  string  |     true     | Name of the Cloud Storage source to list objects from.  |
 | description |  string  |     true     | Description of the tool that is passed to the LLM.      |
+
+
+
+
+========================================================================
+## cloud-storage-get-object-metadata
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-get-object-metadata
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/
+**Description:** A "cloud-storage-get-object-metadata" tool returns metadata for a Cloud Storage object without reading the object payload.
+
+
+
+## About
+
+A `cloud-storage-get-object-metadata` tool returns metadata for a single
+[Cloud Storage object][gcs-objects]. Use it when the LLM needs fields such as
+object name, size, content type, generation, storage class, timestamps, checksums,
+or custom metadata without reading the object's content.
+
+The response is the object metadata structure returned by the Cloud Storage API.
+
+[gcs-objects]: https://cloud.google.com/storage/docs/objects
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Parameters
+
+| **parameter** | **type** | **required** | **description**                                                     |
+|---------------|:--------:|:------------:|---------------------------------------------------------------------|
+| bucket        |  string  |     true     | Name of the Cloud Storage bucket containing the object.             |
+| object        |  string  |     true     | Full object name (path) within the bucket, e.g. `path/to/file.txt`. |
+
+## Example
+
+```yaml
+kind: tool
+name: get_object_metadata
+type: cloud-storage-get-object-metadata
+source: my-gcs-source
+description: Use this tool to inspect metadata for a Cloud Storage object.
+```
+
+## Output Format
+
+The tool returns object metadata from the Cloud Storage API, including fields
+such as `Name`, `Bucket`, `Size`, `ContentType`, `Updated`, `StorageClass`,
+`MD5`, `CRC32C`, and user-defined metadata when present.
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                             |
+|-------------|:--------:|:------------:|-------------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-get-object-metadata".                |
+| source      |  string  |     true     | Name of the Cloud Storage source to get object metadata from. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.          |
 
 
 
@@ -22274,7 +22405,7 @@ a larger object.
 
 This tool is intended for small-to-medium textual content an LLM can process
 directly. For bulk downloads of large files to the local filesystem, use
-`cloud-storage-download-object` (coming in a follow-up release).
+`cloud-storage-download-object`.
 
 [gcs-objects]: https://cloud.google.com/storage/docs/objects
 
@@ -22307,6 +22438,151 @@ description: Use this tool to read the content of a Cloud Storage object.
 | type        |  string  |     true     | Must be "cloud-storage-read-object".                    |
 | source      |  string  |     true     | Name of the Cloud Storage source to read the object from. |
 | description |  string  |     true     | Description of the tool that is passed to the LLM.      |
+
+
+
+
+========================================================================
+## cloud-storage-download-object
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-download-object
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/
+**Description:** A "cloud-storage-download-object" tool downloads a Cloud Storage object to an absolute path on the Toolbox server filesystem.
+
+
+
+## About
+
+A `cloud-storage-download-object` tool streams a Cloud Storage object to a local
+file on the Toolbox server. Unlike `cloud-storage-read-object`, it does not
+return the object bytes to the LLM and does not require UTF-8 text content, so it
+can be used for binary objects or large files.
+
+The `destination` path is interpreted on the server where Toolbox is running.
+Relative paths and paths containing `..` are rejected.
+
+[gcs-objects]: https://cloud.google.com/storage/docs/objects
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Requirements
+
+The Cloud Storage credentials must be able to read the object. The Toolbox
+server process must also be able to create or overwrite the destination file.
+When `overwrite` is false, the tool returns an agent-fixable error if the
+destination already exists.
+
+## Parameters
+
+| **parameter** | **type** | **required** | **description**                                                                                         |
+|---------------|:--------:|:------------:|---------------------------------------------------------------------------------------------------------|
+| bucket        |  string  |     true     | Name of the Cloud Storage bucket containing the object.                                                 |
+| object        |  string  |     true     | Full object name (path) within the bucket, e.g. `path/to/file.txt`.                                     |
+| destination   |  string  |     true     | Absolute local filesystem path where the object will be written. Relative paths and paths containing `..` are rejected. |
+| overwrite     | boolean  |    false     | If true, overwrite the destination when it already exists. If false (default), return an error when it exists.     |
+
+## Example
+
+```yaml
+kind: tool
+name: download_object
+type: cloud-storage-download-object
+source: my-gcs-source
+description: Use this tool to download a Cloud Storage object to the server filesystem.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field**   | **type** | **description**                                |
+|-------------|:--------:|------------------------------------------------|
+| destination |  string  | Local path where the object was written.       |
+| bytes       | integer  | Number of bytes written.                       |
+| contentType |  string  | Content type recorded on the Cloud Storage object. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                           |
+|-------------|:--------:|:------------:|-----------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-download-object".                  |
+| source      |  string  |     true     | Name of the Cloud Storage source to download objects from. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.        |
+
+
+
+
+========================================================================
+## cloud-storage-upload-object
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-upload-object
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-upload-object/
+**Description:** A "cloud-storage-upload-object" tool uploads a local file from the Toolbox server filesystem to a Cloud Storage object.
+
+
+
+## About
+
+A `cloud-storage-upload-object` tool streams a local file from the Toolbox
+server filesystem into a Cloud Storage object. The `source` path is interpreted
+on the server where Toolbox is running. Relative paths and paths containing `..`
+are rejected.
+
+When `content_type` is empty, Toolbox infers a MIME type from the source file
+extension. If inference fails, Cloud Storage detects the content type from the
+uploaded bytes.
+
+[gcs-objects]: https://cloud.google.com/storage/docs/objects
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Requirements
+
+The Cloud Storage credentials must be able to create or update the target
+object. The Toolbox server process must also be able to read the local source
+file.
+
+## Parameters
+
+| **parameter** | **type** | **required** | **description**                                                                                                   |
+|---------------|:--------:|:------------:|-------------------------------------------------------------------------------------------------------------------|
+| bucket        |  string  |     true     | Name of the Cloud Storage bucket to upload into.                                                                  |
+| object        |  string  |     true     | Full object name (path) within the bucket, e.g. `path/to/file.txt`.                                               |
+| source        |  string  |     true     | Absolute local filesystem path of the file to upload. Relative paths and paths containing `..` are rejected.       |
+| content_type  |  string  |    false     | MIME type to record on the uploaded object. When empty, it is inferred from the source file extension when possible. |
+
+## Example
+
+```yaml
+kind: tool
+name: upload_object
+type: cloud-storage-upload-object
+source: my-gcs-source
+description: Use this tool to upload a local file to Cloud Storage.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field**   | **type** | **description**                              |
+|-------------|:--------:|----------------------------------------------|
+| bucket      |  string  | Cloud Storage bucket that received the file. |
+| object      |  string  | Cloud Storage object name that was written.  |
+| bytes       | integer  | Number of bytes uploaded.                    |
+| contentType |  string  | Content type recorded on the uploaded object. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                        |
+|-------------|:--------:|:------------:|--------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-upload-object".                 |
+| source      |  string  |     true     | Name of the Cloud Storage source to upload objects to. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.     |
 
 
 

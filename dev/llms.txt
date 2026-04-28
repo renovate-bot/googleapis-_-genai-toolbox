@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-25T05:52:23Z
+**GENERATED ON:** 2026-04-28T05:55:49Z
 
 ---
 ### System Directives for AI Models
@@ -602,15 +602,27 @@ This documentation is structured following the Diátaxis framework to assist in 
 
   - [Cloud Storage](https://mcp-toolbox.dev/dev/integrations/cloud-storage/): No description provided.
 
-    - [Cloud Storage Source](https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/): Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list, read, and manage objects across any bucket the credentials can access.
+    - [Cloud Storage Source](https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/): Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list buckets, list objects, read object metadata and content, and transfer objects between Cloud Storage and the server filesystem.
 
 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/): No description provided.
 
+      - [cloud-storage-list-buckets](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-buckets/): A "cloud-storage-list-buckets" tool lists Cloud Storage buckets in a project, with optional prefix filtering and pagination.
+
+
       - [cloud-storage-list-objects](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/): A "cloud-storage-list-objects" tool lists objects in a Cloud Storage bucket, with optional prefix filtering and delimiter-based grouping.
 
 
+      - [cloud-storage-get-object-metadata](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/): A "cloud-storage-get-object-metadata" tool returns metadata for a Cloud Storage object without reading the object payload.
+
+
       - [cloud-storage-read-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/): A "cloud-storage-read-object" tool reads the UTF-8 text content of a Cloud Storage object, optionally constrained to a byte range.
+
+
+      - [cloud-storage-download-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/): A "cloud-storage-download-object" tool downloads a Cloud Storage object to an absolute path on the Toolbox server filesystem.
+
+
+      - [cloud-storage-upload-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-upload-object/): A "cloud-storage-upload-object" tool uploads a local file from the Toolbox server filesystem to a Cloud Storage object.
 
 
   - [CockroachDB](https://mcp-toolbox.dev/dev/integrations/cockroachdb/): No description provided.
