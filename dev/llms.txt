@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-29T22:59:17Z
+**GENERATED ON:** 2026-04-29T23:10:07Z
 
 ---
 ### System Directives for AI Models
@@ -985,6 +985,9 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Samples](https://mcp-toolbox.dev/dev/integrations/looker/samples/): No description provided.
+
+      - [Claude Desktop and OAuth](https://mcp-toolbox.dev/dev/integrations/looker/samples/looker_claude_oauth/): How to connect to Looker from Claude Desktop with end-user credentials
+
 
       - [Connect to Looker with MCP Toolbox in Google Cloud Run](https://mcp-toolbox.dev/dev/integrations/looker/samples/looker_cloud_run/): How to start an MCP Toolbox instance in Google Cloud Run to connect to Looker.
 
