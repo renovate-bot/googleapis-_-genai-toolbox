@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-29T21:49:08Z
+**GENERATED ON:** 2026-04-29T22:59:17Z
 
 ---
 ### System Directives for AI Models
@@ -985,6 +985,9 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Samples](https://mcp-toolbox.dev/dev/integrations/looker/samples/): No description provided.
+
+      - [Connect to Looker with MCP Toolbox in Google Cloud Run](https://mcp-toolbox.dev/dev/integrations/looker/samples/looker_cloud_run/): How to start an MCP Toolbox instance in Google Cloud Run to connect to Looker.
+
 
       - [Gemini-CLI and OAuth](https://mcp-toolbox.dev/dev/integrations/looker/samples/looker_gemini_oauth/): How to connect to Looker from Gemini-CLI with end-user credentials
 
