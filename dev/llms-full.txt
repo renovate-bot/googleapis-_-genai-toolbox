@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-29T17:23:42Z
+**GENERATED ON:** 2026-04-29T21:49:08Z
 
 ---
 ### System Directives for AI Models
@@ -22109,7 +22109,7 @@ instead of hardcoding your secrets into the configuration file.
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Cloud Storage Source
 **URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/
-**Description:** Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list buckets, list objects, read object metadata and content, and transfer objects between Cloud Storage and the server filesystem.
+**Description:** Cloud Storage is Google Cloud's managed service for storing unstructured objects (files) in buckets. Toolbox connects at the project level, allowing tools to list buckets, list objects, read object metadata and content, mutate objects, and transfer objects between Cloud Storage and the server filesystem.
 
 
 
@@ -22152,8 +22152,19 @@ identity has the appropriate role for the tools being exposed. Common roles:
   `cloud-storage-get-object-metadata`, `cloud-storage-read-object`, and
   `cloud-storage-download-object`.
 - `roles/storage.objectUser` — read and write access to objects, sufficient for
-  `cloud-storage-upload-object`.
+  `cloud-storage-upload-object`, `cloud-storage-write-object`, and
+  `cloud-storage-copy-object`.
 - `roles/storage.admin` — full control, including bucket management
+
+Object mutation tools require the corresponding object permissions:
+
+- `cloud-storage-upload-object`, `cloud-storage-write-object`, and
+  `cloud-storage-copy-object` require object create or update permissions on
+  the destination object.
+- `cloud-storage-move-object` requires `storage.objects.move` and
+  `storage.objects.create` in the same bucket. If the destination object
+  already exists, `storage.objects.delete` is also required.
+- `cloud-storage-delete-object` requires object delete permission.
 
 See [Cloud Storage IAM roles][gcs-iam] for the full list.
 
@@ -22582,6 +22593,272 @@ The tool returns a JSON object with:
 |-------------|:--------:|:------------:|--------------------------------------------------------|
 | type        |  string  |     true     | Must be "cloud-storage-upload-object".                 |
 | source      |  string  |     true     | Name of the Cloud Storage source to upload objects to. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.     |
+
+
+
+
+========================================================================
+## cloud-storage-write-object
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-write-object
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-write-object/
+**Description:** A "cloud-storage-write-object" tool writes text content directly to a Cloud Storage object.
+
+
+
+## About
+
+A `cloud-storage-write-object` tool writes text content from the tool request
+directly into a Cloud Storage object. It is useful for creating or replacing
+small text objects without first writing a local file on the Toolbox server.
+
+When `content_type` is empty, Cloud Storage detects the content type from the
+written bytes.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Requirements
+
+The Cloud Storage credentials must be able to create or update the target
+object.
+
+## Parameters
+
+| **parameter** | **type** | **required** | **description**                                                                                       |
+|---------------|:--------:|:------------:|-------------------------------------------------------------------------------------------------------|
+| bucket        |  string  |     true     | Name of the Cloud Storage bucket to write into.                                                       |
+| object        |  string  |     true     | Full object name (path) within the bucket, e.g. `path/to/file.txt`.                                   |
+| content       |  string  |     true     | Text content to write to the Cloud Storage object.                                                    |
+| content_type  |  string  |    false     | MIME type to record on the written object. When empty, Cloud Storage auto-detects from the content.   |
+
+## Example
+
+```yaml
+kind: tool
+name: write_object
+type: cloud-storage-write-object
+source: my-gcs-source
+description: Use this tool to write text content to Cloud Storage.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field**   | **type** | **description**                              |
+|-------------|:--------:|----------------------------------------------|
+| bucket      |  string  | Cloud Storage bucket that received content.  |
+| object      |  string  | Cloud Storage object name that was written.  |
+| bytes       | integer  | Number of bytes written.                     |
+| contentType |  string  | Content type recorded on the written object. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                      |
+|-------------|:--------:|:------------:|------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-write-object".                |
+| source      |  string  |     true     | Name of the Cloud Storage source to write objects to. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.   |
+
+
+
+
+========================================================================
+## cloud-storage-copy-object
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-copy-object
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-copy-object/
+**Description:** A "cloud-storage-copy-object" tool copies a Cloud Storage object to another object, including across buckets.
+
+
+
+## About
+
+A `cloud-storage-copy-object` tool copies an object from one Cloud Storage
+location to another. The source and destination bucket parameters are separate,
+so the destination can be in the same bucket or a different bucket.
+
+Existing destination objects are replaced.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Requirements
+
+The Cloud Storage credentials must be able to read the source object and create
+or update the destination object.
+
+## Parameters
+
+| **parameter**      | **type** | **required** | **description**                                                                    |
+|--------------------|:--------:|:------------:|------------------------------------------------------------------------------------|
+| source_bucket      |  string  |     true     | Name of the Cloud Storage bucket containing the source object.                      |
+| source_object      |  string  |     true     | Full source object name (path) within the source bucket, e.g. `path/to/file.txt`.   |
+| destination_bucket |  string  |     true     | Name of the Cloud Storage bucket to copy into.                                      |
+| destination_object |  string  |     true     | Full destination object name (path) within the destination bucket.                  |
+
+## Example
+
+```yaml
+kind: tool
+name: copy_object
+type: cloud-storage-copy-object
+source: my-gcs-source
+description: Use this tool to copy Cloud Storage objects.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field**          | **type** | **description**                                  |
+|--------------------|:--------:|--------------------------------------------------|
+| sourceBucket       |  string  | Source Cloud Storage bucket.                     |
+| sourceObject       |  string  | Source Cloud Storage object name.                |
+| destinationBucket  |  string  | Destination Cloud Storage bucket.                |
+| destinationObject  |  string  | Destination Cloud Storage object name.           |
+| bytes              | integer  | Size of the copied object.                       |
+| contentType        |  string  | Content type recorded on the destination object. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                      |
+|-------------|:--------:|:------------:|------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-copy-object".                 |
+| source      |  string  |     true     | Name of the Cloud Storage source to copy objects in. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.   |
+
+
+
+
+========================================================================
+## cloud-storage-move-object
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-move-object
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-move-object/
+**Description:** A "cloud-storage-move-object" tool atomically moves or renames a Cloud Storage object within the same bucket.
+
+
+
+## About
+
+A `cloud-storage-move-object` tool atomically moves or renames an object within
+the same Cloud Storage bucket by using Cloud Storage's native move API.
+
+This tool does not perform cross-bucket moves. For a cross-bucket move, call
+`cloud-storage-copy-object` first, verify the destination, and then call
+`cloud-storage-delete-object` on the source.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Requirements
+
+The Cloud Storage credentials must have `storage.objects.move` and
+`storage.objects.create` permissions in the bucket. If the destination object
+already exists, `storage.objects.delete` is also required.
+
+## Parameters
+
+| **parameter**      | **type** | **required** | **description**                                                                 |
+|--------------------|:--------:|:------------:|---------------------------------------------------------------------------------|
+| bucket             |  string  |     true     | Name of the Cloud Storage bucket containing the object to move.                  |
+| source_object      |  string  |     true     | Full source object name (path) within the bucket, e.g. `path/to/file.txt`.       |
+| destination_object |  string  |     true     | Full destination object name (path) within the same bucket.                      |
+
+## Example
+
+```yaml
+kind: tool
+name: move_object
+type: cloud-storage-move-object
+source: my-gcs-source
+description: Use this tool to move or rename an object within a Cloud Storage bucket.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field**          | **type** | **description**                                |
+|--------------------|:--------:|------------------------------------------------|
+| bucket             |  string  | Cloud Storage bucket containing the object.    |
+| sourceObject       |  string  | Original object name.                          |
+| destinationObject  |  string  | Destination object name.                       |
+| bytes              | integer  | Size of the moved object.                      |
+| contentType        |  string  | Content type recorded on the destination object. |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                      |
+|-------------|:--------:|:------------:|------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-move-object".                 |
+| source      |  string  |     true     | Name of the Cloud Storage source to move objects in. |
+| description |  string  |     true     | Description of the tool that is passed to the LLM.   |
+
+
+
+
+========================================================================
+## cloud-storage-delete-object
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud Storage > Tools > cloud-storage-delete-object
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-object/
+**Description:** A "cloud-storage-delete-object" tool deletes a Cloud Storage object.
+
+
+
+## About
+
+A `cloud-storage-delete-object` tool deletes a single object from a Cloud
+Storage bucket.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Requirements
+
+The Cloud Storage credentials must be able to delete the target object.
+
+## Parameters
+
+| **parameter** | **type** | **required** | **description**                                                     |
+|---------------|:--------:|:------------:|---------------------------------------------------------------------|
+| bucket        |  string  |     true     | Name of the Cloud Storage bucket containing the object to delete.    |
+| object        |  string  |     true     | Full object name (path) within the bucket, e.g. `path/to/file.txt`.  |
+
+## Example
+
+```yaml
+kind: tool
+name: delete_object
+type: cloud-storage-delete-object
+source: my-gcs-source
+description: Use this tool to delete Cloud Storage objects.
+```
+
+## Output Format
+
+The tool returns a JSON object with:
+
+| **field** | **type** | **description**                             |
+|-----------|:--------:|---------------------------------------------|
+| bucket    |  string  | Cloud Storage bucket containing the object. |
+| object    |  string  | Cloud Storage object name that was deleted. |
+| deleted   | boolean  | Whether the delete request completed.       |
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                        |
+|-------------|:--------:|:------------:|--------------------------------------------------------|
+| type        |  string  |     true     | Must be "cloud-storage-delete-object".                 |
+| source      |  string  |     true     | Name of the Cloud Storage source to delete objects in. |
 | description |  string  |     true     | Description of the tool that is passed to the LLM.     |
 
 

@@ -134,4 +134,189 @@ uploaded bytes.&lt;/p&gt;
 
 
 &lt;div class="compatibility-section"&gt;
- &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item></channel></rss>
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>cloud-storage-write-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-write-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-write-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-write-object&lt;/code&gt; tool writes text content from the tool request
+directly into a Cloud Storage object. It is useful for creating or replacing
+small text objects without first writing a local file on the Toolbox server.&lt;/p&gt;
+&lt;p&gt;When &lt;code&gt;content_type&lt;/code&gt; is empty, Cloud Storage detects the content type from the
+written bytes.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to create or update the target
+object.&lt;/p&gt;</description></item><item><title>cloud-storage-copy-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-copy-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-copy-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-copy-object&lt;/code&gt; tool copies an object from one Cloud Storage
+location to another. The source and destination bucket parameters are separate,
+so the destination can be in the same bucket or a different bucket.&lt;/p&gt;
+&lt;p&gt;Existing destination objects are replaced.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to read the source object and create
+or update the destination object.&lt;/p&gt;</description></item><item><title>cloud-storage-move-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-move-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-move-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-move-object&lt;/code&gt; tool atomically moves or renames an object within
+the same Cloud Storage bucket by using Cloud Storage&amp;rsquo;s native move API.&lt;/p&gt;
+&lt;p&gt;This tool does not perform cross-bucket moves. For a cross-bucket move, call
+&lt;code&gt;cloud-storage-copy-object&lt;/code&gt; first, verify the destination, and then call
+&lt;code&gt;cloud-storage-delete-object&lt;/code&gt; on the source.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must have &lt;code&gt;storage.objects.move&lt;/code&gt; and
+&lt;code&gt;storage.objects.create&lt;/code&gt; permissions in the bucket. If the destination object
+already exists, &lt;code&gt;storage.objects.delete&lt;/code&gt; is also required.&lt;/p&gt;</description></item><item><title>cloud-storage-delete-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-delete-object&lt;/code&gt; tool deletes a single object from a Cloud
+Storage bucket.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to delete the target object.&lt;/p&gt;
+&lt;h2 id="parameters"&gt;Parameters&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;bucket&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Name of the Cloud Storage bucket containing the object to delete.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;object&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Full object name (path) within the bucket, e.g. &lt;code&gt;path/to/file.txt&lt;/code&gt;.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;tool&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;delete_object&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;cloud-storage-delete-object&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;my-gcs-source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Use this tool to delete Cloud Storage objects.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="output-format"&gt;Output Format&lt;/h2&gt;
+&lt;p&gt;The tool returns a JSON object with:&lt;/p&gt;</description></item></channel></rss>
