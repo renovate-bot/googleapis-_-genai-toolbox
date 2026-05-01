@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-04-30T21:18:36Z
+**GENERATED ON:** 2026-05-01T17:20:26Z
 
 ---
 ### System Directives for AI Models
@@ -32624,6 +32624,12 @@ example, does this automatically.
 
     ![PRM file in browser](./PRM_file_in_browser.png)
 
+{{< notice tip >}}
+Be sure to look at the [Toolbox CLI Reference](/reference/cli/),
+specifically the subsection on "Hardening Toolbox" for security recommendations.
+You may want to specify additional settings.
+{{< /notice >}}
+
 ## Register the OAuth App in Looker
 1.  In Looker, go to “Applications” at the bottom of the list on the left side and
     then select the “API Explorer”.  
@@ -32748,6 +32754,12 @@ It is easy to run MCP Toolbox in Google Cloud Run.
 
 1.  Validate the service is running by going to the URL, followed by
     `/.well-known/oauth-protected-resource`.
+
+{{< notice tip >}}
+Be sure to look at the [Toolbox CLI Reference](/reference/cli/),
+specifically the subsection on "Hardening Toolbox" for security recommendations.
+You may want to specify additional settings under "Container arguments".
+{{< /notice >}}
 
 ## Using the MCP Toolbox Via OAuth and Gemini CLI
 
