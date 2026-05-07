@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-05-04T16:25:38Z
+**GENERATED ON:** 2026-05-07T21:16:57Z
 
 ---
 ### System Directives for AI Models
@@ -610,13 +610,25 @@ This documentation is structured following the Diátaxis framework to assist in 
       - [cloud-storage-list-buckets](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-buckets/): A "cloud-storage-list-buckets" tool lists Cloud Storage buckets in a project, with optional prefix filtering and pagination.
 
 
+      - [cloud-storage-create-bucket](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-create-bucket/): A "cloud-storage-create-bucket" tool creates a Cloud Storage bucket in the configured source project.
+
+
       - [cloud-storage-list-objects](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/): A "cloud-storage-list-objects" tool lists objects in a Cloud Storage bucket, with optional prefix filtering and delimiter-based grouping.
+
+
+      - [cloud-storage-get-bucket-metadata](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-bucket-metadata/): A "cloud-storage-get-bucket-metadata" tool returns metadata for a Cloud Storage bucket.
 
 
       - [cloud-storage-get-object-metadata](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/): A "cloud-storage-get-object-metadata" tool returns metadata for a Cloud Storage object without reading the object payload.
 
 
+      - [cloud-storage-get-bucket-iam-policy](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-bucket-iam-policy/): A "cloud-storage-get-bucket-iam-policy" tool returns IAM policy bindings for a Cloud Storage bucket.
+
+
       - [cloud-storage-read-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/): A "cloud-storage-read-object" tool reads the UTF-8 text content of a Cloud Storage object, optionally constrained to a byte range.
+
+
+      - [cloud-storage-delete-bucket](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-bucket/): A "cloud-storage-delete-bucket" tool deletes an empty Cloud Storage bucket.
 
 
       - [cloud-storage-download-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/): A "cloud-storage-download-object" tool downloads a Cloud Storage object to an absolute path on the Toolbox server filesystem.
@@ -636,6 +648,10 @@ This documentation is structured following the Diátaxis framework to assist in 
 
       - [cloud-storage-delete-object](https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-object/): A "cloud-storage-delete-object" tool deletes a Cloud Storage object.
 
+
+    - [Prebuilt Configs](https://mcp-toolbox.dev/dev/integrations/cloud-storage/prebuilt-configs/): Prebuilt configurations for Cloud Storage.
+
+      - [Cloud Storage](https://mcp-toolbox.dev/dev/integrations/cloud-storage/prebuilt-configs/cloud-storage/): Details of the Cloud Storage prebuilt configuration.
 
   - [CockroachDB](https://mcp-toolbox.dev/dev/integrations/cockroachdb/): No description provided.
 

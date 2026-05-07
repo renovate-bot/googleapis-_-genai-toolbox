@@ -13,7 +13,4 @@ ID.&lt;/p&gt;</description></item><item><title>Generic OIDC Auth</title><link>ht
 compliant identity provider (IDP). It discovers the JWKS (JSON Web Key Set) URL
 either through the provider&amp;rsquo;s &lt;code&gt;/.well-known/openid-configuration&lt;/code&gt; endpoint or
 directly via the provided &lt;code&gt;authorizationServer&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To configure this auth service, you need to provide the &lt;code&gt;audience&lt;/code&gt; (typically
-your client ID or the intended audience for the token), the
-&lt;code&gt;authorizationServer&lt;/code&gt; of your identity provider, and optionally a list of
-&lt;code&gt;scopesRequired&lt;/code&gt; that must be present in the token&amp;rsquo;s claims.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;To configure this auth service, you need to provide the &lt;code&gt;audience&lt;/code&gt; (the expected &lt;code&gt;aud&lt;/code&gt; claim in the token), the &lt;code&gt;authorizationServer&lt;/code&gt; of your identity provider, and optionally a list of &lt;code&gt;scopesRequired&lt;/code&gt; that must be present in the token&amp;rsquo;s claims.&lt;/p&gt;</description></item></channel></rss>

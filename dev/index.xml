@@ -8335,7 +8335,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p&gt;
 &lt;p&gt;The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
-&lt;h2 id="hahahugoshortcode216s0hbhb"&gt;
+&lt;h2 id="hahahugoshortcode478s0hbhb"&gt;
 
 
 
@@ -15401,7 +15401,45 @@ instance in a specified Google Cloud project.&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id="example"&gt;Example&lt;/h2&gt;
 &lt;p&gt;Here is an example of how to configure the &lt;code&gt;cloud-sql-mysql-create-instance&lt;/code&gt;
-tool in your &lt;code&gt;tools.yaml&lt;/code&gt; file:&lt;/p&gt;</description></item><item><title>cloud-storage-list-objects</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+tool in your &lt;code&gt;tools.yaml&lt;/code&gt; file:&lt;/p&gt;</description></item><item><title>cloud-storage-create-bucket</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-create-bucket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-create-bucket/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-create-bucket&lt;/code&gt; tool creates a new Cloud Storage bucket in the
+project configured on the Cloud Storage source. Use it when an agent needs to
+provision a bucket before writing objects or building a data workflow.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to create buckets in the configured
+project. Bucket names are globally unique and must satisfy Cloud Storage bucket
+naming rules.&lt;/p&gt;</description></item><item><title>cloud-storage-list-objects</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-list-objects/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;A &lt;code&gt;cloud-storage-list-objects&lt;/code&gt; tool returns the objects in a
 &lt;a href="https://cloud.google.com/storage/docs/buckets"&gt;Cloud Storage bucket&lt;/a&gt;. It supports the usual GCS listing options:&lt;/p&gt;
 &lt;ul&gt;
@@ -15575,10 +15613,7 @@ that don&amp;rsquo;t.&lt;/p&gt;</description></item><item><title>Firestore using
 compliant identity provider (IDP). It discovers the JWKS (JSON Web Key Set) URL
 either through the provider&amp;rsquo;s &lt;code&gt;/.well-known/openid-configuration&lt;/code&gt; endpoint or
 directly via the provided &lt;code&gt;authorizationServer&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To configure this auth service, you need to provide the &lt;code&gt;audience&lt;/code&gt; (typically
-your client ID or the intended audience for the token), the
-&lt;code&gt;authorizationServer&lt;/code&gt; of your identity provider, and optionally a list of
-&lt;code&gt;scopesRequired&lt;/code&gt; that must be present in the token&amp;rsquo;s claims.&lt;/p&gt;</description></item><item><title>Looker using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/</guid><description>&lt;p&gt;&lt;a href="https://modelcontextprotocol.io/introduction"&gt;Model Context Protocol (MCP)&lt;/a&gt; is
+&lt;p&gt;To configure this auth service, you need to provide the &lt;code&gt;audience&lt;/code&gt; (the expected &lt;code&gt;aud&lt;/code&gt; claim in the token), the &lt;code&gt;authorizationServer&lt;/code&gt; of your identity provider, and optionally a list of &lt;code&gt;scopesRequired&lt;/code&gt; that must be present in the token&amp;rsquo;s claims.&lt;/p&gt;</description></item><item><title>Looker using MCP</title><link>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/documentation/connect-to/ides/looker_mcp/</guid><description>&lt;p&gt;&lt;a href="https://modelcontextprotocol.io/introduction"&gt;Model Context Protocol (MCP)&lt;/a&gt; is
 an open protocol for connecting Large Language Models (LLMs) to data sources
 like Postgres. This guide covers how to use &lt;a href="https://github.com/googleapis/mcp-toolbox"&gt;MCP Toolbox for Databases&lt;/a&gt;
 to expose your developer assistant tools to a Looker instance:&lt;/p&gt;
@@ -16142,7 +16177,45 @@ select or create a Google Cloud project.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project"&gt;Make sure that billing is enabled for your Google Cloud
-project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>cloud-storage-get-object-metadata</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>cloud-storage-get-bucket-metadata</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-bucket-metadata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-bucket-metadata/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-get-bucket-metadata&lt;/code&gt; tool returns metadata for a single Cloud
+Storage bucket. Use it when the LLM needs fields such as location, storage
+class, labels, lifecycle configuration, or uniform bucket-level access status.&lt;/p&gt;
+&lt;p&gt;The response is the bucket metadata structure returned by the Cloud Storage API.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to read metadata for the target
+bucket.&lt;/p&gt;</description></item><item><title>cloud-storage-get-object-metadata</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-object-metadata/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;A &lt;code&gt;cloud-storage-get-object-metadata&lt;/code&gt; tool returns metadata for a single
 &lt;a href="https://cloud.google.com/storage/docs/objects"&gt;Cloud Storage object&lt;/a&gt;. Use it when the LLM needs fields such as
 object name, size, content type, generation, storage class, timestamps, checksums,
@@ -16637,7 +16710,71 @@ select or create a Google Cloud project.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project"&gt;Make sure that billing is enabled for your Google Cloud
-project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>cloud-storage-read-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>cloud-storage-get-bucket-iam-policy</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-bucket-iam-policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-get-bucket-iam-policy/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-get-bucket-iam-policy&lt;/code&gt; tool returns the IAM policy bindings for
+a Cloud Storage bucket. Use it to inspect which principals have roles on a
+bucket without modifying access.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to read the IAM policy for the target
+bucket.&lt;/p&gt;
+&lt;h2 id="parameters"&gt;Parameters&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;bucket&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Name of the Cloud Storage bucket whose IAM policy should be returned.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;tool&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;get_bucket_iam_policy&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;cloud-storage-get-bucket-iam-policy&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;my-gcs-source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Use this tool to inspect IAM bindings for a Cloud Storage bucket.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="output-format"&gt;Output Format&lt;/h2&gt;
+&lt;p&gt;The tool returns a JSON object with:&lt;/p&gt;</description></item><item><title>cloud-storage-read-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-read-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;A &lt;code&gt;cloud-storage-read-object&lt;/code&gt; tool fetches the bytes of a single
 &lt;a href="https://cloud.google.com/storage/docs/objects"&gt;Cloud Storage object&lt;/a&gt; and returns them as plain UTF-8 text.&lt;/p&gt;
 &lt;p&gt;Only text objects are supported today: if the object bytes (or the requested
@@ -16863,7 +17000,71 @@ select or create a Google Cloud project.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project"&gt;Make sure that billing is enabled for your Google Cloud
-project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>cloud-storage-download-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+project&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>cloud-storage-delete-bucket</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-bucket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-delete-bucket/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;cloud-storage-delete-bucket&lt;/code&gt; tool deletes an empty Cloud Storage bucket. It
+does not delete objects first; if the bucket is not empty, Cloud Storage rejects
+the operation.&lt;/p&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;
+
+ &lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Source Name&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ 
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-storage/source/"&gt;Cloud Storage Source&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+
+ 
+
+ 
+ 
+ &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2 id="requirements"&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;The Cloud Storage credentials must be able to delete the target bucket. The
+bucket must be empty before the tool is invoked.&lt;/p&gt;
+&lt;h2 id="parameters"&gt;Parameters&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;&lt;strong&gt;required&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;&lt;strong&gt;description&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;bucket&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;string&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;true&lt;/td&gt;
+ &lt;td&gt;Name of the empty Cloud Storage bucket to delete.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;tool&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;delete_bucket&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;cloud-storage-delete-bucket&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;my-gcs-source&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Use this tool to delete empty Cloud Storage buckets.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="output-format"&gt;Output Format&lt;/h2&gt;
+&lt;p&gt;The tool returns a JSON object with:&lt;/p&gt;</description></item><item><title>cloud-storage-download-object</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/tools/cloud-storage-download-object/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;A &lt;code&gt;cloud-storage-download-object&lt;/code&gt; tool streams a Cloud Storage object to a local
 file on the Toolbox server. Unlike &lt;code&gt;cloud-storage-read-object&lt;/code&gt;, it does not
 return the object bytes to the LLM and does not require UTF-8 text content, so it
@@ -18760,6 +18961,57 @@ project to view monitoring data.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;get_system_metrics&lt;/code&gt;: Fetches system level cloud monitoring data
 (timeseries metrics) for a SQL Server instance using a PromQL query.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Cloud Storage</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-storage/prebuilt-configs/cloud-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-storage/prebuilt-configs/cloud-storage/</guid><description>&lt;h2 id="cloud-storage"&gt;Cloud Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--prebuilt&lt;/code&gt; value: &lt;code&gt;cloud-storage&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Environment Variables:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CLOUD_STORAGE_PROJECT&lt;/code&gt;: The GCP project ID that owns the buckets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Permissions:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Storage Object User&lt;/strong&gt; (&lt;code&gt;roles/storage.objectUser&lt;/code&gt;) for object reads and
+writes (&lt;code&gt;list_objects&lt;/code&gt;, &lt;code&gt;read_object&lt;/code&gt;, &lt;code&gt;download_object&lt;/code&gt;,
+&lt;code&gt;get_object_metadata&lt;/code&gt;, &lt;code&gt;write_object&lt;/code&gt;, &lt;code&gt;upload_object&lt;/code&gt;, &lt;code&gt;copy_object&lt;/code&gt;,
+&lt;code&gt;move_object&lt;/code&gt;, &lt;code&gt;delete_object&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storage Admin&lt;/strong&gt; (&lt;code&gt;roles/storage.admin&lt;/code&gt;) for bucket lifecycle and IAM
+operations (&lt;code&gt;list_buckets&lt;/code&gt;, &lt;code&gt;create_bucket&lt;/code&gt;, &lt;code&gt;delete_bucket&lt;/code&gt;,
+&lt;code&gt;get_bucket_metadata&lt;/code&gt;, &lt;code&gt;get_bucket_iam_policy&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;For read-only deployments, &lt;strong&gt;Storage Object Viewer&lt;/strong&gt;
+(&lt;code&gt;roles/storage.objectViewer&lt;/code&gt;) plus &lt;strong&gt;Storage Legacy Bucket Reader&lt;/strong&gt;
+(&lt;code&gt;roles/storage.legacyBucketReader&lt;/code&gt;) is sufficient for the read-only
+subset.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;list_buckets&lt;/code&gt;: Lists Cloud Storage buckets in the configured project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;list_objects&lt;/code&gt;: Lists objects in a bucket with optional prefix and
+delimiter filtering.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_bucket_metadata&lt;/code&gt;: Returns metadata for a bucket.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_bucket_iam_policy&lt;/code&gt;: Returns the IAM policy bindings for a bucket.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_object_metadata&lt;/code&gt;: Returns metadata for an object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;read_object&lt;/code&gt;: Reads a UTF-8 text object (or byte range). Capped at 8
+MiB; binary objects are rejected.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;download_object&lt;/code&gt;: Downloads an object to a local file path.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;create_bucket&lt;/code&gt;: Creates a bucket in the configured project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;delete_bucket&lt;/code&gt;: Deletes an empty bucket.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;upload_object&lt;/code&gt;: Uploads a local file to an object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;write_object&lt;/code&gt;: Writes text content directly to an object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;copy_object&lt;/code&gt;: Copies an object to a destination object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;move_object&lt;/code&gt;: Atomically renames an object within the same bucket.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;delete_object&lt;/code&gt;: Deletes an object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Toolsets:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cloud-storage-buckets&lt;/code&gt;: Bucket administration (list, create, inspect
+metadata and IAM policy, delete).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cloud-storage-objects&lt;/code&gt;: Object management (list, read, write, copy,
+move, delete, retrieve metadata).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>cloud-logging-admin-list-log-names</title><link>https://mcp-toolbox.dev/dev/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-log-names/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloudloggingadmin/tools/cloud-logging-admin-list-log-names/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
