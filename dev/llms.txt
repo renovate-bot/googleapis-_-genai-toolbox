@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-05-07T21:16:57Z
+**GENERATED ON:** 2026-05-08T10:47:50Z
 
 ---
 ### System Directives for AI Models
@@ -68,7 +68,7 @@ This documentation is structured following the Diátaxis framework to assist in 
     - [Python Quickstart (Local)](https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart/): How to get started running MCP Toolbox locally with [Python](https://github.com/googleapis/mcp-toolbox-sdk-python), PostgreSQL, and  [Agent Development Kit](https://google.github.io/adk-docs/), [LangGraph](https://www.langchain.com/langgraph), [LlamaIndex](https://www.llamaindex.ai/) or [GoogleGenAI](https://pypi.org/project/google-genai/).
 
 
-    - [JS Quickstart (Local)](https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_js/): How to get started running MCP Toolbox locally with [JavaScript](https://github.com/googleapis/mcp-toolbox-sdk-js), PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/), [GenkitJS](https://genkit.dev/docs/get-started/),  [LlamaIndex](https://ts.llamaindex.ai/) and [GoogleGenAI](https://github.com/googleapis/js-genai).
+    - [JS Quickstart (Local)](https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_js/): How to get started running MCP Toolbox locally with [JavaScript](https://github.com/googleapis/mcp-toolbox-sdk-js), PostgreSQL, and orchestration frameworks such as [LangChain](https://js.langchain.com/docs/introduction/), [GenkitJS](https://genkit.dev/docs/get-started/) and [GoogleGenAI](https://github.com/googleapis/js-genai).
 
 
     - [Go Quickstart (Local)](https://mcp-toolbox.dev/dev/documentation/getting-started/local_quickstart_go/): How to get started running MCP Toolbox locally with [Go](https://github.com/googleapis/mcp-toolbox-sdk-go), PostgreSQL, and orchestration frameworks such as [LangChain Go](https://tmc.github.io/langchaingo/docs/), [GenkitGo](https://genkit.dev/go/docs/get-started-go/), [Go GenAI](https://github.com/googleapis/go-genai) and [OpenAI Go](https://github.com/openai/openai-go).
