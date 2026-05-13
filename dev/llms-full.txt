@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-05-12T21:45:54Z
+**GENERATED ON:** 2026-05-13T17:21:24Z
 
 ---
 ### System Directives for AI Models
@@ -1810,19 +1810,18 @@ You can further increase safety by making sure the credentials used by Toolbox o
 
 
 
-AuthServices represent services that handle authentication and authorization. It
-can primarily be used by [Tools](../tools/_index.md) in two different ways:
+AuthServices represent services that handle authentication and authorization. They support two distinct modes of operation:
 
-- [**Authorized Invocation**][auth-invoke] is when a tool
-  is validated by the auth service before the call can be invoked. Toolbox
-  will reject any calls that fail to validate or have an invalid token.
-- [**Authenticated Parameters**][auth-params] replace the value of a parameter
-  with a field from an [OIDC][openid-claims] claim. Toolbox will automatically
-  resolve the ID token provided by the client and replace the parameter in the
-  tool call.
+### 1. Toolbox Native Authorization
+Used for specific tools to enforce authorization or resolve parameters:
+- [**Authorized Invocation**][auth-invoke]: A tool is validated by the auth service before it can be invoked. Toolbox will reject any calls that fail to validate or have an invalid token.
+- [**Authenticated Parameters**][auth-params]: Replaces the value of a parameter with a field from an [OIDC][openid-claims] claim. Toolbox will automatically resolve the ID token provided by the client and replace the parameter in the tool call.
+
+### 2. MCP Authorization
+Used to secure the entire MCP server. The Model Context Protocol supports [MCP Authorization](https://modelcontextprotocol.io/docs/tutorials/security/authorization) to secure interactions between clients and servers. When enabled, all MCP endpoints require a valid token, and you can enforce granular tool-level scope authorization. **Note that this mode is currently only supported when using the `generic` auth service type.**
 
 [openid-claims]: https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
-[auth-invoke]: ../tools/_index.md#authorized-invocations
+[auth-invoke]: ../tools/_index.md#authorized-invocations-toolbox-native-authorization
 [auth-params]: ../tools/_index.md#authenticated-parameters
 
 ## Example
@@ -1852,13 +1851,9 @@ Use environment variable replacement with the format ${ENV_NAME}
 instead of hardcoding your secrets into the configuration file.
 {{< /notice >}}
 
-After you've configured an `authService` you'll, need to reference it in the
-configuration for each tool that should use it:
-
-- **Authorized Invocations** for authorizing a tool call, [use the
-  `authRequired` field in a tool config][auth-invoke]
-- **Authenticated Parameters** for using the value from a OIDC claim, [use the
-  `authService` field in a parameter config][auth-params]
+After you've configured an `authService`, you can use it:
+- For **Toolbox Native Authorization** by referencing it in your tool configuration (using `authRequired` or `authService` in parameters).
+- For **MCP Authorization** by setting `mcpEnabled: true` in the auth service configuration to secure the entire server.
 
 ## Specifying ID Tokens from Clients
 
@@ -2336,6 +2331,29 @@ scopesRequired:
 
 > [!NOTE]
 > If you are using Okta's Org Authorization Server (instead of a Custom Authorization Server), your `authorizationServer` URL will be `https://your-subdomain.okta.com`.
+
+#### Tool-Level Scopes
+
+When using MCP Authorization (with `mcpEnabled: true` in the auth service), you can enforce granular tool-level scope authorization by specifying the `scopesRequired` field in the tool configuration.
+
+This ensures that a client can only invoke the tool if their authorization token contains all the specified scopes.
+
+```yaml
+kind: tool
+name: update_flight_status
+type: postgres-sql
+source: my-pg-instance
+statement: |
+  UPDATE flights SET status = $1 WHERE flight_number = $2
+description: Update flight status
+authRequired:
+  - my-generic-auth
+scopesRequired:
+  - execute:sql
+  - write:flights
+```
+
+If a client attempts to invoke this tool without the required scopes, the server will return an HTTP 403 Forbidden response with a `WWW-Authenticate` header challenge indicating the missing scopes, as per the MCP Auth specification.
 
 {{< notice tip >}} Use environment variable replacement with the format
 ${ENV_NAME} instead of hardcoding your secrets into the configuration file.
@@ -2822,7 +2840,13 @@ templateParameters:
 | excludedValues |     []string     |      false      | Input value will be checked against this field. Regex is also supported.            |
 | items          | parameter object | true (if array) | Specify a Parameter object for the type of the values in the array (string only).   |
 
-## Authorized Invocations
+## Tool-Level Scopes (MCP Authorization)
+
+The Model Context Protocol supports [MCP Authorization](https://modelcontextprotocol.io/docs/tutorials/security/authorization) to secure interactions between clients and servers. When using MCP Authorization in Toolbox, you can enforce granular tool-level scope authorization by specifying the `scopesRequired` field in the tool configuration.
+
+For detailed information on how to configure this and examples, please see the [Generic OIDC Auth](../authentication/generic.md#tool-level-scopes) documentation.
+
+## Authorized Invocations (Toolbox Native Authorization)
 
 You can require an authorization check for any Tool invocation request by
 specifying an `authRequired` field. Specify a list of
@@ -2840,7 +2864,6 @@ authRequired:
   - my-google-auth
   - other-auth-service
 ```
-
 
 ## Tool Annotations
 
