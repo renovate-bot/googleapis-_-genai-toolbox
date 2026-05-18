@@ -2762,7 +2762,33 @@ direct promql queries for a database instance.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Prebuilt Configs:&lt;/strong&gt; Use the already added prebuilt tools mentioned in
 prebuilt-tools.md to query the databases system/query level metrics.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Here are some common use cases for the &lt;code&gt;cloud-monitoring-query-prometheus&lt;/code&gt; tool:&lt;/p&gt;</description></item><item><title>cloud-sql-list-databases</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;Here are some common use cases for the &lt;code&gt;cloud-monitoring-query-prometheus&lt;/code&gt; tool:&lt;/p&gt;</description></item><item><title>cloud-sql-admin-execute-many</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminexecutemany/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminexecutemany/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;cloud-sql-admin-execute-many&lt;/code&gt; tool executes multiple SQL statements against a specific Cloud SQL instance identified by project, instanceId, and database parameters provided at runtime.&lt;/p&gt;
+&lt;p&gt;This tool is useful for executing arbitrary SQL queries across multiple database instances without needing to configure a separate tool for each instance.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This tool is intended for developer assistant workflows with human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>cloud-sql-admin-sql-many</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminsqlmany/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminsqlmany/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;cloud-sql-admin-sql-many&lt;/code&gt; tool executes a predefined SQL statement against a specific Cloud SQL instance identified by project, instanceId, and database parameters provided at runtime.&lt;/p&gt;
+&lt;p&gt;It supports both &lt;code&gt;parameters&lt;/code&gt; and &lt;code&gt;templateParameters&lt;/code&gt; to allow dynamic values to be injected into the query at runtime.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This tool is intended for developer assistant workflows with human-in-the-loop and shouldn&amp;rsquo;t be used for production agents.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
+
+
+
+
+
+&lt;div class="compatibility-section"&gt;
+ &lt;p&gt;This tool can be used with the following database sources:&lt;/p&gt;</description></item><item><title>cloud-sql-list-databases</title><link>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/</guid><description>&lt;h2 id="about"&gt;About&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;cloud-sql-list-databases&lt;/code&gt; tool lists all Cloud SQL databases in a specified
 Google Cloud project and instance.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
@@ -8341,7 +8367,7 @@ returned. Otherwise, the selection is not guaranteed.&lt;/p&gt;
 &lt;p&gt;The tool returns a single JSON object representing the document, wrapped in a
 JSON array.&lt;/p&gt;
 &lt;h2 id="compatible-sources"&gt;Compatible Sources&lt;/h2&gt;
-&lt;h2 id="hahahugoshortcode488s0hbhb"&gt;
+&lt;h2 id="hahahugoshortcode372s0hbhb"&gt;
 
 
 
@@ -10877,6 +10903,14 @@ browser) for each request.&lt;/li&gt;
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -10894,6 +10928,18 @@ browser) for each request.&lt;/li&gt;
  &lt;/tr&gt;
  &lt;/thead&gt;
  &lt;tbody&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminexecutemany/"&gt;&lt;strong&gt;cloud-sql-admin-execute-many&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;cloud-sql-admin-execute-many&amp;#34; tool executes multiple SQL statements against a specific Cloud SQL instance provided at runtime.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminsqlmany/"&gt;&lt;strong&gt;cloud-sql-admin-sql-many&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;cloud-sql-admin-sql-many&amp;#34; tool executes a predefined SQL statement against a specific Cloud SQL instance provided at runtime.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/"&gt;&lt;strong&gt;cloud-sql-list-databases&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;

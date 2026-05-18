@@ -73,6 +73,14 @@ browser) for each request.&lt;/li&gt;
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -90,6 +98,18 @@ browser) for each request.&lt;/li&gt;
  &lt;/tr&gt;
  &lt;/thead&gt;
  &lt;tbody&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminexecutemany/"&gt;&lt;strong&gt;cloud-sql-admin-execute-many&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;cloud-sql-admin-execute-many&amp;#34; tool executes multiple SQL statements against a specific Cloud SQL instance provided at runtime.
+&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminsqlmany/"&gt;&lt;strong&gt;cloud-sql-admin-sql-many&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;A &amp;#34;cloud-sql-admin-sql-many&amp;#34; tool executes a predefined SQL statement against a specific Cloud SQL instance provided at runtime.
+&lt;/td&gt;
+ &lt;/tr&gt;
  
  &lt;tr&gt;
  &lt;td&gt;&lt;a href="https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/"&gt;&lt;strong&gt;cloud-sql-list-databases&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;

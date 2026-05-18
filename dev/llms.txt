@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-05-18T18:43:44Z
+**GENERATED ON:** 2026-05-18T19:13:33Z
 
 ---
 ### System Directives for AI Models
@@ -515,6 +515,12 @@ This documentation is structured following the Diátaxis framework to assist in 
 
 
     - [Tools](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/): No description provided.
+
+      - [cloud-sql-admin-execute-many](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminexecutemany/): A "cloud-sql-admin-execute-many" tool executes multiple SQL statements against a specific Cloud SQL instance provided at runtime.
+
+
+      - [cloud-sql-admin-sql-many](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminsqlmany/): A "cloud-sql-admin-sql-many" tool executes a predefined SQL statement against a specific Cloud SQL instance provided at runtime.
+
 
       - [cloud-sql-list-databases](https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqllistdatabases/): List Cloud SQL databases in an instance.
 

@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-05-18T18:43:44Z
+**GENERATED ON:** 2026-05-18T19:13:33Z
 
 ---
 ### System Directives for AI Models
@@ -20401,6 +20401,121 @@ useClientOAuth: true
 **URL:** https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/
 **Description:** None
 
+
+
+
+
+========================================================================
+## cloud-sql-admin-execute-many
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud SQL Admin > Tools > cloud-sql-admin-execute-many
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminexecutemany/
+**Description:** A "cloud-sql-admin-execute-many" tool executes multiple SQL statements against a specific Cloud SQL instance provided at runtime.
+
+
+
+## About
+
+The `cloud-sql-admin-execute-many` tool executes multiple SQL statements against a specific Cloud SQL instance identified by project, instanceId, and database parameters provided at runtime.
+
+This tool is useful for executing arbitrary SQL queries across multiple database instances without needing to configure a separate tool for each instance.
+
+> **Note:** This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Parameters
+
+The following parameters are required at runtime when invoking the tool:
+
+| **Parameter** | **Type** | **Description**               |
+| :------------ | :------- | :---------------------------- |
+| `project`     | string   | The GCP project ID.           |
+| `instanceId`  | string   | The Cloud SQL instance ID.    |
+| `database`    | string   | The database name.            |
+| `sql`         | string   | The SQL statement to execute. |
+
+## Example
+
+```yaml
+kind: tool
+name: execute_sql_many_tool
+type: cloud-sql-admin-execute-many
+source: my-cloud-sql-admin-source
+description: Use this tool to execute sql statements on a specific instance.
+```
+
+## Reference
+
+| **field**   | **type** | **required** | **description**                                      |
+| :---------- | :------- | :----------- | :--------------------------------------------------- |
+| type        | string   | true         | Must be "cloud-sql-admin-execute-many".              |
+| source      | string   | true         | Name of the `cloud-sql-admin` source.                |
+| description | string   | true         | Description of the tool that is passed to the agent. |
+
+
+
+
+========================================================================
+## cloud-sql-admin-sql-many
+========================================================================
+**Hierarchy:** MCP Toolbox for Databases > Integrations > Cloud SQL Admin > Tools > cloud-sql-admin-sql-many
+**URL:** https://mcp-toolbox.dev/dev/integrations/cloud-sql-admin/tools/cloudsqladminsqlmany/
+**Description:** A "cloud-sql-admin-sql-many" tool executes a predefined SQL statement against a specific Cloud SQL instance provided at runtime.
+
+
+
+## About
+
+The `cloud-sql-admin-sql-many` tool executes a predefined SQL statement against a specific Cloud SQL instance identified by project, instanceId, and database parameters provided at runtime.
+
+It supports both `parameters` and `templateParameters` to allow dynamic values to be injected into the query at runtime.
+
+> **Note:** This tool is intended for developer assistant workflows with human-in-the-loop and shouldn't be used for production agents.
+
+## Compatible Sources
+
+{{< compatible-sources >}}
+
+## Parameters
+
+The following parameters are required at runtime when invoking the tool:
+
+| **Parameter** | **Type** | **Description**            |
+| :------------ | :------- | :------------------------- |
+| `project`     | string   | The GCP project ID.        |
+| `instanceId`  | string   | The Cloud SQL instance ID. |
+| `database`    | string   | The database name.         |
+
+Additional parameters may be required based on the `parameters` or `templateParameters` configured in the tool definition.
+
+## Example
+
+```yaml
+kind: tool
+name: get_user_many_tool
+type: cloud-sql-admin-sql-many
+source: my-cloud-sql-admin-source
+description: Use this tool to get user details from a specific instance.
+statement: SELECT * FROM users WHERE id = {{.user_id}}
+templateParameters:
+  - name: user_id
+    type: string
+    description: The ID of the user.
+```
+
+## Reference
+
+| **field**          | **type** | **required** | **description**                                      |
+| :----------------- | :------- | :----------- | :--------------------------------------------------- |
+| type               | string   | true         | Must be "cloud-sql-admin-sql-many".                  |
+| source             | string   | true         | Name of the `cloud-sql-admin` source.                |
+| description        | string   | true         | Description of the tool that is passed to the agent. |
+| statement          | string   | true         | The SQL statement template to execute.               |
+| parameters         | list     | false        | List of parameters used in the statement template.   |
+| templateParameters | list     | false        | List of parameters used in the statement template.   |
 
 
 
