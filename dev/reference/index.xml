@@ -95,6 +95,12 @@
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;--sql-commenter&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Append SQLCommenter-format comments (traceparent, server, tool.name, db.system.name, client metadata from &lt;code&gt;_meta[&amp;quot;dev.mcp-toolbox/telemetry&amp;quot;]&lt;/code&gt;) to executed SQL.&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
  &lt;td&gt;&lt;code&gt;--config&lt;/code&gt;&lt;/td&gt;
  &lt;td&gt;File path specifying the tool configuration. Cannot be used with &amp;ndash;configs or &amp;ndash;config-folder.&lt;/td&gt;
  &lt;td&gt;&lt;/td&gt;
