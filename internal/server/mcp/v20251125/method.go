@@ -132,6 +132,12 @@ func toolsListHandler(id jsonrpc.RequestId, resourceMgr *resources.ResourceManag
 
 // toolsCallHandler generate a response for tools call.
 func toolsCallHandler(ctx context.Context, id jsonrpc.RequestId, toolset tools.Toolset, resourceMgr *resources.ResourceManager, body []byte, header http.Header) (any, error) {
+	if header != nil {
+		if clientIP := util.ExtractClientIP(header); clientIP != "" {
+			ctx = util.WithClientIP(ctx, clientIP)
+		}
+	}
+
 	authServices := resourceMgr.GetAuthServiceMap()
 
 	// retrieve logger from context
