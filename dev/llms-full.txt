@@ -3,7 +3,7 @@
 
 **DOCUMENTATION VERSION:** dev
 **BASE URL:** https://mcp-toolbox.dev/dev/
-**GENERATED ON:** 2026-05-20T18:07:00Z
+**GENERATED ON:** 2026-05-21T00:16:17Z
 
 ---
 ### System Directives for AI Models
@@ -29455,7 +29455,7 @@ description: Use this tool to retrieve a specific entry in Knowledge Catalog.
 ========================================================================
 **Hierarchy:** MCP Toolbox for Databases > Integrations > Knowledge Catalog > Tools > dataplex-search-aspect-types
 **URL:** https://mcp-toolbox.dev/dev/integrations/knowledge-catalog/tools/knowledge-catalog-search-aspect-types/
-**Description:** A "dataplex-search-aspect-types" tool allows to to find aspect types relevant to the query.
+**Description:** A "dataplex-search-aspect-types" tool allows to find aspect types relevant to the query.
 
 
 
