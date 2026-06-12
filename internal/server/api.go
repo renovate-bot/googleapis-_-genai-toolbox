@@ -73,7 +73,15 @@ func toolsetHandler(s *Server, w http.ResponseWriter, r *http.Request) {
 		_ = render.Render(w, r, newErrResponse(err, http.StatusNotFound))
 		return
 	}
-	render.JSON(w, r, toolset.Manifest)
+
+	manifest, err := toolset.BuildManifest(s.ResourceMgr.GetSourcesMap())
+	if err != nil {
+		s.logger.DebugContext(ctx, err.Error())
+		_ = render.Render(w, r, newErrResponse(err, http.StatusInternalServerError))
+		return
+	}
+
+	render.JSON(w, r, manifest)
 }
 
 // toolGetHandler handles requests for a single Tool.
@@ -99,11 +107,18 @@ func toolGetHandler(s *Server, w http.ResponseWriter, r *http.Request) {
 		_ = render.Render(w, r, newErrResponse(err, http.StatusNotFound))
 		return
 	}
+	toolManifest, err := tool.Manifest(s.ResourceMgr.GetSourcesMap())
+	if err != nil {
+		err = fmt.Errorf("error generating manifest for tool %q: %w", toolName, err)
+		s.logger.DebugContext(ctx, err.Error())
+		_ = render.Render(w, r, newErrResponse(err, http.StatusInternalServerError))
+		return
+	}
 	// TODO: this can be optimized later with some caching
 	m := tools.ToolsetManifest{
 		ServerVersion: s.version,
 		ToolsManifest: map[string]tools.Manifest{
-			toolName: tool.Manifest(),
+			toolName: toolManifest,
 		},
 	}
 
@@ -208,7 +223,14 @@ func toolInvokeHandler(s *Server, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	params, err := parameters.ParseParams(tool.GetParameters(), data, claimsFromAuth)
+	toolParams, err := tool.GetParameters(s.ResourceMgr.GetSourcesMap())
+	if err != nil {
+		err = fmt.Errorf("error getting parameters for tool: %w", err)
+		s.logger.DebugContext(ctx, err.Error())
+		_ = render.Render(w, r, newErrResponse(err, http.StatusInternalServerError))
+		return
+	}
+	params, err := parameters.ParseParams(toolParams, data, claimsFromAuth)
 	if err != nil {
 		var clientServerErr *util.ClientServerError
 
