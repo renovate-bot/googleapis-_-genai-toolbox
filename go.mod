@@ -15,7 +15,7 @@ require (
 	cloud.google.com/go/dataplex v1.35.0
 	cloud.google.com/go/dataproc/v2 v2.23.0
 	cloud.google.com/go/firestore v1.22.0
-	cloud.google.com/go/geminidataanalytics v1.3.0
+	cloud.google.com/go/geminidataanalytics v1.2.0
 	cloud.google.com/go/logging v1.18.0
 	cloud.google.com/go/longrunning v1.0.0
 	cloud.google.com/go/spanner v1.92.0
